@@ -1,0 +1,14 @@
+PREFIX c19:  <http://example.org/ns#>
+PREFIX c19-measure:  <http://example.org/measure#>
+PREFIX c19-dimension:  <http://example.org/dimension#>
+PREFIX c19-interval: <http://example.org/interval#>
+PREFIX wd:  <http://www.wikidata.org/entity/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+
+SELECT ?country ?num_non 
+FROM <urn:x-arq:UnionGraph>
+WHERE {
+   ?obs qb:dataSet c19:dataset-accessElectricity ;
+   c19-dimension:refArea ?country;
+   c19-measure:accessElectricity ?num_non .
+}

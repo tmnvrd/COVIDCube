@@ -1,0 +1,136 @@
+Country	Imports2007	Imports2017	ID	id_row
+American Samoa	18.9	17.3	Q16641	0
+Cambodia	47.7	61.0	Q424	1
+China	9.7	11.5	Q148	2
+Fiji	8.7	22.3	Q712	3
+Indonesia	27.9	37.2	Q252	4
+Kiribati	14.3	38.0	Q710	5
+Korea, Dem. Peopleâ€™s Rep.	49.8	94.1	Q423	6
+Lao PDR	85.7	90.7	Q819	7
+Malaysia	25.8	34.0	Q833	8
+Marshall Islands	0.0	22.4	Q709	9
+Micronesia, Fed. Sts.	8.9	30.9	Q702	10
+Mongolia	29.5	35.6	Q711	11
+Myanmar	43.6	56.1	Q836	12
+Papua New Guinea	18.1	37.7	Q691	13
+Philippines	19.4	39.2	Q928	14
+Samoa	18.4	21.3	Q683	15
+Solomon Islands	16.2	43.3	Q685	16
+Thailand	25.2	35.0	Q869	17
+Timor-Leste	66.9	59.5	Q574	18
+Tonga	18.1	17.3	Q678	19
+Tuvalu	15.6	9.5	Q672	20
+Vanuatu	16.6	21.4	Q686	21
+Vietnam	33.5	36.2	Q881	22
+Albania	20.7	21.3	Q222	23
+Armenia	41.8	41.7	Q399	24
+Azerbaijan	44.5	43.9	Q227	25
+Belarus	67.0	64.6	Q184	26
+Bosnia and Herzegovina	21.9	23.9	Q225	27
+Bulgaria	33.8	29.7	Q219	28
+Georgia	54.8	50.9	Q230	29
+Kazakhstan	48.0	50.1	Q232	30
+Kosovo	24.8	39.7	Q1246	31
+Kyrgyz Republic	68.6	52.2	Q813	32
+North Macedonia	36.8	24.5	Q221	33
+Moldova	54.3	47.8	Q217	34
+Montenegro	33.6	36.9	Q236	35
+Romania	17.5	15.2	Q218	36
+Russian Federation	17.9	13.8	Q159	37
+Serbia	29.9	22.4	Q403	38
+Tajikistan	63.3	66.4	Q863	39
+Turkey	21.4	13.9	Q43	40
+Turkmenistan	50.4	45.6	Q874	41
+Ukraine	44.9	27.9	Q212	42
+Uzbekistan	33.4	39.6	Q265	43
+Argentina	39.3	34.7	Q414	44
+Belize	34.1	25.7	Q242	45
+Bolivia	49.6	42.5	Q750	46
+Brazil	13.5	13.2	Q155	47
+Colombia	27.6	18.5	Q739	48
+Costa Rica	22.0	18.6	Q800	49
+Cuba	13.3	21.4	Q241	50
+Dominica	14.2	10.5	Q784	51
+Dominican Republic	24.0	15.2	Q786	52
+Ecuador	36.3	24.6	Q736	53
+El Salvador	36.9	34.3	Q792	54
+Grenada	9.5	15.6	Q769	55
+Guatemala	27.2	27.7	Q774	56
+Guyana	10.0	13.4	Q734	57
+Haiti	21.1	19.7	Q790	58
+Honduras	33.7	33.1	Q783	59
+Jamaica	20.7	17.0	Q766	60
+Mexico	4.0	2.6	Q96	61
+Nicaragua	51.6	42.8	Q811	62
+Paraguay	47.3	38.8	Q733	63
+Peru	33.7	22.6	Q419	64
+St. Lucia	7.2	9.2	Q760	65
+St. Vincent and the Grenadines	9.4	10.1	Q757	66
+Suriname	9.1	13.6	Q730	67
+Venezuela, RB	32.2	25.3	Q717	68
+Algeria	1.9	5.7	Q262	69
+Djibouti	1.9	7.1	Q977	70
+Egypt, Arab Rep.	3.6	3.3	Q79	71
+Iran, Islamic Rep.	0.6	0.3	Q794	72
+Iraq	28.7	2.7	Q796	73
+Jordan	8.6	4.9	Q810	74
+Lebanon	8.2	6.8	Q822	75
+Libya	9.8	7.5	Q1016	76
+Morocco	7.4	2.9	Q1028	77
+Syrian Arab Republic	10.2	12.8	Q858	78
+Tunisia	7.1	6.2	Q948	79
+West Bank and Gaza	2.3	3.8	Q407199	80
+Yemen, Rep.	3.1	4.3	Q805	81
+Afghanistan	24.5	20.1	Q889	82
+Bangladesh	15.6	16.4	Q902	83
+Bhutan	74.0	90.4	Q917	84
+India	0.8	0.6	Q668	85
+Maldives	18.7	18.9	Q826	86
+Nepal	62.2	65.2	Q837	87
+Pakistan	4.5	4.0	Q843	88
+Sri Lanka	30.7	24.4	Q854	89
+Angola	9.7	9.7	Q916	90
+Benin	22.1	13.4	Q962	91
+Botswana	85.0	72.8	Q963	92
+Burkina Faso	30.3	24.4	Q965	93
+Burundi	30.2	26.1	Q967	94
+Cabo Verde	2.2	2.9	Q1011	95
+Cameroon	6.9	15.5	Q1009	96
+Central African Republic	16.7	17.9	Q929	97
+Chad	22.3	25.1	Q657	98
+Comoros	7.6	16.5	Q970	99
+Congo, Dem. Rep.	35.2	35.2	Q974	100
+Congo, Rep.	60.1	36.1	Q971	101
+Cote d'Ivoire	30.4	17.3	Q1008	102
+Eritrea	5.1	9.0	Q986	103
+Ethiopia	1.9	1.4	Q115	104
+Gabon	8.0	7.7	Q1000	105
+Gambia, The	11.5	47.9	Q1005	106
+Ghana	17.5	7.3	Q117	107
+Guinea	8.0	9.0	Q1006	108
+Guinea-Bissau	26.4	13.2	Q1007	109
+Kenya	9.7	9.5	Q114	110
+Lesotho	93.9	68.6	Q1013	111
+Liberia	15.0	15.0	Q1014	112
+Madagascar	10.5	8.5	Q1019	113
+Malawi	55.7	28.7	Q1020	114
+Mali	50.0	40.3	Q912	115
+Mauritania	6.2	1.6	Q1025	116
+Mauritius	9.6	11.8	Q1027	117
+Mozambique	34.8	32.6	Q1029	118
+Namibia	79.3	67.0	Q1030	119
+Niger	24.7	18.2	Q1032	120
+Nigeria	5.8	3.8	Q1033	121
+Rwanda	46.1	31.1	Q1037	122
+Sao Tome and Principe	21.5	23.5	Q1039	123
+Senegal	15.4	14.2	Q1041	124
+Sierra Leone	33.2	6.8	Q1044	125
+Somalia	39.4	18.2	Q1045	126
+South Africa	6.2	9.6	Q258	127
+Sudan	2.6	3.1	Q1049	128
+Eswatini	37.2	78.6	Q1050	129
+Tanzania	13.1	6.2	Q924	130
+Togo	14.3	15.6	Q945	131
+Uganda	22.2	15.6	Q1036	132
+Zambia	59.1	58.7	Q953	133
+Zimbabwe	75.4	76.6	Q954	134

@@ -1,0 +1,187 @@
+Country	NetInflows	NetInflows	ID	id_row
+Afghanistan	119.0	0.6	Q889	0
+Albania	1204.0	8.0	Q222	1
+Algeria	1506.0	0.9	Q262	2
+Angola	-6456.0	-6.4	Q916	3
+Antigua and Barbuda	135.0	8.4	Q781	4
+Argentina	11873.0	2.3	Q414	5
+Armenia	254.0	2.0	Q399	6
+Australia	62173.0	4.3	Q408	7
+Austria	4220.0	0.9	Q40	8
+Azerbaijan	1403.0	3.0	Q227	9
+Bahamas, The	491.0	4.0	Q778	10
+Bahrain	111.0	0.3	Q398	11
+Bangladesh	2940.0	1.1	Q902	12
+Barbados	195.0	3.8	Q244	13
+Belarus	1427.0	2.4	Q184	14
+Belgium	-54789.0	-10.1	Q31	15
+Belize	120.0	6.4	Q242	16
+Benin	141.0	1.0	Q962	17
+Bhutan	3.0	0.1	Q917	18
+Bolivia	302.0	0.8	Q750	19
+Bosnia and Herzegovina	489.0	2.4	Q225	20
+Botswana	229.0	1.2	Q963	21
+Brazil	78163.0	4.1	Q155	22
+Brunei Darussalam	516.0	3.8	Q921	23
+Bulgaria	1223.0	1.8	Q219	24
+Burkina Faso	268.0	1.7	Q965	25
+Burundi	1.0	0.0	Q967	26
+Cabo Verde	108.0	5.5	Q1011	27
+Cambodia	3213.0	13.1	Q424	28
+Cameroon	765.0	2.0	Q1009	29
+Canada	46543.0	2.7	Q16	30
+Cayman Islands	57384.0	1046.1	Q5785	31
+Central African Republic	18.0	0.8	Q929	32
+Chad	662.0	5.9	Q657	33
+Chile	6082.0	2.0	Q298	34
+China	235365.0	1.7	Q148	35
+Hong Kong SAR, China	97036.0	26.8	Q8646	36
+Macao SAR, China	2326.0	4.2	Q14773	37
+Colombia	11535.0	3.5	Q739	38
+Comoros	7.0	0.6	Q970	39
+Congo, Dem. Rep.	1285.0	2.7	Q974	40
+Congo, Rep.	4313.0	37.0	Q971	41
+Costa Rica	2764.0	4.6	Q800	42
+Cote d'Ivoire	620.0	1.1	Q1008	43
+Croatia	1213.0	2.0	Q224	44
+Curacao	127.0	4.1	Q25279	45
+Cyprus	5207.0	20.9	Q229	46
+Czech Republic	8325.0	3.4	Q213	47
+Denmark	1166.0	0.3	Q35	48
+Djibouti	170.0	5.6	Q977	49
+Dominica	13.0	2.4	Q784	50
+Dominican Republic	2745.0	3.2	Q786	51
+Ecuador	1456.0	1.4	Q736	52
+Egypt, Arab Rep.	8141.0	3.2	Q79	53
+El Salvador	413.0	1.6	Q792	54
+Equatorial Guinea	396.0	3.0	Q983	55
+Estonia	1180.0	3.8	Q191	56
+Ethiopia	3360.0	4.0	Q115	57
+Fiji	469.0	8.5	Q712	58
+Finland	-10592.0	-3.8	Q33	59
+France	59858.0	2.1	Q142	60
+Gabon	846.0	5.0	Q1000	61
+Gambia, The	33.0	2.0	Q1005	62
+Georgia	1219.0	6.9	Q230	63
+Germany	167956.0	4.3	Q183	64
+Ghana	2989.0	4.6	Q117	65
+Greece	4025.0	1.8	Q41	66
+Grenada	154.0	13.2	Q769	67
+Guatemala	936.0	1.3	Q774	68
+Guinea	353.0	2.9	Q1006	69
+Guinea-Bissau	21.0	1.4	Q1007	70
+Guyana	1180.0	30.4	Q734	71
+Haiti	105.0	1.1	Q790	72
+Honduras	1443.0	6.0	Q783	73
+Hungary	-65534.0	-41.5	Q28	74
+Iceland	-612.0	-2.4	Q189	75
+India	42117.0	1.6	Q668	76
+Indonesia	18910.0	1.8	Q252	77
+Iraq	-4885.0	-2.2	Q796	78
+Ireland	64536.0	16.9	Q27	79
+Israel	20789.0	5.6	Q801	80
+Italy	39613.0	1.9	Q38	81
+Jamaica	775.0	4.9	Q766	82
+Japan	24606.0	0.5	Q17	83
+Jordan	950.0	2.2	Q810	84
+Kazakhstan	214.0	0.1	Q232	85
+Kenya	1626.0	1.9	Q114	86
+Kiribati	-1.0	-0.6	Q710	87
+Korea, Rep.	12183.0	0.7	Q884	88
+Kosovo	319.0	4.0	Q1246	89
+Kuwait	-21.0	0.0	Q817	90
+Kyrgyz Republic	144.0	1.7	Q813	91
+Lao PDR	1320.0	7.4	Q819	92
+Latvia	447.0	1.3	Q211	93
+Lebanon	2632.0	4.8	Q822	94
+Lesotho	129.0	5.0	Q1013	95
+Liberia	129.0	4.0	Q1014	96
+Libya	0.0	0.0	Q1016	97
+Lithuania	868.0	1.6	Q37	98
+Luxembourg	-5615.0	-7.9	Q32	99
+North Macedonia	649.0	5.1	Q221	100
+Madagascar	612.0	4.4	Q1019	101
+Malawi	102.0	1.5	Q1020	102
+Malaysia	8570.0	2.4	Q833	103
+Maldives	539.0	10.1	Q826	104
+Mali	467.0	2.7	Q912	105
+Malta	4750.0	32.5	Q233	106
+Marshall Islands	10.0	4.4	Q709	107
+Mauritania	71.0	1.0	Q1025	108
+Mauritius	372.0	2.6	Q1027	109
+Mexico	38644.0	3.2	Q96	110
+Moldova	312.0	2.7	Q217	111
+Mongolia	1952.0	14.9	Q711	112
+Montenegro	486.0	8.8	Q236	113
+Morocco	3544.0	3.0	Q1028	114
+Mozambique	2678.0	18.2	Q1029	115
+Myanmar	1291.0	1.7	Q836	116
+Namibia	183.0	1.4	Q1030	117
+Nepal	68.0	0.2	Q837	118
+Netherlands	-239337.0	-26.2	Q55	119
+New Zealand	2129.0	1.0	Q664	120
+Nicaragua	359.0	2.7	Q811	121
+Niger	466.0	3.6	Q1032	122
+Nigeria	1997.0	0.5	Q1033	123
+Norway	-6634.0	-1.5	Q20	124
+Oman	6342.0	8.0	Q842	125
+Pakistan	1737.0	0.6	Q843	126
+Palau	22.0	7.6	Q695	127
+Panama	5945.0	9.1	Q804	128
+Papua New Guinea	1135.0	4.8	Q691	129
+Paraguay	387.0	1.0	Q733	130
+Peru	6488.0	2.9	Q419	131
+Philippines	9949.0	2.9	Q928	132
+Poland	16697.0	2.8	Q36	133
+Portugal	7816.0	3.2	Q45	134
+Qatar	-2186.0	-1.1	Q846	135
+Romania	7344.0	3.0	Q218	136
+Russian Federation	8785.0	0.5	Q159	137
+Rwanda	302.0	3.1	Q1037	138
+Samoa	17.0	2.0	Q683	139
+Sao Tome and Principe	24.0	5.6	Q1039	140
+Saudi Arabia	4247.0	0.5	Q851	141
+Senegal	848.0	3.6	Q1041	142
+Serbia	4072.0	8.0	Q403	143
+Seychelles	308.0	19.4	Q1042	144
+Sierra Leone	218.0	5.3	Q1044	145
+Singapore	91036.0	24.4	Q334	146
+Slovak Republic	2552.0	2.4	Q214	147
+Slovenia	1524.0	2.8	Q215	148
+Solomon Islands	25.0	1.8	Q685	149
+South Africa	5569.0	1.5	Q258	150
+Spain	49074.0	3.5	Q29	151
+Sri Lanka	1611.0	1.8	Q854	152
+St. Kitts and Nevis	94.0	9.3	Q763	153
+St. Lucia	40.0	1.9	Q760	154
+St. Vincent and the Grenadines	110.0	13.6	Q757	155
+Sudan	1136.0	4.4	Q1049	156
+Suriname	131.0	3.8	Q730	157
+Eswatini	31.0	0.7	Q1050	158
+Sweden	-1820.0	-0.3	Q34	159
+Switzerland	-76221.0	-10.8	Q39	160
+Tajikistan	221.0	2.9	Q863	161
+Tanzania	1056.0	1.8	Q924	162
+Thailand	13205.0	2.6	Q869	163
+Timor-Leste	48.0	3.1	Q574	164
+Togo	-181.0	-3.4	Q945	165
+Tonga	15.0	3.3	Q678	166
+Trinidad and Tobago	-702.0	-2.9	Q754	167
+Tunisia	989.0	2.5	Q948	168
+Turkey	13023.0	1.7	Q43	169
+Turkmenistan	1985.0	4.9	Q874	170
+Turks and Caicos Islands	42.0	4.1	Q18221	171
+Tuvalu	0.0	0.7	Q672	172
+Uganda	1055.0	3.2	Q1036	173
+Ukraine	2476.0	1.9	Q212	174
+United Arab Emirates	10385.0	2.5	Q878	175
+United Kingdom	81159.0	2.8	Q145	176
+United States	258390.0	1.3	Q30	177
+Uruguay	1172.0	2.0	Q77	178
+Uzbekistan	625.0	1.2	Q265	179
+Vanuatu	38.0	4.1	Q686	180
+Vietnam	15500.0	6.3	Q881	181
+West Bank and Gaza	263.0	1.8	Q407199	182
+Yemen, Rep.	-282.0	-1.0	Q805	183
+Zambia	408.0	1.5	Q953	184
+Zimbabwe	745.0	3.1	Q954	185

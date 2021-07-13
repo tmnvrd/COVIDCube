@@ -1,0 +1,1407 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-measure:adjustedNetSavings
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Adjusted net savings, including particulate emission damage (% of GNI)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-adjustedNetSavings
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:adjustedNetSavings ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:adjustedNetSavings-o00
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q889 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  2.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:dataset-adjustedNetSavings
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.11 | Towards a broader measure of savings"@en ;
+        rdfs:label       "savings_adjusted_net_savings"@en ;
+        dct:description  "Adjusted net savings are equal to net national savings plus education expenditure and minus energy depletion, mineral depletion, net forest depletion, and carbon dioxide and particulate emissions damage."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.11> ;
+        dct:title        "Savings: Adjusted net savings"@en ;
+        qb:structure     c19-structure:dsd-adjustedNetSavings .
+
+c19:adjustedNetSavings-o01
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q222 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o02
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q262 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  21.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o03
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q916 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -23.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o04
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q414 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  5.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o05
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q399 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -3.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o06
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q408 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o07
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q40 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o08
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q227 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  8.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o09
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q778 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -3.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o010
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q398 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o011
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q902 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  22.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o012
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q244 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -8.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o013
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q184 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o014
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q31 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o015
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q242 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -3.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o016
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q962 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  2.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o017
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q917 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o018
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q750 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -1.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o019
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q963 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  23.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o020
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q155 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  3.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o021
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q921 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  30.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o022
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q219 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o023
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q965 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o024
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q967 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -16.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o025
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1011 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o026
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q424 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  10.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o027
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1009 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -0.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o028
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q16 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  6.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o029
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q298 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  1.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o030
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q148 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  22.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o031
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q739 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -3.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o032
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q970 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o033
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q974 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -4.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o034
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q971 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -40.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o035
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q800 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o036
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1008 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o037
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q224 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o038
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q229 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o039
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q213 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  10.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o040
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q35 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  18.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o041
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q977 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o042
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q786 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o043
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q736 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  3.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o044
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q79 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o045
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q792 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  5.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o046
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q191 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  15.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o047
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1050 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  13.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o048
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q115 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  8.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o049
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q33 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o050
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q142 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  9.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o051
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1005 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -8.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o052
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q230 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  9.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o053
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q183 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o054
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q117 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -8.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o055
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q41 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -1.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o056
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q774 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  0.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o057
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1006 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -20.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o058
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1007 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o059
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q734 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  20.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o060
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q790 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  15.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o061
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q783 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o062
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q28 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  14.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o063
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q189 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o064
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q668 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  17.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o065
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q252 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  12.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o066
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q796 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -3.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o067
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q27 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  18.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o068
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q801 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  15.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o069
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q38 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  6.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o070
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q766 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  17.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o071
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q17 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  7.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o072
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q810 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  3.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o073
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q232 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  5.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o074
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q114 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o075
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q884 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  18.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o076
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q817 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  18.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o077
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q813 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  7.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o078
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q819 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o079
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q211 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o080
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q822 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -14.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o081
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1013 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  1.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o082
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1014 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -98.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o083
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q37 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o084
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q32 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  13.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o085
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1019 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  5.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o086
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1020 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -6.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o087
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q833 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  2.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o088
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q912 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  2.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o089
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1025 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  2.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o090
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1027 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  3.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o091
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q96 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  6.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o092
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q217 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o093
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q711 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o094
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1028 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o095
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1029 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o096
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q836 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  23.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o097
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1030 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  2.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o098
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q837 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  37.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o099
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q55 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0100
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q664 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0101
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q811 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  15.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0102
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1032 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  10.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0103
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1033 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  0.5 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0104
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q221 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  15.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0105
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q20 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  18.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0106
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q842 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -10.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0107
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q843 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0108
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q804 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  26.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0109
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q733 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  8.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0110
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q419 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  6.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0111
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q928 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  26.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0112
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q36 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  10.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0113
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q45 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0114
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q846 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  29.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0115
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q218 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  0.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0116
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q159 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  8.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0117
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1037 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -4.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0118
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q851 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0119
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1041 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  9.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0120
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1044 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -20.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0121
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q334 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  35.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0122
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q214 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  4.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0123
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q215 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  11.4 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0124
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q258 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -0.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0125
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q29 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  10.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0126
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q854 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  19.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0127
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q760 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  0.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0128
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q757 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -4.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0129
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1049 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -0.3 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0130
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q34 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  18.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0131
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q39 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0132
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q863 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  13.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0133
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q924 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  16.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0134
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q869 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  15.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0135
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q574 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -11.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0136
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q945 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  0.7 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0137
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q948 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -8.0 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0138
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q43 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  12.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0139
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q1036 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -10.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0140
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q212 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -2.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0141
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q145 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  3.1 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0142
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q30 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  5.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0143
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q77 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  5.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0144
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q265 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  26.8 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0145
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q881 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  13.6 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0146
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q953 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  10.2 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:adjustedNetSavings-o0147
+        a                               qb:Observation ;
+        c19-dimension:refArea           wd:Q954 ;
+        c19-dimension:refPeriod         c19-interval:Year2018 ;
+        c19-measure:adjustedNetSavings  -16.9 ;
+        qb:dataSet                      c19:dataset-adjustedNetSavings ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .

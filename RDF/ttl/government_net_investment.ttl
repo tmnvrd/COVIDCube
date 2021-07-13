@@ -1,0 +1,2169 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:netInvestment
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Net investment in nonfinancial assets (% of GDP)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-netInvestment
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:netInvestment ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:netInvestment-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      31.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-netInvestment
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.12 | Central government finances"@en ;
+        rdfs:label       "government_nonfinancial_assets"@en ;
+        dct:description  "Net investment in government nonfinancial assets includes fixed assets, inventories, valuables, and nonproduced assets. Nonfinancial assets are stores of value and provide benefits either through their use in the production of goods and services or in the form of property income and holding gains. Net investment in nonfinancial assets also includes consumption of fixed capital."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.12> ;
+        dct:title        "Government: Net investment in nonfinancial assets"@en ;
+        qb:structure     c19-structure:dsd-netInvestment .
+
+c19:netInvestment-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      5.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      8.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      5.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      10.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      13.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      11.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      11.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      9.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      9.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      25.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      6.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      6.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      12.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      6.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      6.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      7.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      10.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      18.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      5.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      7.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      11.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      8.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      -3.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      32.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      5.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      8.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      1.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      4.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      0.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:netInvestment      3.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      18.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      12.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      11.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      7.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      6.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      7.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      -0.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      10.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      21.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      6.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      6.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      7.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      6.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      10.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      4.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      5.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      9.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      11.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      7.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      5.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      5.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      4.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      7.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      5.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      5.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      4.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      -1.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.8 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      11.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.7 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.1 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.2 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      39.9 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      12.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      9.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      4.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.6 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.4 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      2.0 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      3.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      0.3 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netInvestment-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:netInvestment      1.5 ;
+        qb:dataSet                     c19:dataset-netInvestment ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

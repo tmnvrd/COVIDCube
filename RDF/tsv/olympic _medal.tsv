@@ -1,0 +1,135 @@
+Country	SummerGames	WinterGames	CombinedTotal	ID	id_row
+Afghanistan	2.0	0.0	2.0	Q889	0
+Algeria	17.0	0.0	17.0	Q262	1
+Argentina	74.0	0.0	74.0	Q414	2
+Armenia	14.0	0.0	14.0	Q399	3
+Australia	497.0	15.0	512.0	Q408	4
+Austria	87.0	232.0	319.0	Q40	5
+Azerbaijan	42.0	0.0	42.0	Q227	6
+Bahamas	14.0	0.0	14.0	Q778	7
+Bahrain	3.0	0.0	3.0	Q398	8
+Barbados	1.0	0.0	1.0	Q244	9
+Belarus	78.0	18.0	96.0	Q184	10
+Belgium	148.0	6.0	154.0	Q31	11
+Bermuda	1.0	0.0	1.0	Q23635	12
+Botswana	1.0	0.0	1.0	Q963	13
+Brazil	129.0	0.0	129.0	Q155	14
+Bulgaria	218.0	6.0	224.0	Q219	15
+Burundi	2.0	0.0	2.0	Q967	16
+Cameroon	6.0	0.0	6.0	Q1009	17
+Canada	302.0	199.0	501.0	Q16	18
+Chile	13.0	0.0	13.0	Q298	19
+China	546.0	62.0	608.0	Q148	20
+Colombia	28.0	0.0	28.0	Q739	21
+Costa Rica	4.0	0.0	4.0	Q800	22
+Ivory Coast	3.0	0.0	3.0	Q1008	23
+Croatia	33.0	11.0	44.0	Q224	24
+Cuba	226.0	0.0	226.0	Q241	25
+Cyprus	1.0	0.0	1.0	Q229	26
+Czech Republic	56.0	31.0	87.0	Q213	27
+Denmark	194.0	1.0	195.0	Q35	28
+Djibouti	1.0	0.0	1.0	Q977	29
+Dominican Republic	7.0	0.0	7.0	Q786	30
+Ecuador	2.0	0.0	2.0	Q736	31
+Eritrea	1.0	0.0	1.0	Q986	32
+Estonia	34.0	7.0	41.0	Q191	33
+Ethiopia	54.0	0.0	54.0	Q115	34
+Fiji	1.0	0.0	1.0	Q712	35
+Finland	303.0	167.0	470.0	Q33	36
+France	716.0	124.0	840.0	Q142	37
+Gabon	1.0	0.0	1.0	Q1000	38
+Georgia	32.0	0.0	32.0	Q230	39
+Germany	615.0	240.0	855.0	Q183	40
+Ghana	4.0	0.0	4.0	Q117	41
+Great Britain	851.0	32.0	883.0	Q145	42
+Greece	116.0	0.0	116.0	Q41	43
+Grenada	2.0	0.0	2.0	Q769	44
+Guatemala	1.0	0.0	1.0	Q774	45
+Guyana	1.0	0.0	1.0	Q734	46
+Guyana	2.0	0.0	2.0	Q734	47
+Hong Kong	3.0	0.0	3.0	Q8646	48
+Hungary	491.0	7.0	498.0	Q28	49
+Iceland	4.0	0.0	4.0	Q189	50
+India	28.0	0.0	28.0	Q668	51
+Indonesia	32.0	0.0	32.0	Q252	52
+Iran	69.0	0.0	69.0	Q794	53
+Iraq	1.0	0.0	1.0	Q796	54
+Ireland	31.0	0.0	31.0	Q27	55
+Israel	9.0	0.0	9.0	Q801	56
+Italy	577.0	124.0	701.0	Q38	57
+Jamaica	78.0	0.0	78.0	Q766	58
+Japan	439.0	58.0	497.0	Q17	59
+Jordan	1.0	0.0	1.0	Q810	60
+Kazakhstan	64.0	8.0	72.0	Q232	61
+Kenya	103.0	0.0	103.0	Q114	62
+Kosovo	1.0	0.0	1.0	Q1246	63
+North Korea	54.0	2.0	56.0	Q423	64
+South Korea	267.0	70.0	337.0	Q884	65
+Kuwait	2.0	0.0	2.0	Q817	66
+Kyrgyzstan	4.0	0.0	4.0	Q813	67
+Latvia	19.0	9.0	28.0	Q211	68
+Lebanon	4.0	0.0	4.0	Q822	69
+Liechtenstein	0.0	10.0	10.0	Q347	70
+Lithuania	25.0	0.0	25.0	Q37	71
+Luxembourg	2.0	2.0	4.0	Q32	72
+Malaysia	11.0	0.0	11.0	Q833	73
+Mauritius	1.0	0.0	1.0	Q1027	74
+Mexico	69.0	0.0	69.0	Q96	75
+Moldova	5.0	0.0	5.0	Q217	76
+Mongolia	26.0	0.0	26.0	Q711	77
+Montenegro	1.0	0.0	1.0	Q236	78
+Morocco	23.0	0.0	23.0	Q1028	79
+Mozambique	2.0	0.0	2.0	Q1029	80
+Namibia	4.0	0.0	4.0	Q1030	81
+Netherlands	285.0	130.0	415.0	Q55	82
+New Zealand	117.0	3.0	120.0	Q664	83
+Niger	2.0	0.0	2.0	Q1032	84
+Nigeria	25.0	0.0	25.0	Q1033	85
+North Macedonia	1.0	0.0	1.0	Q221	86
+Norway	152.0	368.0	520.0	Q20	87
+Pakistan	10.0	0.0	10.0	Q843	88
+Panama	3.0	0.0	3.0	Q804	89
+Paraguay	1.0	0.0	1.0	Q733	90
+Peru	4.0	0.0	4.0	Q419	91
+Philippines	10.0	0.0	10.0	Q928	92
+Poland	284.0	22.0	306.0	Q36	93
+Portugal	24.0	0.0	24.0	Q45	94
+Puerto Rico	9.0	0.0	9.0	Q1183	95
+Qatar	5.0	0.0	5.0	Q846	96
+Romania	306.0	1.0	307.0	Q218	97
+Russia	426.0	121.0	547.0	Q159	98
+Saudi Arabia	3.0	0.0	3.0	Q851	99
+Samoa	1.0	0.0	1.0	Q683	100
+Senegal	1.0	0.0	1.0	Q1041	101
+Serbia	15.0	0.0	15.0	Q403	102
+Singapore	5.0	0.0	5.0	Q334	103
+Slovakia	28.0	8.0	36.0	Q214	104
+Slovenia	23.0	17.0	40.0	Q215	105
+South Africa	86.0	0.0	86.0	Q258	106
+Spain	150.0	4.0	154.0	Q29	107
+Sri Lanka	2.0	0.0	2.0	Q854	108
+Sudan	1.0	0.0	1.0	Q1049	109
+Suriname	2.0	0.0	2.0	Q730	110
+Sweden	494.0	158.0	652.0	Q34	111
+Switzerland	192.0	153.0	345.0	Q39	112
+Syria	3.0	0.0	3.0	Q858	113
+Chinese Taipei	24.0	0.0	24.0	Q1867	114
+Tajikistan	4.0	0.0	4.0	Q863	115
+Tanzania	2.0	0.0	2.0	Q924	116
+Thailand	33.0	0.0	33.0	Q869	117
+Togo	1.0	0.0	1.0	Q945	118
+Tonga	1.0	0.0	1.0	Q678	119
+Trinidad and Tobago	19.0	0.0	19.0	Q754	120
+Tunisia	13.0	0.0	13.0	Q948	121
+Turkey	91.0	0.0	91.0	Q43	122
+Uganda	7.0	0.0	7.0	Q1036	123
+Ukraine	120.0	8.0	128.0	Q212	124
+United Arab Emirates	2.0	0.0	2.0	Q878	125
+United States	2.523	305.0	2.828	Q30	126
+Uruguay	10.0	0.0	10.0	Q77	127
+Uzbekistan	31.0	1.0	32.0	Q265	128
+Venezuela	15.0	0.0	15.0	Q717	129
+Vietnam	5.0	0.0	5.0	Q881	130
+Virgin Islands	1.0	0.0	1.0	Q11703	131
+Zambia	2.0	0.0	2.0	Q953	132
+Zimbabwe	8.0	0.0	8.0	Q954	133

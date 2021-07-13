@@ -1,0 +1,17 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  "dataset-population";
+    eg:refPeriod "2019"^^xsd:gYear ;
+    eg-measure:Population ?data;
+    eg:refArea ?ID;
+}
+FROM <file:population.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:population-o', ?id_row)) AS ?obs)
+  BIND (xsd:decimal(?Population) AS ?data)
+}

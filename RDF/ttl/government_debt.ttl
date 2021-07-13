@@ -1,0 +1,1001 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:centralGovernmentDebt
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Central government debt, total (% of GDP)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-centralGovernmentDebt
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:centralGovernmentDebt ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:centralGovernmentDebt-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                69.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-centralGovernmentDebt
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.12 | Central government finances"@en ;
+        rdfs:label       "government_debt"@en ;
+        dct:description  "Debt is the entire stock of direct government fixed-term contractual obligations to others outstanding on a particular date. It includes domestic and foreign liabilities such as currency and money deposits, securities other than shares, and loans. It is the gross amount of government liabilities reduced by the amount of equity and financial derivatives held by the government. Because debt is a stock rather than a flow, it is measured as of a given date, usually the last day of the fiscal year."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.12> ;
+        dct:title        "Government: Debt payments"@en ;
+        qb:structure     c19-structure:dsd-centralGovernmentDebt .
+
+c19:centralGovernmentDebt-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                0.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                33.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                95.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                18.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                56.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                45.8 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                21.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                61.3 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                72.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                57.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                35.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                24.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                80.8 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                102.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                26.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                82.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                136.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                162.3 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                60.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                9.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                32.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                28.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                49.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                64.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                24.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                21.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                34.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                33.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                23.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                9.1 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                55.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                75.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                101.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                15.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                54.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                71.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                21.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                26.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                49.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                47.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                30.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                81.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                85.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                44.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:centralGovernmentDebt
+                18.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                80.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                0.1 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                51.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                141.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                40.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                110.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                52.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                15.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                73.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                57.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                52.1 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                42.1 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                23.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                96.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                73.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                31.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                84.8 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                122.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                196.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                75.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                16.8 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                38.1 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                48.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                51.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                48.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                25.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                31.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                42.3 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                67.5 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                23.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                14.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                57.3 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                63.3 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                109.2 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                7.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                104.6 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                77.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                19.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                35.3 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                51.8 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                31.9 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                71.8 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                115.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                99.0 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                50.7 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:centralGovernmentDebt-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:centralGovernmentDebt
+                49.4 ;
+        qb:dataSet                     c19:dataset-centralGovernmentDebt ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

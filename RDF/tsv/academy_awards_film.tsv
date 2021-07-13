@@ -1,0 +1,125 @@
+Country	Winningfilms	Nominatedfilms	Submittedfilms	ID	id_row
+Italy	14.0	31.0	66.0	Q38	0
+France	12.0	40.0	66.0	Q142	1
+Spain	4.0	20.0	62.0	Q29	2
+Japan	4.0	16.0	66.0	Q17	3
+Sweden	3.0	16.0	58.0	Q34	4
+Denmark	3.0	12.0	57.0	Q35	5
+Netherlands	3.0	7.0	52.0	Q55	6
+Germany	2.0	11.0	29.0	Q183	7
+Hungary	2.0	10.0	55.0	Q28	8
+Argentina	2.0	7.0	46.0	Q414	9
+Switzerland	2.0	5.0	47.0	Q39	10
+Austria	2.0	4.0	43.0	Q40	11
+Iran	2.0	3.0	25.0	Q794	12
+Poland	1.0	12.0	51.0	Q36	13
+Mexico	1.0	9.0	52.0	Q96	14
+Canada	1.0	7.0	45.0	Q16	15
+Russia	1.0	7.0	27.0	Q159	16
+Algeria	1.0	5.0	21.0	Q262	17
+Taiwan	1.0	3.0	45.0	Q865	18
+Czech Republic	1.0	3.0	26.0	Q213	19
+Chile	1.0	2.0	24.0	Q298	20
+South Africa	1.0	2.0	16.0	Q258	21
+South Korea	1.0	1.0	31.0	Q884	22
+Bosnia & Herzegovina	1.0	1.0	19.0	Q225	23
+Ivory Coast	1.0	1.0	2.0	Q1008	24
+Israel	0.0	10.0	52.0	Q801	25
+Belgium	0.0	7.0	44.0	Q31	26
+Norway	0.0	5.0	41.0	Q20	27
+Greece	0.0	5.0	39.0	Q41	28
+Brazil	0.0	4.0	47.0	Q155	29
+India	0.0	3.0	52.0	Q668	30
+Hong Kong	0.0	2.0	38.0	Q8646	31
+China	0.0	2.0	33.0	Q148	32
+United Kingdom	0.0	2.0	17.0	Q145	33
+Lebanon	0.0	2.0	16.0	Q822	34
+North Macedonia	0.0	2.0	16.0	Q221	35
+Palestine	0.0	2.0	12.0	Q219060	36
+Iceland	0.0	1.0	40.0	Q189	37
+Finland	0.0	1.0	33.0	Q33	38
+Colombia	0.0	1.0	28.0	Q739	39
+Peru	0.0	1.0	26.0	Q419	40
+Cuba	0.0	1.0	21.0	Q241	41
+Uruguay	0.0	1.0	19.0	Q77	42
+Georgia	0.0	1.0	18.0	Q230	43
+Estonia	0.0	1.0	17.0	Q191	44
+Vietnam	0.0	1.0	15.0	Q881	45
+Kazakhstan	0.0	1.0	14.0	Q232	46
+Australia	0.0	1.0	13.0	Q408	47
+Puerto Rico	0.0	1.0	12.0	Q1183	48
+Nepal	0.0	1.0	10.0	Q837	49
+Cambodia	0.0	1.0	8.0	Q424	50
+Jordan	0.0	1.0	3.0	Q810	51
+Nicaragua	0.0	1.0	3.0	Q811	52
+Mauritania	0.0	1.0	1.0	Q1025	53
+Portugal	0.0	0.0	36.0	Q45	54
+Romania	0.0	0.0	35.0	Q218	55
+Egypt	0.0	0.0	34.0	Q79	56
+Philippines	0.0	0.0	31.0	Q928	57
+Bulgaria	0.0	0.0	30.0	Q219	58
+Venezuela	0.0	0.0	29.0	Q717	59
+Croatia	0.0	0.0	28.0	Q224	60
+Serbia	0.0	0.0	26.0	Q403	61
+Thailand	0.0	0.0	26.0	Q869	62
+Turkey	0.0	0.0	26.0	Q43	63
+Slovakia	0.0	0.0	23.0	Q214	64
+Slovenia	0.0	0.0	23.0	Q215	65
+Indonesia	0.0	0.0	21.0	Q252	66
+Luxembourg	0.0	0.0	16.0	Q32	67
+Bangladesh	0.0	0.0	15.0	Q902	68
+Morocco	0.0	0.0	15.0	Q1028	69
+Afghanistan	0.0	0.0	14.0	Q889	70
+Singapore	0.0	0.0	13.0	Q334	71
+Albania	0.0	0.0	12.0	Q222	72
+Dominican Republic	0.0	0.0	12.0	Q786	73
+Kyrgyzstan	0.0	0.0	12.0	Q813	74
+Lithuania	0.0	0.0	12.0	Q37	75
+Ukraine	0.0	0.0	12.0	Q212	76
+Bolivia	0.0	0.0	11.0	Q750	77
+Latvia	0.0	0.0	11.0	Q211	78
+Iraq	0.0	0.0	9.0	Q796	79
+Pakistan	0.0	0.0	9.0	Q843	80
+Armenia	0.0	0.0	8.0	Q399	81
+Costa Rica	0.0	0.0	8.0	Q800	82
+Ecuador	0.0	0.0	8.0	Q736	83
+Azerbaijan	0.0	0.0	7.0	Q227	84
+Ireland	0.0	0.0	6.0	Q27	85
+Kosovo	0.0	0.0	6.0	Q1246	86
+Montenegro	0.0	0.0	6.0	Q236	87
+New Zealand	0.0	0.0	6.0	Q664	88
+Panama	0.0	0.0	6.0	Q804	89
+Tunisia	0.0	0.0	6.0	Q948	90
+Malaysia	0.0	0.0	5.0	Q833	91
+Mongolia	0.0	0.0	5.0	Q711	92
+Belarus	0.0	0.0	4.0	Q184	93
+Ethiopia	0.0	0.0	4.0	Q115	94
+Kenya	0.0	0.0	4.0	Q114	95
+Paraguay	0.0	0.0	3.0	Q733	96
+Saudi Arabia	0.0	0.0	3.0	Q851	97
+Cameroon	0.0	0.0	2.0	Q1009	98
+Chad	0.0	0.0	2.0	Q657	99
+Greenland	0.0	0.0	2.0	Q223	100
+Guatemala	0.0	0.0	2.0	Q774	101
+Honduras	0.0	0.0	2.0	Q783	102
+Kuwait	0.0	0.0	2.0	Q817	103
+Moldova	0.0	0.0	2.0	Q217	104
+Senegal	0.0	0.0	2.0	Q1041	105
+Sri Lanka	0.0	0.0	2.0	Q854	106
+Tajikistan	0.0	0.0	2.0	Q863	107
+Yemen	0.0	0.0	2.0	Q805	108
+Bhutan	0.0	0.0	1.0	Q917	109
+Burkina Faso	0.0	0.0	1.0	Q965	110
+Democratic Republic of the Congo	0.0	0.0	1.0	Q974	111
+Fiji	0.0	0.0	1.0	Q712	112
+Ghana	0.0	0.0	1.0	Q117	113
+Haiti	0.0	0.0	1.0	Q790	114
+Laos	0.0	0.0	1.0	Q819	115
+Malawi	0.0	0.0	1.0	Q1020	116
+Malta	0.0	0.0	1.0	Q233	117
+Mozambique	0.0	0.0	1.0	Q1029	118
+Niger	0.0	0.0	1.0	Q1032	119
+Nigeria	0.0	0.0	1.0	Q1033	120
+Syria	0.0	0.0	1.0	Q858	121
+Tanzania	0.0	0.0	1.0	Q924	122
+Uzbekistan	0.0	0.0	1.0	Q265	123

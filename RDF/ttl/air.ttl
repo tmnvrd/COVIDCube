@@ -1,0 +1,3379 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-structure:dsd-airTraffic
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:registeredCarrierDeparturesWorldwide , c19-measure:passengersCarriedAir , c19-measure:airFreight ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:registeredCarrierDeparturesWorldwide
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Registered carrier departures worldwide are domestic takeoffs and takeoffs abroad of air carriers registered in the country."@en ;
+        rdfs:label          "Registered carrier departures"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:passengersCarriedAir
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Air passengers carried include both domestic and international aircraft passengers of air carriers registered in the country."@en ;
+        rdfs:label          "Air passengers carried"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:airFreight
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Air freight is the volume of freight, express, and diplomatic bags carried on each flight stage measured in metric tons / kilometers traveled."@en ;
+        rdfs:label          "Air freight"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19:dataset-airTraffic
+        a                qb:dataSet ;
+        rdfs:comment     "The World Bank: 5.10 | Transport services"@en ;
+        rdfs:label       "air"@en ;
+        dct:description  "The air transport data represent the total (international and domestic) scheduled traffic carried by the air carriers registered in a country. Countries submit air transport data to International Civil Aviation Organization (ICAO) on the basis of standard instructions and definitions issued by ICAO. In many cases, however, the data include estimates by ICAO for nonreporting carriers. Where possible, these estimates are based on previous submissions supplemented by information published by the air carriers, such as flight schedules. "@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/5.10> ;
+        dct:title        "Transport: Air"@en ;
+        qb:structure     c19-structure:dsd-airTraffic .
+
+c19:airTraffic-o00  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                24.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o01  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                77.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o02  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                14.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o03  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                23.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o04  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                162.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o05  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                665.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o06  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                130.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o07  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                20.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o08  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                57.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o09  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                57.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o010  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                101.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o011  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                32.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o012  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                141.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o013  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                126.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o014  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o015  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o016  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                57.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o017  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                7.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o018  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                833.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o019  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                11.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o020  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                11.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o021  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                4.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o022  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                14.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o023  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                6.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o024  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1475.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o025  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                135.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o026  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                4692.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o027  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                245.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o028  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                24.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o029  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                359.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o030  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                19.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o031  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                8.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o032  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                40.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o033  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                15.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o034  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                27.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o035  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                9.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o036  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o037  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                51.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o038  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                53.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o039  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                104.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o040  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                28.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o041  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                20.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o042  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o043  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                111.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o044  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                24.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o045  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                126.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o046  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                597.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o047  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                7.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o048  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                923.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o049  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                14.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o050  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                144.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o051  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                3.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o052  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o053  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                15.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o054  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                55.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o055  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1200.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o056  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                959.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o057  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                229.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o058  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                21.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o059  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                936.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o060  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                54.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o061  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                257.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o062  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o063  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1000.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o064  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                36.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o065  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                83.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o066  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                138.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o067  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o068  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                526.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o069  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                46.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o070  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                16.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o071  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                10.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o072  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                54.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o073  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                26.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o074  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                7.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o075  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o076  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                52.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o077  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                10.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o078  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o079  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                477.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o080  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                27.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o081  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                21.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o082  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o083  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                15.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o084  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                591.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o085  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                14.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o086  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                8.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o087  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                7.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o088  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                80.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o089  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                10.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o090  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                64.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o091  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                15.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o092  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                72.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o093  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                326.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o094  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                188.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o095  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                77.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o096  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                77.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o097  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                49.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o098  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                119.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o099  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                42.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0100  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                4.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0101  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                141.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0102  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                292.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0103  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                124.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0104  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                183.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0105  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                198.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0106  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                56.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0107  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                885.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0108  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                7.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0109  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                254.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0110  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0111  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                28.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0112  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                19.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0113  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                209.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0114  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                18.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0115  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                14.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0116  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                180.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0117  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                641.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0118  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                34.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0119  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                3.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0120  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                3.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0121  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                220.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0122  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0123  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                4.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0124  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                52.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0125  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                476.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0126  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                12.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0127  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                33.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0128  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                41.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0129  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                773.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0130  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                18.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0131  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0132  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                67.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0133  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                456.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0134  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1243.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0135  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                9880.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0136  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                22.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0137  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                12.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0138  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                25.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0139  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                284.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0140  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0141  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o0142  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:registeredCarrierDeparturesWorldwide
+                3.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o10  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1723.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o11  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                6442.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o12  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1517.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o13  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                580.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o14  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                18082.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o15  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                75668.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o16  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                12936.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o17  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2280.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o18  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1197.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o19  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                5877.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o110  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                5984.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o111  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2760.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o112  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                13639.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o113  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1298.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o114  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o115  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                276.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o116  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                4122.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o117  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                253.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o118  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                102110.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o119  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1234.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o120  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1023.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o121  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                152.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o122  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1411.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o123  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                265.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o124  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                89380.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o125  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                19517.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o126  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                611440.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o127  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                47102.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o128  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                3158.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o129  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                33704.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o130  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                932.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o131  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                334.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o132  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1949.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o133  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                779.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o134  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2094.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o135  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                561.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o136  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                401.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o137  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                5727.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o138  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                5365.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o139  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                12341.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o140  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2545.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o141  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                466.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o142  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                32.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o143  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                11501.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o144  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1670.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o145  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                13365.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o146  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                70188.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o147  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                516.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o148  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                109796.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o149  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                467.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o150  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                15126.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o151  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                146.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o152  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                26.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o153  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                412.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o154  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                7820.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o155  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                164036.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o156  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                115154.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o157  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                25605.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o158  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2075.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o159  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                167599.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o160  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                7404.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o161  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                27630.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o162  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                181.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o163  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                126388.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o164  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                3384.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o165  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                7144.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o166  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                5936.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o167  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                104.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o168  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                88158.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o169  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                6465.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o170  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                709.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o171  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1252.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o172  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                4059.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o173  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2982.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o174  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                927.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o175  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                26.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o176  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2099.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o177  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                541.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o178  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                11.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o179  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                60482.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o180  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1147.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o181  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2577.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o182  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                24.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o183  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1745.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o184  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                64570.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o185  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1136.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o186  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                670.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o187  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                566.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o188  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                8133.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o189  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                540.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o190  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                3408.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o191  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                603.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o192  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                3297.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o193  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                43996.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o194  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                17249.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o195  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                8169.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o196  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                10438.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o197  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                6881.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o198  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                12939.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o199  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                965.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1100  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                561.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1101  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                17759.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1102  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                43080.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1103  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                9278.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1104  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                17368.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1105  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                29179.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1106  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                4908.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1107  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                99327.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1108  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                138.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1109  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                39142.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1110  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                21.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1111  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2263.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1112  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                455.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1113  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                40402.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1114  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1095.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1115  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                428.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1116  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                23922.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1117  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                80672.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1118  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                5882.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1119  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                270.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1120  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                272.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1121  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                28858.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1122  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                18.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1123  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                492.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1124  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                1482.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1125  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                76053.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1126  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                566.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1127  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2525.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1128  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                4274.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1129  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                115595.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1130  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2457.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1131  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                22.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1132  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                7855.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1133  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                95533.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1134  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                165389.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1135  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                889022.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1136  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                3057.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1137  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                375.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1138  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                2138.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1139  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                47050.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1140  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                336.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1141  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                9.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o1142  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:passengersCarriedAir
+                283.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:airTraffic-o20  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         30.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o21  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         28.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o22  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         78.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o23  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o24  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         312.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o25  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2028.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o26  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         374.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o27  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         44.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o28  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o29  a                  qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         421.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o210  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         64.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o211  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o212  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1285.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o213  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         4.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o214  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o215  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o216  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         14.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o217  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o218  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1846.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o219  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         129.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o220  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o221  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o222  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o223  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o224  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         3434.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o225  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1226.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o226  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         25256.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o227  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         12677.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o228  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         32.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o229  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1349.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o230  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o231  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o232  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         11.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o233  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         6.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o234  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o235  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         18.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o236  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o237  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         25.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o238  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         64.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o239  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         438.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o240  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         11.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o241  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o242  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o243  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2089.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o244  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         107.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o245  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         958.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o246  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         4444.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o247  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o248  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         7970.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o249  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o250  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         22.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o251  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o252  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o253  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o254  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         164.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o255  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2704.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o256  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1132.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o257  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         291.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o258  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         16.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o259  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         169.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o260  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         995.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o261  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1418.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o262  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o263  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         9421.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o264  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         176.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o265  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         50.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o266  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         295.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o267  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o268  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         11930.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o269  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         392.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o270  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o271  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o272  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         4.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o273  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         57.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o274  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o275  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o276  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         7323.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o277  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         16.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o278  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o279  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1404.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o280  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         8.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o281  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o282  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o283  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         234.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o284  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1090.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o285  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o286  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         8.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o287  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o288  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         98.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o289  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o290  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o291  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         26.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o292  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o293  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5887.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o294  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1349.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o295  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         19.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o296  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         510.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o297  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         218.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o298  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         48.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o299  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         31.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2100  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2101  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         313.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2102  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         836.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2103  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         271.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2104  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         454.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2105  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         12667.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2106  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         3.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2107  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         6811.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2108  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2109  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1085.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2110  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2111  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         18.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2112  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         8.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2113  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5195.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2114  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2115  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         4.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2116  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         716.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2117  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1117.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2118  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         436.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2119  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         6.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2120  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         33.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2121  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1841.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2122  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2123  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2124  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2125  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2666.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2126  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         11.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2127  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         41.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2128  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         13.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2129  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         5949.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2130  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         17.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2131  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         0.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2132  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         75.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2133  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         15963.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2134  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         6198.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2135  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         42985.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2136  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         89.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2137  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2138  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         2.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2139  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         481.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2140  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         3.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2141  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         75.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:airTraffic-o2142  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:airFreight         1.0 ;
+        qb:dataSet                     c19:dataset-airTraffic ;
+        sdmx-attribute:unitMultiplier  6 .

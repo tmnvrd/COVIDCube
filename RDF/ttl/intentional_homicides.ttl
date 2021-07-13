@@ -1,0 +1,1755 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2015
+        a                  time:Interval ;
+        rdfs:label         "2015" ;
+        time:hasBeginning  "2015"^^xsd:gYear ;
+        time:hasEnd        "2015"^^xsd:gYear .
+
+c19-measure:intentionalHomicides
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Intentional homicides (per 100,000 people)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-intentionalHomicides
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:intentionalHomicides ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:intentionalHomicides-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                10.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:dataset-intentionalHomicides
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.3 | Global goals: promoting sustainability"@en ;
+        rdfs:label       "intentional_homicides"@en ;
+        dct:description  "Intentional homicides are estimates of unlawful homicides purposely inflicted as a result of domestic disputes, interpersonal violence, violent conflicts over land resources, intergang violence over turf or control, and predatory violence and killing by armed groups. Intentional homicide does not include all intentional killing; the difference is usually in the organization of the killing. Individuals or small groups usually commit homicide, whereas killing in armed conflict is usually committed by fairly cohesive groups of up to several hundred members and is thus usually excluded."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.3> ;
+        dct:title        "Intentional homicides"@en ;
+        qb:structure     c19-structure:dsd-intentionalHomicides .
+
+c19:intentionalHomicides-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                7.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                4.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                10.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                37.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                10.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                33.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                28.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                4.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                8.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                8.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                19.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                26.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                11.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                12.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                15.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                105.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                8.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                7.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                29.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                19.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                10.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                57.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                9.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q9676 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                42.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                4.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                4.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                7.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                41.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q347 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                16.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                17.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                8.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                4.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                11.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                9.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                7.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                9.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                16.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                11.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                7.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                33.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                13.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                2.4 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                34.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                15.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q126125 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                17.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                36.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.1 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                7.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                30.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                3.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                4.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q18221 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.9 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                18.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                10.8 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.2 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                0.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                8.5 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.6 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                56.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                49.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                1.0 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                5.3 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .
+
+c19:intentionalHomicides-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2015 ;
+        c19-measure:intentionalHomicides
+                6.7 ;
+        qb:dataSet                     c19:dataset-intentionalHomicides ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -5 .

@@ -1,0 +1,1766 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2006-16
+        a                  time:Interval ;
+        rdfs:label         "2006-16" ;
+        time:hasBeginning  "2006"^^xsd:gYear ;
+        time:hasEnd        "2016"^^xsd:gYear .
+
+c19-measure:exportValueIndex
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Export value index (2000 = 100)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-exportValue
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:exportValueIndex ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:exportValue-o00  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-exportValue
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 6.1 | Growth of merchandise trade"@en ;
+        rdfs:label       "merchandise_trade_export_value"@en ;
+        dct:description  "Export values are the current value of exports (f.o.b.) converted to U.S. dollars and expressed as a percentage of the average for the base period (2000). UNCTAD's export value indexes are reported for most economies. For selected economies for which UNCTAD does not publish data, the export value indexes are derived from export volume indexes (line 72) and corresponding unit value indexes of exports (line 74) in the IMF's International Financial Statistics."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/6.1> ;
+        dct:title        "Growth of merchandise trade: Export value"@en ;
+        qb:structure     c19-structure:dsd-exportValue .
+
+c19:exportValue-o01  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o02  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -4.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o03  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o04  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -4.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o05  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o06  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o07  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o08  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o09  a                 qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -28.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o010  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o011  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o012  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o013  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -2.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o014  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o015  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   12.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o016  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o017  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o018  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o019  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o020  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o021  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -4.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o022  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o023  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o024  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o025  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o026  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o027  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -1.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o028  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o029  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   18.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o030  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o031  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   14.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o032  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o033  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o034  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o035  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o036  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -4.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o037  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -3.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o038  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o039  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o040  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o041  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -6.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o042  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o043  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o044  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o045  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -1.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o046  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o047  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o048  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o049  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o050  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o051  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o052  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o053  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o054  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -3.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o055  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o056  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o057  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o058  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o059  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -3.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o060  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   64.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o061  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o062  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   12.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o063  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q4628 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o064  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o065  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -3.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o066  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o067  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -3.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o068  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o069  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   26.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o070  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o071  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o072  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   13.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o073  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o074  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o075  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o076  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -8.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o077  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o078  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o079  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o080  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o081  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o082  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o083  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o084  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o085  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o086  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o087  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -1.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o088  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o089  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o090  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o091  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o092  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -5.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o093  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o094  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o095  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o096  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o097  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o098  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o099  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   17.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   7.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -13.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -3.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   13.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   7.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   13.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -1.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   1.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -1.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   11.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   7.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -2.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -40.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -2.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -4.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   7.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   19.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -2.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   18.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   2.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   14.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -10.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -21.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -4.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   9.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   10.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -2.8 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   5.0 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.5 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q18221 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -15.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.4 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -0.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   8.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   0.9 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   4.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   7.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   3.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -1.1 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -5.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   16.7 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   12.2 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   -13.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   7.6 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:exportValue-o0198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2006-16 ;
+        c19-measure:exportValueIndex   6.3 ;
+        qb:dataSet                     c19:dataset-exportValue ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

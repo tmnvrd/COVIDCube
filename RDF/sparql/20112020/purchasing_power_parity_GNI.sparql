@@ -1,0 +1,20 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  eg:dataset-purchasing_power_parity_GNI;
+    eg:refPeriod eg:Interval2019;
+    eg-measure:gni-ppp_per_capita ?data ;
+    eg:refArea ?egID;
+}
+FROM <file:purchasing_power_parity_GNI.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:purchasing_power_parity_GNI-o1', ?id_row)) AS ?obs)
+  BIND (URI(CONCAT('eg:',?ID)) AS ?egID)
+  BIND (xsd:decimal(?percapita) AS ?data)
+}

@@ -1,0 +1,24 @@
+eg:dataset-terrestrial_protected_areas a qb:Dataset;
+    dct:title       "Terrestrial protected areas"@en;
+    rdfs:label      "terrestrial_protected_areas"@en;
+    rdfs:comment    "The World Bank: 3.4 | Deforestation and biodiversity"@en;
+    dct:description "Area percentage of terrestrial protected areas"@en;
+    dct:publisher   eg:The World Bank;
+    dct:issued      "2020-09-22 00:00:00"^^xsd:date;
+    dct:source      <http://wdi.worldbank.org/tables> ;
+    dct:subject 
+        sdmx-subject: 3.1 ;
+.
+.
+        sdmx-subject:3.1 ;
+    dct:subject 
+    dct:source      <http://wdi.worldbank.org/tables> ;
+    dct:issued      "2020-09-22 00:00:00"^^xsd:date;
+    dct:publisher   eg:The World Bank;
+    dct:description "Area percentage of terrestrial protected areas"@en;
+    rdfs:comment    "The World Bank: 3.4 | Deforestation and biodiversity"@en;
+    rdfs:label      "terrestrial_protected_areas"@en;
+    dct:title       "Terrestrial protected areas"@en;
+eg:dataset-terrestrial_protected_areas a qb:Dataset;
+
+PRETTY PLEASE

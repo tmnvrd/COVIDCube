@@ -1,0 +1,152 @@
+Country	imports2010	imports2019	ID	id_row
+Afghanistan	0.0	1.9	Q889	0
+Albania	1.0	0.7	Q222	1
+Algeria	1.6	1.0	Q262	2
+Andorra	0.4	0.4	Q228	3
+Angola	0.6	1.0	Q916	4
+Antigua and Barbuda	1.2	2.0	Q781	5
+Argentina	1.1	1.0	Q414	6
+Armenia	0.9	1.3	Q399	7
+Aruba	0.8	0.3	Q21203	8
+Australia	0.7	0.6	Q408	9
+Austria	2.3	1.9	Q40	10
+Azerbaijan	1.7	1.6	Q227	11
+Bahrain	0.5	0.7	Q398	12
+Barbados	1.8	1.0	Q244	13
+Belarus	1.5	2.0	Q184	14
+Belgium	1.3	1.2	Q31	15
+Belize	0.9	1.8	Q242	16
+Benin	2.6	1.0	Q962	17
+Bermuda	0.6	0.5	Q23635	18
+Bolivia	0.7	0.6	Q750	19
+Bosnia and Herzegovina	1.6	1.3	Q225	20
+Botswana	0.8	0.7	Q963	21
+Brazil	1.3	1.1	Q155	22
+Brunei Darussalam	0.2	0.1	Q921	23
+Bulgaria	1.1	1.3	Q219	24
+Burkina Faso	0.7	0.4	Q965	25
+Burundi	1.5	1.7	Q967	26
+Cabo Verde	1.3	1.8	Q1011	27
+Cambodia	1.6	2.7	Q424	28
+Cameroon	1.6	1.7	Q1009	29
+Canada	1.0	0.8	Q16	30
+Central African Republic	2.1	1.1	Q929	31
+Chile	0.7	0.7	Q298	32
+China	3.7	3.3	Q148	33
+Hong Kong SAR, China	0.6	0.1	Q8646	34
+Macao SAR, China	0.3	0.1	Q14773	35
+Colombia	1.4	1.0	Q739	36
+Comoros	0.7	0.7	Q970	37
+Congo, Rep.	0.4	1.1	Q971	38
+Costa Rica	1.1	1.1	Q800	39
+Cote d'Ivoire	0.9	0.7	Q1008	40
+Croatia	1.1	1.2	Q224	41
+Cyprus	0.8	0.6	Q229	42
+Czech Republic	1.4	1.1	Q213	43
+Denmark	2.3	2.3	Q35	44
+Dominican Republic	1.1	1.5	Q786	45
+Ecuador	1.0	0.9	Q736	46
+Egypt, Arab Rep.	3.2	2.6	Q79	47
+El Salvador	2.0	2.1	Q792	48
+Estonia	2.2	2.8	Q191	49
+Eswatini	0.7	1.3	Q1050	50
+Ethiopia	0.5	0.5	Q115	51
+Fiji	0.3	0.4	Q712	52
+Finland	2.2	2.0	Q33	53
+France	1.4	1.1	Q142	54
+Gambia, The	1.4	0.4	Q1005	55
+Georgia	0.7	0.8	Q230	56
+Germany	1.6	1.2	Q183	57
+Ghana	1.1	1.2	Q117	58
+Greece	1.0	0.9	Q41	59
+Greenland	0.7	0.4	Q223	60
+Guatemala	1.3	1.7	Q774	61
+Guyana	0.5	0.2	Q734	62
+Honduras	1.1	1.4	Q783	63
+Hungary	1.0	1.1	Q28	64
+Iceland	1.2	0.8	Q189	65
+India	1.8	2.0	Q668	66
+Indonesia	3.1	2.9	Q252	67
+Iran, Islamic Rep.	2.4	2.7	Q794	68
+Ireland	0.7	0.5	Q27	69
+Israel	1.2	0.9	Q801	70
+Italy	2.2	1.9	Q38	71
+Jamaica	1.0	0.9	Q766	72
+Japan	1.6	1.3	Q17	73
+Jordan	1.3	1.1	Q810	74
+Kazakhstan	0.6	0.5	Q232	75
+Kenya	1.5	1.7	Q114	76
+Korea, Rep.	1.7	1.2	Q884	77
+Kuwait	0.5	0.5	Q817	78
+Kyrgyz Republic	1.2	0.4	Q813	79
+Lao PDR	0.2	0.5	Q819	80
+Latvia	1.5	2.9	Q211	81
+Lebanon	1.1	1.2	Q822	82
+Lesotho	2.2	2.3	Q1013	83
+Lithuania	1.7	2.5	Q37	84
+Luxembourg	1.1	2.1	Q32	85
+Madagascar	1.0	3.1	Q1019	86
+Malawi	1.1	2.3	Q1020	87
+Malaysia	2.0	1.8	Q833	88
+Maldives	2.2	2.0	Q826	89
+Mali	0.5	0.5	Q912	90
+Malta	0.5	0.2	Q233	91
+Mauritania	0.5	0.2	Q1025	92
+Mauritius	2.2	2.2	Q1027	93
+Mexico	1.3	0.8	Q96	94
+Moldova	1.3	1.4	Q217	95
+Montenegro	0.8	0.4	Q236	96
+Morocco	2.2	1.6	Q1028	97
+Mozambique	1.0	1.5	Q1029	98
+Myanmar	0.4	0.6	Q836	99
+Namibia	0.6	0.5	Q1030	100
+Nepal	1.9	1.4	Q837	101
+Netherlands	1.5	1.7	Q55	102
+New Zealand	0.6	0.7	Q664	103
+Nicaragua	0.7	1.1	Q811	104
+Nigeria	0.8	0.8	Q1033	105
+North Macedonia	1.0	0.8	Q221	106
+Norway	1.3	1.1	Q20	107
+Oman	0.6	0.4	Q842	108
+Pakistan	4.9	4.2	Q843	109
+Palau	0.8	1.8	Q695	110
+Paraguay	0.6	0.7	Q733	111
+Peru	1.7	1.4	Q419	112
+Philippines	0.6	0.6	Q928	113
+Poland	1.7	1.5	Q36	114
+Portugal	1.6	1.6	Q45	115
+Qatar	0.5	0.5	Q846	116
+Romania	1.4	1.6	Q218	117
+Russian Federation	1.0	1.0	Q159	118
+Samoa	2.3	2.7	Q683	119
+Sao Tome and Principe	0.8	1.1	Q1039	120
+Saudi Arabia	0.9	0.7	Q851	121
+Senegal	1.5	1.6	Q1041	122
+Seychelles	1.1	0.9	Q1042	123
+Singapore	0.3	0.3	Q334	124
+Slovak Republic	1.4	1.1	Q214	125
+Slovenia	3.1	2.5	Q215	126
+Solomon Islands	0.8	0.7	Q685	127
+South Africa	1.0	1.0	Q258	128
+Spain	1.3	1.1	Q29	129
+Sri Lanka	1.5	2.0	Q854	130
+St. Kitts and Nevis	1.9	1.9	Q763	131
+St. Lucia	1.3	1.2	Q760	132
+St. Vincent and the Grenadines	1.9	1.7	Q757	133
+Suriname	0.1	0.1	Q730	134
+Sweden	1.4	1.2	Q34	135
+Switzerland	1.0	0.6	Q39	136
+Tanzania	0.9	1.4	Q924	137
+Thailand	1.9	1.6	Q869	138
+Togo	1.4	1.5	Q945	139
+Tunisia	2.1	1.8	Q948	140
+Turkey	2.9	2.7	Q43	141
+Uganda	1.1	2.0	Q1036	142
+Ukraine	1.1	1.0	Q212	143
+United Arab Emirates	0.5	0.6	Q878	144
+United Kingdom	1.1	1.3	Q145	145
+United States	1.0	0.8	Q30	146
+Uruguay	2.5	1.7	Q77	147
+Vietnam	3.5	3.1	Q881	148
+Zambia	0.6	0.7	Q953	149
+Zimbabwe	0.3	0.4	Q954	150

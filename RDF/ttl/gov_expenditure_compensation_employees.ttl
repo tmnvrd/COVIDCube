@@ -1,0 +1,2701 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:expenditureCompensationEmployees
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Compensation of employees (% of expense)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-expenditureCompensationEmployees
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:expenditureCompensationEmployees ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:expenditureCompensationEmployees-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-expenditureCompensationEmployees
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.13 | Central government expenditure"@en ;
+        rdfs:label       "gov_expenditure_compensation_employees"@en ;
+        dct:description  "Compensation of employees consists of all payments in cash, as well as in kind (such as food and housing), to employees in return for services rendered, and government contributions to social insurance schemes such as social security and pensions that provide benefits to employees."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.13> ;
+        dct:title        "Government Expenditure: Compensation of employees"@en ;
+        qb:structure     c19-structure:dsd-expenditureCompensationEmployees .
+
+c19:expenditureCompensationEmployees-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                43.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                48.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                44.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                17.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                9.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                56.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                9.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                52.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                7.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                59.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                29.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                43.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                7.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                17.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                60.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                26.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                9.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                7.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                13.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                52.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                56.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureCompensationEmployees
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                52.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                26.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                13.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                8.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                9.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                52.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                13.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                17.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                54.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                8.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                53.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                13.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                54.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                50.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                9.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                7.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                43.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                54.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureCompensationEmployees-o1130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureCompensationEmployees
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureCompensationEmployees ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

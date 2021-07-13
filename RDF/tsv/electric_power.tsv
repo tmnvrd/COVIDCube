@@ -1,0 +1,140 @@
+Country	Consumptionpercapita	Transmissionanddistributionlosses	ID	id_row
+Albania	2309.4	23.7	Q222	0
+Algeria	1362.9	17.1	Q262	1
+Angola	312.2	11.3	Q916	2
+Argentina	3074.7	14.7	Q414	3
+Armenia	1961.6	12.0	Q399	4
+Australia	10071.4	4.8	Q408	5
+Austria	8355.8	5.3	Q40	6
+Azerbaijan	2202.4	13.6	Q227	7
+Bahrain	19597.0	3.9	Q398	8
+Bangladesh	320.2	11.4	Q902	9
+Belarus	3680.0	9.2	Q184	10
+Belgium	7709.1	5.4	Q31	11
+Bolivia	742.5	9.2	Q750	12
+Bosnia and Herzegovina	3446.8	8.2	Q225	13
+Botswana	1815.6	11.0	Q963	14
+Brazil	2620.0	15.8	Q155	15
+Brunei Darussalam	10291.2	6.4	Q921	16
+Bulgaria	4708.9	8.6	Q219	17
+Cambodia	271.4	23.4	Q424	18
+Cameroon	275.2	11.1	Q1009	19
+Canada	15588.5	8.7	Q16	20
+Chile	3879.7	6.7	Q298	21
+China	3927.0	5.5	Q148	22
+Colombia	1312.2	10.7	Q739	23
+Congo, Dem. Rep.	108.5	21.4	Q974	24
+Congo, Rep.	202.9	44.5	Q971	25
+Costa Rica	1942.5	10.8	Q800	26
+Cote d'Ivoire	274.7	14.3	Q1008	27
+Croatia	3714.4	13.1	Q224	28
+Cuba	1450.9	15.3	Q241	29
+Cyprus	3625.0	4.0	Q229	30
+Czech Republic	6258.9	4.5	Q213	31
+Denmark	5858.8	6.1	Q35	32
+Dominican Republic	1615.5	12.2	Q786	33
+Ecuador	1376.4	12.9	Q736	34
+Egypt, Arab Rep.	1683.2	11.0	Q79	35
+El Salvador	937.1	11.3	Q792	36
+Estonia	6732.4	6.8	Q191	37
+Ethiopia	69.2	18.7	Q115	38
+Finland	15250.0	4.1	Q33	39
+France	6939.9	6.3	Q142	40
+Gabon	1167.9	27.8	Q1000	41
+Georgia	2694.0	5.8	Q230	42
+Germany	7035.5	3.9	Q183	43
+Ghana	351.3	22.6	Q117	44
+Gibraltar	5693.1	3.0	Q1410	45
+Greece	5062.6	8.2	Q41	46
+Guatemala	601.2	9.5	Q774	47
+Haiti	39.1	60.1	Q790	48
+Honduras	619.8	34.9	Q783	49
+Hong Kong SAR, China	6083.3	12.5	Q8646	50
+Hungary	3966.0	12.4	Q28	51
+Iceland	53832.5	2.7	Q189	52
+India	804.5	19.3	Q668	53
+Indonesia	811.9	9.4	Q252	54
+Iran, Islamic Rep.	3022.1	12.6	Q794	55
+Iraq	1328.2	50.6	Q796	56
+Ireland	5672.1	7.9	Q27	57
+Israel	6600.9	2.9	Q801	58
+Italy	5002.4	7.0	Q38	59
+Jamaica	1050.7	26.7	Q766	60
+Japan	7819.7	4.3	Q17	61
+Jordan	1864.7	10.7	Q810	62
+Kazakhstan	5600.2	6.7	Q232	63
+Kenya	164.3	17.6	Q114	64
+Korea, Dem. Peopleâ€™s Rep.	601.7	15.8	Q423	65
+Korea, Rep.	10496.5	3.3	Q884	66
+Kosovo	2818.3	15.0	Q1246	67
+Kuwait	15590.6	11.7	Q817	68
+Kyrgyz Republic	1941.2	23.7	Q813	69
+Latvia	3507.4	9.0	Q211	70
+Lebanon	2588.3	10.5	Q822	71
+Libya	1811.1	69.7	Q1016	72
+Lithuania	3821.1	22.0	Q37	73
+Luxembourg	13914.7	6.3	Q32	74
+North Macedonia	3496.5	19.9	Q221	75
+Malaysia	4652.0	5.8	Q833	76
+Malta	4924.5	4.7	Q233	77
+Mauritius	2182.5	6.2	Q1027	78
+Mexico	2157.3	13.7	Q96	79
+Moldova	1725.6	21.5	Q217	80
+Mongolia	2006.4	14.8	Q711	81
+Montenegro	4612.3	17.6	Q236	82
+Morocco	904.4	14.7	Q1028	83
+Mozambique	478.9	14.7	Q1029	84
+Myanmar	215.3	20.5	Q836	85
+Namibia	1652.6	36.2	Q1030	86
+Nepal	146.5	32.2	Q837	87
+Netherlands	6712.8	4.8	Q55	88
+New Zealand	9026.3	6.5	Q664	89
+Nicaragua	568.3	20.8	Q811	90
+Niger	51.2	41.8	Q1032	91
+Nigeria	144.5	16.1	Q1033	92
+Norway	22999.9	6.1	Q20	93
+Oman	6445.6	10.9	Q842	94
+Pakistan	447.5	17.1	Q843	95
+Panama	2064.2	14.3	Q804	96
+Paraguay	1552.4	6.6	Q733	97
+Peru	1345.9	11.0	Q419	98
+Philippines	696.3	9.4	Q928	99
+Poland	3971.8	6.5	Q36	100
+Portugal	4662.6	10.0	Q45	101
+Qatar	14781.6	6.1	Q846	102
+Romania	2584.4	10.9	Q218	103
+Russian Federation	6602.7	10.0	Q159	104
+Saudi Arabia	9401.4	6.8	Q851	105
+Senegal	229.4	12.9	Q1041	106
+Serbia	4271.7	15.4	Q403	107
+Singapore	8844.7	2.0	Q334	108
+Slovak Republic	5137.1	2.5	Q214	109
+Slovenia	6728.0	4.8	Q215	110
+South Africa	4197.9	8.4	Q258	111
+South Sudan	43.6	5.7	Q958	112
+Spain	5356.0	9.6	Q29	113
+Sri Lanka	531.1	11.4	Q854	114
+Sudan	190.2	14.3	Q1049	115
+Suriname	3596.8	8.7	Q730	116
+Sweden	13480.1	4.8	Q34	117
+Switzerland	7520.2	6.7	Q39	118
+Syrian Arab Republic	974.3	15.9	Q858	119
+Tajikistan	1499.5	17.0	Q863	120
+Tanzania	103.7	17.7	Q924	121
+Thailand	2538.8	6.1	Q869	122
+Togo	154.7	71.0	Q945	123
+Trinidad and Tobago	7092.9	2.3	Q754	124
+Tunisia	1454.6	14.8	Q948	125
+Turkey	2847.1	14.8	Q43	126
+Turkmenistan	2678.8	12.5	Q874	127
+Ukraine	3418.6	10.8	Q212	128
+United Arab Emirates	11088.4	6.8	Q878	129
+United Kingdom	5130.4	8.4	Q145	130
+United States	12997.4	5.9	Q30	131
+Uruguay	3085.2	9.6	Q77	132
+Uzbekistan	1645.4	8.8	Q265	133
+Venezuela, RB	2718.9	36.0	Q717	134
+Vietnam	1423.7	9.3	Q881	135
+Yemen, Rep.	219.8	25.8	Q805	136
+Zambia	717.3	15.0	Q953	137
+Zimbabwe	609.1	16.4	Q954	138

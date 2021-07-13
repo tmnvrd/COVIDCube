@@ -1,0 +1,4113 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2019
+        a                  time:Interval ;
+        rdfs:label         "2019" ;
+        time:hasBeginning  "2019"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-measure:grossNationalIncomePerCapita
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Gross national income per capita"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:grossNationalIncome
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Gross national income"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-grossNationalIncome
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:grossNationalIncomePerCapita , c19-measure:grossNationalIncome ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier , sdmx-attribute:currency ] .
+
+c19:dataset-grossNationalIncome
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.1 | Size of the economy"@en ;
+        rdfs:label       "grossNationalIncome"@en ;
+        dct:description  " GNI (formerly GNP) is the sum of value added by all resident producers plus any product taxes (less subsidies) not included in the valuation of output plus net receipts of primary income (compensation of employees and property income) from abroad. Data are in current U.S. dollars. GNI, calculated in national currency, is usually converted to U.S. dollars at official exchange rates for comparisons across economies, although an alternative rate is used when the official exchange rate is judged to diverge by an exceptionally large margin from the rate actually applied in international transactions. To smooth fluctuations in prices and exchange rates, a special Atlas method of conversion is used by the World Bank. This applies a conversion factor that averages the exchange rate for a given year and the two preceding years, adjusted for differences in rates of inflation between the country, and through 2000, the G-5 countries (France, Germany, Japan, the United Kingdom, and the United States). From 2001, these countries include the Euro area, Japan, the United Kingdom, and the United States."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.1> ;
+        dct:title        "Gross national income"@en ;
+        qb:structure     c19-structure:dsd-grossNationalIncome .
+
+c19:grossNationalIncome-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                20.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                14.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                170.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                97.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                503.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                13.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1392.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                455.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                44.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                12.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                36.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                316.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                5.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                59.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                543.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                14.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                40.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                20.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                17.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1926.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                14.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                65.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                16.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                3.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                24.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                38.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1742.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                3.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                11.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                284.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                14554.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                381.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                49.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                327.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                45.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                9.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                59.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                58.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                60.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25279 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                3.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                24.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                234.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                367.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                3.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                86.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                105.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                270.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                25.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                8.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                30.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                4.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                95.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                5.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                273.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2843.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                15.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                17.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                4033.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                67.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                217.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                76.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                12.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                4.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                8.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                23.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                157.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                26.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2910.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1097.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                437.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                225.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                307.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q9676 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                6.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                391.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2077.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                15.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                5263.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                43.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                163.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                91.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1743.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                8.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                141.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                8.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                18.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                33.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                52.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                51.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                52.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                45.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                14.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                7.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                358.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                5.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                17.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                13.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                7.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                16.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1203.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                10.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                12.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                5.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                118.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                14.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                75.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                12.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q697 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                31.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                922.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                209.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                12.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                13.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                407.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                12.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                441.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                76.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                331.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                63.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                24.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                38.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                219.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                415.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                577.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                237.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                70.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                179.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                244.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1651.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                10.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                782.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                23.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                48.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                3.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                339.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                105.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                53.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                353.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1430.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                87.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                25.5 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                3.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                574.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                733.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                9.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                60.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                505.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                5.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                23.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                39.3 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                801.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                39.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q18221 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                0.1 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                34.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                141.6 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                424.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                2831.8 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                21584.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                56.2 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                60.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                1.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                244.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                17.0 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                26.7 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                25.9 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o0191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:grossNationalIncome
+                20.4 ;
+        qb:dataSet                     c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:grossNationalIncome-o10
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q889 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                540.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o11
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q222 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.24 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o12
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q262 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.97 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o13
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q916 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.05 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o14
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q781 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                16.66 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o15
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q414 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                11.2 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o16
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q399 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.68 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o17
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q21203 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                26.81 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o18
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q408 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                54.91 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o19
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q40 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                51.3 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o110
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q227 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.48 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o111
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q778 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                31.78 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o112
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q398 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                22.11 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o113
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q902 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.94 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o114
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q244 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                17.38 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o115
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q184 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.28 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o116
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q31 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                47.35 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o117
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q242 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.45 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o118
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q962 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.25 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o119
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q917 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.97 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o120
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q750 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.53 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o121
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q225 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.15 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o122
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q963 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.66 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o123
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q155 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.13 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o124
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q921 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                32.23 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o125
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q219 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.41 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o126
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q965 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                790.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o127
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q967 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                280.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o128
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q424 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.48 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o129
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1009 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.5 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o130
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q16 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                46.37 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o131
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1011 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.63 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o132
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q5785 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                47.14 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o133
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q929 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                520.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o134
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q657 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                700.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o135
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q298 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                15.01 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o136
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q148 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                10.41 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o137
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q8646 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                50.84 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o138
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q14773 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                78.64 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o139
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q739 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.51 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o140
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q970 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.42 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o141
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q974 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                520.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o142
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q971 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.75 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o143
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q800 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                11.7 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o144
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1008 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.29 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o145
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q224 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                14.91 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o146
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q25279 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                19.61 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o147
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q229 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                27.71 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o148
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q213 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                22.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o149
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q35 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                63.24 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o150
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q977 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.54 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o151
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q784 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                8.09 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o152
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q786 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                8.09 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o153
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q736 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.08 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o154
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q79 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.69 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o155
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q792 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o156
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q983 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.46 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o157
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q191 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                23.22 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o158
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1050 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.59 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o159
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q115 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                850.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o160
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q712 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.86 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o161
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q33 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                49.58 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o162
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q142 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                42.4 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o163
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1000 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.21 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o164
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1005 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                740.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o165
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q230 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.74 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o166
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q183 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                48.52 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o167
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q117 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.22 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o168
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q41 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                20.32 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o169
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q769 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.98 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o170
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q774 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.61 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o171
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1006 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                950.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o172
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1007 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                820.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o173
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q734 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.18 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o174
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q790 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                790.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o175
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q783 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.39 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o176
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q28 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                16.14 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o177
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q189 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                72.85 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o178
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q668 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.13 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o179
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q252 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.05 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o180
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q794 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.42 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o181
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q796 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.74 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o182
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q27 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                62.21 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o183
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q9676 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                75.34 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o184
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q801 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                43.29 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o185
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q38 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                34.46 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o186
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q766 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.25 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o187
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q17 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                41.69 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o188
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q810 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.3 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o189
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q232 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                8.81 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o190
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q114 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.75 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o191
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q710 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.35 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o192
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q884 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                33.72 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o193
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1246 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.64 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o194
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q817 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                34.29 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o195
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q813 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.24 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o196
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q819 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.57 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o197
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q211 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                17.73 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o198
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q822 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.6 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o199
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1013 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.36 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1100
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1014 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                580.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1101
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1016 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.64 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1102
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q37 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                18.99 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1103
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q32 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                73.91 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1104
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1019 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                520.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1105
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1020 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                380.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1106
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q833 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                11.2 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1107
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q826 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.65 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1108
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q912 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                880.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1109
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q233 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                27.29 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1110
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q709 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.86 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1111
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1025 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.66 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1112
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1027 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                12.74 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1113
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q96 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.43 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1114
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q702 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.4 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1115
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q217 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.93 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1116
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q711 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.78 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1117
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q236 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.01 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1118
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1028 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.19 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1119
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1029 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                480.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1120
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q836 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.39 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1121
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1030 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.06 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1122
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q697 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                14.23 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1123
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q837 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.09 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1124
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q55 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                53.2 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1125
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q664 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                42.67 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1126
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q811 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.91 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1127
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1032 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                560.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1128
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1033 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.03 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1129
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q221 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.91 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1130
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q20 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                82.5 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1131
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q842 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                15.33 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1132
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q843 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.53 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1133
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q695 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                17.28 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1134
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q804 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                14.95 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1135
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q691 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.78 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1136
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q733 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.51 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1137
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q419 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.74 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1138
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q928 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.85 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1139
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q36 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                15.2 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1140
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q45 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                23.08 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1141
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1183 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                21.97 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1142
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q846 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                63.41 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1143
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q218 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                12.63 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1144
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q159 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                11.26 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1145
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1037 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                820.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1146
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q683 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.18 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1147
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1039 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.96 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1148
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q851 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                22.85 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1149
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1041 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.45 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1150
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q403 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.02 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1151
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1042 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                16.87 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1152
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1044 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                500.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1153
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q334 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                59.59 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1154
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q214 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                19.32 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1155
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q215 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                25.75 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1156
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q685 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.05 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1157
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q258 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.04 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1158
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q29 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                30.39 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1159
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q854 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.02 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1160
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q763 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                19.03 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1161
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q760 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                11.02 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1162
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q757 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.46 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1163
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1049 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                590.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1164
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q730 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.54 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1165
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q34 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                55.84 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1166
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q39 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                85.5 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1167
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q863 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.03 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1168
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q924 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.08 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1169
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q869 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                7.26 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1170
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q574 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.89 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1171
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q945 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                690.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1172
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q678 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                4.3 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1173
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q754 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                16.89 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1174
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q948 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.36 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1175
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q43 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                9.61 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1176
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q874 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                6.74 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1177
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q18221 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                26.74 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1178
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q672 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                5.62 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1179
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1036 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                780.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1180
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q212 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.37 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1181
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q878 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                43.47 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1182
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q145 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                42.37 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1183
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q30 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                65.76 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1184
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q77 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                16.23 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1185
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q265 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.8 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1186
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q686 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.17 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1187
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q881 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                2.54 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1188
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q407199 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                3.71 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1189
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q805 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                940.0 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1190
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q953 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.45 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .
+
+c19:grossNationalIncome-o1191
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q954 ;
+        c19-dimension:refPeriod  c19-interval:Year2019 ;
+        c19-measure:grossNationalIncomePerCapita
+                1.39 ;
+        qb:dataSet               c19:dataset-grossNationalIncome ;
+        sdmx-attribute:currency  wd:Q4917 ;
+        sdmx-attribute:decimals  1 .

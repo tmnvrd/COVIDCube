@@ -1,0 +1,4192 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-measure:contributingFamilyWorkers
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Contributing Family Workers"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-contributingFamilyWorkers
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  sdmx-dimension:sex ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:contributingFamilyWorkers ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:contributingFamilyWorkers-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:dataset-contributingFamilyWorkers
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.2 | Global goals: ending poverty and improving lives"@en ;
+        rdfs:label       "contributing_family_workers"@en ;
+        dct:description  "Contributing family workers are those workers who hold 'self-employment jobs' as own-account workers in a market-oriented establishment operated by a related person living in the same household"@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.2> ;
+        dct:title        "Contributing family workers"@en ;
+        qb:structure     c19-structure:dsd-contributingFamilyWorkers .
+
+c19:contributingFamilyWorkers-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                20.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                25.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                22.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                9.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                30.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                23.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                28.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q42314 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                9.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                10.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                27.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                23.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                15.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                10.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                22.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                16.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                16.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                26.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                20.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                23.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                24.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                16.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                18.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                9.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                25.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                22.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                19.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                43.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                35.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                20.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                21.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                19.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                17.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                25.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                15.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                9.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                10.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                16.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-M .
+
+c19:contributingFamilyWorkers-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                67.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                37.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                10.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                43.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                29.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                19.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                48.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                30.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                52.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                35.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                16.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                20.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                47.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                44.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q42314 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                21.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                17.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                31.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                15.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                21.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                25.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                50.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                56.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                29.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                28.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                13.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                35.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                31.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                28.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                30.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                24.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                18.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                75.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                36.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                10.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                58.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                27.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                14.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                4.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                44.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                28.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                35.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                59.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                9.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                44.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                20.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                10.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                51.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                49.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                21.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                42.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                27.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                6.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                3.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                65.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                51.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                58.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                18.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                39.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                7.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                29.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                47.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                22.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                34.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                28.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                17.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                23.5 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                5.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                18.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.3 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                1.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                12.7 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                9.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                2.4 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                20.6 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                0.2 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                8.8 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                40.1 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                51.9 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:contributingFamilyWorkers-o1186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:contributingFamilyWorkers
+                11.0 ;
+        qb:dataSet                     c19:dataset-contributingFamilyWorkers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .

@@ -1,0 +1,822 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-measure:population
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "population"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-interval:Year2014
+        a                  time:Interval ;
+        rdfs:label         "2014" ;
+        time:hasBeginning  "2014"^^xsd:gYear ;
+        time:hasEnd        "2014"^^xsd:gYear .
+
+c19-structure:dsd-populationLivingSlums
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:population ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:populationLivingSlums-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         62.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-populationLivingSlums
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.3 | Global goals: promoting sustainability"@en ;
+        rdfs:label       "urban_population_slums"@en ;
+        dct:description  "Population living in slums is the proportion of the urban population living in slum households. A slum household is defined as a group of individuals living under the same roof lacking one or more of the following conditions: access to improved water, access to improved sanitation, sufficient living area, housing durability, and security of tenure, as adopted in the Millennium Development Goal Target 7.D. The successor, the Sustainable Development Goal 11.1.1, considers inadequate housing (housing affordability) to complement the above definition of slums/informal settlements"@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.3> ;
+        dct:title        "Urban population living in slums"@en ;
+        qb:structure     c19-structure:dsd-populationLivingSlums .
+
+c19:populationLivingSlums-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         55.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         16.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         14.4 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         55.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         10.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         61.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         43.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         22.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         65.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         57.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         55.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         37.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         93.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         88.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         25.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         13.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         69.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         74.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         46.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         5.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         56.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         65.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         12.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         36.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         10.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         66.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         32.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         73.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         37.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         34.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         37.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         34.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         43.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         82.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         33.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         74.4 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         27.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         24.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         21.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         47.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         12.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         56.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         31.4 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         50.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         65.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         77.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         66.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         56.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         79.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         11.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         42.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         13.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         80.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         41.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         33.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         54.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         70.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         50.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         45.5 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         25.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         34.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         38.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         53.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         86.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         39.4 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         75.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         73.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         23.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         95.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         91.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         7.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         19.3 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         50.7 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         25.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         51.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         8.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         11.9 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         53.6 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         27.2 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         60.8 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         54.0 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:populationLivingSlums-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2014 ;
+        c19-measure:population         25.1 ;
+        qb:dataSet                     c19:dataset-populationLivingSlums ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

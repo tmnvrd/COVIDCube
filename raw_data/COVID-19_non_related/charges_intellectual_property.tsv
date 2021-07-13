@@ -1,0 +1,227 @@
+Country	Receipts	Payments
+Afghanistan	0	2
+Albania	15	26
+Algeria	0	147
+American Samoa	..	..
+Andorra	..	..
+Angola	8	247
+Antigua and Barbuda	..	5
+Argentina	316	2091
+Armenia	..	..
+Aruba	..	14
+Australia	974	3620
+Austria	1398	1997
+Azerbaijan	..	..
+Bahamas, The	..	10
+Bahrain	..	..
+Bangladesh	0	40
+Barbados	14	13
+Belarus	66	179
+Belgium	4364	3734
+Belize	..	8
+Benin	0	0
+Bermuda	0	7
+Bhutan	0	0
+Bolivia	10	81
+Bosnia and Herzegovina	27	8
+Botswana	1	117
+Brazil	825	5124
+Brunei Darussalam	..	20
+Bulgaria	89	209
+Burkina Faso	1	0
+Burundi	0	0
+Cambodia	2	28
+Cameroon	9	2
+Canada	5508	11807
+Cabo Verde	0	11
+Cayman Islands	9	68
+Central African Republic	..	..
+Chad	..	..
+Channel Islands	..	..
+Chile	46	1783
+China	5561	35783
+Hong Kong SAR, China	743	1993
+Macao SAR, China	..	288
+Colombia	106	524
+Comoros	2	0
+Congo, Dem. Rep.	..	..
+Congo, Rep.	2	4
+Costa Rica	6	565
+Cote d'Ivoire	2	10
+Croatia	68	311
+Cuba	..	..
+Curacao	4	27
+Cyprus	..	..
+Czech Republic	496	1491
+Denmark	3328	1563
+Djibouti	..	..
+Dominica	0	1
+Dominican Republic	..	158
+Ecuador	2	181
+Egypt, Arab Rep.	1	298
+El Salvador	8	89
+Equatorial Guinea	..	..
+Eritrea	..	..
+Estonia	16	65
+Ethiopia	8	27
+Faroe Islands	..	..
+Fiji	1	7
+Finland	3456	1066
+France	16819	15938
+French Polynesia	0	3
+Gabon	..	..
+Gambia, The	..	..
+Georgia	0	27
+Germany	36317	16061
+Ghana	..	..
+Greece	96	383
+Greenland	..	..
+Grenada	0	9
+Guam	..	..
+Guatemala	16	210
+Guinea	..	..
+Guinea-Bissau	0	0
+Guyana	0	5
+Haiti	25	1
+Honduras	..	115
+Hungary	1804	1592
+Iceland	242	143
+India	785	7906
+Indonesia	61	1470
+Iran, Islamic Rep.	..	..
+Iraq	0	8
+Ireland	13896	85119
+Isle of Man	..	..
+Israel	1273	1382
+Italy	4942	5141
+Jamaica	5	51
+Japan	45571	21994
+Jordan	22	24
+Kazakhstan	1	168
+Kenya	69	207
+Kiribati	..	..
+Korea, Dem. Peopleâ€™s Rep.	..	..
+Korea, Rep.	7749	9812
+Kosovo	0	7
+Kuwait	..	..
+Kyrgyz Republic	1	6
+Lao PDR	..	..
+Latvia	11	65
+Lebanon	18	16
+Lesotho	0	3
+Liberia	..	..
+Libya	..	..
+Liechtenstein	..	..
+Lithuania	31	62
+Luxembourg	2513	4927
+North Macedonia	12	189
+Madagascar	4	17
+Malawi	..	3
+Malaysia	267	2006
+Maldives	..	..
+Mali	0	..
+Malta	618	847
+Marshall Islands	..	..
+Mauritania	0	1
+Mauritius	1	14
+Mexico	7	302
+Micronesia, Fed. Sts.	..	..
+Moldova	3	26
+Monaco	..	..
+Mongolia	1	16
+Montenegro	0	6
+Morocco	5	167
+Mozambique	..	3
+Myanmar	3	47
+Namibia	1	1
+Nepal	..	..
+Netherlands	35023	41937
+New Caledonia	0	2
+New Zealand	540	913
+Nicaragua	..	2
+Niger	0	0
+Nigeria	..	253
+Northern Mariana Islands	..	..
+Norway	515	769
+Oman	..	..
+Pakistan	7	189
+Palau	..	..
+Panama	22	39
+Papua New Guinea	..	..
+Paraguay	..	19
+Peru	26	349
+Philippines	44	917
+Poland	614	3639
+Portugal	121	884
+Puerto Rico	..	..
+Qatar	..	..
+Romania	101	962
+Russian Federation	876	6288
+Rwanda	..	..
+Samoa	1	1
+San Marino	..	..
+Sao Tome and Principe	..	0
+Saudi Arabia	..	..
+Senegal	5	9
+Serbia	58	290
+Seychelles	1	3
+Sierra Leone	6	1
+Singapore	8366	16812
+Sint Maarten (Dutch part)	0	1
+Slovak Republic	56	749
+Slovenia	73	268
+Solomon Islands	1	7
+Somalia	..	..
+South Africa	121	1817
+South Sudan	24	1
+Spain	2527	6645
+Sri Lanka	..	..
+St. Kitts and Nevis	..	2
+St. Lucia	..	9
+St. Martin (French part)	..	..
+St. Vincent and the Grenadines	..	3
+Sudan	0	..
+Suriname	0	9
+Eswatini	1	5
+Sweden	7665	4889
+Switzerland	25850	13645
+Syrian Arab Republic	..	..
+Tajikistan	0	0
+Tanzania	0	6
+Thailand	163	5274
+Timor-Leste	..	0
+Togo	..	2
+Tonga	0	0
+Trinidad and Tobago	1	69
+Tunisia	24	18
+Turkey	98	1879
+Turkmenistan	..	..
+Turks and Caicos Islands	..	..
+Tuvalu	..	..
+Uganda	10	11
+Ukraine	92	592
+United Arab Emirates	..	..
+United Kingdom	26253	14480
+United States	128748	56117
+Uruguay	45	124
+Uzbekistan	0	50
+Vanuatu	1	1
+Venezuela, RB	..	258
+Vietnam	..	..
+Virgin Islands (U.S.)	..	..
+West Bank and Gaza	0	1
+Yemen, Rep.	3	205
+Zambia	..	35
+Zimbabwe	2	4
+World	398639	432876
+East Asia & Pacific	70050	101007
+Europe & Central Asia	189931	238476
+Latin America & Caribbean	1445	11965
+Middle East & North Africa	1960	2760
+North America	134256	67931
+South Asia	792	8137
+Sub-Saharan Africa	204	2599
+Low income	54	66
+Lower middle income	1012	11179
+Upper middle income	8769	65416
+High income	388804	356215

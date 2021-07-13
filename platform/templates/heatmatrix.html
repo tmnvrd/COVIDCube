@@ -1,0 +1,169 @@
+
+
+
+<head>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-heatmap.min.js"></script>
+    <style>
+      html, body, #container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .card-body{
+        height: 3000; 
+        width:auto; 
+        }
+    </style>
+</head>
+
+{% extends "layout.html" %}  
+
+
+{% block heatmatrix %}  
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-6 card">
+            <div class="card-header">
+                <div class="card-header-title">
+                    <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
+                    correlations
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="container"></div>
+                <script>
+                    function Correlation(covid, variable, corr) {
+                            this.covid = covid
+                            this.variable = variable
+                            this.corr = corr
+                        }
+
+                    function var_covid(df, name, covid) {
+                        //var name = data_json.name
+                        //var df = data_json.data
+                        console.log('-----Z')
+                        console.log('VAR COVID')
+                        console.log(name)
+                        console.log(df)
+                        console.log('-----Z')
+                        //covid = new Array();
+                        covid.push(new Correlation("CSSE: Confirmed Global", name, 0))
+                        covid.push(new Correlation("CSSE: Deaths Global", name, 0))
+                        covid.push(new Correlation("CSSE: Recovered Global", name, 0))
+
+                        c = 0
+
+                        for (i = covid.length-3; i < covid.length; i++) {
+                            var dict = {}
+                            dict['x'] = covid[i].covid
+                            dict['y'] = covid[i].variable
+                            dict['heat'] = df[c]
+                            c += 1
+                            covid[i] = dict
+                        }
+                        console.log('THIS IS COVID')
+                        console.log(covid)
+                        return covid;   // The function returns the product of p1 and p2
+                    }
+
+                    function data_var_covid (corr){
+                        covid = new Array();
+                        under_five_mortality_rate = var_covid(corr.under_five_mortality_rate, covid)
+                        accessElectricity = var_covid(corr.accessElectricity, covid)
+                        accountOwnership = var_covid(corr.accountOwnership, covid)
+                        adjustedNetSavings = var_covid(corr.adjustedNetSavings, covid)
+                        carbonDioxideEmissions = var_covid(corr.carbonDioxideEmissions, covid)
+                        contributingFamilyWorkers = var_covid(corr.contributingFamilyWorkers, covid)
+                        peopleUsingDrinkingWaterServices = var_covid(corr.peopleUsingDrinkingWaterServices, covid)
+                        gdpOnResearchDevelopment = var_covid(corr.gdpOnResearchDevelopment, covid)
+                        data = gdpOnResearchDevelopment
+                        console.log('DATA VAR COVID')
+                        console.log(data)
+                        console.log('22222222222222222222222')
+                        return data
+                    }
+
+                    function data_var_covid2 (corr, names_list){
+                        covid = new Array();
+                        console.log('FUCNTION2-1')
+                        console.log(names_list[0])
+                        console.log(corr[names_list[0]])
+                        for(var i = 0; i < names_list.length; i++) {
+                            console.log('dataset')
+                            console.log(i)
+                            var obj = corr[names_list[i]];
+                            var name = obj[0];
+                            var data = obj[1];
+                            console.log('name')
+                            console.log(name);
+                            console.log('data')
+                            console.log(data)
+                            covid = var_covid(data, name, covid)
+                            
+                        }
+                        return covid
+                    }
+
+                    function names_data(corr){
+                        covid = new Array();
+                        for (var i = 0; i < corr.length; i++) {
+                            data = var_covid(corr[i], covid)
+                        }
+                        return data
+
+                    }
+
+                    anychart.onDocumentReady(function () {
+                    // create the data 
+                        //var data = [
+                        //{ x: "CSSE: Confirmed Global", y: "Under five mortality rate", heat: {{corr}} },
+                        //{ x: "CSSE: Deaths Global", y: "Under five mortality rate", heat: {{corr2}} },
+                        //{ x: "CSSE: Recovered Global", y: "Under five mortality rate", heat: 1 },
+                        //{ x: "ECDC Cumulative", y: "Under five mortality rate", heat: 0.731 }                    
+                        //];  
+
+                        console.log('3333333333333333333333333333')
+
+                         
+                        var correlations =  JSON.parse({{ data | tojson }}) ;     
+                        var names =  JSON.parse({{ names | tojson }}) ;   
+                        
+                        console.log(correlations)
+                        console.log('3333333333333333333333333333')
+                        console.log(names)
+                        console.log('3333333333333333333333333333')
+                        
+
+                        var data = data_var_covid2(correlations, names);
+                        // create the chart and set the data
+                        chart = anychart.heatMap(data);
+
+                        // set the chart title
+                        chart.title("Pearson correlation coefficient");
+
+                        // create and configure the color scale.
+                        var customColorScale = anychart.scales.linearColor();
+                        customColorScale.colors(["#ACE8D4", "#00726A"]);
+
+                        // set the color scale as the color scale of the chart
+                        chart.colorScale(customColorScale);
+
+                        // set the container id
+                        chart.container("container");
+
+                        // initiate drawing the chart
+                        chart.draw();
+
+                        });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock%}

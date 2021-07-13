@@ -1,0 +1,195 @@
+Country	Female	Male	ID	id_row
+Aruba	52.55	47.45	Q21203	0
+Afghanistan	48.66	51.34	Q889	1
+Angola	50.53	49.47	Q916	2
+Albania	49.09	50.91	Q222	3
+United Arab Emirates	30.74	69.26	Q878	4
+Argentina	51.23	48.77	Q414	5
+Armenia	52.96	47.04	Q399	6
+Antigua and Barbuda	51.76	48.24	Q781	7
+Australia	50.2	49.8	Q408	8
+Austria	50.76	49.24	Q40	9
+Azerbaijan	50.08	49.92	Q227	10
+Burundi	50.4	49.6	Q967	11
+Belgium	50.5	49.5	Q31	12
+Benin	50.08	49.92	Q962	13
+Burkina Faso	50.06	49.94	Q965	14
+Bangladesh	49.42	50.58	Q902	15
+Bulgaria	51.43	48.57	Q219	16
+Bahrain	35.73	64.27	Q398	17
+Bahamas, The	51.42	48.58	Q778	18
+Bosnia and Herzegovina	51.02	48.98	Q225	19
+Belarus	53.45	46.55	Q184	20
+Belize	50.23	49.77	Q242	21
+Bolivia	49.8	50.2	Q750	22
+Brazil	50.85	49.15	Q155	23
+Barbados	51.64	48.36	Q244	24
+Brunei Darussalam	48.08	51.92	Q921	25
+Bhutan	46.92	53.08	Q917	26
+Botswana	51.64	48.36	Q963	27
+Central African Republic	50.43	49.57	Q929	28
+Canada	50.38	49.62	Q16	29
+Switzerland	50.41	49.59	Q39	30
+Channel Islands	50.51	49.49	Q42314	31
+Chile	50.71	49.29	Q298	32
+China	48.69	51.31	Q148	33
+Cote d'Ivoire	49.55	50.45	Q1008	34
+Cameroon	49.99	50.01	Q1009	35
+Congo, Dem. Rep.	50.09	49.91	Q974	36
+Congo, Rep.	50.05	49.95	Q971	37
+Colombia	50.91	49.09	Q739	38
+Comoros	49.56	50.44	Q970	39
+Cabo Verde	49.81	50.19	Q1011	40
+Costa Rica	50.02	49.98	Q800	41
+Cuba	50.34	49.66	Q241	42
+Curacao	54.06	45.94	Q25279	43
+Cyprus	50.0	50.0	Q229	44
+Czech Republic	50.79	49.21	Q213	45
+Germany	50.61	49.39	Q183	46
+Djibouti	47.41	52.59	Q977	47
+Denmark	50.28	49.72	Q35	48
+Dominican Republic	50.03	49.97	Q786	49
+Algeria	49.48	50.52	Q262	50
+Ecuador	49.98	50.02	Q736	51
+Egypt, Arab Rep.	49.47	50.53	Q79	52
+Eritrea	49.88	50.12	Q986	53
+Spain	50.87	49.13	Q29	54
+Estonia	52.73	47.27	Q191	55
+Ethiopia	49.97	50.03	Q115	56
+Finland	50.7	49.3	Q33	57
+Fiji	49.33	50.67	Q712	58
+France	51.6	48.4	Q142	59
+Micronesia, Fed. Sts.	49.16	50.84	Q702	60
+Gabon	49.08	50.92	Q1000	61
+United Kingdom	50.61	49.39	Q145	62
+Georgia	52.32	47.68	Q230	63
+Ghana	49.32	50.68	Q117	64
+Guinea	51.72	48.28	Q1006	65
+Gambia, The	50.4	49.6	Q1005	66
+Guinea-Bissau	51.12	48.88	Q1007	67
+Equatorial Guinea	44.41	55.59	Q983	68
+Greece	50.92	49.08	Q41	69
+Grenada	49.62	50.38	Q769	70
+Guatemala	50.74	49.26	Q774	71
+Guam	49.53	50.47	Q16635	72
+Guyana	49.76	50.24	Q734	73
+Hong Kong SAR, China	54.03	45.97	Q8646	74
+Honduras	50.04	49.96	Q783	75
+Croatia	51.82	48.18	Q224	76
+Haiti	50.66	49.34	Q790	77
+Hungary	52.42	47.58	Q28	78
+Indonesia	49.65	50.35	Q252	79
+India	48.03	51.97	Q668	80
+Ireland	50.39	49.61	Q27	81
+Iran, Islamic Rep.	49.48	50.52	Q794	82
+Iraq	49.4	50.6	Q796	83
+Iceland	49.79	50.21	Q189	84
+Israel	50.26	49.74	Q801	85
+Italy	51.34	48.66	Q38	86
+Jamaica	50.35	49.65	Q766	87
+Jordan	49.38	50.62	Q810	88
+Japan	51.17	48.83	Q17	89
+Kazakhstan	51.49	48.51	Q232	90
+Kenya	50.31	49.69	Q114	91
+Kyrgyz Republic	50.53	49.47	Q813	92
+Cambodia	51.19	48.81	Q424	93
+Kiribati	50.83	49.17	Q710	94
+Korea, Rep.	49.93	50.07	Q884	95
+Kuwait	39.08	60.92	Q817	96
+Lao PDR	49.8	50.2	Q819	97
+Lebanon	49.69	50.31	Q822	98
+Liberia	49.75	50.25	Q1014	99
+Libya	49.5	50.5	Q1016	100
+St. Lucia	50.75	49.25	Q760	101
+Sri Lanka	52.01	47.99	Q854	102
+Lesotho	50.69	49.31	Q1013	103
+Lithuania	53.74	46.26	Q37	104
+Luxembourg	49.47	50.53	Q32	105
+Latvia	53.96	46.04	Q211	106
+Macao SAR, China	51.95	48.05	Q14773	107
+Morocco	50.39	49.61	Q1028	108
+Moldova	52.07	47.93	Q217	109
+Madagascar	50.12	49.88	Q1019	110
+Maldives	36.7	63.3	Q826	111
+Mexico	51.09	48.91	Q96	112
+North Macedonia	49.97	50.03	Q221	113
+Mali	49.92	50.08	Q912	114
+Malta	49.87	50.13	Q233	115
+Myanmar	51.81	48.19	Q836	116
+Montenegro	50.56	49.44	Q236	117
+Mongolia	50.7	49.3	Q711	118
+Mozambique	51.44	48.56	Q1029	119
+Mauritania	49.8	50.2	Q1025	120
+Mauritius	50.62	49.38	Q1027	121
+Malawi	50.69	49.31	Q1020	122
+Malaysia	48.6	51.4	Q833	123
+Namibia	51.54	48.46	Q1030	124
+New Caledonia	49.7	50.3	Q33788	125
+Niger	49.75	50.25	Q1032	126
+Nigeria	49.33	50.67	Q1033	127
+Nicaragua	50.71	49.29	Q811	128
+Netherlands	50.2	49.8	Q55	129
+Norway	49.49	50.51	Q20	130
+Nepal	54.4	45.6	Q837	131
+New Zealand	50.84	49.16	Q664	132
+Oman	33.98	66.02	Q842	133
+Pakistan	48.54	51.46	Q843	134
+Panama	49.92	50.08	Q804	135
+Peru	50.33	49.67	Q419	136
+Philippines	49.76	50.24	Q928	137
+Papua New Guinea	48.95	51.05	Q691	138
+Poland	51.54	48.46	Q36	139
+Puerto Rico	52.55	47.45	Q1183	140
+Korea, Dem. People’s Rep.	51.09	48.91	Q423	141
+Portugal	52.7	47.3	Q45	142
+Paraguay	49.17	50.83	Q733	143
+West Bank and Gaza	49.28	50.72	Q407199	144
+French Polynesia	49.34	50.66	Q30971	145
+Qatar	24.67	75.33	Q846	146
+Romania	51.36	48.64	Q218	147
+Russian Federation	53.66	46.34	Q159	148
+Rwanda	50.85	49.15	Q1037	149
+Saudi Arabia	42.27	57.73	Q851	150
+Sudan	50.04	49.96	Q1049	151
+Senegal	51.24	48.76	Q1041	152
+Singapore	47.66	52.34	Q334	153
+Solomon Islands	49.15	50.85	Q685	154
+Sierra Leone	50.11	49.89	Q1044	155
+El Salvador	53.15	46.85	Q792	156
+Somalia	50.14	49.86	Q1045	157
+Serbia	51.01	48.99	Q403	158
+South Sudan	49.95	50.05	Q958	159
+Sao Tome and Principe	49.96	50.04	Q1039	160
+Suriname	49.73	50.27	Q730	161
+Slovak Republic	51.32	48.68	Q214	162
+Slovenia	50.22	49.78	Q215	163
+Sweden	49.93	50.07	Q34	164
+Eswatini	50.98	49.02	Q1050	165
+Seychelles	48.67	51.33	Q1042	166
+Syrian Arab Republic	49.89	50.11	Q858	167
+Chad	50.08	49.92	Q657	168
+Togo	50.25	49.75	Q945	169
+Thailand	51.3	48.7	Q869	170
+Tajikistan	49.6	50.4	Q863	171
+Turkmenistan	50.76	49.24	Q874	172
+Timor-Leste	49.46	50.54	Q574	173
+Tonga	49.96	50.04	Q678	174
+Trinidad and Tobago	50.61	49.39	Q754	175
+Tunisia	50.42	49.58	Q948	176
+Turkey	50.65	49.35	Q43	177
+Tanzania	50.04	49.96	Q924	178
+Uganda	50.74	49.26	Q1036	179
+Ukraine	53.68	46.32	Q212	180
+Uruguay	51.7	48.3	Q77	181
+United States	50.52	49.48	Q30	182
+Uzbekistan	50.12	49.88	Q265	183
+St. Vincent and the Grenadines	49.28	50.72	Q757	184
+Venezuela, RB	50.75	49.25	Q717	185
+Virgin Islands (U.S.)	52.47	47.53	Q11703	186
+Vietnam	50.08	49.92	Q881	187
+Vanuatu	49.3	50.7	Q686	188
+Samoa	48.25	51.75	Q683	189
+Yemen, Rep.	49.62	50.38	Q805	190
+South Africa	50.72	49.28	Q258	191
+Zambia	50.49	49.51	Q953	192
+Zimbabwe	52.32	47.68	Q954	193

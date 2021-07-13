@@ -1,0 +1,2165 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2019
+        a                  time:Interval ;
+        rdfs:label         "2019" ;
+        time:hasBeginning  "2019"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-interval:Age20-79
+        a                       c19-interval:PercentileInterval ;
+        rdfs:label              "20-79" ;
+        c19-interval:baseUnit   wd:Q577 ;
+        c19-interval:beginning  20 ;
+        c19-interval:end        79 .
+
+c19-measure:prevalenceDiabetes
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Prevalence Diabetes"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-prevalenceDiabetes
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:ageInterval ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:prevalenceDiabetes ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:prevalenceDiabetes-o00
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q889 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:dataset-prevalenceDiabetes
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 2.17 | Health risk factors and future challenges"@en ;
+        rdfs:label       "prevalence_diabetes"@en ;
+        dct:description  "Percentage of population prevalence diabetes (ages 20 - 79)"@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/2.17> ;
+        dct:title        "Prevalence of diabetes"@en ;
+        qb:structure     c19-structure:dsd-prevalenceDiabetes .
+
+c19:prevalenceDiabetes-o01
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q222 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o02
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q262 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o03
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q228 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o04
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q916 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o05
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q781 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o06
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q414 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o07
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q399 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o08
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q21203 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o09
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q408 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o010
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q40 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o011
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q227 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o012
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q778 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o013
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q398 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  15.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o014
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q902 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o015
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q244 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o016
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q184 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o017
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q31 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o018
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q242 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  17.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o019
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q962 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  1.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o020
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q23635 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o021
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q917 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o022
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q750 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o023
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q225 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o024
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q963 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o025
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q155 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o026
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q921 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o027
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q219 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o028
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q965 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o029
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q967 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o030
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1011 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o031
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q424 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o032
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1009 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o033
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q16 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o034
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q5785 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o035
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q929 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o036
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q657 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o037
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q42314 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o038
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q298 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o039
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q148 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o040
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q8646 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o041
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q14773 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o042
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q739 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o043
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q970 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o044
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q974 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o045
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q971 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o046
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q800 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o047
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1008 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o048
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q224 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o049
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q241 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o050
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q25279 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o051
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q229 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o052
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q213 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o053
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q35 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o054
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q977 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o055
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q784 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o056
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q786 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o057
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q736 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o058
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q79 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  17.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o059
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q792 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o060
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q983 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o061
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q986 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o062
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q191 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o063
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1050 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o064
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q115 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o065
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q4628 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o066
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q712 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  14.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o067
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q33 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o068
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q142 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o069
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q30971 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  19.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o070
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1000 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o071
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1005 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  1.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o072
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q230 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o073
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q183 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o074
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q117 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o075
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q41 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o076
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q223 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o077
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q769 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o078
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q16635 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  18.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o079
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q774 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o080
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1006 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o081
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1007 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o082
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q734 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o083
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q790 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o084
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q783 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o085
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q28 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o086
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q189 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o087
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q668 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o088
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q252 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o089
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q794 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o090
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q796 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o091
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q27 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o092
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q801 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o093
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q38 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o094
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q766 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o095
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q17 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o096
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q810 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o097
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q232 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o098
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q114 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o099
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q710 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  22.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0100
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q423 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0101
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q884 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0102
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q817 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0103
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q813 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0104
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q819 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0105
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q211 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0106
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q822 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0107
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1013 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0108
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1014 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0109
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1016 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0110
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q347 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0111
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q37 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0112
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q32 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0113
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1019 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0114
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1020 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0115
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q833 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  16.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0116
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q826 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0117
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q912 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0118
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q233 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0119
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q709 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  30.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0120
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1025 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0121
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1027 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  22.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0122
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q96 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0123
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q702 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0124
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q217 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0125
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q235 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0126
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q711 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0127
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q236 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0128
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1028 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0129
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1029 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0130
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q836 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0131
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1030 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0132
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q837 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0133
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q55 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0134
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q33788 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  21.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0135
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q664 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0136
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q811 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0137
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1032 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0138
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1033 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0139
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q221 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0140
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q20 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0141
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q842 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0142
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q843 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  19.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0143
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q695 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  17.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0144
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q804 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0145
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q691 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  17.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0146
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q733 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0147
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q419 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0148
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q928 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0149
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q36 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0150
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q45 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0151
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1183 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0152
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q846 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  15.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0153
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q218 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0154
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q159 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0155
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1037 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0156
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q683 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0157
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q238 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0158
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1039 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0159
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q851 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  15.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0160
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1041 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0161
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q403 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0162
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1042 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0163
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1044 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0164
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q334 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0165
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q26273 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0166
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q214 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0167
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q215 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0168
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q685 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  19.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0169
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1045 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0170
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q258 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0171
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q958 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.2 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0172
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q29 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0173
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q854 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0174
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q763 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0175
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q760 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0176
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q757 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.6 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0177
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1049 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  22.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0178
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q730 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0179
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q34 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0180
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q39 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0181
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q858 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  13.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0182
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q863 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0183
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q924 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0184
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q869 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0185
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q574 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0186
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q945 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0187
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q678 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  15.7 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0188
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q754 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0189
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q948 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  8.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0190
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q43 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0191
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q874 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0192
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q672 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  22.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0193
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q1036 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  2.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0194
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q212 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.1 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0195
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q878 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  16.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0196
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q145 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  3.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0197
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q30 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  10.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0198
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q77 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0199
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q265 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0200
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q686 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  11.9 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0201
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q717 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  7.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0202
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q881 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  6.0 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0203
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q11703 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  12.3 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0204
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q407199 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  9.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0205
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q805 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  5.4 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0206
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q953 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  4.5 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .
+
+c19:prevalenceDiabetes-o0207
+        a                               qb:Observation ;
+        c19-dimension:ageInterval       c19-interval:Age20-79 ;
+        c19-dimension:refArea           wd:Q954 ;
+        c19-dimension:refPeriod         c19-interval:Year2019 ;
+        c19-measure:prevalenceDiabetes  1.8 ;
+        qb:dataSet                      c19:dataset-prevalenceDiabetes ;
+        sdmx-attribute:decimals         1 ;
+        sdmx-attribute:unitMultiplier   -2 .

@@ -1,0 +1,134 @@
+Country	ECI	ECIRank	ChangeOver5Years	ID	id_row
+Japan	2.4265	1	0.0	Q17	0
+Switzerland	2.1664	2	1.0	Q39	1
+South Korea	2.1058	3	4.0	Q884	2
+Germany	2.0865	4	-2.0	Q183	3
+Singapore	1.8512	5	0.0	Q334	4
+Austria	1.8062	6	-2.0	Q40	5
+Czechia	1.8032	7	-1.0	Q213	6
+Sweden	1.6976	8	0.0	Q34	7
+Hungary	1.6623	9	0.0	Q28	8
+Slovenia	1.6167	10	3.0	Q215	9
+United States of America	1.5483	11	1.0	Q30	10
+Finland	1.5458	12	-2.0	Q33	11
+United Kingdom	1.5073	13	-2.0	Q145	12
+Italy	1.44	14	2.0	Q38	13
+Slovakia	1.4125	15	0.0	Q214	14
+France	1.3726	16	-2.0	Q142	15
+Ireland	1.3597	17	0.0	Q27	16
+China	1.3409	18	0.0	Q148	17
+Mexico	1.2881	19	0.0	Q96	18
+Israel	1.2009	20	6.0	Q801	19
+Belgium	1.1768	21	-1.0	Q31	20
+Thailand	1.1691	22	2.0	Q869	21
+Poland	1.0986	23	0.0	Q36	22
+Denmark	1.094	24	-3.0	Q35	23
+Romania	1.0879	25	0.0	Q218	24
+Malaysia	1.0289	26	3.0	Q833	25
+Netherlands	9.801	27	0.0	Q55	26
+Estonia	9.636	28	2.0	Q191	27
+Belarus	8.875	29	-7.0	Q184	28
+Croatia	8.702	30	1.0	Q224	29
+Lithuania	8.571	31	5.0	Q37	30
+Spain	8.289	32	-4.0	Q29	31
+Portugal	8.011000000000001	33	1.0	Q45	32
+Latvia	7.046	34	3.0	Q211	33
+Philippines	6.747000000000001	35	3.0	Q928	34
+Saudi Arabia	6.731	36	33.0	Q851	35
+Bosnia and Herzegovina	6.704	37	-4.0	Q225	36
+Serbia	6.667999999999998	38	1.0	Q403	37
+Canada	6.4620000000000015	39	2.0	Q16	38
+Turkey	6.397	40	2.0	Q43	39
+Bulgaria	5.545	41	-1.0	Q219	40
+India	5.385	42	10.0	Q668	41
+Norway	4.362	43	-8.0	Q20	42
+Ukraine	3.677	44	-1.0	Q212	43
+Lebanon	3.5380000000000003	45	0.0	Q822	44
+Tunisia	3.3510000000000004	46	-2.0	Q948	45
+Costa Rica	3.342	47	4.0	Q800	46
+Bahrain	3.0460000000000003	48	10.0	Q398	47
+Brazil	2.137	49	-2.0	Q155	48
+Cyprus	1.827	50	-4.0	Q229	49
+Jordan	1.699	51	-1.0	Q810	50
+Vietnam	145.0	52	11.0	Q881	51
+El Salvador	1.341	53	2.0	Q792	52
+New Zealand	1.287	54	-5.0	Q664	53
+Greece	1.075	55	2.0	Q41	54
+Colombia	0.1	56	4.0	Q739	55
+North Macedonia	683.0	57	11.0	Q221	56
+Trinidad and Tobago	527.0	58	24.0	Q754	57
+Kyrgyzstan	372.0	59	-11.0	Q813	58
+Uruguay	247.0	60	-6.0	Q77	59
+Indonesia	157.0	61	1.0	Q252	60
+United Arab Emirates	-121.0	62	18.0	Q878	61
+South Africa	-233.0	63	-7.0	Q258	62
+Russia	-378.0	64	1.0	Q159	63
+Georgia	-39.0	65	-1.0	Q230	64
+Egypt	-611.0	66	1.0	Q79	65
+Eswatini	-785.0	67	-6.0	Q1050	66
+Tanzania	-931.0	68	25.0	Q924	67
+Mauritius	-1.731	69	-3.0	Q1027	68
+Dominican Republic	-1.798	70	4.0	Q786	69
+Moldova	-1.812	71	-18.0	Q217	70
+Chile	-1.824	72	0.0	Q298	71
+Argentina	-2.105	73	-14.0	Q414	72
+Panama	-2.404	74	-42.0	Q804	73
+Qatar	-3.087	75	14.0	Q846	74
+Albania	-3.181	76	7.0	Q222	75
+Kenya	-3.389	77	-2.0	Q114	76
+Sri Lanka	-3.5580000000000003	78	-1.0	Q854	77
+Armenia	-3.918	79	-8.0	Q399	78
+Uzbekistan	-4.112	80	18.0	Q265	79
+Namibia	-4.305	81	-3.0	Q1030	80
+Guatemala	-4.546	82	-9.0	Q774	81
+Oman	-4.812	83	14.0	Q842	82
+Botswana	-4.815	84	11.0	Q963	83
+Mali	-4.897	85	33.0	Q912	84
+Uganda	-4.954	86	-2.0	Q1036	85
+Australia	-531.0	87	3.0	Q408	86
+Burkina Faso	-5.465	88	12.0	Q965	87
+Paraguay	-5.504	89	-2.0	Q733	88
+Cambodia	-5.606	90	1.0	Q424	89
+Morocco	-5.627000000000002	91	-6.0	Q1028	90
+Jamaica	-5.794	92	-11.0	Q766	91
+Kazakhstan	-5.931	93	16.0	Q232	92
+Zambia	-6.181	94	-15.0	Q953	93
+Senegal	-6.269	95	-7.0	Q1041	94
+Laos	-6.275	96	12.0	Q819	95
+Ethiopia	-6.577000000000001	97	19.0	Q115	96
+Honduras	-6.654	98	-4.0	Q783	97
+Pakistan	-6.795	99	-3.0	Q843	98
+Kuwait	-7.033	100	19.0	Q817	99
+Iran	-7.058	101	-31.0	Q794	100
+Togo	-7.8370000000000015	102	-16.0	Q945	101
+Ghana	-7.978	103	-4.0	Q117	102
+Peru	-8.057	104	-12.0	Q419	103
+Nicaragua	-8.361	105	-3.0	Q811	104
+Turkmenistan	-8.439	106	11.0	Q874	105
+Mongolia	-8.781	107	13.0	Q711	106
+Bangladesh	-8.826	108	-2.0	Q902	107
+Zimbabwe	-9.291	109	-2.0	Q954	108
+Côte d'Ivoire	-961.0	110	1.0	Q1008	109
+Myanmar	-9.735	111	4.0	Q836	110
+Ecuador	-974.0	112	-7.0	Q736	111
+Madagascar	-10.063	113	-12.0	Q1019	112
+Mauritania	-1.026	114	18.0	Q1025	113
+Bolivia	-10.425	115	-1.0	Q750	114
+Tajikistan	-10.877	116	-4.0	Q863	115
+Cuba	-11.058	117	-41.0	Q241	116
+Malawi	-11.208	118	-15.0	Q1020	117
+Venezuela	-11.399	119	2.0	Q717	118
+Liberia	-11.532	120	-16.0	Q1014	119
+Mozambique	-12.491	121	-8.0	Q1029	120
+Algeria	-13.072	122	7.0	Q262	121
+Yemen	-13.106	123	-1.0	Q805	122
+Azerbaijan	-13.669	124	1.0	Q227	123
+Republic of the Congo	-14.196	125	3.0	Q971	124
+Gabon	-1.4280000000000002	126	4.0	Q1000	125
+Guinea	-14.316	127	-4.0	Q1006	126
+Libya	-14.634	128	5.0	Q1016	127
+Cameroon	-16.012	129	-19.0	Q1009	128
+Papua New Guinea	-16.783	130	-3.0	Q691	129
+Angola	-17.052	131	-7.0	Q916	130
+Democratic Republic of the Congo	-18.038	132	-6.0	Q974	131
+Nigeria	-18.971	133	-2.0	Q1033	132

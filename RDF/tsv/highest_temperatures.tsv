@@ -1,0 +1,128 @@
+Country	TemperatureC	Date	ID	id_row
+Algeria	5130.0	5 July 2018	Q262	0
+Botswana	4400.0	7 January 2016	Q963	1
+Burkina Faso	4720.0	1.984,00	Q965	2
+Chad	4760.0	22 June 2010	Q657	3
+Comoros	3600.0	15 November 2017	Q970	4
+Ghana	4380.0	26 March 2017	Q117	5
+Guinea	4500.0	29 March 2017	Q1006	6
+Morocco	5170.0	19 August 1940	Q1028	7
+Niger	4950.0	7 September 1978	Q1032	8
+Nigeria	4640.0	3 April 2010	Q1033	9
+Réunion	3690.0	6 March 2004	Q17070	10
+South Africa	5000.0	3 November 1918	Q258	11
+Sudan	4970.0	25 June 2010	Q1049	12
+Tunisia	5500.0	7 July 1931	Q948	13
+Western Sahara	5070.0	13 July 1961	Q6250	14
+Zambia	4240.0	13 October 2010	Q953	15
+Afghanistan	4990.0	August 2009	Q889	16
+Bangladesh	4510.0	30 may. 1972	Q902	17
+Bhutan	4000.0	27 August 1997	Q917	18
+Cambodia	4260.0	15 April 2016	Q424	19
+China	5050.0	10 July 2017	Q148	20
+Hong Kong	3900.0	22 August 2017	Q8646	21
+Macau	3900.0	22 August 2017	Q14773	22
+India	5100.0	19 may. 2016	Q668	23
+Indonesia	4060.0	16 August 1997	Q252	24
+Iran	5400.0	29 June 2017	Q794	25
+Iraq	5380.0	22 July 2016	Q796	26
+Israel	5400.0	21 June 1942	Q801	27
+Japan	4110.0	23 July 2018	Q17	28
+Jordan	5000.0	6 September 2002	Q810	29
+Kuwait	5390.0	21 July 2016	Q817	30
+Laos	4230.0	12 April 2016	Q819	31
+Malaysia	4010.0	9 April 1998	Q833	32
+Maldives	3490.0	16 April 2016	Q826	33
+Mongolia	4400.0	24 July 1999	Q711	34
+Myanmar	4720.0	14 may. 2010	Q836	35
+Nepal	4640.0	16 June 1995	Q837	36
+Oman	5080.0	30 may. 2017	Q842	37
+Pakistan	5370.0	28 may. 2017	Q843	38
+Philippines	4220.0	11 may. 1969	Q928	39
+Qatar	5040.0	14 July 2010	Q846	40
+Siberia	4320.0	5 June 1898	Q5428	41
+Saudi Arabia	5200.0	23 June 2010	Q851	42
+Singapore	3700.0	17 April 1983	Q334	43
+South Korea	4100.0	1 August 2018	Q884	44
+Taiwan	4030.0	9 July 2018	Q865	45
+Thailand	4460.0	28 April 2016	Q869	46
+Turkey	4900.0	27 August 1961	Q43	47
+Turkmenistan	5010.0	28 July 1983	Q874	48
+United Arab Emirates	5210.0	July 2002	Q878	49
+Vietnam	4340.0	20 April 2019	Q881	50
+Albania	4220.0	6 July 1988	Q222	51
+Armenia	4370.0	1 August 2011	Q399	52
+Austria	4050.0	8 August 2013	Q40	53
+Belarus	3890.0	7 August 2010	Q184	54
+Belgium	4180.0	25 July 2019	Q31	55
+Bosnia and Herzegovina	4620.0	31 July 1901	Q225	56
+Bulgaria	4520.0	5 August 1916	Q219	57
+Croatia	4280.0	5 August 1981	Q224	58
+Cyprus	4620.0	4 September 2020	Q229	59
+Czech Republic	4040.0	20 August 2012	Q213	60
+Denmark	3640.0	10 August 1975	Q35	61
+Estonia	3560.0	11 August 1992	Q191	62
+Finland	3720.0	29 July 2010	Q33	63
+France	4600.0	28 June 2019	Q142	64
+Germany	4260.0	25 July 2019	Q183	65
+Greece	4800.0	10 July 1977	Q41	66
+Hungary	4190.0	20 July 2007	Q28	67
+Iceland	3050.0	22 June 1939	Q189	68
+Ireland	3330.0	26 June 1887	Q27	69
+Italy	4700.0	25 June 2007	Q38	70
+Latvia	3780.0	4 August 2014	Q211	71
+Lithuania	3750.0	30 July 1994	Q37	72
+Luxembourg	4080.0	25 July 2019	Q32	73
+Malta	4380.0	9 August 1999	Q233	74
+Moldova	4240.0	7 August 2012	Q217	75
+Montenegro	4480.0	8 August 2012	Q236	76
+Netherlands	4070.0	25 July 2019	Q55	77
+North Macedonia	4570.0	24 July 2007	Q221	78
+Norway	3560.0	20 June 1970	Q20	79
+Poland	4020.0	29 July 1921	Q36	80
+Portugal	4740.0	1 August 2003	Q45	81
+Romania	4450.0	10 August 1951	Q218	82
+Russia (in Europe)	4540.0	12 July 2010	Q875134	83
+San Marino	4030.0	9 August 2017	Q238	84
+Serbia	4490.0	24 July 2007	Q403	85
+Slovakia	4030.0	20 July 2007	Q214	86
+Slovenia	4080.0	8 August 2013	Q215	87
+Spain	4730.0	13 July 2017	Q29	88
+Sweden	3800.0	29 June 1947	Q34	89
+Switzerland	4150.0	11 August 2003	Q39	90
+Ukraine	4200.0	12 August 2010	Q212	91
+United Kingdom	3870.0	25 July 2019	Q145	92
+Vatican City	4070.0	2 August 2017	Q237	93
+Anguilla	3420.0	12 September 2015	Q25228	94
+Antigua and Barbuda	3490.0	12 August 1995	Q781	95
+British Virgin Islands	3500.0	22 July 2016	Q25305	96
+Canada	4500.0	5 July 1937	Q16	97
+Cayman Islands	3490.0	21 August 2016	Q5785	98
+Cuba	3910.0	30 June 2019	Q241	99
+Dominica	3550.0	3 October 2015	Q784	100
+Dominican Republic	4300.0	31 August 1954	Q786	101
+Greenland	29.1	23 June 1915	Q223	102
+Martinique	3650.0	6 October 2010	Q17054	103
+Mexico	5200.0	28 July 1995	Q96	104
+Panama	4000.0	20 March 1998	Q804	105
+Puerto Rico	4000.0	2 July 1996	Q1183	106
+United States	5670.0	10 July 1913	Q30	107
+United States Virgin Islands	3720.0	23 June 1996	Q11703	108
+Australia	5070.0	2 January 1960	Q408	109
+Marshall Islands	3560.0	24 August 2016	Q709	110
+New Zealand	4240.0	7 February 1973	Q664	111
+Palau	3500.0	22 March 2018	Q695	112
+Samoa	3530.0	24 December 1968	Q683	113
+Solomon Islands	3610.0	1 February 2010	Q685	114
+Tonga	3550.0	1 February 2016	Q678	115
+Vanuatu	3620.0	8 February 2016	Q686	116
+Wallis and Futuna	3580.0	10 January 2016	Q35555	117
+Argentina	4890.0	11 December 1905	Q414	118
+Bolivia	4670.0	29 October 2010	Q750	119
+Brazil	4470.0	21 November 2005	Q155	120
+Chile	4490.0	26 January 2017	Q298	121
+Colombia	4500.0	29 December 2015	Q739	122
+French Guiana	3800.0	27 September 2016	Q3769	123
+Paraguay	4500.0	14 November 2009	Q733	124
+Uruguay	4400.0	20 January 1943	Q77	125
+Venezuela	4360.0	29 April 2015	Q717	126

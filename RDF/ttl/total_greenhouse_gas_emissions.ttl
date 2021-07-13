@@ -1,0 +1,3607 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2012
+        a                  time:Interval ;
+        rdfs:label         "2012" ;
+        time:hasBeginning  "2012"^^xsd:gYear ;
+        time:hasEnd        "2012"^^xsd:gYear .
+
+c19-interval:Year1990-20
+        a                  time:Interval ;
+        rdfs:label         "1990-20" ;
+        time:hasBeginning  "1990"^^xsd:gYear ;
+        time:hasEnd        "2020"^^xsd:gYear .
+
+c19-measure:greenhouseGasEmissions
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Total greenhouse gas emissions"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:greenhouseGasEmissionsChange
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Total greenhouse gas emissions (% change)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-greenhouseGasEmissions
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:greenhouseGasEmissions ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:greenhouseGasEmissions-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                18168.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:dataset-greenhouseGasEmissions
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 3.9 | Trends in greenhouse gas emissions"@en ;
+        rdfs:label       "total_greenhouse_gas_emissions"@en ;
+        dct:description  "Total greenhouse gas emissions in kt of CO2 equivalent are composed of CO2 totals excluding short-cycle biomass burning (such as agricultural waste burning and savanna burning) but including other biomass burning (such as forest fires, post-burn decay, peat fires and decay of drained peatlands), all anthropogenic CH4 sources, N2O sources and F-gases (HFCs, PFCs and SF6)."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/3.9> ;
+        dct:title        "Total greenhouse gas emissions"@en ;
+        qb:structure     c19-structure:dsd-greenhouseGasEmissions .
+
+c19:greenhouseGasEmissions-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                8898.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                176471.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                58.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                41657.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                552.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                380295.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12319.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                761686.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                90460.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                56537.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                4865.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                32849.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                183300.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                1540.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                109647.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                133373.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                1569.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                33533.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                632.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                3297.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                621726.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                27108.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                82110.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                2989418.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                14829.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                67942.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                43910.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                6254.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                127399.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                100922.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                1027063.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                515134.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                109796.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                120687.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12454710.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                58633.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                173411.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                564.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                802271.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                35743.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12274.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                33502.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                30421.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                52418.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                7431.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                138957.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                53703.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                2766.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                222.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                33395.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                52746.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                295499.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12577.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                6374.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                4977.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                23292.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                185292.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                2258.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                69072.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                499146.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                34570.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                3529.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                14627.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                951716.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                107784.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                100571.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                726.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                85.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                31515.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                101349.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                7604.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                6140.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                8835.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                20467.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                62988.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                5514.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                3002894.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                780550.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                155529.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                62433.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                84044.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                482634.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                15474.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                1478858.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                27198.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                366502.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                54302.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                109895.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                668989.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                13794.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                161718.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                13943.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                3472.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                2833.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                82129.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                29442.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12611.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12992.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                117932.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                21632.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                279098.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                77437.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                13343.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                663425.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                11350.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                24860.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                80436.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                380308.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                528416.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                38049.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                40762.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                195873.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                78131.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                16323.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                11460.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                301010.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                12.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                63536.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                62201.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                369734.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                16248.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                11087.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                50844.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                74807.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                167297.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                414606.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                72524.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                3293.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                103155.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                121762.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                2803398.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                6689.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                356.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                195.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                54185.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                910.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                11810.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                46301.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                21074.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                4591.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                21916.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                348257.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                30451.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                598.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                319.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                491982.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                2657.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                3478.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                65767.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                54108.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                77118.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                15364.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                235353.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                440411.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                959.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                22931.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                155.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                39721.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                445640.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                92178.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                5.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                80725.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                404900.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                204888.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                585779.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                6343840.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                34237.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                177223.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                446.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                281921.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                310664.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                61.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                40924.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                320254.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2012 ;
+        c19-measure:greenhouseGasEmissions
+                72057.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  9 .
+
+c19:greenhouseGasEmissions-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                43.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -19.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                65.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                188.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -18.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                48.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                42.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -50.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                57.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                13.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -27.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                35.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                92.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                44.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                28.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -40.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -3.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                148.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -28.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -3.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                157.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                222.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -13.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                514.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                86.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -19.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -37.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                261.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                123.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                552.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                3.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                68.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                252.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                498.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                120.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                220.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                57.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -0.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                91.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -41.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -43.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                42.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -78.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -12.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -8.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                44.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -29.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -25.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                51.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                70.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                96.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                70.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                112.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                88.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                2519.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                49.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -58.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                175.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -3.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -8.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -10.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                181.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                196.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -61.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -24.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                265.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                4.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                359.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                42.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                111.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                55.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                366.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -63.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                64.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                49.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -35.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -74.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                116.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -33.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                55.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -4.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                112.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -5.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                66.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                13.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                134.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -1.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                39.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -32.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                122.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -58.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                436.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -58.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                84.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                61.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                34.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -45.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -3.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -9.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                143.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                153.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                40.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                151.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                123.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                34.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -70.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -57.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                114.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                828.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -39.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                421.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                62.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -12.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                18.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                59.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                65.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                84.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                144.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -5.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                75.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                114.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                138.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -62.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -20.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                25.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                73.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -12.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                24.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                12.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                369.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -50.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -22.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                105.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                24.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                100.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                391.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                149.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                22.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -35.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                5.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -22.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                22.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                18.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                65.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                115.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                127.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                430.9 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -74.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                53.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -14.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -4.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                58.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -29.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                147.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                111.7 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                111.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                71.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                24.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                87.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                98.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                13.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                30.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                118.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -57.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                182.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                -24.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                3.4 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                31.1 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                4.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                3.0 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                34.2 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                213.6 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                35.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                218.5 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                52.8 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:greenhouseGasEmissions-o1175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-20 ;
+        c19-measure:greenhouseGasEmissionsChange
+                105.3 ;
+        qb:dataSet                     c19:dataset-greenhouseGasEmissions ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

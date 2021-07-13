@@ -1,0 +1,1155 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2017
+        a                  time:Interval ;
+        rdfs:label         "2017" ;
+        time:hasBeginning  "2017"^^xsd:gYear ;
+        time:hasEnd        "2017"^^xsd:gYear .
+
+c19-measure:peopleUsingDrinkingWaterServices
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "People using safely managed drinking water services"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-peopleUsingDrinkingWaterServices
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:peopleUsingDrinkingWaterServices ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:peopleUsingDrinkingWaterServices-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                70.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-peopleUsingDrinkingWaterServices
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.3 | Global goals: promoting sustainability"@en ;
+        rdfs:label       "drinking_water_services"@en ;
+        dct:description  "The percentage of people using drinking water from an improved source that is accessible on premises, available when needed and free from faecal and priority chemical contamination. Improved water sources include piped water, boreholes or tubewells, protected dug wells, protected springs, and packaged or delivered water."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.3> ;
+        dct:title        "People using safely managed drinking water services"@en ;
+        qb:structure     c19-structure:dsd-peopleUsingDrinkingWaterServices .
+
+c19:peopleUsingDrinkingWaterServices-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                12.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                90.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                86.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                73.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                55.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                94.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                36.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                88.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                96.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                25.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q42314 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                92.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                73.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                45.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                93.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                36.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                90.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                97.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                96.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                75.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                93.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                11.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                97.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                80.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                36.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                96.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                87.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                56.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                89.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                91.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                58.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                97.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q9676 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                97.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                95.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                93.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                89.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                66.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                68.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                16.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                95.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                47.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q347 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                92.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                81.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                93.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                42.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                72.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                23.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                93.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                70.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                27.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                96.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                51.6 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                20.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                90.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                90.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                35.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                63.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                50.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                46.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                95.3 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                94.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                96.2 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                81.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                76.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                58.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                74.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                9.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.8 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                98.4 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                95.5 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                47.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                92.7 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                93.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                7.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                92.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                100.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                99.0 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                58.9 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:peopleUsingDrinkingWaterServices-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:peopleUsingDrinkingWaterServices
+                44.1 ;
+        qb:dataSet                     c19:dataset-peopleUsingDrinkingWaterServices ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

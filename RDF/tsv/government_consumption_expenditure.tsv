@@ -1,0 +1,169 @@
+Country	Consumption2010	Consumption2019	ID	id_row
+Afghanistan	14.0	13.0	Q889	0
+Albania	11.0	12.0	Q222	1
+Algeria	17.0	19.0	Q262	2
+Angola	17.0	10.0	Q916	3
+Argentina	15.0	15.0	Q414	4
+Armenia	12.0	12.0	Q399	5
+Aruba	27.0	17.0	Q21203	6
+Australia	18.0	19.0	Q408	7
+Austria	20.0	19.0	Q40	8
+Azerbaijan	11.0	11.0	Q227	9
+Bahamas, The	13.0	12.0	Q778	10
+Bahrain	13.0	16.0	Q398	11
+Bangladesh	5.0	6.0	Q902	12
+Barbados	15.0	11.0	Q244	13
+Belarus	16.0	16.0	Q184	14
+Belgium	24.0	23.0	Q31	15
+Belize	16.0	17.0	Q242	16
+Benin	11.0	10.0	Q962	17
+Bhutan	20.0	17.0	Q917	18
+Bolivia	14.0	18.0	Q750	19
+Bosnia and Herzegovina	23.0	20.0	Q225	20
+Botswana	20.0	18.0	Q963	21
+Brazil	19.0	20.0	Q155	22
+Brunei Darussalam	22.0	25.0	Q921	23
+Bulgaria	17.0	18.0	Q219	24
+Burkina Faso	14.0	14.0	Q965	25
+Burundi	22.0	28.0	Q967	26
+Cabo Verde	18.0	18.0	Q1011	27
+Cambodia	6.0	5.0	Q424	28
+Cameroon	11.0	11.0	Q1009	29
+Canada	22.0	21.0	Q16	30
+Central African Republic	8.0	15.0	Q929	31
+Chad	7.0	4.0	Q657	32
+Chile	12.0	15.0	Q298	33
+China	15.0	17.0	Q148	34
+Hong Kong SAR, China	9.0	11.0	Q8646	35
+Macao SAR, China	8.0	10.0	Q14773	36
+Colombia	14.0	15.0	Q739	37
+Comoros	11.0	10.0	Q970	38
+Congo, Dem. Rep.	7.0	7.0	Q974	39
+Congo, Rep.	10.0	8.0	Q971	40
+Costa Rica	17.0	17.0	Q800	41
+Cote d'Ivoire	12.0	10.0	Q1008	42
+Croatia	21.0	20.0	Q224	43
+Cuba	35.0	30.0	Q241	44
+Cyprus	19.0	16.0	Q229	45
+Czech Republic	21.0	20.0	Q213	46
+Denmark	27.0	24.0	Q35	47
+Dominican Republic	10.0	11.0	Q786	48
+Ecuador	13.0	15.0	Q736	49
+Egypt, Arab Rep.	11.0	8.0	Q79	50
+El Salvador	16.0	16.0	Q792	51
+Equatorial Guinea	12.0	26.0	Q983	52
+Estonia	20.0	20.0	Q191	53
+Eswatini	21.0	23.0	Q1050	54
+Ethiopia	10.0	9.0	Q115	55
+Faroe Islands	33.0	28.0	Q4628	56
+Finland	24.0	23.0	Q33	57
+France	24.0	23.0	Q142	58
+Gabon	13.0	9.0	Q1000	59
+Gambia, The	10.0	13.0	Q1005	60
+Georgia	15.0	13.0	Q230	61
+Germany	20.0	20.0	Q183	62
+Ghana	7.0	9.0	Q117	63
+Greece	22.0	19.0	Q41	64
+Greenland	47.0	44.0	Q223	65
+Guatemala	10.0	11.0	Q774	66
+Guinea	13.0	25.0	Q1006	67
+Guinea-Bissau	9.0	11.0	Q1007	68
+Guyana	15.0	18.0	Q734	69
+Haiti	8.0	11.0	Q790	70
+Honduras	18.0	13.0	Q783	71
+Hungary	22.0	19.0	Q28	72
+Iceland	25.0	24.0	Q189	73
+India	11.0	12.0	Q668	74
+Indonesia	9.0	9.0	Q252	75
+Iran, Islamic Rep.	11.0	13.0	Q794	76
+Iraq	19.0	22.0	Q796	77
+Ireland	19.0	12.0	Q27	78
+Israel	23.0	23.0	Q801	79
+Italy	21.0	19.0	Q38	80
+Jamaica	16.0	13.0	Q766	81
+Japan	19.0	20.0	Q17	82
+Jordan	17.0	15.0	Q810	83
+Kazakhstan	11.0	9.0	Q232	84
+Kenya	14.0	13.0	Q114	85
+Kiribati	61.0	74.0	Q710	86
+Korea, Rep.	14.0	17.0	Q884	87
+Kosovo	16.0	14.0	Q1246	88
+Kuwait	17.0	23.0	Q817	89
+Kyrgyz Republic	18.0	17.0	Q813	90
+Latvia	18.0	18.0	Q211	91
+Lebanon	12.0	15.0	Q822	92
+Lesotho	41.0	38.0	Q1013	93
+Liberia	14.0	20.0	Q1014	94
+Lithuania	20.0	17.0	Q37	95
+Luxembourg	17.0	17.0	Q32	96
+Madagascar	13.0	14.0	Q1019	97
+Malawi	14.0	14.0	Q1020	98
+Malaysia	13.0	12.0	Q833	99
+Mali	16.0	16.0	Q912	100
+Malta	19.0	17.0	Q233	101
+Marshall Islands	55.0	56.0	Q709	102
+Mauritania	14.0	13.0	Q1025	103
+Mauritius	14.0	15.0	Q1027	104
+Mexico	12.0	12.0	Q96	105
+Moldova	18.0	14.0	Q217	106
+Mongolia	13.0	12.0	Q711	107
+Montenegro	22.0	18.0	Q236	108
+Morocco	18.0	19.0	Q1028	109
+Mozambique	18.0	23.0	Q1029	110
+Myanmar	11.0	18.0	Q836	111
+Namibia	26.0	26.0	Q1030	112
+Nepal	10.0	12.0	Q837	113
+Netherlands	26.0	24.0	Q55	114
+New Zealand	20.0	18.0	Q664	115
+Nicaragua	14.0	16.0	Q811	116
+Niger	15.0	15.0	Q1032	117
+Nigeria	9.0	6.0	Q1033	118
+North Macedonia	18.0	15.0	Q221	119
+Norway	21.0	24.0	Q20	120
+Oman	19.0	26.0	Q842	121
+Pakistan	10.0	12.0	Q843	122
+Palau	37.0	32.0	Q695	123
+Panama	13.0	12.0	Q804	124
+Paraguay	9.0	12.0	Q733	125
+Peru	11.0	13.0	Q419	126
+Philippines	10.0	13.0	Q928	127
+Poland	19.0	18.0	Q36	128
+Portugal	21.0	17.0	Q45	129
+Puerto Rico	11.0	8.0	Q1183	130
+Qatar	14.0	18.0	Q846	131
+Romania	15.0	17.0	Q218	132
+Russian Federation	19.0	18.0	Q159	133
+Rwanda	13.0	16.0	Q1037	134
+Saudi Arabia	20.0	24.0	Q851	135
+Senegal	14.0	14.0	Q1041	136
+Serbia	19.0	17.0	Q403	137
+Seychelles	27.0	21.0	Q1042	138
+Sierra Leone	10.0	9.0	Q1044	139
+Singapore	10.0	10.0	Q334	140
+Slovak Republic	19.0	20.0	Q214	141
+Slovenia	20.0	18.0	Q215	142
+South Africa	20.0	21.0	Q258	143
+Spain	21.0	19.0	Q29	144
+Sri Lanka	8.0	9.0	Q854	145
+Sudan	7.0	6.0	Q1049	146
+Sweden	25.0	26.0	Q34	147
+Switzerland	12.0	12.0	Q39	148
+Tajikistan	11.0	18.0	Q863	149
+Tanzania	10.0	8.0	Q924	150
+Thailand	16.0	16.0	Q869	151
+Timor-Leste	103.0	56.0	Q574	152
+Togo	13.0	18.0	Q945	153
+Tunisia	17.0	21.0	Q948	154
+Turkey	15.0	16.0	Q43	155
+Turkmenistan	7.0	8.0	Q874	156
+Uganda	8.0	8.0	Q1036	157
+Ukraine	19.0	20.0	Q212	158
+United Arab Emirates	10.0	13.0	Q878	159
+United Kingdom	22.0	19.0	Q145	160
+United States	17.0	14.0	Q30	161
+Uruguay	13.0	15.0	Q77	162
+Uzbekistan	13.0	16.0	Q265	163
+Vietnam	6.0	6.0	Q881	164
+West Bank and Gaza	28.0	26.0	Q407199	165
+Zambia	9.0	12.0	Q953	166
+Zimbabwe	15.0	26.0	Q954	167

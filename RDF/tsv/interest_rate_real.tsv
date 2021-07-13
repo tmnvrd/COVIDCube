@@ -1,0 +1,132 @@
+Country	AnnualGrowth2010	AnnualGrowth2019	ID	id_row
+Afghanistan	11.4	12.6	Q889	0
+Albania	8.0	5.9	Q222	1
+Algeria	-7.0	8.7	Q262	2
+Angola	-6.9	-12.2	Q916	3
+Antigua and Barbuda	9.3	6.0	Q781	4
+Argentina	-8.6	10.4	Q414	5
+Armenia	10.6	10.5	Q399	6
+Aruba	11.1	5.2	Q21203	7
+Australia	6.0	1.7	Q408	8
+Azerbaijan	6.0	17.6	Q227	9
+Bahamas, The	5.9	2.8	Q778	10
+Bangladesh	4.7	4.9	Q902	11
+Barbados	4.7	5.1	Q244	12
+Belarus	-1.9	2.3	Q184	13
+Belize	12.2	8.9	Q242	14
+Benin	4.2	5.5	Q962	15
+Bhutan	7.6	12.0	Q917	16
+Bolivia	1.0	9.2	Q750	17
+Bosnia and Herzegovina	6.3	1.2	Q225	18
+Botswana	2.3	5.7	Q963	19
+Brazil	29.1	32.0	Q155	20
+Brunei Darussalam	-9.6	9.1	Q921	21
+Bulgaria	9.9	-0.1	Q219	22
+Burkina Faso	1.3	3.1	Q965	23
+Burundi	3.6	13.6	Q967	24
+Cabo Verde	10.5	8.5	Q1011	25
+Canada	-0.3	0.2	Q16	26
+Chile	-3.9	1.8	Q298	27
+China	-1.0	2.7	Q148	28
+Hong Kong SAR, China	4.7	1.3	Q8646	29
+Macao SAR, China	0.4	2.7	Q14773	30
+Colombia	5.4	7.2	Q739	31
+Comoros	8.7	6.9	Q970	32
+Congo, Dem. Rep.	29.6	28.9	Q974	33
+Costa Rica	9.9	6.9	Q800	34
+Cote d'Ivoire	-0.3	7.1	Q1008	35
+Czech Republic	7.4	0.2	Q213	36
+Dominica	9.1	5.0	Q784	37
+Dominican Republic	6.3	10.8	Q786	38
+Egypt, Arab Rep.	0.8	2.2	Q79	39
+Eswatini	6.3	8.2	Q1050	40
+Fiji	3.1	4.7	Q712	41
+Gambia, The	20.2	21.7	Q1005	42
+Georgia	1.5	3.9	Q230	43
+Grenada	10.0	5.6	Q769	44
+Guatemala	7.8	9.0	Q774	45
+Guinea-Bissau	2.1	-0.8	Q1007	46
+Guyana	8.3	4.4	Q734	47
+Haiti	14.2	-0.4	Q790	48
+Honduras	13.6	12.5	Q783	49
+Hungary	5.1	-2.6	Q28	50
+Iceland	3.6	2.5	Q189	51
+India	-2.0	7.0	Q668	52
+Indonesia	-1.7	8.6	Q252	53
+Iran, Islamic Rep.	-3.4	16.1	Q794	54
+Iraq	-1.9	29.8	Q796	55
+Israel	3.4	1.3	Q801	56
+Italy	3.6	1.7	Q38	57
+Jamaica	9.7	5.0	Q766	58
+Japan	3.6	1.2	Q17	59
+Jordan	0.5	7.0	Q810	60
+Kenya	12.0	10.4	Q114	61
+Korea, Rep.	2.7	4.4	Q884	62
+Kosovo	9.2	5.6	Q1246	63
+Kuwait	-5.1	9.3	Q817	64
+Kyrgyz Republic	12.4	20.0	Q813	65
+Lebanon	7.7	7.4	Q822	66
+Lesotho	1.4	8.4	Q1013	67
+Liberia	7.3	15.8	Q1014	68
+Madagascar	32.5	41.5	Q1019	69
+Malawi	11.1	24.0	Q1020	70
+Malaysia	-2.1	4.8	Q833	71
+Maldives	7.3	9.2	Q826	72
+Mali	0.7	3.1	Q912	73
+Mauritania	-4.4	12.9	Q1025	74
+Mauritius	7.7	7.4	Q1027	75
+Mexico	0.7	5.0	Q96	76
+Micronesia, Fed. Sts.	11.1	5.8	Q702	77
+Moldova	-12.7	2.6	Q217	78
+Mongolia	-13.7	7.9	Q711	79
+Mozambique	7.7	15.5	Q1029	80
+Myanmar	9.3	7.5	Q836	81
+Namibia	5.9	8.2	Q1030	82
+New Zealand	3.0	1.1	Q664	83
+Nicaragua	6.8	7.4	Q811	84
+Niger	1.7	3.8	Q1032	85
+Nigeria	1.1	4.5	Q1033	86
+North Macedonia	8.5	3.2	Q221	87
+Oman	-4.8	-2.1	Q842	88
+Pakistan	2.9	3.3	Q843	89
+Panama	5.0	5.7	Q804	90
+Papua New Guinea	0.5	4.6	Q691	91
+Paraguay	20.5	15.6	Q733	92
+Peru	12.5	13.0	Q419	93
+Philippines	3.2	6.3	Q928	94
+Qatar	0.3	9.4	Q846	95
+Romania	10.2	0.2	Q218	96
+Russian Federation	-3.0	4.8	Q159	97
+Rwanda	13.4	16.1	Q1037	98
+Samoa	5.5	6.6	Q683	99
+San Marino	3.9	0.8	Q238	100
+Sao Tome and Principe	14.6	14.5	Q1039	101
+Senegal	4.0	4.5	Q1041	102
+Seychelles	17.7	9.1	Q1042	103
+Sierra Leone	3.5	13.5	Q1044	104
+Singapore	4.2	5.2	Q334	105
+Solomon Islands	7.1	7.0	Q685	106
+South Africa	3.3	5.9	Q258	107
+Sri Lanka	-10.2	8.9	Q854	108
+St. Kitts and Nevis	6.2	7.0	Q763	109
+St. Lucia	5.9	6.7	Q760	110
+St. Vincent and the Grenadines	4.5	6.9	Q757	111
+Suriname	4.1	-1.0	Q730	112
+Switzerland	2.4	2.2	Q39	113
+Tajikistan	9.7	21.3	Q863	114
+Tanzania	4.7	11.8	Q924	115
+Thailand	0.2	3.3	Q869	116
+Timor-Leste	0.2	11.8	Q574	117
+Togo	4.5	4.2	Q945	118
+Tonga	7.6	4.3	Q678	119
+Trinidad and Tobago	-3.1	8.2	Q754	120
+Uganda	13.8	15.1	Q1036	121
+Ukraine	1.7	10.8	Q212	122
+United States	2.1	3.5	Q30	123
+Uruguay	5.2	3.6	Q77	124
+Uzbekistan	4.0	3.7	Q265	125
+Vanuatu	2.8	0.0	Q686	126
+Vietnam	0.9	5.8	Q881	127
+West Bank and Gaza	-6.3	1.0	Q407199	128
+Zambia	6.1	6.6	Q953	129
+Zimbabwe	7.3	21.1	Q954	130

@@ -1,0 +1,83 @@
+Country	Surveyyear	Poorestquintile	Richestquintile	ID	id_row
+Albania	2018	2.0	1.0	Q222	0
+Angola	2016	27.0	8.0	Q916	1
+Armenia	2016	4.0	3.0	Q399	2
+Bangladesh	2014	45.0	17.0	Q902	3
+Belize	2016	5.0	3.0	Q242	4
+Benin	2018	21.0	12.0	Q962	5
+Bhutan	2010	16.0	7.0	Q917	6
+Bolivia	2008	8.0	2.0	Q750	7
+Burkina Faso	2010	32.0	16.0	Q965	8
+Burundi	2017	42.0	13.0	Q967	9
+Cambodia	2014	31.0	13.0	Q424	10
+Cameroon	2014	27.0	3.0	Q1009	11
+Central African Republic	2010	26.0	19.0	Q929	12
+Chad	2015	29.0	22.0	Q657	13
+Colombia	2010	6.0	2.0	Q739	14
+Comoros	2012	20.0	9.0	Q970	15
+Congo, Dem. Rep.	2014	29.0	8.0	Q974	16
+Congo, Rep.	2016	17.0	9.0	Q971	17
+Cote d'Ivoire	2016	17.0	7.0	Q1008	18
+Dominican Republic	2014	7.0	3.0	Q786	19
+Egypt, Arab Rep.	2014	6.0	5.0	Q79	20
+El Salvador	2014	7.0	2.0	Q792	21
+Eswatini	2014	8.0	2.0	Q1050	22
+Ethiopia	2016	31.0	14.0	Q115	23
+Gabon	2012	10.0	2.0	Q1000	24
+Gambia, The	2018	17.0	11.0	Q1005	25
+Ghana	2014	16.0	6.0	Q117	26
+Guatemala	2015	20.0	4.0	Q774	27
+Guinea	2018	19.0	9.0	Q1006	28
+Guinea-Bissau	2014	19.0	9.0	Q1007	29
+Guyana	2014	12.0	3.0	Q734	30
+Haiti	2017	15.0	5.0	Q790	31
+Honduras	2012	13.0	3.0	Q783	32
+India	2016	49.0	20.0	Q668	33
+Iraq	2018	5.0	2.0	Q796	34
+Jordan	2018	5.0	0.0	Q810	35
+Kenya	2014	20.0	4.0	Q114	36
+Kosovo	2014	2.0	1.0	Q1246	37
+Kyrgyz Republic	2018	1.0	1.0	Q813	38
+Lao PDR	2017	31.0	8.0	Q819	39
+Lesotho	2018	14.0	5.0	Q1013	40
+Liberia	2013	18.0	9.0	Q1014	41
+Malawi	2016	14.0	7.0	Q1020	42
+Maldives	2017	17.0	12.0	Q826	43
+Mali	2018	24.0	11.0	Q912	44
+Mauritania	2015	33.0	12.0	Q1025	45
+Mexico	2015	7.0	2.0	Q96	46
+Moldova	2012	4.0	1.0	Q217	47
+Mongolia	2018	2.0	2.0	Q711	48
+Montenegro	2013	0.0	0.0	Q236	49
+Mozambique	2015	23.0	6.0	Q1029	50
+Myanmar	2016	24.0	13.0	Q836	51
+Namibia	2013	19.0	5.0	Q1030	52
+Nepal	2016	33.0	11.0	Q837	53
+Niger	2012	41.0	26.0	Q1032	54
+Nigeria	2018	36.0	10.0	Q1033	55
+North Macedonia	2011	2.0	0.0	Q221	56
+Pakistan	2018	39.0	11.0	Q843	57
+Paraguay	2016	2.0	0.0	Q733	58
+Peru	2012	7.0	1.0	Q419	59
+Rwanda	2015	13.0	3.0	Q1037	60
+Sao Tome and Principe	2014	13.0	8.0	Q1039	61
+Senegal	2017	22.0	6.0	Q1041	62
+Serbia	2010	5.0	1.0	Q403	63
+Sierra Leone	2017	15.0	7.0	Q1044	64
+South Africa	2016	4.0	3.0	Q258	65
+South Sudan	2010	32.0	21.0	Q958	66
+Sudan	2014	40.0	18.0	Q1049	67
+Suriname	2018	7.0	8.0	Q730	68
+Tajikistan	2017	8.0	8.0	Q863	69
+Tanzania	2016	17.0	7.0	Q924	70
+Thailand	2016	10.0	5.0	Q869	71
+Timor-Leste	2016	45.0	29.0	Q574	72
+Togo	2014	20.0	7.0	Q945	73
+Tunisia	2018	2.0	1.0	Q948	74
+Turkmenistan	2016	4.0	5.0	Q874	75
+Uganda	2016	15.0	4.0	Q1036	76
+Vietnam	2014	21.0	3.0	Q881	77
+West Bank and Gaza	2014	2.0	2.0	Q407199	78
+Yemen, Rep.	2013	54.0	22.0	Q805	79
+Zambia	2014	20.0	9.0	Q953	80
+Zimbabwe	2015	11.0	5.0	Q954	81

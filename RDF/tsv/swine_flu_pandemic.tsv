@@ -1,0 +1,136 @@
+Country	Cases	Deaths	ID	id_row
+United States	11369.0	3433.0	Q30	0
+Brazil	58178.0	2135.0	Q155	1
+India	33783.0	2024.0	Q668	2
+Mexico	70715.0	1316.0	Q96	3
+China (mainland)	12094.0	800.0	Q148	4
+Turkey	12316.0	656.0	Q43	5
+Argentina	11458.0	626.0	Q414	6
+Russia	25339.0	604.0	Q159	7
+United Kingdom	28456.0	474.0	Q145	8
+Canada	25828.0	429.0	Q16	9
+France	1980000.0	344.0	Q142	10
+Spain	1538.0	300.0	Q29	11
+Egypt	15812.0	278.0	Q79	12
+Germany	222360.0	258.0	Q183	13
+South Korea	107939.0	250.0	Q884	14
+Thailand	31902.0	249.0	Q869	15
+Italy	3064933.0	244.0	Q38	16
+Colombia	4310.0	272.0	Q739	17
+Peru	9165.0	223.0	Q419	18
+Ukraine	494.0	213.0	Q212	19
+Ecuador	2251.0	200.0	Q736	20
+Japan	11636.0	198.0	Q17	21
+Australia	37484.0	187.0	Q408	22
+Poland	2024.0	181.0	Q36	23
+Chile	12258.0	156.0	Q298	24
+Syria	452.0	152.0	Q858	25
+Greece	17977.0	149.0	Q41	26
+Iran	3672.0	147.0	Q794	27
+Venezuela	2187.0	135.0	Q717	28
+Hungary	283.0	134.0	Q28	29
+Saudi Arabia	14500.0	128.0	Q851	30
+Portugal	166922.0	122.0	Q45	31
+Romania	7006.0	122.0	Q218	32
+Czech Republic	2445.0	102.0	Q213	33
+Israel	4330.0	9471.0	Q801	34
+South Africa	12640.0	93.0	Q258	35
+Malaysia	12210.0	92.0	Q833	36
+Belarus	102.0	88.0	Q184	37
+Serbia	695.0	83.0	Q403	38
+Hong Kong	33109.0	80.0	Q8646	39
+Cuba	973.0	69.0	Q241	40
+Costa Rica	1867.0	67.0	Q800	41
+Morocco	2890.0	64.0	Q1028	42
+Netherlands	1473.0	62.0	Q55	43
+Bolivia	2310.0	59.0	Q750	44
+Vietnam	11186.0	58.0	Q881	45
+Algeria	916.0	57.0	Q262	46
+Finland	6122.0	56.0	Q33	47
+Slovakia	955.0	56.0	Q214	48
+Paraguay	855.0	54.0	Q733	49
+New Zealand	3199.0	50.0	Q664	50
+Taiwan	5474.0	48.0	Q865	51
+Sri Lanka	642.0	48.0	Q854	52
+Moldova	2524.0	46.0	Q217	53
+Palestinian Territories	1676.0	43.0	Q219060	54
+Iraq	2880.0	42.0	Q796	55
+Austria	964.0	40.0	Q40	56
+Bulgaria	766.0	40.0	Q219	57
+Latvia	1253.0	34.0	Q211	58
+Oman	6349.0	33.0	Q842	59
+Georgia	1300.0	33.0	Q230	60
+El Salvador	834.0	33.0	Q792	61
+Denmark	651.0	33.0	Q35	62
+Uruguay	550.0	33.0	Q77	63
+Philippines	5212.0	32.0	Q928	64
+Yemen	5038.0	31.0	Q805	65
+Kuwait	8669.0	30.0	Q817	66
+Mongolia	1259.0	30.0	Q711	67
+Norway	12654.0	29.0	Q20	68
+Sweden	10985.0	29.0	Q34	69
+Ireland	3189.0	26.0	Q27	70
+Macedonia	2600.0	26.0	Q221	71
+Croatia	50255.0	26.0	Q224	72
+Pakistan	253.0	25.0	Q843	73
+Tunisia	1200.0	24.0	Q948	74
+Guatemala	1170.0	24.0	Q774	75
+Dominican Republic	491.0	23.0	Q786	76
+Lithuania	68.0	23.0	Q37	77
+Singapore	1217.0	21.0	Q334	78
+Estonia	738.0	21.0	Q191	79
+Belgium	76973.0	19.0	Q31	80
+Jordan	3033.0	19.0	Q810	81
+Slovenia	990.0	19.0	Q215	82
+Switzerland	11221.0	18.0	Q39	83
+Honduras	560.0	18.0	Q783	84
+Afghanistan	853.0	17.0	Q889	85
+Kosovo	98.0	14.0	Q1246	86
+Bosnia and Herzegovina	714.0	13.0	Q225	87
+Panama	813.0	12.0	Q804	88
+Albania	426.0	12.0	Q222	89
+Nicaragua	2172.0	11.0	Q811	90
+Indonesia	1098.0	10.0	Q252	91
+Qatar	550.0	10.0	Q846	92
+Cyprus	297.0	10.0	Q229	93
+North Korea	28.0	10.0	Q423	94
+Bahrain	1325.0	8.0	Q398	95
+Mauritius	69.0	8.0	Q1027	96
+Bangladesh	1015.0	7.0	Q902	97
+Jamaica	191.0	7.0	Q766	98
+Montenegro	119.0	7.0	Q236	99
+Cambodia	531.0	6.0	Q424	100
+United Arab Emirates	125.0	6.0	Q878	101
+Lebanon	1838.0	5.0	Q822	102
+Malta	718.0	5.0	Q233	103
+Trinidad and Tobago	211.0	5.0	Q754	104
+Sudan	145.0	5.0	Q1049	105
+Bahamas	29.0	4.0	Q778	106
+Madagascar	877.0	3.0	Q1019	107
+Ghana	676.0	3.0	Q117	108
+Luxembourg	333.0	3.0	Q32	109
+Nepal	172.0	3.0	Q837	110
+Barbados	154.0	3.0	Q244	111
+Armenia	119.0	3.0	Q399	112
+Iceland	676.0	2.0	Q189	113
+Macau (PRC)	2625.0	2.0	Q14773	114
+Brunei	971.0	2.0	Q921	115
+Samoa	138.0	2.0	Q683	116
+Suriname	110.0	2.0	Q730	117
+São Tomé and Príncipe	66.0	2.0	Q1039	118
+Mozambique	57.0	2.0	Q1029	119
+Nigeria	11.0	2.0	Q1033	120
+St. Kitts and Nevis	646.0	2.0	Q763	121
+Tanzania	770.0	1.0	Q924	122
+Libya	764.0	1.0	Q1016	123
+Laos	242.0	1.0	Q819	124
+Cayman Islands (UK)	121.0	1.0	Q5785	125
+Marshall Islands	115.0	1.0	Q709	126
+Cook Islands (NZ)	106.0	1.0	Q26988	127
+Namibia	75.0	1.0	Q1030	128
+St. Lucia	55.0	1.0	Q760	129
+Maldives	35.0	1.0	Q826	130
+Bermuda (UK)	25.0	1.0	Q23635	131
+Tonga	20.0	1.0	Q678	132
+Falkland Islands (UK)	7.0	1.0	Q9648	133
+Solomon Islands	4.0	1.0	Q685	134

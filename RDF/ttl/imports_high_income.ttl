@@ -1,0 +1,2941 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2017
+        a                  time:Interval ;
+        rdfs:label         "2017" ;
+        time:hasBeginning  "2017"^^xsd:gYear ;
+        time:hasEnd        "2017"^^xsd:gYear .
+
+c19-interval:Year2007
+        a                  time:Interval ;
+        rdfs:label         "2007" ;
+        time:hasBeginning  "2007"^^xsd:gYear ;
+        time:hasEnd        "2007"^^xsd:gYear .
+
+c19-measure:importsHighEconomies
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Merchandise imports from high-income economies (% of total merchandise imports)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-importsHighEconomies
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:importsHighEconomies ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:importsHighEconomies-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                79.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-importsHighEconomies
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 6.4 | Direction of trade of low  and middle income economies"@en ;
+        rdfs:label       "imports_high_income"@en ;
+        dct:description  "Merchandise imports from high-income economies are the sum of merchandise imports by the reporting economy from high-income economies according to the World Bank classification of economies. Data are expressed as a percentage of total merchandise imports by the economy. Data are computed only if at least half of the economies in the partner country group had non-missing data."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/6.1> ;
+        dct:title        "Imports: To high-income economies"@en ;
+        qb:structure     c19-structure:dsd-importsHighEconomies .
+
+c19:importsHighEconomies-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                50.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                66.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                87.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                62.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                85.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                8.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                14.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                68.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                95.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                88.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                29.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                35.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                80.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                80.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                77.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                81.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                73.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                66.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                25.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                81.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                80.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                81.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                60.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                68.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                43.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                44.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                25.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                70.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                60.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                36.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                38.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                53.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                14.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                72.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                51.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                37.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                58.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                75.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                62.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                58.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                18.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                55.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                34.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                45.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                39.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                70.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                38.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                56.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                40.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                57.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                45.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                53.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                67.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                58.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                80.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                67.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                49.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                55.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                86.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                59.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                73.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                45.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                58.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                71.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                80.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                36.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                60.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                21.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                45.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                89.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                89.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                84.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                79.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                24.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                46.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                71.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                77.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                52.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                73.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                36.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                65.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                64.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                53.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                69.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                39.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                73.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                87.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                59.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                15.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                48.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                14.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                61.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                61.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                17.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                63.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                51.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                49.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                49.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                10.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                38.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                51.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                85.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                62.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                48.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                59.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                54.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                23.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                34.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                44.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                60.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                48.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                78.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                68.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                53.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                69.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                60.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                61.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                5.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                32.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                50.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                30.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                33.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                53.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                46.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                35.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                15.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                51.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                55.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                39.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                74.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                53.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                80.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                48.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                25.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                66.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                71.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                43.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                58.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                55.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                52.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                29.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2007 ;
+        c19-measure:importsHighEconomies
+                17.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                74.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                32.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                65.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                72.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                51.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                0.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                8.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                73.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                56.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                31.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                35.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                78.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                56.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                77.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                56.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                56.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                36.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                80.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                82.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                43.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                50.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                64.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                34.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                36.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                23.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                64.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                35.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                29.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                43.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                12.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                75.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                61.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                37.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                49.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                76.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                53.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                62.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                14.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                41.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                31.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                67.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                37.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                31.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                55.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                44.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                51.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                45.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                81.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                65.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                71.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                57.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                73.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                30.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                55.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                72.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                71.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                33.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                44.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                25.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                46.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                87.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                80.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                81.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                75.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                33.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                40.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                38.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                66.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                56.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                27.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                36.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                70.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                12.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                63.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                74.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                37.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                15.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                34.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                6.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                50.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                50.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                11.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                49.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                42.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                57.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                32.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                21.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                45.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                39.2 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                81.5 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                43.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                64.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                43.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                52.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                23.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                39.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                49.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                58.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                42.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                64.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                22.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                55.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                60.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                40.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                10.6 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                32.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                39.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                38.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                31.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                76.1 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                43.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                41.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                13.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                48.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                49.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                28.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                66.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                45.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                75.7 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                44.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                24.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                54.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                61.4 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                9.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                59.0 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                45.9 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                39.3 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                23.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsHighEconomies-o1142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:importsHighEconomies
+                12.8 ;
+        qb:dataSet                     c19:dataset-importsHighEconomies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

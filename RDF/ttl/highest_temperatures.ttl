@@ -1,0 +1,1202 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19:dataset-highest_temperatures
+        a                qb:DataSet ;
+        rdfs:comment     "Wikipedia: https://en.wikipedia.org/wiki/List_of_weather_records#Highest_temperatures_ever_recorded"@en ;
+        rdfs:label       "highest_temperatures"@en ;
+        dct:description  "The standard measuring conditions for temperature are in the air, 1.5 metres (5 ft) above the ground, and shielded from direct sunlight intensity (hence the term, x degrees in the shade)."@en ;
+        dct:issued       "2020-07-10"^^xsd:date ;
+        dct:publisher    wd:Q52 ;
+        dct:source       <https://en.wikipedia.org/wiki/List_of_weather_records#Highest_temperatures_ever_recorded> ;
+        dct:title        "Highest temperatures ever recorded"@en ;
+        qb:structure     c19-structure:dsd-highest_temperatures_ever_recorded .
+
+c19-structure:dsd-highest_temperatures_ever_recorded
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:highest_temperatures_ever_recorded ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier , sdmx-attribute:unitMeasure ] .
+
+c19-measure:highest_temperatures_ever_recorded
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "highest temperature ever recorded"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+<c19:highest_temperatures_ever_recorded-o00>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5130.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o01>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4400.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o02>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4720.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o03>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4760.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o04>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3600.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o05>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4380.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o06>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o07>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5170.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o08>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4950.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o09>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4640.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o010>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17070 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3690.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o011>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5000.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o012>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4970.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o013>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o014>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q6250 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5070.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o015>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4240.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o016>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4990.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o017>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4510.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o018>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4000.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o019>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4260.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o020>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5050.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o021>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3900.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o022>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3900.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o023>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5100.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o024>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4060.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o025>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5400.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o026>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5380.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o027>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5400.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o028>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4110.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o029>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5000.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o030>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5390.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o031>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4230.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o032>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4010.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o033>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3490.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o034>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4400.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o035>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4720.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o036>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4640.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o037>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5080.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o038>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5370.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o039>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4220.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o040>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5040.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o041>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5428 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4320.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o042>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5200.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o043>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3700.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o044>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4100.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o045>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q865 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4030.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o046>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4460.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o047>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4900.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o048>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5010.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o049>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5210.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o050>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4340.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o051>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4220.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o052>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4370.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o053>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4050.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o054>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3890.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o055>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4180.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o056>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4620.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o057>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4520.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o058>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4280.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o059>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4620.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o060>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4040.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o061>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3640.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o062>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3560.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o063>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3720.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o064>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4600.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o065>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4260.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o066>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4800.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o067>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4190.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o068>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3050.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o069>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3330.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o070>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4700.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o071>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3780.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o072>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3750.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o073>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4080.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o074>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4380.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o075>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4240.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o076>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4480.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o077>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4070.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o078>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4570.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o079>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3560.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o080>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4020.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o081>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4740.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o082>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4450.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o083>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q875134 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4540.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o084>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4030.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o085>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4490.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o086>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4030.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o087>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4080.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o088>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4730.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o089>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3800.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o090>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4150.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o091>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4200.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o092>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3870.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o093>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q237 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4070.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o094>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25228 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3420.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o095>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3490.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o096>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25305 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o097>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o098>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3490.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o099>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3910.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0100>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3550.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0101>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4300.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0102>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-measure:highest_temperatures_ever_recorded
+                29.1 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0103>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17054 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3650.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0104>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5200.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0105>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4000.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0106>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4000.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0107>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5670.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0108>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3720.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0109>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-measure:highest_temperatures_ever_recorded
+                5070.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0110>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3560.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0111>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4240.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0112>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0113>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3530.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0114>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3610.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0115>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3550.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0116>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3620.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0117>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35555 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3580.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0118>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4890.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0119>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4670.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0120>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4470.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0121>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4490.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0122>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0123>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q3769 ;
+        c19-measure:highest_temperatures_ever_recorded
+                3800.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0124>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4500.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0125>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4400.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+<c19:highest_temperatures_ever_recorded-o0126>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-measure:highest_temperatures_ever_recorded
+                4360.0 ;
+        qb:dataSet                     c19:dataset-highest_temperatures_ever_recorded ;
+        sdmx-attribute:decimals        2 ;
+        sdmx-attribute:unitMultiplier  -2 .

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>COVID-19 and correlations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+<link href="{{url_for('static', filename='main.css')}}" rel="stylesheet"></head>
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <div class="app-header header-shadow ">
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/test">
+                                <img width="32" src="{{url_for('static', filename='images/mind-map.svg')}}" alt=""/>
+                                <h5 style="padding-top: 5px;"> &nbsp;  Variables</h5>
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item">
+                            <a class="nav-link" href="/test">
+                                <img width="32" src="{{url_for('static', filename='images/outbreak.svg')}}" alt=""/>
+                                <h5 style="padding-top: 5px;"> &nbsp;  Hypothesis</h5>
+                            </a>
+                        </li>
+                    </ul>        </div>
+            </div>
+        </div>
+            <div class="app-main">
+                    <div class="app-main__inner">
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <img width="52" src="{{url_for('static', filename='images/coronavirus.svg')}}" alt="" style='margin-right: 20px;'/>
+                                    <div>Analysis of COVID-19 and its correlations at international level
+                                        <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>            <div class="row">
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-3 widget-content bg-alternate">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">COVID-19 non-related variables</div>
+                                            <div class="widget-subheading">From ...</div>
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white"><span>524</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-3 widget-content bg-warning">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">COVID-19 related variables</div>
+                                            <div class="widget-subheading">Blablabla</div>
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white"><span>14</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-3 widget-content bg-dark">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">Hypothesis</div>
+                                            <div class="widget-subheading">Blablabla</div>
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white"><span>33</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="mb-3 card">
+                                    <div class="card-header">
+                                        <div class="card-header-title">
+                                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                                            Input
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="widget-chart p-3">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group">
+                                                        <label for="exampleCustomSelect">Variable</label>
+                                                        <select class="custom-select" id="exampleCustomSelect" type="select" name="customSelect">
+                                                        <option value="">Select</option>
+                                                        <option>Value 1</option>
+                                                        <option>Value 2</option>
+                                                        <option>Value 3</option>
+                                                        <option>Value 4</option>
+                                                        <option>Value 5</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="position-relative form-group">
+                                                        <label for="exampleCustomMutlipleSelect">Country</label>
+                                                        <select class="custom-select" id="exampleCustomMutlipleSelect" type="select" name="customSelect">
+                                                        <option value="">Select</option>
+                                                        <option>Value 1</option>
+                                                        <option>Value 2</option>
+                                                        <option>Value 3</option>
+                                                        <option>Value 4</option>
+                                                        <option>Value 5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group">
+                                                        <label for="exampleCustomSelectDisabled">Time</label>
+                                                        <select class="custom-select" id="exampleCustomSelectDisabled" type="select" name="customSelect">
+                                                        <option value="">Select</option>
+                                                        <option>Value 1</option>
+                                                        <option>Value 2</option>
+                                                        <option>Value 3</option>
+                                                        <option>Value 4</option>
+                                                        <option>Value 5</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="position-relative form-group">
+                                                        <label for="exampleCustomMutlipleSelectDisabled">Correlation coefficient</label>
+                                                        <select class="custom-select" id="exampleCustomMutlipleSelectDisabled" type="select" name="customSelect">
+                                                        <option value="">Select</option>
+                                                        <option>Value 1</option>
+                                                        <option>Value 2</option>
+                                                        <option>Value 3</option>
+                                                        <option>Value 4</option>
+                                                        <option>Value 5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <div class="mb-3 card">
+                                    <div class="card-header">
+                                        <div class="card-header-title">
+                                            <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
+                                            Output
+                                        </div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active show" id="tab-eg-55">
+                                            <div class="widget-chart p-3">
+                                                    <canvas id="radar-chart" style="display: block; width: 498px; height: 249px;" width="498" height="249" class="chartjs-render-monitor"></canvas>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="mb-3 card">
+                                    <div class="card-header">
+                                        <div class="card-header-title">
+                                            <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
+                                            Database
+                                        </div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active show" id="tab-eg-55">
+                                            <div class="widget-chart p-3">
+                                                {% for i in range(2):%}
+                                                <p> From database {{values[i]}}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>   
+                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        </div>
+    </div>
+<script type="text/javascript" src="{{url_for('static', filename='scripts/main.js')}}"></script></body>
+</html>

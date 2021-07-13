@@ -1,0 +1,1857 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2016
+        a                  time:Interval ;
+        rdfs:label         "2016" ;
+        time:hasBeginning  "2016"^^xsd:gYear ;
+        time:hasEnd        "2016"^^xsd:gYear .
+
+c19-measure:netBarterTerms
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Net barter terms of trade index (2000 = 100)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-netBarterTerms
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:netBarterTerms ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:netBarterTerms-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     163.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-netBarterTerms
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 6.1 | Growth of merchandise trade"@en ;
+        rdfs:label       "net_terms_trade_index"@en ;
+        dct:description  "Net barter terms of trade index is calculated as the percentage ratio of the export unit value indexes to the import unit value indexes, measured relative to the base year 2000. Unit value indexes are based on data reported by countries that demonstrate consistency under UNCTAD quality controls, supplemented by UNCTAD's estimates using the previous year’s trade values at the Standard International Trade Classification three-digit level as weights. To improve data coverage, especially for the latest periods, UNCTAD constructs a set of average prices indexes at the three-digit product classification of the Standard International Trade Classification revision 3 using UNCTAD’s Commodity Price Statistics, interna­tional and national sources, and UNCTAD secretariat estimates and calculates unit value indexes at the country level using the current year's trade values as weights."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/6.1> ;
+        dct:title        "Growth of merchandise trade: Net barter terms of trade index"@en ;
+        qb:structure     c19-structure:dsd-netBarterTerms .
+
+c19:netBarterTerms-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     155.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     173.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     109.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     62.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     155.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     123.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     148.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     88.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     99.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     78.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     116.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     69.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     124.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     96.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     103.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     125.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     106.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     112.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     92.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     103.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     91.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     109.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     115.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     112.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     145.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     155.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     112.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     76.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     139.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     105.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     62.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     77.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     113.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     196.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     92.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     97.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     88.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     111.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     128.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     112.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     138.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     99.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     173.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     99.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     180.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     90.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     105.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     100.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     99.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     111.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     111.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     162.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     146.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     206.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     119.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     79.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     95.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     144.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q4628 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     119.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     113.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     92.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     90.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     91.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     137.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     101.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     142.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     102.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     177.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     88.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     91.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     105.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     106.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     171.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     103.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     99.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     128.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     249.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     123.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     102.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     91.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     108.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     122.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     123.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     104.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     94.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     114.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     105.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     86.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     72.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     71.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     134.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     104.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     111.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     66.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     59.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     118.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     130.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     96.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     106.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     110.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     86.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     126.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     111.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     101.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     74.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     97.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     84.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     120.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     102.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     173.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     141.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     109.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     131.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     127.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     87.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     114.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     77.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     150.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     137.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     90.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     129.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     85.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     95.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     156.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     133.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     182.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     156.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     120.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     84.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     109.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     105.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     62.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     97.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     156.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     161.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     127.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     159.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     84.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     100.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     96.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     115.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     109.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     127.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     178.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     86.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     130.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     82.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     110.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     109.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     85.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     52.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     89.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     97.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     92.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     94.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     145.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     93.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     114.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     69.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     110.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     103.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     182.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     140.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     111.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     91.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     110.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     148.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     88.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     170.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     104.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     125.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     106.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     118.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     124.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     103.3 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     149.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q18221 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     66.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     124.2 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     83.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     140.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     98.4 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     100.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     120.7 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     158.6 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     102.9 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     185.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     133.0 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     88.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     131.5 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     164.8 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:netBarterTerms-o0197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2016 ;
+        c19-measure:netBarterTerms     112.1 ;
+        qb:dataSet                     c19:dataset-netBarterTerms ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

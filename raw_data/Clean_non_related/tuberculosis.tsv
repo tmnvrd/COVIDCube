@@ -1,0 +1,202 @@
+Country	Treatment success rate (2017)	Cases detection rate (2018)	ID
+Afghanistan	91	69	Q889
+Albania	87	87	Q222
+Algeria	91	80	Q262
+American Samoa	80	87	Q16641
+Andorra	100	87	Q228
+Angola	25	61	Q916
+Antigua and Barbuda	100	87	Q781
+Argentina	57	87	Q414
+Armenia	79	80	Q399
+Australia	82	87	Q408
+Austria	69	74	Q40
+Azerbaijan	84	80	Q227
+Bahamas, The	71	87	Q778
+Bahrain	68	87	Q398
+Bangladesh	94	75	Q902
+Barbados	100	87	Q244
+Belarus	89	80	Q184
+Belgium	79	88	Q31
+Belize	71	87	Q242
+Benin	87	62	Q962
+Bermuda	100	87	Q23635
+Bhutan	93	80	Q917
+Bolivia	83	62	Q750
+Bosnia and Herzegovina	45	80	Q225
+Botswana	78	59	Q963
+Brazil	71	87	Q155
+Brunei Darussalam	75	87	Q921
+Bulgaria	84	82	Q219
+Burkina Faso	80	63	Q965
+Burundi	93	58	Q967
+Cabo Verde	91	80	Q1011
+Cambodia	94	58	Q424
+Cameroon	84	50	Q1009
+Canada	80	87	Q16
+Cayman Islands	100	87	Q5785
+Central African Republic	78	43	Q929
+Chad	79	59	Q657
+Chile	78	87	Q298
+China	93	92	Q148
+Hong Kong SAR, China	65	87	Q8646
+Macao SAR, China	82	87	Q14773
+Colombia	73	80	Q739
+Comoros	89	45	Q970
+Congo, Dem. Rep.	90	63	Q974
+Congo, Rep.	66	54	Q971
+Costa Rica	92	80	Q800
+Cote d'Ivoire	83	59	Q1008
+Croatia	66	100	Q224
+Cuba	82	87	Q241
+Curacao	50	87	Q25279
+Cyprus	67	79	Q229
+Czech Republic	69	75	Q213
+Denmark	39	87	Q35
+Djibouti	85	80	Q977
+Dominica	100	87	Q784
+Dominican Republic	74	80	Q786
+Ecuador	74	80	Q736
+Egypt, Arab Rep.	86	68	Q79
+El Salvador	90	80	Q792
+Equatorial Guinea	75	50	Q983
+Eritrea	92	61	Q986
+Estonia	80	87	Q191
+Eswatini	86	80	Q1050
+Ethiopia	96	69	Q115
+Fiji	81	80	Q712
+Finland	36	88	Q33
+France	24	83	Q142
+French Polynesia	81	87	Q30971
+Gabon	25	51	Q1000
+Gambia, The	81	60	Q1005
+Georgia	84	73	Q230
+Germany	71	87	Q183
+Ghana	85	32	Q117
+Greenland	77	87	Q223
+Grenada	67	87	Q769
+Guam	89	87	Q16635
+Guatemala	87	80	Q774
+Guinea	88	65	Q1006
+Guinea-Bissau	64	30	Q1007
+Guyana	71	80	Q734
+Haiti	78	69	Q790
+Honduras	87	80	Q783
+Hungary	67	97	Q28
+Iceland	92	87	Q189
+India	81	74	Q668
+Indonesia	85	67	Q252
+Iran, Islamic Rep.	86	80	Q794
+Iraq	92	44	Q796
+Ireland	35	87	Q27
+Israel	87	87	Q801
+Jamaica	27	80	Q766
+Japan	68	87	Q17
+Jordan	56	80	Q810
+Kazakhstan	91	100	Q232
+Kenya	83	63	Q114
+Kiribati	89	80	Q710
+Korea, Dem. Peopleâ€™s Rep.	83	69	Q423
+Korea, Rep.	83	94	Q884
+Kuwait	89	87	Q817
+Kyrgyz Republic	82	87	Q813
+Lao PDR	89	57	Q819
+Latvia	85	87	Q211
+Lebanon	84	87	Q822
+Lesotho	76	55	Q1013
+Liberia	77	53	Q1014
+Libya	59	68	Q1016
+Lithuania	83	87	Q37
+Luxembourg	0	87	Q32
+Madagascar	84	55	Q1019
+Malawi	86	48	Q1020
+Malaysia	81	87	Q833
+Maldives	68	80	Q826
+Mali	78	68	Q912
+Marshall Islands	83	170	Q709
+Mauritania	77	59	Q1025
+Mauritius	88	80	Q1027
+Mexico	77	80	Q96
+Micronesia, Fed. Sts.	88	80	Q702
+Moldova	81	87	Q217
+Mongolia	91	29	Q711
+Montenegro	87	87	Q236
+Morocco	88	87	Q1028
+Mozambique	90	57	Q1029
+Myanmar	87	76	Q836
+Namibia	86	61	Q1030
+Nepal	91	75	Q837
+Netherlands	87	87	Q55
+New Caledonia	35	87	Q33788
+New Zealand	82	87	Q664
+Nicaragua	86	80	Q811
+Niger	82	55	Q1032
+Nigeria	86	24	Q1033
+North Macedonia	88	80	Q221
+Northern Mariana Islands	98	87	Q16644
+Norway	91	87	Q20
+Oman	51	87	Q842
+Pakistan	93	64	Q843
+Palau	80	87	Q695
+Panama	73	80	Q804
+Papua New Guinea	68	75	Q691
+Paraguay	71	87	Q733
+Peru	86	80	Q419
+Philippines	91	63	Q928
+Poland	54	87	Q36
+Portugal	38	87	Q45
+Puerto Rico	69	87	Q1183
+Qatar	64	87	Q846
+Romania	86	87	Q218
+Russian Federation	69	99	Q159
+Rwanda	87	80	Q1037
+Samoa	57	87	Q683
+Sao Tome and Principe	75	57	Q1039
+Saudi Arabia	90	87	Q851
+Senegal	87	71	Q1041
+Serbia	86	87	Q403
+Seychelles	56	87	Q1042
+Sierra Leone	90	75	Q1044
+Singapore	79	87	Q334
+Sint Maarten (Dutch part)	100	87	Q26273
+Slovak Republic	92	87	Q214
+Slovenia	77	89	Q215
+Solomon Islands	92	80	Q685
+Somalia	86	42	Q1045
+South Africa	77	76	Q258
+South Sudan	82	91	Q958
+Spain	61	100	Q29
+Sri Lanka	85	64	Q854
+St. Kitts and Nevis	0	87	Q763
+St. Lucia	91	87	Q760
+St. Vincent and the Grenadines	67	87	Q757
+Sudan	80	67	Q1049
+Suriname	73	80	Q730
+Sweden	87	87	Q34
+Switzerland	78	87	Q39
+Syrian Arab Republic	86	80	Q858
+Tajikistan	91	75	Q863
+Tanzania	90	53	Q924
+Thailand	84	80	Q869
+Timor-Leste	88	60	Q574
+Togo	82	85	Q945
+Tonga	82	87	Q678
+Trinidad and Tobago	67	87	Q754
+Tunisia	89	80	Q948
+Turkey	86	87	Q43
+Turkmenistan	85	80	Q874
+Turks and Caicos Islands	75	87	Q18221
+Tuvalu	68	87	Q672
+Uganda	72	65	Q1036
+Ukraine	76	75	Q212
+United Arab Emirates	74	87	Q878
+United Kingdom	81	89	Q145
+United States	77	87	Q30
+Uruguay	73	87	Q77
+Uzbekistan	89	72	Q265
+Vanuatu	96	67	Q686
+Venezuela, RB	82	80	Q717
+Vietnam	92	57	Q881
+West Bank and Gaza	100	80	Q407199
+Yemen, Rep.	89	71	Q805
+Zambia	90	58	Q953
+Zimbabwe	83	83	Q954

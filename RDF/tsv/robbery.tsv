@@ -1,0 +1,143 @@
+Country	SurveyYear	Crime	ID	id_row
+Afghanistan	2014	24.2	Q889	0
+Albania	2019	4.5	Q222	1
+Angola	2010	12.4	Q916	2
+Antigua and Barbuda	2010	2.6	Q781	3
+Argentina	2017	1.8	Q414	4
+Armenia	2013	5.3	Q399	5
+Azerbaijan	2013	2.9	Q227	6
+Bahamas, The	2010	1.7	Q778	7
+Bangladesh	2013	3.9	Q902	8
+Barbados	2010	0.6	Q244	9
+Belarus	2018	2.0	Q184	10
+Belize	2010	1.0	Q242	11
+Benin	2016	3.1	Q962	12
+Bhutan	2015	7.1	Q917	13
+Bolivia	2017	5.9	Q750	14
+Bosnia and Herzegovina	2019	1.5	Q225	15
+Botswana	2010	3.1	Q963	16
+Brazil	2009	6.9	Q155	17
+Bulgaria	2019	2.6	Q219	18
+Burkina Faso	2009	3.1	Q965	19
+Burundi	2014	3.8	Q967	20
+Cambodia	2016	3.2	Q424	21
+Cameroon	2016	8.9	Q1009	22
+Cabo Verde	2009	3.9	Q1011	23
+Central African Republic	2011	12.0	Q929	24
+Chad	2018	9.5	Q657	25
+Chile	2010	1.7	Q298	26
+China	2012	0.5	Q148	27
+Colombia	2017	1.9	Q739	28
+Congo, Dem. Rep.	2013	8.3	Q974	29
+Congo, Rep.	2009	16.9	Q971	30
+Costa Rica	2010	1.3	Q800	31
+Cote d'Ivoire	2016	10.1	Q1008	32
+Croatia	2019	1.4	Q224	33
+Cyprus	2019	6.2	Q229	34
+Czech Republic	2019	0.9	Q213	35
+Djibouti	2013	4.4	Q977	36
+Dominican Republic	2016	6.6	Q786	37
+Ecuador	2017	2.3	Q736	38
+Egypt, Arab Rep.	2016	17.0	Q79	39
+El Salvador	2016	3.3	Q792	40
+Estonia	2019	1.1	Q191	41
+Ethiopia	2015	3.4	Q115	42
+Fiji	2009	3.6	Q712	43
+Gabon	2009	3.5	Q1000	44
+Gambia, The	2018	7.0	Q1005	45
+Georgia	2019	1.3	Q230	46
+Ghana	2013	7.8	Q117	47
+Greece	2018	1.1	Q41	48
+Grenada	2010	4.6	Q769	49
+Guatemala	2017	4.0	Q774	50
+Guinea	2016	9.6	Q1006	51
+Guinea-Bissau	2006	3.3	Q1007	52
+Guyana	2010	2.5	Q734	53
+Honduras	2016	7.2	Q783	54
+Hungary	2019	1.3	Q28	55
+India	2014	2.7	Q668	56
+Indonesia	2015	9.2	Q252	57
+Iraq	2011	10.0	Q796	58
+Israel	2013	1.2	Q801	59
+Italy	2019	3.6	Q38	60
+Jamaica	2010	3.4	Q766	61
+Jordan	2019	1.1	Q810	62
+Kazakhstan	2019	4.1	Q232	63
+Kenya	2018	4.9	Q114	64
+Kosovo	2019	10.5	Q1246	65
+Kyrgyz Republic	2019	5.9	Q813	66
+Lao PDR	2018	2.3	Q819	67
+Latvia	2019	0.9	Q211	68
+Lebanon	2019	9.1	Q822	69
+Lesotho	2016	17.3	Q1013	70
+Liberia	2017	9.3	Q1014	71
+Lithuania	2019	0.9	Q37	72
+North Macedonia	2019	2.0	Q221	73
+Madagascar	2013	5.3	Q1019	74
+Malawi	2014	8.5	Q1020	75
+Malaysia	2015	8.5	Q833	76
+Mali	2016	4.0	Q912	77
+Malta	2019	1.6	Q233	78
+Mauritania	2014	7.8	Q1025	79
+Mauritius	2009	10.5	Q1027	80
+Mexico	2010	3.6	Q96	81
+Micronesia, Fed. Sts.	2009	4.6	Q702	82
+Moldova	2019	2.3	Q217	83
+Mongolia	2019	1.1	Q711	84
+Montenegro	2019	0.9	Q236	85
+Morocco	2019	11.1	Q1028	86
+Mozambique	2018	8.0	Q1029	87
+Myanmar	2016	1.1	Q836	88
+Namibia	2014	12.5	Q1030	89
+Nepal	2013	10.2	Q837	90
+Nicaragua	2016	3.5	Q811	91
+Niger	2017	4.5	Q1032	92
+Nigeria	2014	13.6	Q1033	93
+Pakistan	2013	6.5	Q843	94
+Panama	2010	5.6	Q804	95
+Papua New Guinea	2015	4.8	Q691	96
+Paraguay	2017	2.3	Q733	97
+Peru	2017	2.8	Q419	98
+Philippines	2015	1.3	Q928	99
+Poland	2019	3.4	Q36	100
+Portugal	2019	3.6	Q45	101
+Romania	2013	2.8	Q218	102
+Russian Federation	2019	1.7	Q159	103
+Rwanda	2019	6.8	Q1037	104
+Samoa	2009	10.3	Q683	105
+Senegal	2014	5.3	Q1041	106
+Serbia	2019	1.3	Q403	107
+Sierra Leone	2017	11.7	Q1044	108
+Slovak Republic	2019	1.9	Q214	109
+Slovenia	2019	2.1	Q215	110
+Solomon Islands	2015	2.6	Q685	111
+South Africa	2007	2.4	Q258	112
+South Sudan	2014	10.8	Q958	113
+Sri Lanka	2011	1.8	Q854	114
+St. Kitts and Nevis	2010	2.7	Q763	115
+St. Lucia	2010	1.6	Q760	116
+St. Vincent and the Grenadines	2010	4.7	Q757	117
+Sudan	2014	4.5	Q1049	118
+Suriname	2018	8.4	Q730	119
+Eswatini	2016	7.1	Q1050	120
+Sweden	2014	0.8	Q34	121
+Tajikistan	2019	4.5	Q863	122
+Tanzania	2013	6.8	Q924	123
+Thailand	2016	0.8	Q869	124
+Timor-Leste	2015	15.2	Q574	125
+Togo	2016	7.3	Q945	126
+Tonga	2009	4.0	Q678	127
+Trinidad and Tobago	2010	1.7	Q754	128
+Tunisia	2013	9.8	Q948	129
+Turkey	2019	2.5	Q43	130
+Uganda	2013	7.2	Q1036	131
+Ukraine	2019	3.5	Q212	132
+Uruguay	2017	2.1	Q77	133
+Uzbekistan	2019	6.8	Q265	134
+Vanuatu	2009	6.4	Q686	135
+Venezuela, RB	2010	3.6	Q717	136
+Vietnam	2015	3.5	Q881	137
+West Bank and Gaza	2019	7.5	Q407199	138
+Yemen, Rep.	2013	4.9	Q805	139
+Zambia	2019	4.2	Q953	140
+Zimbabwe	2016	4.6	Q954	141

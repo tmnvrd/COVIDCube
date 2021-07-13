@@ -1,0 +1,2252 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2013-18
+        a                  time:Interval ;
+        rdfs:label         "2013-18" ;
+        time:hasBeginning  "2013"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19:dataset-health_workers
+        a                qb:Dataset ;
+        rdfs:comment     "12.2 | World Development Indicators: Health systems"@en ;
+        rdfs:label       "health_workers"@en ;
+        dct:description  "Physicians include generalist and specialist medical practitioners. Nurses and midwives include professional nurses, professional midwives, auxiliary nurses, auxiliary midwives, enrolled nurses, enrolled midwives and other associated personnel, such as dental nurses and primary care nurses."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/2.12> ;
+        dct:title        "Health workers"@en ;
+        qb:structure     c19-structure:dsd-health_workers .
+
+c19-structure:dsd-health_workers
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:healthWorkersPhysicians , c19-measure:healthWorkersNursesAndMidwives ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:healthWorkersPhysicians
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Physicians per 1000 people"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:healthWorkersNursesAndMidwives
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Nurses and midwives per 1000 people"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19:healthWorkers-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.6 ;
+        c19-measure:healthWorkersPhysicians
+                1.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.5 ;
+        c19-measure:healthWorkersPhysicians
+                1.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.0 ;
+        c19-measure:healthWorkersPhysicians
+                3.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.5 ;
+        c19-measure:healthWorkersPhysicians
+                3.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.6 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.1 ;
+        c19-measure:healthWorkersPhysicians
+                4.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                12.6 ;
+        c19-measure:healthWorkersPhysicians
+                3.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.1 ;
+        c19-measure:healthWorkersPhysicians
+                5.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.4 ;
+        c19-measure:healthWorkersPhysicians
+                3.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.6 ;
+        c19-measure:healthWorkersPhysicians
+                2.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.5 ;
+        c19-measure:healthWorkersPhysicians
+                0.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.1 ;
+        c19-measure:healthWorkersPhysicians
+                2.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                11.0 ;
+        c19-measure:healthWorkersPhysicians
+                5.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                19.5 ;
+        c19-measure:healthWorkersPhysicians
+                3.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.3 ;
+        c19-measure:healthWorkersPhysicians
+                1.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.6 ;
+        c19-measure:healthWorkersPhysicians
+                1.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.7 ;
+        c19-measure:healthWorkersPhysicians
+                2.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                10.1 ;
+        c19-measure:healthWorkersPhysicians
+                2.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.9 ;
+        c19-measure:healthWorkersPhysicians
+                1.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.8 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.3 ;
+        c19-measure:healthWorkersPhysicians
+                0.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                9.9 ;
+        c19-measure:healthWorkersPhysicians
+                2.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                13.3 ;
+        c19-measure:healthWorkersPhysicians
+                2.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.7 ;
+        c19-measure:healthWorkersPhysicians
+                2.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.3 ;
+        c19-measure:healthWorkersPhysicians
+                2.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.6 ;
+        c19-measure:healthWorkersPhysicians
+                0.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.4 ;
+        c19-measure:healthWorkersPhysicians
+                2.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.6 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                8.1 ;
+        c19-measure:healthWorkersPhysicians
+                3.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.6 ;
+        c19-measure:healthWorkersPhysicians
+                8.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.3 ;
+        c19-measure:healthWorkersPhysicians
+                2.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                8.4 ;
+        c19-measure:healthWorkersPhysicians
+                4.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                10.3 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.4 ;
+        c19-measure:healthWorkersPhysicians
+                1.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.4 ;
+        c19-measure:healthWorkersPhysicians
+                1.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.5 ;
+        c19-measure:healthWorkersPhysicians
+                2.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.8 ;
+        c19-measure:healthWorkersPhysicians
+                1.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.5 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                11.2 ;
+        c19-measure:healthWorkersPhysicians
+                4.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                14.7 ;
+        c19-measure:healthWorkersPhysicians
+                3.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                11.5 ;
+        c19-measure:healthWorkersPhysicians
+                3.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.5 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.7 ;
+        c19-measure:healthWorkersPhysicians
+                7.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                13.2 ;
+        c19-measure:healthWorkersPhysicians
+                4.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.6 ;
+        c19-measure:healthWorkersPhysicians
+                5.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.3 ;
+        c19-measure:healthWorkersPhysicians
+                1.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.0 ;
+        c19-measure:healthWorkersPhysicians
+                0.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.9 ;
+        c19-measure:healthWorkersPhysicians
+                3.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                16.2 ;
+        c19-measure:healthWorkersPhysicians
+                4.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.6 ;
+        c19-measure:healthWorkersPhysicians
+                1.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.0 ;
+        c19-measure:healthWorkersPhysicians
+                0.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                16.1 ;
+        c19-measure:healthWorkersPhysicians
+                3.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.7 ;
+        c19-measure:healthWorkersPhysicians
+                4.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.7 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.8 ;
+        c19-measure:healthWorkersPhysicians
+                1.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                12.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.8 ;
+        c19-measure:healthWorkersPhysicians
+                2.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.3 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.8 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.4 ;
+        c19-measure:healthWorkersPhysicians
+                3.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.3 ;
+        c19-measure:healthWorkersPhysicians
+                2.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.4 ;
+        c19-measure:healthWorkersPhysicians
+                2.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.9 ;
+        c19-measure:healthWorkersPhysicians
+                2.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.0 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.8 ;
+        c19-measure:healthWorkersPhysicians
+                3.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.7 ;
+        c19-measure:healthWorkersPhysicians
+                2.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.5 ;
+        c19-measure:healthWorkersPhysicians
+                0.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.5 ;
+        c19-measure:healthWorkersPhysicians
+                2.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                9.8 ;
+        c19-measure:healthWorkersPhysicians
+                6.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                12.2 ;
+        c19-measure:healthWorkersPhysicians
+                3.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.5 ;
+        c19-measure:healthWorkersPhysicians
+                1.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.4 ;
+        c19-measure:healthWorkersPhysicians
+                4.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                9.5 ;
+        c19-measure:healthWorkersPhysicians
+                2.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.5 ;
+        c19-measure:healthWorkersPhysicians
+                2.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.4 ;
+        c19-measure:healthWorkersPhysicians
+                2.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.9 ;
+        c19-measure:healthWorkersPhysicians
+                3.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                20.2 ;
+        c19-measure:healthWorkersPhysicians
+                7.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.9 ;
+        c19-measure:healthWorkersPhysicians
+                2.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.0 ;
+        c19-measure:healthWorkersPhysicians
+                0.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.0 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                11.2 ;
+        c19-measure:healthWorkersPhysicians
+                3.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                12.4 ;
+        c19-measure:healthWorkersPhysicians
+                3.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.5 ;
+        c19-measure:healthWorkersPhysicians
+                1.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.3 ;
+        c19-measure:healthWorkersPhysicians
+                0.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.8 ;
+        c19-measure:healthWorkersPhysicians
+                2.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                18.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                1.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.3 ;
+        c19-measure:healthWorkersPhysicians
+                1.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.1 ;
+        c19-measure:healthWorkersPhysicians
+                1.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.5 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.7 ;
+        c19-measure:healthWorkersPhysicians
+                1.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.4 ;
+        c19-measure:healthWorkersPhysicians
+                1.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.9 ;
+        c19-measure:healthWorkersPhysicians
+                2.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.0 ;
+        c19-measure:healthWorkersPhysicians
+                5.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.3 ;
+        c19-measure:healthWorkersPhysicians
+                2.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                7.4 ;
+        c19-measure:healthWorkersPhysicians
+                3.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                8.5 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.5 ;
+        c19-measure:healthWorkersPhysicians
+                0.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                8.2 ;
+        c19-measure:healthWorkersPhysicians
+                6.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.5 ;
+        c19-measure:healthWorkersPhysicians
+                2.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.3 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.1 ;
+        c19-measure:healthWorkersPhysicians
+                3.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                8.1 ;
+        c19-measure:healthWorkersPhysicians
+                2.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.1 ;
+        c19-measure:healthWorkersPhysicians
+                3.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                10.0 ;
+        c19-measure:healthWorkersPhysicians
+                3.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.1 ;
+        c19-measure:healthWorkersPhysicians
+                0.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.3 ;
+        c19-measure:healthWorkersPhysicians
+                0.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.7 ;
+        c19-measure:healthWorkersPhysicians
+                3.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.2 ;
+        c19-measure:healthWorkersPhysicians
+                1.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                3.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.8 ;
+        c19-measure:healthWorkersPhysicians
+                1.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                11.8 ;
+        c19-measure:healthWorkersPhysicians
+                4.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                17.5 ;
+        c19-measure:healthWorkersPhysicians
+                4.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.5 ;
+        c19-measure:healthWorkersPhysicians
+                1.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.8 ;
+        c19-measure:healthWorkersPhysicians
+                2.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.6 ;
+        c19-measure:healthWorkersPhysicians
+                0.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.8 ;
+        c19-measure:healthWorkersPhysicians
+                0.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.7 ;
+        c19-measure:healthWorkersPhysicians
+                0.7 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.1 ;
+        c19-measure:healthWorkersPhysicians
+                4.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.5 ;
+        c19-measure:healthWorkersPhysicians
+                1.3 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                2.7 ;
+        c19-measure:healthWorkersPhysicians
+                1.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.4 ;
+        c19-measure:healthWorkersPhysicians
+                2.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                4.3 ;
+        c19-measure:healthWorkersPhysicians
+                0.9 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.2 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                6.7 ;
+        c19-measure:healthWorkersPhysicians
+                3.0 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                5.7 ;
+        c19-measure:healthWorkersPhysicians
+                2.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                8.2 ;
+        c19-measure:healthWorkersPhysicians
+                2.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                14.5 ;
+        c19-measure:healthWorkersPhysicians
+                2.6 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.9 ;
+        c19-measure:healthWorkersPhysicians
+                5.1 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                11.3 ;
+        c19-measure:healthWorkersPhysicians
+                2.4 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.4 ;
+        c19-measure:healthWorkersPhysicians
+                0.8 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                0.8 ;
+        c19-measure:healthWorkersPhysicians
+                0.5 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.3 ;
+        c19-measure:healthWorkersPhysicians
+                1.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:healthWorkers-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:healthWorkersNursesAndMidwives
+                1.9 ;
+        c19-measure:healthWorkersPhysicians
+                0.2 ;
+        qb:dataSet                     c19:dataset-health_workers ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .

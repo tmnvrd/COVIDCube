@@ -1,0 +1,147 @@
+Country	SurveyYear	Briberyincidence	ID	id_row
+Afghanistan	2014	46.8	Q889	0
+Albania	2019	36.1	Q222	1
+Algeria	2007	18.8	Q262	2
+Angola	2010	51.3	Q916	3
+Antigua and Barbuda	2010	6.9	Q781	4
+Argentina	2017	9.3	Q414	5
+Armenia	2013	8.7	Q399	6
+Azerbaijan	2013	16.0	Q227	7
+Bahamas, The	2010	21.0	Q778	8
+Bangladesh	2013	47.7	Q902	9
+Barbados	2010	1.2	Q244	10
+Belarus	2018	4.9	Q184	11
+Belize	2010	6.2	Q242	12
+Benin	2016	14.5	Q962	13
+Bhutan	2015	0.9	Q917	14
+Bolivia	2017	9.1	Q750	15
+Bosnia and Herzegovina	2019	16.0	Q225	16
+Botswana	2010	8.4	Q963	17
+Brazil	2009	11.7	Q155	18
+Bulgaria	2019	10.0	Q219	19
+Burkina Faso	2009	9.8	Q965	20
+Burundi	2014	30.3	Q967	21
+Cambodia	2016	64.7	Q424	22
+Cameroon	2016	26.7	Q1009	23
+Cabo Verde	2009	2.0	Q1011	24
+Central African Republic	2011	21.0	Q929	25
+Chad	2018	27.4	Q657	26
+Chile	2010	1.3	Q298	27
+China	2012	11.6	Q148	28
+Colombia	2017	6.6	Q739	29
+Congo, Dem. Rep.	2013	56.5	Q974	30
+Congo, Rep.	2009	37.5	Q971	31
+Costa Rica	2010	8.7	Q800	32
+Cote d'Ivoire	2016	25.3	Q1008	33
+Croatia	2019	10.1	Q224	34
+Cyprus	2019	0.2	Q229	35
+Czech Republic	2019	3.5	Q213	36
+Djibouti	2013	11.1	Q977	37
+Dominica	2010	5.8	Q784	38
+Dominican Republic	2016	12.3	Q786	39
+Ecuador	2017	5.9	Q736	40
+Egypt, Arab Rep.	2016	15.2	Q79	41
+El Salvador	2016	4.2	Q792	42
+Eritrea	2009	0.0	Q986	43
+Estonia	2019	0.0	Q191	44
+Ethiopia	2015	26.8	Q115	45
+Fiji	2009	10.5	Q712	46
+Gabon	2009	23.2	Q1000	47
+Gambia, The	2018	9.2	Q1005	48
+Georgia	2019	1.3	Q230	49
+Ghana	2013	18.7	Q117	50
+Greece	2018	5.5	Q41	51
+Grenada	2010	6.6	Q769	52
+Guatemala	2017	2.8	Q774	53
+Guinea	2016	7.9	Q1006	54
+Guinea-Bissau	2006	27.6	Q1007	55
+Guyana	2010	14.9	Q734	56
+Honduras	2016	8.7	Q783	57
+Hungary	2019	4.7	Q28	58
+India	2014	22.7	Q668	59
+Indonesia	2015	30.6	Q252	60
+Iraq	2011	37.3	Q796	61
+Israel	2013	0.1	Q801	62
+Italy	2019	11.8	Q38	63
+Jamaica	2010	19.3	Q766	64
+Jordan	2019	2.5	Q810	65
+Kazakhstan	2019	11.6	Q232	66
+Kenya	2018	23.9	Q114	67
+Kosovo	2019	3.2	Q1246	68
+Kyrgyz Republic	2019	31.4	Q813	69
+Lao PDR	2018	40.3	Q819	70
+Latvia	2019	2.0	Q211	71
+Lebanon	2019	21.8	Q822	72
+Lesotho	2016	14.6	Q1013	73
+Liberia	2017	56.1	Q1014	74
+Lithuania	2019	0.2	Q37	75
+North Macedonia	2019	7.4	Q221	76
+Madagascar	2013	32.9	Q1019	77
+Malawi	2014	24.2	Q1020	78
+Malaysia	2015	28.2	Q833	79
+Mali	2016	33.7	Q912	80
+Malta	2019	2.4	Q233	81
+Mauritania	2014	28.9	Q1025	82
+Mauritius	2009	3.9	Q1027	83
+Mexico	2010	17.6	Q96	84
+Micronesia, Fed. Sts.	2009	4.5	Q702	85
+Moldova	2019	11.9	Q217	86
+Mongolia	2019	24.7	Q711	87
+Montenegro	2019	21.4	Q236	88
+Morocco	2019	16.9	Q1028	89
+Mozambique	2018	21.1	Q1029	90
+Myanmar	2016	29.3	Q836	91
+Namibia	2014	9.1	Q1030	92
+Nepal	2013	14.4	Q837	93
+Nicaragua	2016	6.5	Q811	94
+Niger	2017	7.8	Q1032	95
+Nigeria	2014	28.9	Q1033	96
+Pakistan	2013	30.8	Q843	97
+Panama	2010	7.1	Q804	98
+Papua New Guinea	2015	26.4	Q691	99
+Paraguay	2017	13.8	Q733	100
+Peru	2017	17.6	Q419	101
+Philippines	2015	17.2	Q928	102
+Poland	2019	2.8	Q36	103
+Portugal	2019	0.3	Q45	104
+Romania	2013	9.8	Q218	105
+Russian Federation	2019	26.8	Q159	106
+Rwanda	2019	4.1	Q1037	107
+Samoa	2009	30.5	Q683	108
+Senegal	2014	11.1	Q1041	109
+Serbia	2019	6.9	Q403	110
+Sierra Leone	2017	46.1	Q1044	111
+Slovak Republic	2019	2.4	Q214	112
+Slovenia	2019	1.8	Q215	113
+Solomon Islands	2015	43.8	Q685	114
+South Africa	2007	4.2	Q258	115
+South Sudan	2014	48.0	Q958	116
+Sri Lanka	2011	10.0	Q854	117
+St. Kitts and Nevis	2010	2.2	Q763	118
+St. Lucia	2010	11.6	Q760	119
+St. Vincent and the Grenadines	2010	4.9	Q757	120
+Sudan	2014	17.6	Q1049	121
+Suriname	2018	12.7	Q730	122
+Eswatini	2016	6.7	Q1050	123
+Sweden	2014	1.9	Q34	124
+Syrian Arab Republic	2009	69.6	Q858	125
+Tajikistan	2019	11.1	Q863	126
+Tanzania	2013	20.8	Q924	127
+Thailand	2016	9.9	Q869	128
+Timor-Leste	2015	44.2	Q574	129
+Togo	2016	7.0	Q945	130
+Tonga	2009	24.9	Q678	131
+Trinidad and Tobago	2010	10.5	Q754	132
+Tunisia	2013	10.3	Q948	133
+Turkey	2019	1.4	Q43	134
+Uganda	2013	22.0	Q1036	135
+Ukraine	2019	37.4	Q212	136
+Uruguay	2017	2.4	Q77	137
+Uzbekistan	2019	5.9	Q265	138
+Vanuatu	2009	11.9	Q686	139
+Venezuela, RB	2010	10.3	Q717	140
+Vietnam	2015	26.1	Q881	141
+West Bank and Gaza	2019	7.9	Q407199	142
+Yemen, Rep.	2013	64.3	Q805	143
+Zambia	2019	9.6	Q953	144
+Zimbabwe	2016	17.5	Q954	145

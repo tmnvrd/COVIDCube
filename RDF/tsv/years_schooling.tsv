@@ -1,0 +1,63 @@
+Country	Poorestquintile	Richestquintile	ID	id_row
+Albania	9.0	11.0	Q222	0
+Armenia	10.0	11.0	Q399	1
+Bangladesh	6.0	9.0	Q902	2
+Benin	6.0	9.0	Q962	3
+Bhutan	10.0	15.0	Q917	4
+Bolivia	9.0	14.0	Q750	5
+Bosnia and Herzegovina	8.0	10.0	Q225	6
+Burkina Faso	5.0	7.0	Q965	7
+Burundi	4.0	6.0	Q967	8
+Cambodia	6.0	9.0	Q424	9
+Cameroon	5.0	10.0	Q1009	10
+Central African Republic	5.0	12.0	Q929	11
+Chad	5.0	8.0	Q657	12
+Colombia	7.0	11.0	Q739	13
+Comoros	7.0	9.0	Q970	14
+Congo, Dem. Rep.	6.0	9.0	Q974	15
+Congo, Rep.	6.0	10.0	Q971	16
+Cote d'Ivoire	5.0	8.0	Q1008	17
+Dominican Republic	7.0	10.0	Q786	18
+Egypt, Arab Rep.	9.0	11.0	Q79	19
+Eswatini	7.0	10.0	Q1050	20
+Ethiopia	4.0	7.0	Q115	21
+Gabon	6.0	9.0	Q1000	22
+Ghana	6.0	9.0	Q117	23
+Guinea	5.0	9.0	Q1006	24
+Guyana	8.0	11.0	Q734	25
+Haiti	4.0	8.0	Q790	26
+Honduras	6.0	10.0	Q783	27
+Indonesia	8.0	11.0	Q252	28
+Jordan	10.0	11.0	Q810	29
+Kenya	6.0	8.0	Q114	30
+Kyrgyz Republic	10.0	11.0	Q813	31
+Lesotho	6.0	9.0	Q1013	32
+Liberia	4.0	8.0	Q1014	33
+Madagascar	3.0	8.0	Q1019	34
+Malawi	5.0	7.0	Q1020	35
+Maldives	9.0	9.0	Q826	36
+Montenegro	11.0	12.0	Q236	37
+Mozambique	4.0	8.0	Q1029	38
+Namibia	7.0	10.0	Q1030	39
+Nepal	6.0	10.0	Q837	40
+Niger	5.0	7.0	Q1032	41
+Nigeria	7.0	11.0	Q1033	42
+North Macedonia	9.0	11.0	Q221	43
+Pakistan	6.0	11.0	Q843	44
+Peru	8.0	11.0	Q419	45
+Philippines	7.0	10.0	Q928	46
+Rwanda	4.0	6.0	Q1037	47
+Sao Tome and Principe	5.0	8.0	Q1039	48
+Senegal	6.0	8.0	Q1041	49
+Serbia	9.0	11.0	Q403	50
+Sierra Leone	7.0	9.0	Q1044	51
+Suriname	6.0	8.0	Q730	52
+Tajikistan	10.0	10.0	Q863	53
+Tanzania	6.0	9.0	Q924	54
+Timor-Leste	7.0	9.0	Q574	55
+Togo	6.0	8.0	Q945	56
+Uganda	6.0	8.0	Q1036	57
+Ukraine	14.0	13.0	Q212	58
+Vietnam	12.0	14.0	Q881	59
+Zambia	6.0	9.0	Q953	60
+Zimbabwe	8.0	11.0	Q954	61

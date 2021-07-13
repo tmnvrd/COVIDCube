@@ -1,0 +1,155 @@
+Country	Male	Female	ID	id_row
+Afghanistan	55.0	30.0	Q889	0
+Albania	99.0	98.0	Q222	1
+Algeria	87.0	75.0	Q262	2
+Angola	80.0	53.0	Q916	3
+Antigua and Barbuda	98.0	99.0	Q781	4
+Argentina	99.0	99.0	Q414	5
+Armenia	100.0	100.0	Q399	6
+Aruba	98.0	98.0	Q21203	7
+Azerbaijan	100.0	100.0	Q227	8
+Bahrain	99.0	95.0	Q398	9
+Bangladesh	77.0	71.0	Q902	10
+Barbados	100.0	100.0	Q244	11
+Belarus	100.0	100.0	Q184	12
+Benin	54.0	31.0	Q962	13
+Bhutan	75.0	57.0	Q917	14
+Bolivia	97.0	89.0	Q750	15
+Bosnia and Herzegovina	99.0	95.0	Q225	16
+Botswana	86.0	87.0	Q963	17
+Brazil	93.0	93.0	Q155	18
+Brunei Darussalam	98.0	96.0	Q921	19
+Bulgaria	99.0	98.0	Q219	20
+Burkina Faso	50.0	33.0	Q965	21
+Burundi	76.0	61.0	Q967	22
+Cabo Verde	92.0	82.0	Q1011	23
+Cambodia	87.0	75.0	Q424	24
+Cameroon	83.0	72.0	Q1009	25
+Central African Republic	50.0	26.0	Q929	26
+Chad	31.0	14.0	Q657	27
+Chile	96.0	96.0	Q298	28
+China	98.0	95.0	Q148	29
+Macao SAR, China	98.0	95.0	Q14773	30
+Colombia	95.0	95.0	Q739	31
+Comoros	65.0	53.0	Q970	32
+Congo, Dem. Rep.	89.0	66.0	Q974	33
+Congo, Rep.	86.0	75.0	Q971	34
+Costa Rica	98.0	98.0	Q800	35
+Cote d'Ivoire	54.0	40.0	Q1008	36
+Croatia	100.0	99.0	Q224	37
+Cuba	100.0	100.0	Q241	38
+Cyprus	99.0	98.0	Q229	39
+Dominican Republic	94.0	94.0	Q786	40
+Ecuador	94.0	92.0	Q736	41
+Egypt, Arab Rep.	76.0	66.0	Q79	42
+El Salvador	91.0	87.0	Q792	43
+Equatorial Guinea	97.0	91.0	Q983	44
+Eritrea	84.0	69.0	Q986	45
+Estonia	100.0	100.0	Q191	46
+Eswatini	88.0	89.0	Q1050	47
+Ethiopia	59.0	44.0	Q115	48
+Fiji	99.0	99.0	Q712	49
+Gabon	86.0	83.0	Q1000	50
+Gambia, The	62.0	42.0	Q1005	51
+Georgia	99.0	99.0	Q230	52
+Ghana	84.0	74.0	Q117	53
+Greece	99.0	97.0	Q41	54
+Grenada	99.0	99.0	Q769	55
+Guatemala	87.0	76.0	Q774	56
+Guinea	44.0	22.0	Q1006	57
+Guinea-Bissau	62.0	31.0	Q1007	58
+Guyana	86.0	85.0	Q734	59
+Haiti	65.0	58.0	Q790	60
+Honduras	87.0	87.0	Q783	61
+Hungary	99.0	99.0	Q28	62
+India	82.0	66.0	Q668	63
+Indonesia	97.0	94.0	Q252	64
+Iran, Islamic Rep.	90.0	81.0	Q794	65
+Iraq	91.0	80.0	Q796	66
+Italy	99.0	99.0	Q38	67
+Jamaica	83.0	93.0	Q766	68
+Jordan	99.0	98.0	Q810	69
+Kazakhstan	100.0	100.0	Q232	70
+Kenya	85.0	78.0	Q114	71
+Kuwait	97.0	95.0	Q817	72
+Kyrgyz Republic	100.0	99.0	Q813	73
+Lao PDR	90.0	79.0	Q819	74
+Latvia	100.0	100.0	Q211	75
+Lebanon	97.0	93.0	Q822	76
+Lesotho	68.0	85.0	Q1013	77
+Liberia	63.0	34.0	Q1014	78
+Lithuania	100.0	100.0	Q37	79
+Madagascar	77.0	72.0	Q1019	80
+Malawi	70.0	55.0	Q1020	81
+Malaysia	96.0	94.0	Q833	82
+Maldives	97.0	98.0	Q826	83
+Mali	46.0	26.0	Q912	84
+Malta	93.0	96.0	Q233	85
+Marshall Islands	98.0	98.0	Q709	86
+Mauritania	64.0	43.0	Q1025	87
+Mauritius	93.0	89.0	Q1027	88
+Mexico	96.0	95.0	Q96	89
+Moldova	100.0	99.0	Q217	90
+Mongolia	98.0	99.0	Q711	91
+Montenegro	99.0	98.0	Q236	92
+Morocco	83.0	65.0	Q1028	93
+Mozambique	73.0	50.0	Q1029	94
+Myanmar	80.0	72.0	Q836	95
+Namibia	92.0	91.0	Q1030	96
+Nepal	79.0	60.0	Q837	97
+New Caledonia	98.0	98.0	Q33788	98
+Nicaragua	82.0	83.0	Q811	99
+Niger	39.0	23.0	Q1032	100
+Nigeria	71.0	53.0	Q1033	101
+North Macedonia	99.0	97.0	Q221	102
+Oman	97.0	93.0	Q842	103
+Pakistan	71.0	46.0	Q843	104
+Palau	97.0	96.0	Q695	105
+Panama	96.0	95.0	Q804	106
+Papua New Guinea	65.0	58.0	Q691	107
+Paraguay	95.0	94.0	Q733	108
+Peru	97.0	92.0	Q419	109
+Philippines	98.0	98.0	Q928	110
+Portugal	97.0	95.0	Q45	111
+Puerto Rico	92.0	92.0	Q1183	112
+Qatar	93.0	95.0	Q846	113
+Romania	99.0	99.0	Q218	114
+Russian Federation	100.0	100.0	Q159	115
+Rwanda	78.0	69.0	Q1037	116
+Samoa	99.0	99.0	Q683	117
+San Marino	100.0	100.0	Q238	118
+Sao Tome and Principe	96.0	90.0	Q1039	119
+Saudi Arabia	97.0	93.0	Q851	120
+Senegal	65.0	40.0	Q1041	121
+Serbia	99.0	98.0	Q403	122
+Seychelles	95.0	96.0	Q1042	123
+Sierra Leone	52.0	35.0	Q1044	124
+Singapore	99.0	96.0	Q334	125
+Slovenia	100.0	100.0	Q215	126
+South Africa	88.0	86.0	Q258	127
+South Sudan	40.0	29.0	Q958	128
+Spain	99.0	98.0	Q29	129
+Sri Lanka	93.0	91.0	Q854	130
+Sudan	65.0	56.0	Q1049	131
+Suriname	96.0	93.0	Q730	132
+Tajikistan	100.0	100.0	Q863	133
+Tanzania	83.0	73.0	Q924	134
+Thailand	95.0	92.0	Q869	135
+Timor-Leste	72.0	64.0	Q574	136
+Togo	77.0	51.0	Q945	137
+Tonga	99.0	99.0	Q678	138
+Trinidad and Tobago	99.0	98.0	Q754	139
+Tunisia	86.0	72.0	Q948	140
+Turkey	99.0	93.0	Q43	141
+Turkmenistan	100.0	100.0	Q874	142
+Uganda	83.0	71.0	Q1036	143
+Ukraine	100.0	100.0	Q212	144
+United Arab Emirates	93.0	95.0	Q878	145
+Uruguay	98.0	99.0	Q77	146
+Uzbekistan	100.0	100.0	Q265	147
+Vanuatu	88.0	87.0	Q686	148
+Venezuela, RB	97.0	97.0	Q717	149
+Vietnam	96.0	94.0	Q881	150
+West Bank and Gaza	99.0	96.0	Q407199	151
+Zambia	91.0	83.0	Q953	152
+Zimbabwe	89.0	88.0	Q954	153

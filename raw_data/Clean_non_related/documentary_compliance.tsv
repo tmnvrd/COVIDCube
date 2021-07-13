@@ -1,0 +1,188 @@
+Country	Cost to export	Cost to import	ID
+Afghanistan	344	900	Q889
+Albania	10	10	Q222
+Algeria	374	400	Q262
+Angola	240	460	Q916
+Antigua and Barbuda	121	100	Q781
+Argentina	60	120	Q414
+Armenia	150	100	Q399
+Australia	264	100	Q408
+Austria	0	0	Q40
+Azerbaijan	250	200	Q227
+Bahamas, The	550	550	Q778
+Bahrain	100	130	Q398
+Bangladesh	225	370	Q902
+Barbados	109	146	Q244
+Belarus	60	0	Q184
+Belgium	0	0	Q31
+Belize	28	75	Q242
+Benin	80	110	Q962
+Bhutan	50	50	Q917
+Bolivia	25	30	Q750
+Bosnia and Herzegovina	92	97	Q225
+Botswana	179	67	Q963
+Brazil	226.4	106.9	Q155
+Brunei Darussalam	90	50	Q921
+Bulgaria	52	0	Q219
+Burkina Faso	86	197	Q965
+Burundi	150	1025	Q967
+Cabo Verde	125	125	Q1011
+Cambodia	100	120	Q424
+Cameroon	306	849	Q1009
+Canada	156	163	Q16
+Central African Republic	60	500	Q929
+Chad	188	500	Q657
+Chile	50	50	Q298
+China	84.6	170.9	Q148
+Hong Kong SAR, China	12	57	Q8646
+Colombia	90	50	Q739
+Comoros	124	93	Q970
+Congo, Dem. Rep.	500	765	Q974
+Congo, Rep.	165	310	Q971
+Costa Rica	80	75	Q800
+Cote d'Ivoire	136	267	Q1008
+Croatia	0	0	Q224
+Cyprus	50	50	Q229
+Czech Republic	0	0	Q213
+Denmark	0	0	Q35
+Djibouti	95	100	Q977
+Dominica	50	50	Q784
+Dominican Republic	15	40	Q786
+Ecuador	140	75	Q736
+Egypt, Arab Rep.	100	1000	Q79
+El Salvador	50	67	Q792
+Equatorial Guinea	85	70	Q983
+Estonia	0	0	Q191
+Ethiopia	175	750	Q115
+Fiji	76	58	Q712
+Finland	70	0	Q33
+France	0	0	Q142
+Gabon	200	170	Q1000
+Gambia, The	133	152	Q1005
+Georgia	0	189	Q230
+Germany	45	0	Q183
+Ghana	155	474	Q117
+Greece	30	0	Q41
+Grenada	40	50	Q769
+Guatemala	105	37	Q774
+Guinea	128	180	Q1006
+Guinea-Bissau	160	205	Q1007
+Guyana	78	63	Q734
+Haiti	48	150	Q790
+Honduras	80	70	Q783
+Hungary	0	0	Q28
+Iceland	40	0	Q189
+India	91.9	134.8	Q668
+Indonesia	138.8	164.4	Q252
+Iran, Islamic Rep.	125	197	Q794
+Iraq	1800	500	Q796
+Ireland	75	75	Q27
+Israel	73	70	Q801
+Italy	0	0	Q38
+Jamaica	90	90	Q766
+Japan	54	107	Q17
+Jordan	100	190	Q810
+Kazakhstan	200	0	Q232
+Kenya	191	115	Q114
+Kiribati	310	120	Q710
+Korea, Rep.	11	27	Q884
+Kosovo	127	42	Q1246
+Kuwait	191	332	Q817
+Kyrgyz Republic	145	200	Q813
+Lao PDR	235	115	Q819
+Latvia	35	0	Q211
+Lebanon	100	135	Q822
+Lesotho	90	90	Q1013
+Liberia	155	230	Q1014
+Libya	50	60	Q1016
+Lithuania	28	0	Q37
+Luxembourg	0	0	Q32
+North Macedonia	45	50	Q221
+Madagascar	117	150	Q1019
+Malawi	342	162	Q1020
+Malaysia	35	60	Q833
+Maldives	300	180	Q826
+Mali	33	90	Q912
+Malta	25	0	Q233
+Marshall Islands	20	43	Q709
+Mauritania	92	400	Q1025
+Mauritius	128	166	Q1027
+Mexico	60	100	Q96
+Micronesia, Fed. Sts.	60	80	Q702
+Moldova	44	41	Q217
+Mongolia	64	83	Q711
+Montenegro	67	100	Q236
+Morocco	107	116	Q1028
+Mozambique	160	60	Q1029
+Myanmar	140	210	Q836
+Namibia	348	63	Q1030
+Nepal	110	80	Q837
+Netherlands	0	0	Q55
+New Zealand	67	80	Q664
+Nicaragua	47	86	Q811
+Niger	39	282	Q1032
+Nigeria	250	564.3	Q1033
+Norway	0	0	Q20
+Oman	107	124	Q842
+Pakistan	118	250	Q843
+Palau	100	100	Q695
+Panama	60	50	Q804
+Papua New Guinea	75	85	Q691
+Paraguay	120	135	Q733
+Peru	50	80	Q419
+Philippines	53	50	Q928
+Poland	0	0	Q36
+Portugal	0	0	Q45
+Puerto Rico	75	75	Q1183
+Qatar	150	290	Q846
+Romania	0	0	Q218
+Russian Federation	92	152.5	Q159
+Rwanda	110	121	Q1037
+Samoa	180	230	Q683
+San Marino	0	100	Q238
+Sao Tome and Principe	194	75	Q1039
+Saudi Arabia	105	390	Q851
+Senegal	96	545	Q1041
+Serbia	35	35	Q403
+Seychelles	115	93	Q1042
+Sierra Leone	227	387	Q1044
+Singapore	37	40	Q334
+Slovak Republic	0	0	Q214
+Slovenia	0	0	Q215
+Solomon Islands	257	215	Q685
+Somalia	350	300	Q1045
+South Africa	55	73	Q258
+South Sudan	194	350	Q958
+Spain	0	0	Q29
+Sri Lanka	58	283	Q854
+St. Kitts and Nevis	100	90	Q763
+St. Lucia	63	98	Q760
+St. Vincent and the Grenadines	80	90	Q757
+Sudan	428	420	Q1049
+Suriname	40	40	Q730
+Eswatini	76	76	Q1050
+Sweden	40	0	Q34
+Switzerland	75	75	Q39
+Syrian Arab Republic	725	742	Q858
+Tajikistan	330	260	Q863
+Tanzania	275	375	Q924
+Thailand	97	43	Q869
+Timor-Leste	100	115	Q574
+Togo	25	252	Q945
+Tonga	70	148	Q678
+Trinidad and Tobago	250	250	Q754
+Tunisia	200	144	Q948
+Turkey	55	80	Q43
+Uganda	102	296	Q1036
+Ukraine	192	212	Q212
+United Arab Emirates	178	283	Q878
+United Kingdom	25	0	Q145
+United States	60	100	Q30
+Uruguay	231	285	Q77
+Uzbekistan	292	292	Q265
+Vanuatu	190	183	Q686
+Venezuela, RB	375	400	Q717
+Vietnam	139	183	Q881
+West Bank and Gaza	80	85	Q407199
+Zambia	200	175	Q953
+Zimbabwe	170	150	Q954

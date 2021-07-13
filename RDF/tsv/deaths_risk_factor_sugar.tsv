@@ -1,0 +1,200 @@
+Country	deaths	ID	id_row
+Afghanistan	27535.0	Q889	0
+Albania	2993.0	Q222	1
+Algeria	32279.0	Q262	2
+American Samoa	86.0	Q16641	3
+Andorra	67.0	Q228	4
+Angola	13735.0	Q916	5
+Antigua and Barbuda	117.0	Q781	6
+Argentina	47639.0	Q414	7
+Armenia	6582.0	Q399	8
+Australia	20075.0	Q408	9
+Austria	14462.0	Q40	10
+Azerbaijan	17247.0	Q227	11
+Bahamas	373.0	Q778	12
+Bahrain	991.0	Q398	13
+Bangladesh	109116.0	Q902	14
+Barbados	557.0	Q244	15
+Belarus	14638.0	Q184	16
+Belgium	14698.0	Q31	17
+Belize	316.0	Q242	18
+Benin	4639.0	Q962	19
+Bermuda	72.0	Q23635	20
+Bhutan	425.0	Q917	21
+Bolivia	10213.0	Q750	22
+Bosnia and Herzegovina	9490.0	Q225	23
+Botswana	1777.0	Q963	24
+Brazil	131163.0	Q155	25
+Brunei	415.0	Q921	26
+Bulgaria	17412.0	Q219	27
+Burkina Faso	9530.0	Q965	28
+Burundi	5061.0	Q967	29
+Cambodia	12367.0	Q424	30
+Cameroon	11294.0	Q1009	31
+Canada	36530.0	Q16	32
+Cape Verde	352.0	Q1011	33
+Central African Republic	4579.0	Q929	34
+Chad	5581.0	Q657	35
+Chile	16147.0	Q298	36
+China	891047.0	Q148	37
+Colombia	20405.0	Q739	38
+Comoros	539.0	Q970	39
+Congo	3947.0	Q971	40
+Costa Rica	2169.0	Q800	41
+Cote d'Ivoire	10809.0	Q1008	42
+Croatia	9614.0	Q224	43
+Cuba	11139.0	Q241	44
+Cyprus	1566.0	Q229	45
+Czech Republic	21703.0	Q213	46
+Democratic Republic of Congo	48204.0	Q974	47
+Denmark	8477.0	Q35	48
+Djibouti	627.0	Q977	49
+Dominica	129.0	Q784	50
+Dominican Republic	9928.0	Q786	51
+Ecuador	13501.0	Q736	52
+Egypt	102942.0	Q79	53
+El Salvador	7504.0	Q792	54
+England	58599.0	Q21	55
+Equatorial Guinea	524.0	Q983	56
+Eritrea	3035.0	Q986	57
+Estonia	2556.0	Q191	58
+Ethiopia	31269.0	Q115	59
+Fiji	2571.0	Q712	60
+Finland	8901.0	Q33	61
+France	65807.0	Q142	62
+Gabon	1523.0	Q1000	63
+Gambia	1185.0	Q1005	64
+Georgia	11936.0	Q230	65
+Germany	15536.0	Q183	66
+Ghana	17736.0	Q117	67
+Greece	19420.0	Q41	68
+Greenland	41.0	Q223	69
+Grenada	262.0	Q769	70
+Guam	301.0	Q16635	71
+Guatemala	14294.0	Q774	72
+Guinea	6744.0	Q1006	73
+Guinea-Bissau	1017.0	Q1007	74
+Guyana	1220.0	Q734	75
+Haiti	1266.0	Q790	76
+Honduras	4894.0	Q783	77
+Hungary	21434.0	Q28	78
+Iceland	330.0	Q189	79
+India	1000000.0	Q668	80
+Indonesia	333490.0	Q252	81
+Iran	71194.0	Q794	82
+Iraq	21106.0	Q796	83
+Ireland	4655.0	Q27	84
+Israel	8908.0	Q801	85
+Italy	104405.0	Q38	86
+Jamaica	5284.0	Q766	87
+Japan	114240.0	Q17	88
+Jordan	5201.0	Q810	89
+Kazakhstan	20919.0	Q232	90
+Kenya	20047.0	Q114	91
+Kiribati	249.0	Q710	92
+Kuwait	1205.0	Q817	93
+Kyrgyzstan	5308.0	Q813	94
+Laos	6368.0	Q819	95
+Latvia	4780.0	Q211	96
+Lebanon	7398.0	Q822	97
+Lesotho	2998.0	Q1013	98
+Liberia	2122.0	Q1014	99
+Libya	6870.0	Q1016	100
+Lithuania	5747.0	Q37	101
+Luxembourg	664.0	Q32	102
+Macedonia	4433.0	Q221	103
+Madagascar	11664.0	Q1019	104
+Malawi	8828.0	Q1020	105
+Malaysia	19366.0	Q833	106
+Maldives	206.0	Q826	107
+Mali	7575.0	Q912	108
+Malta	855.0	Q233	109
+Marshall Islands	97.0	Q709	110
+Mauritania	1995.0	Q1025	111
+Mauritius	3700.0	Q1027	112
+Mexico	176934.0	Q96	113
+Micronesia (country)	189.0	Q702	114
+Moldova	6932.0	Q217	115
+Mongolia	2325.0	Q711	116
+Montenegro	1511.0	Q236	117
+Morocco	51256.0	Q1028	118
+Mozambique	15413.0	Q1029	119
+Myanmar	65988.0	Q836	120
+Namibia	1825.0	Q1030	121
+Nepal	17698.0	Q837	122
+Netherlands	21354.0	Q55	123
+New Zealand	3814.0	Q664	124
+Nicaragua	4459.0	Q811	125
+Niger	6051.0	Q1032	126
+Nigeria	46112.0	Q1033	127
+North Korea	22288.0	Q423	128
+Northern Ireland	2044.0	Q26	129
+Northern Mariana Islands	66.0	Q16644	130
+Norway	5852.0	Q20	131
+Oman	2056.0	Q842	132
+Pakistan	161494.0	Q843	133
+Palestine	3190.0	Q219060	134
+Panama	2816.0	Q804	135
+Papua New Guinea	13024.0	Q691	136
+Paraguay	6207.0	Q733	137
+Peru	12427.0	Q419	138
+Philippines	125939.0	Q928	139
+Poland	65171.0	Q36	140
+Portugal	20961.0	Q45	141
+Puerto Rico	7124.0	Q1183	142
+Qatar	676.0	Q846	143
+Romania	29894.0	Q218	144
+Russia	257066.0	Q159	145
+Rwanda	4632.0	Q1037	146
+Saint Lucia	268.0	Q760	147
+Saint Vincent and the Grenadines	233.0	Q757	148
+Samoa	269.0	Q683	149
+Sao Tome and Principe	91.0	Q1039	150
+Saudi Arabia	16065.0	Q851	151
+Scotland	6764.0	Q22	152
+Senegal	8135.0	Q1041	153
+Serbia	28519.0	Q403	154
+Seychelles	112.0	Q1042	155
+Sierra Leone	3986.0	Q1044	156
+Singapore	2085.0	Q334	157
+Slovakia	7253.0	Q214	158
+Slovenia	2348.0	Q215	159
+Solomon Islands	843.0	Q685	160
+Somalia	9821.0	Q1045	161
+South Africa	56263.0	Q258	162
+South Korea	44263.0	Q884	163
+South Sudan	4873.0	Q958	164
+Spain	58741.0	Q29	165
+Sri Lanka	29918.0	Q854	166
+Sudan	24259.0	Q1049	167
+Suriname	809.0	Q730	168
+Swaziland	1366.0	Q1050	169
+Sweden	15101.0	Q34	170
+Switzerland	10150.0	Q39	171
+Syria	14840.0	Q858	172
+Taiwan	26897.0	Q865	173
+Tajikistan	7906.0	Q863	174
+Tanzania	22463.0	Q924	175
+Thailand	55472.0	Q869	176
+Timor	1069.0	Q574	177
+Togo	3141.0	Q945	178
+Tonga	185.0	Q678	179
+Trinidad and Tobago	3425.0	Q754	180
+Tunisia	14141.0	Q948	181
+Turkey	62393.0	Q43	182
+Turkmenistan	7113.0	Q874	183
+Uganda	12587.0	Q1036	184
+Ukraine	107617.0	Q212	185
+United Arab Emirates	3919.0	Q878	186
+United Kingdom	71546.0	Q145	187
+United States	420328.0	Q30	188
+United States Virgin Islands	246.0	Q11703	189
+Uruguay	4946.0	Q77	190
+Uzbekistan	50135.0	Q265	191
+Vanuatu	414.0	Q686	192
+Venezuela	26801.0	Q717	193
+Vietnam	98864.0	Q881	194
+Wales	4139.0	Q25	195
+Yemen	17126.0	Q805	196
+Zambia	7573.0	Q953	197
+Zimbabwe	10768.0	Q954	198

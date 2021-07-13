@@ -1,0 +1,3581 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2019
+        a                  time:Interval ;
+        rdfs:label         "2019" ;
+        time:hasBeginning  "2019"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:importsGoods
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Imports of goods and services"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-importsGoods
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:importsGoods ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier , sdmx-attribute:currency ] .
+
+c19:importsGoods-o00  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5771.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:dataset-importsGoods
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.17 | Balance of payments current account"@en ;
+        rdfs:label       "goods_services_imports"@en ;
+        dct:description  "Imports of goods and services comprise all transactions between residents of a country and the rest of the world involving a change of ownership from nonresidents to residents of general merchandise, nonmonetary gold, and services. Data are in current U.S. dollars."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.17> ;
+        dct:title        "Goods and services Imports"@en ;
+        qb:structure     c19-structure:dsd-importsGoods .
+
+c19:importsGoods-o01  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5781.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o02  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       50645.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o03  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35421.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o04  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       679.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o05  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       68779.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o06  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4537.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o07  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2074.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o08  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       254064.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o09  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       185621.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       10236.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3773.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13095.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       29471.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36821.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       364144.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       810.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2292.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2001.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       935.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6156.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8794.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6634.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       243661.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3837.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       26931.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2559.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       607.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1113.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7606.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6378.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       500163.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       67820.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1380920.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       456007.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9183.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       48047.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       272.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       10705.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       12930.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       10786.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       22641.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25279 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2923.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       15101.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       130837.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       140364.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       493.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       265.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       17797.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       22636.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       59862.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8595.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13401.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2625.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9915.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2007.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       92734.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       752868.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       323.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6114.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1263115.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13925.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       80156.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       380.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       14347.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1800.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       299.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1763.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4287.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7775.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       100281.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5784.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       439059.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       145424.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       47192.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       169386.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       76941.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       575128.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6454.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       791793.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18241.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       44260.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13531.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       123.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       512824.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3222.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35354.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3736.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2324.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13173.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30222.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2416.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       868.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30686.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24474.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       67384.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3427.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2642.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       181577.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1693.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3745.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13454.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       165.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4145.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6136.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       328708.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4208.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3869.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2562.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36999.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4726.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4647.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5862.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5879.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       532072.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       39973.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5236.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2810.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       70853.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5463.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       120111.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24239.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       40016.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       146.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       21497.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6290.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       10292.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       34441.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       65648.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       202076.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       89500.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       43793.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       64483.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       320958.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1641.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       362.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       121.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       174203.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5206.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18862.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1048.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1132.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       411718.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q26273 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       971.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       69000.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30501.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       548.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       102954.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       383498.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       15219.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       364.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       787.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       389.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       11372.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1657.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       196604.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       312065.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3344.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9054.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       207559.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1343.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1830.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       226.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6871.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24240.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       197021.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6178.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       69608.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       749903.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2348263.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       10089.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       368.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       87294.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5264.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5598.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6440.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o10  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7371.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o11  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6907.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o12  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60128.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o13  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       22299.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o14  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1115.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o15  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       66294.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o16  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7246.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o17  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2244.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o18  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       295615.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o19  a                qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       230889.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       17712.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5134.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27187.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       64420.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       42224.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       431753.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1128.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4669.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2121.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1257.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       11976.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       11130.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7312.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       254149.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6806.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       40849.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5167.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       905.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1294.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       25447.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8423.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       577377.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       85052.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2479255.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       642488.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18321.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       64529.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       351.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       17774.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       19593.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       12934.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31390.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25279 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2826.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       17224.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       171036.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       171167.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4189.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       431.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24181.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       25771.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       78951.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       12873.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       21541.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1926.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       19929.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3208.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       106135.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       910260.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       621.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       11114.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1585975.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       23220.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       83192.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       645.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       21601.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4187.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       459.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3038.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5671.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       11526.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       128184.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9815.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       616082.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       204343.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       72381.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       436478.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       107072.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       571180.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7950.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       900305.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       22762.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       50133.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       19086.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       171.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       615759.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4454.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       68205.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5861.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7318.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       20415.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       32849.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2238.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1245.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18849.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       39300.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       108291.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4840.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2944.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       221336.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4098.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6078.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       17800.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       175.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3284.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       7565.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       492222.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6611.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9249.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3589.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       54850.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       10518.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18866.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       5796.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       14648.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       652677.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       56428.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6730.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3369.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       71637.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9597.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       141462.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35296.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       56336.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       207.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27378.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       4844.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       13146.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51454.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       127776.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       298974.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       103732.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       66770.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       110532.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       353352.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3143.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       429.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       197.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       207221.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8960.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31293.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1816.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1614.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       541855.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q26273 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1233.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       98872.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       40510.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       748.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       103117.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       446796.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       26841.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       594.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       998.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       451.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8237.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2428.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       232054.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       375294.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3409.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9883.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       275116.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       1039.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       2329.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       334.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9182.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24651.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       226941.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       9541.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       75804.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       924995.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       3114456.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       12707.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       460.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       245627.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8731.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       8033.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:importsGoods-o1175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       6559.0 ;
+        qb:dataSet                     c19:dataset-importsGoods ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .

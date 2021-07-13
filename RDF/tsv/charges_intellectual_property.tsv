@@ -1,0 +1,138 @@
+Country	Receipts	Payments	ID	id_row
+Afghanistan	0.0	2.0	Q889	0
+Albania	15.0	26.0	Q222	1
+Algeria	0.0	147.0	Q262	2
+Angola	8.0	247.0	Q916	3
+Argentina	316.0	2091.0	Q414	4
+Australia	974.0	3620.0	Q408	5
+Austria	1398.0	1997.0	Q40	6
+Bangladesh	0.0	40.0	Q902	7
+Barbados	14.0	13.0	Q244	8
+Belarus	66.0	179.0	Q184	9
+Belgium	4364.0	3734.0	Q31	10
+Benin	0.0	0.0	Q962	11
+Bermuda	0.0	7.0	Q23635	12
+Bhutan	0.0	0.0	Q917	13
+Bolivia	10.0	81.0	Q750	14
+Bosnia and Herzegovina	27.0	8.0	Q225	15
+Botswana	1.0	117.0	Q963	16
+Brazil	825.0	5124.0	Q155	17
+Bulgaria	89.0	209.0	Q219	18
+Burkina Faso	1.0	0.0	Q965	19
+Burundi	0.0	0.0	Q967	20
+Cambodia	2.0	28.0	Q424	21
+Cameroon	9.0	2.0	Q1009	22
+Canada	5508.0	11807.0	Q16	23
+Cabo Verde	0.0	11.0	Q1011	24
+Cayman Islands	9.0	68.0	Q5785	25
+Chile	46.0	1783.0	Q298	26
+China	5561.0	35783.0	Q148	27
+Hong Kong SAR, China	743.0	1993.0	Q8646	28
+Colombia	106.0	524.0	Q739	29
+Comoros	2.0	0.0	Q970	30
+Congo, Rep.	2.0	4.0	Q971	31
+Costa Rica	6.0	565.0	Q800	32
+Cote d'Ivoire	2.0	10.0	Q1008	33
+Croatia	68.0	311.0	Q224	34
+Curacao	4.0	27.0	Q25279	35
+Czech Republic	496.0	1491.0	Q213	36
+Denmark	3328.0	1563.0	Q35	37
+Dominica	0.0	1.0	Q784	38
+Ecuador	2.0	181.0	Q736	39
+Egypt, Arab Rep.	1.0	298.0	Q79	40
+El Salvador	8.0	89.0	Q792	41
+Estonia	16.0	65.0	Q191	42
+Ethiopia	8.0	27.0	Q115	43
+Fiji	1.0	7.0	Q712	44
+Finland	3456.0	1066.0	Q33	45
+France	16819.0	15938.0	Q142	46
+French Polynesia	0.0	3.0	Q30971	47
+Georgia	0.0	27.0	Q230	48
+Germany	36317.0	16061.0	Q183	49
+Greece	96.0	383.0	Q41	50
+Grenada	0.0	9.0	Q769	51
+Guatemala	16.0	210.0	Q774	52
+Guinea-Bissau	0.0	0.0	Q1007	53
+Guyana	0.0	5.0	Q734	54
+Haiti	25.0	1.0	Q790	55
+Hungary	1804.0	1592.0	Q28	56
+Iceland	242.0	143.0	Q189	57
+India	785.0	7906.0	Q668	58
+Indonesia	61.0	1470.0	Q252	59
+Iraq	0.0	8.0	Q796	60
+Ireland	13896.0	85119.0	Q27	61
+Israel	1273.0	1382.0	Q801	62
+Italy	4942.0	5141.0	Q38	63
+Jamaica	5.0	51.0	Q766	64
+Japan	45571.0	21994.0	Q17	65
+Jordan	22.0	24.0	Q810	66
+Kazakhstan	1.0	168.0	Q232	67
+Kenya	69.0	207.0	Q114	68
+Korea, Rep.	7749.0	9812.0	Q884	69
+Kosovo	0.0	7.0	Q1246	70
+Kyrgyz Republic	1.0	6.0	Q813	71
+Latvia	11.0	65.0	Q211	72
+Lebanon	18.0	16.0	Q822	73
+Lesotho	0.0	3.0	Q1013	74
+Lithuania	31.0	62.0	Q37	75
+Luxembourg	2513.0	4927.0	Q32	76
+North Macedonia	12.0	189.0	Q221	77
+Madagascar	4.0	17.0	Q1019	78
+Malaysia	267.0	2006.0	Q833	79
+Malta	618.0	847.0	Q233	80
+Mauritania	0.0	1.0	Q1025	81
+Mauritius	1.0	14.0	Q1027	82
+Mexico	7.0	302.0	Q96	83
+Moldova	3.0	26.0	Q217	84
+Mongolia	1.0	16.0	Q711	85
+Montenegro	0.0	6.0	Q236	86
+Morocco	5.0	167.0	Q1028	87
+Myanmar	3.0	47.0	Q836	88
+Namibia	1.0	1.0	Q1030	89
+Netherlands	35023.0	41937.0	Q55	90
+New Caledonia	0.0	2.0	Q33788	91
+New Zealand	540.0	913.0	Q664	92
+Niger	0.0	0.0	Q1032	93
+Norway	515.0	769.0	Q20	94
+Pakistan	7.0	189.0	Q843	95
+Panama	22.0	39.0	Q804	96
+Peru	26.0	349.0	Q419	97
+Philippines	44.0	917.0	Q928	98
+Poland	614.0	3639.0	Q36	99
+Portugal	121.0	884.0	Q45	100
+Romania	101.0	962.0	Q218	101
+Russian Federation	876.0	6288.0	Q159	102
+Samoa	1.0	1.0	Q683	103
+Senegal	5.0	9.0	Q1041	104
+Serbia	58.0	290.0	Q403	105
+Seychelles	1.0	3.0	Q1042	106
+Sierra Leone	6.0	1.0	Q1044	107
+Singapore	8366.0	16812.0	Q334	108
+Sint Maarten (Dutch part)	0.0	1.0	Q26273	109
+Slovak Republic	56.0	749.0	Q214	110
+Slovenia	73.0	268.0	Q215	111
+Solomon Islands	1.0	7.0	Q685	112
+South Africa	121.0	1817.0	Q258	113
+South Sudan	24.0	1.0	Q958	114
+Spain	2527.0	6645.0	Q29	115
+Suriname	0.0	9.0	Q730	116
+Eswatini	1.0	5.0	Q1050	117
+Sweden	7665.0	4889.0	Q34	118
+Switzerland	25850.0	13645.0	Q39	119
+Tajikistan	0.0	0.0	Q863	120
+Tanzania	0.0	6.0	Q924	121
+Thailand	163.0	5274.0	Q869	122
+Tonga	0.0	0.0	Q678	123
+Trinidad and Tobago	1.0	69.0	Q754	124
+Tunisia	24.0	18.0	Q948	125
+Turkey	98.0	1879.0	Q43	126
+Uganda	10.0	11.0	Q1036	127
+Ukraine	92.0	592.0	Q212	128
+United Kingdom	26253.0	14480.0	Q145	129
+United States	128748.0	56117.0	Q30	130
+Uruguay	45.0	124.0	Q77	131
+Uzbekistan	0.0	50.0	Q265	132
+Vanuatu	1.0	1.0	Q686	133
+West Bank and Gaza	0.0	1.0	Q407199	134
+Yemen, Rep.	3.0	205.0	Q805	135
+Zimbabwe	2.0	4.0	Q954	136

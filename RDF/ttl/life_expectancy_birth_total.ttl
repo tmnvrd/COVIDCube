@@ -1,0 +1,2444 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19:dataset-life_expectancy_birth_total
+        a                qb:Dataset ;
+        rdfs:comment     "2.18 | World Development Indicators: Mortality"@en ;
+        rdfs:label       "life_expectancy_birth_total"@en ;
+        dct:description  "Life expectancy at birth indicates the number of years a newborn infant would live if prevailing patterns of mortality at the time of its birth were to stay the same throughout its life."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/2.18> ;
+        dct:title        "Life expectancy birth total"@en ;
+        qb:structure     c19-structure:dsd-life_expectancy_birth_total .
+
+c19-structure:dsd-life_expectancy_birth_total
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:lifeExpectancyBirthTotal1990 , c19-measure:lifeExpectancyBirthTotal2018 ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:lifeExpectancyBirthTotal1990
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Percent of life expectancy at birth in 1990"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:lifeExpectancyBirthTotal2018
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Percent of life expectancy at birth in 2018"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-interval:Year1990-18
+        a                  time:Interval ;
+        rdfs:label         "1990-18" ;
+        time:hasBeginning  "1990"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19:lifeExpectancyBirthTotal-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "50"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "67"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "45"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "73"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "76"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "58"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "76"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "54"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "74"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "53"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "56"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "59"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "69"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "66"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "49"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "48"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "54"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "53"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "59"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "49"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "53"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "47"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "54"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q42314 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "74"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "85"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "84"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "49"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "60"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "55"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "76"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "53"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "57"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "67"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "67"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "64"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "49"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "58"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "50"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "62"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "59"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "47"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q4628 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "76"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "67"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "61"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "52"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "62"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "62"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "50"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "47"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "58"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "63"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "54"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "67"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "78"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "58"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "69"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "62"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "64"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "66"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "73"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "79"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "84"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "60"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "68"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "53"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "68"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "60"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "54"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "46"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "51"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "67"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "46"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "62"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "46"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "59"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "60"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "65"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "64"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "68"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "60"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "45"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "60"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "67"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "62"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "63"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "54"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "64"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "44"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "62"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "46"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "54"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "67"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "60"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "67"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "73"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "56"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "66"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "66"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "74"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "74"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "76"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "33"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "69"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "66"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "58"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "68"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "39"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "54"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "73"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "64"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "45"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "57"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "63"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "44"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "58"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q126125 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "56"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "65"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "67"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "78"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "77"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "84"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "59"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "50"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "65"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "48"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "69"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "56"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "73"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "69"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "64"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "77"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "63"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "68"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "46"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "63"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "70"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "72"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "76"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "75"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "73"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "78"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "66"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "65"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "71"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "74"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "68"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "74"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "57"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "49"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:lifeExpectancyBirthTotal-o0197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year1990-18 ;
+        c19-measure:lifeExpectancyBirthTotal1990
+                "58"^^xsd:decimal ;
+        c19-measure:lifeExpectancyBirthTotal2018
+                "61"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-life_expectancy_birth_total ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

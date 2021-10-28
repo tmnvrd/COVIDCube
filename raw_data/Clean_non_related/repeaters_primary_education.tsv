@@ -1,0 +1,154 @@
+Country	Male	Female	ID
+Afghanistan	4	4	Q889
+Albania	1	1	Q222
+Algeria	7	4	Q262
+Andorra	1	1	Q228
+Antigua and Barbuda	2	1	Q781
+Argentina	3	3	Q414
+Armenia	0	0	Q399
+Austria	3	3	Q40
+Azerbaijan	0	0	Q227
+Bahamas, The	4	3	Q778
+Bahrain	0	0	Q398
+Bangladesh	5	4	Q902
+Belarus	0	0	Q184
+Belgium	2	2	Q31
+Belize	8	5	Q242
+Benin	15	15	Q962
+Bhutan	9	6	Q917
+Bolivia	3	2	Q750
+Bosnia and Herzegovina	0	0	Q225
+Brunei Darussalam	0	0	Q921
+Bulgaria	0	0	Q219
+Burkina Faso	6	6	Q965
+Burundi	27	24	Q967
+Cabo Verde	10	6	Q1011
+Cambodia	8	5	Q424
+Cameroon	13	12	Q1009
+Cayman Islands	0	0	Q5785
+Central African Republic	22	23	Q929
+Chad	17	17	Q657
+Chile	4	2	Q298
+China	0	0	Q148
+Hong Kong SAR, China	0	0	Q8646
+Macao SAR, China	2	1	Q14773
+Colombia	2	2	Q739
+Comoros	17	14	Q970
+Costa Rica	3	2	Q800
+Cote d'Ivoire	11	11	Q1008
+Croatia	0	0	Q224
+Cuba	1	0	Q241
+Cyprus	0	0	Q229
+Czech Republic	1	0	Q213
+Denmark	1	1	Q35
+Djibouti	9	8	Q977
+Dominica	3	2	Q784
+Dominican Republic	6	3	Q786
+Ecuador	1	0	Q736
+Egypt, Arab Rep.	3	2	Q79
+El Salvador	5	3	Q792
+Eritrea	9	7	Q986
+Estonia	1	0	Q191
+Eswatini	16	11	Q1050
+Fiji	0	0	Q712
+Finland	0	0	Q33
+Gambia, The	6	5	Q1005
+Georgia	0	0	Q230
+Germany	0	0	Q183
+Ghana	2	2	Q117
+Greece	1	1	Q41
+Grenada	3	2	Q769
+Guatemala	10	8	Q774
+Guinea	11	12	Q1006
+Honduras	3	2	Q783
+Hungary	1	1	Q28
+India	1	1	Q668
+Indonesia	2	1	Q252
+Iran, Islamic Rep.	2	1	Q794
+Ireland	0	0	Q27
+Israel	1	0	Q801
+Italy	0	0	Q38
+Jamaica	3	2	Q766
+Jordan	1	1	Q810
+Kazakhstan	0	0	Q232
+Kenya	3	3	Q114
+Kiribati	2	2	Q710
+Korea, Rep.	0	0	Q884
+Kuwait	1	0	Q817
+Kyrgyz Republic	0	0	Q813
+Lao PDR	5	3	Q819
+Latvia	1	0	Q211
+Lebanon	8	5	Q822
+Lesotho	11	8	Q1013
+Liberia	7	7	Q1014
+Liechtenstein	3	4	Q347
+Lithuania	1	0	Q37
+Luxembourg	4	3	Q32
+Madagascar	27	25	Q1019
+Maldives	0	0	Q826
+Mali	20	19	Q912
+Malta	0	0	Q233
+Marshall Islands	4	3	Q709
+Mauritania	2	2	Q1025
+Mauritius	0	0	Q1027
+Mexico	1	1	Q96
+Moldova	0	0	Q217
+Monaco	2	3	Q235
+Mongolia	0	0	Q711
+Montenegro	0	0	Q236
+Morocco	12	8	Q1028
+Mozambique	9	8	Q1029
+Namibia	18	13	Q1030
+Nepal	8	7	Q837
+Niger	2	3	Q1032
+North Macedonia	0	0	Q221
+Oman	0	0	Q842
+Pakistan	2	2	Q843
+Panama	4	3	Q804
+Papua New Guinea	9	9	Q691
+Paraguay	4	2	Q733
+Peru	3	2	Q419
+Philippines	2	1	Q928
+Poland	1	1	Q36
+Qatar	2	1	Q846
+Romania	2	1	Q218
+Russian Federation	0	0	Q159
+Rwanda	15	13	Q1037
+Samoa	1	1	Q683
+San Marino	0	0	Q238
+Sao Tome and Principe	14	10	Q1039
+Saudi Arabia	1	1	Q851
+Senegal	4	4	Q1041
+Serbia	1	1	Q403
+Sierra Leone	1	1	Q1044
+Singapore	0	0	Q334
+Slovak Republic	3	3	Q214
+Slovenia	1	1	Q215
+Solomon Islands	6	5	Q685
+South Africa	11	7	Q258
+Spain	3	2	Q29
+Sri Lanka	1	1	Q854
+St. Kitts and Nevis	2	1	Q763
+St. Lucia	4	2	Q760
+St. Vincent and the Grenadines	3	1	Q757
+Sudan	3	2	Q1049
+Suriname	19	14	Q730
+Switzerland	1	1	Q39
+Tajikistan	0	0	Q863
+Tanzania	2	2	Q924
+Thailand	2	1	Q869
+Timor-Leste	15	11	Q574
+Togo	8	7	Q945
+Tunisia	14	8	Q948
+Turkey	2	2	Q43
+Turks and Caicos Islands	2	2	Q18221
+Tuvalu	1	0	Q672
+Uganda	9	9	Q1036
+Ukraine	0	0	Q212
+United States	2	2	Q30
+Uruguay	5	3	Q77
+Uzbekistan	0	0	Q265
+Venezuela, RB	4	2	Q717
+Vietnam	1	0	Q881
+West Bank and Gaza	0	0	Q407199
+Yemen, Rep.	6	5	Q805

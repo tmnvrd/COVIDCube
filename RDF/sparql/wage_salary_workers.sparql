@@ -1,0 +1,28 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX c19: <http://example.org/ns#>
+PREFIX c19-measure: <http://example.org/measure#>
+PREFIX c19-interval: <http://example.org/interval#>
+PREFIX c19-dimension: <http://example.org/dimension#>
+PREFIX c19-unit: <http://example.org/unit#>
+PREFIX sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#>
+PREFIX sdmx-dimension:  <http://purl.org/linked-data/sdmx/2009/dimension#>
+PREFIX sdmx-code:  <http://purl.org/linked-data/sdmx/2009/dimension#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  c19:dataset-salaryWorkers;
+    c19-dimension:refPeriod c19-interval:Year2018;
+    sdmx-dimension:sex         sdmx-code:sex-F ;
+    c19-measure:salaryWorkers ?data ;
+    sdmx-attribute:unitMultiplier  -2;
+    sdmx-attribute:decimals  1;
+    c19-dimension:refArea ?wdID;
+}
+FROM <file:wage_salary_workers.tsv> 
+WHERE {
+  BIND (URI(CONCAT('c19:salaryWorkers-o1', ?id_row)) AS ?obs)
+  BIND (URI(CONCAT('wd:',?ID)) AS ?wdID)
+  BIND (xsd:decimal(?Female) AS ?data)
+}

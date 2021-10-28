@@ -1,0 +1,1520 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2017
+        a                  time:Interval ;
+        rdfs:label         "2017" ;
+        time:hasBeginning  "2017"^^xsd:gYear ;
+        time:hasEnd        "2017"^^xsd:gYear .
+
+c19-structure:dsd-railwaysTraffic
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:railLines , c19-measure:passengersCarriedRail , c19-measure:goodsHauledRail ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:railLines
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Rail lines (total route-km) "@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:passengersCarriedRail
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Passengers carried by railway are the number of passengers transported by rail times kilometers traveled."@en ;
+        rdfs:label          "Passengers carried by railway"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:goodsHauledRail
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Goods transported by railway are the volume of goods transported by railway, measured in metric tons times kilometers traveled."@en ;
+        rdfs:label          "Goods transported by railway"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19:dataset-railwaysTraffic
+        a                qb:dataSet ;
+        rdfs:comment     "The World Bank: 5.10 | Transport services"@en ;
+        rdfs:label       "railways"@en ;
+        dct:description  "Railways transport indicator data as total raillines kilometers, passengers carried per kilometer and goods transported."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/5.10> ;
+        dct:title        "Transport: Railways"@en ;
+        qb:structure     c19-structure:dsd-railwaysTraffic .
+
+c19:railwaysTraffic-o00
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q262 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    4016.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o01
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q399 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    686.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o02
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q40 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    4953.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o03
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q227 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    2132.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o04
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q902 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    2877.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o05
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q184 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    5459.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o06
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q225 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1018.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o07
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q219 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    4030.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o08
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1009 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1004.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o09
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q16 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    48150.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o010
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q148 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    67278.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o011
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q974 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    3641.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o012
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q224 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    2605.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o013
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q213 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    9408.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o014
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q33 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    5926.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o015
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1000 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    810.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o016
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q230 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1285.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o017
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q183 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    33488.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o018
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q28 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    7752.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o019
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q668 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    67368.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o020
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q794 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    9021.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o021
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q27 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1888.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o022
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q801 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1495.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o023
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q38 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    16788.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o024
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q17 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    16976.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o025
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q232 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    16040.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o026
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q884 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    4192.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o027
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q813 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    424.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o028
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q211 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1860.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o029
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q37 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1911.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o030
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q221 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    683.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o031
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q217 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1151.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o032
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q711 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1810.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o033
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q236 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    249.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o034
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q1028 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    2109.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o035
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q843 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    7791.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o036
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q36 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    18513.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o037
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q218 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    10765.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o038
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q159 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    85545.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o039
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q403 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    3736.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o040
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q214 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    3626.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o041
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q215 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1209.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o042
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q29 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    15559.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o043
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q854 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    1562.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o044
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q39 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    4036.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o045
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q863 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    620.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o046
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q948 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    2165.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o047
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q43 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    10207.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o048
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q874 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    7680.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o049
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q212 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    21626.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o050
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q30 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    150966.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o051
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q265 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    4642.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o052
+        a                        qb:Observation ;
+        c19-dimension:refArea    wd:Q881 ;
+        c19-dimension:refPeriod  c19-interval:Year2017 ;
+        c19-measure:railLines    2367.0 ;
+        qb:dataSet               c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals  1 .
+
+c19:railwaysTraffic-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                1550.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                25.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                12019.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                467.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                10040.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                6295.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                29.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                1437.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                262124.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                1535.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                685213.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                23.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                745.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                7778.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                4271.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                174.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                597.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                77500.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                5781.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                1149835.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                13270.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                2122.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                2765.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                44306.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                197254.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                19241.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                21935.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                43.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                42.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                468.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                59.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                77.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                973.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                60.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                4923.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                22476.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                9466.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                5366.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                122920.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                377.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                3760.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                650.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                26990.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                7407.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                19193.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                28.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                1164.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                4566.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                2340.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                28001.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                10660.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                4294.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:passengersCarriedRail
+                3657.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o20
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    1009.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o21
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    689.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o22
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    16052.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o23
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    4633.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o24
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    1053.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o25
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    48538.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o26
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    1114.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o27
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    2860.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o28
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    842.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o29
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    540141.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o210
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    2146466.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o211
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    194.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o212
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    2012.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o213
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    11819.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o214
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    10319.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o215
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    3276.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o216
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    2963.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o217
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    70614.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o218
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    447.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o219
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    620175.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o220
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    30299.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o221
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    100.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o222
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    1381.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o223
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    9969.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o224
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    21265.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o225
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    206258.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o226
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    8229.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o227
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    935.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o228
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    9971.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o229
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    15414.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o230
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    277.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o231
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    971.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o232
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    13493.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o233
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    169.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o234
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    3896.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o235
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    5031.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o236
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    28720.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o237
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    9223.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o238
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    2491876.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o239
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    3288.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o240
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    7008.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o241
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    4447.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o242
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    6649.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o243
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    127.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o244
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    8492.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o245
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    165.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o246
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    664.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o247
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    12058.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o248
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    13327.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o249
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    191914.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o250
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    2445132.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o251
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    22940.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .
+
+c19:railwaysTraffic-o252
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:goodsHauledRail    3574.0 ;
+        qb:dataSet                     c19:dataset-railwaysTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  6 .

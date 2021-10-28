@@ -1,0 +1,2421 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:interestPayments
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Interest payments (% of revenue)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-interestPayments
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:interestPayments ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:interestPayments-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-interestPayments
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.12 | Central government finances"@en ;
+        rdfs:label       "government_interest"@en ;
+        dct:description  "Interest payments include interest payments on government debt--including long-term bonds, long-term loans, and other debt instruments--to domestic and foreign residents."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.12> ;
+        dct:title        "Government: Interest payments"@en ;
+        qb:structure     c19-structure:dsd-interestPayments .
+
+c19:interestPayments-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   13.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   13.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   18.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   20.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   7.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   13.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   24.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   10.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   12.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   9.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   9.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   12.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   20.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   11.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   15.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   16.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   15.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   13.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   10.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   12.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   22.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   9.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   12.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   10.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   40.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   16.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   50.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   9.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   10.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   13.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   5.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   25.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   7.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   15.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   3.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   10.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   42.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   23.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   11.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   10.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   6.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   7.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   12.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   4.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   8.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   15.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   7.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   0.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   2.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   9.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:interestPayments   1.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   16.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   15.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   18.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   25.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   29.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   13.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   17.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   33.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   11.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   14.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   33.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   7.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   13.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   7.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   23.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   13.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   7.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   20.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   11.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   12.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   50.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   18.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   13.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   14.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   12.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.8 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   12.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   3.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   12.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   12.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   44.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   4.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   13.6 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.4 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   5.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.0 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   9.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   10.1 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   6.9 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   15.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   8.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   0.3 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   2.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   1.7 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   33.2 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:interestPayments-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:interestPayments   13.5 ;
+        qb:dataSet                     c19:dataset-interestPayments ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

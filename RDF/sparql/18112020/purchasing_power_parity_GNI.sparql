@@ -1,0 +1,18 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  "dataset-purchasing_power_parity_GNI";
+    sdmx-dimension:timePeriod "2019"^^xsd:gYear ;
+    eg-measure:dolar_billion ?data;
+    eg:refArea ?ID;
+}
+FROM <file:purchasing_power_parity_GNI.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:purchasing_power_parity_GNI-o1', ?id_row)) AS ?obs)
+  BIND (xsd:decimal(?billions) AS ?data)
+}

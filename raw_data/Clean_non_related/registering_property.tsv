@@ -1,0 +1,187 @@
+Country	Number of procedures	Time required	ID
+Afghanistan	9	250	Q889
+Albania	5	19	Q222
+Algeria	10	55	Q262
+Angola	6	190	Q916
+Antigua and Barbuda	7	32	Q781
+Argentina	7	51.5	Q414
+Armenia	3	8	Q399
+Australia	4	4.5	Q408
+Austria	3	20.5	Q40
+Azerbaijan	4	4.5	Q227
+Bahamas, The	7	122	Q778
+Bahrain	2	2	Q398
+Bangladesh	8	270.8	Q902
+Barbados	7	50	Q244
+Belarus	4	5	Q184
+Belgium	8	49	Q31
+Belize	9	60	Q242
+Benin	4	120	Q962
+Bhutan	3	77	Q917
+Bolivia	7	90	Q750
+Bosnia and Herzegovina	7	35	Q225
+Botswana	4	27	Q963
+Brazil	14	30.7	Q155
+Brunei Darussalam	7	298.5	Q921
+Bulgaria	8	19	Q219
+Burkina Faso	4	67	Q965
+Burundi	5	23	Q967
+Cabo Verde	6	19	Q1011
+Cambodia	7	55	Q424
+Cameroon	5	81	Q1009
+Canada	5	4	Q16
+Central African Republic	5	75	Q929
+Chad	6	29	Q657
+Chile	6	28.5	Q298
+China	4	9	Q148
+Hong Kong SAR, China	5	27.5	Q8646
+Colombia	7	15	Q739
+Comoros	4	30	Q970
+Congo, Dem. Rep.	8	38	Q974
+Congo, Rep.	5	54	Q971
+Costa Rica	5	11	Q800
+Cote d'Ivoire	5	39	Q1008
+Croatia	5	33	Q224
+Cyprus	7	9	Q229
+Czech Republic	4	27.5	Q213
+Denmark	3	4	Q35
+Djibouti	6	24	Q977
+Dominica	5	125	Q784
+Dominican Republic	6	33	Q786
+Ecuador	8	26	Q736
+Egypt, Arab Rep.	9	76	Q79
+El Salvador	6	31	Q792
+Equatorial Guinea	6	23	Q983
+Eritrea	11	78	Q986
+Estonia	3	17.5	Q191
+Ethiopia	7	52	Q115
+Fiji	4	69	Q712
+Finland	3	61.5	Q33
+France	8	42	Q142
+Gabon	6	72	Q1000
+Gambia, The	6	73	Q1005
+Georgia	1	1	Q230
+Germany	6	52	Q183
+Ghana	5	33	Q117
+Greece	11	26	Q41
+Grenada	8	32	Q769
+Guatemala	7	24	Q774
+Guinea	6	44	Q1006
+Guinea-Bissau	5	48	Q1007
+Guyana	7	46	Q734
+Haiti	6	319	Q790
+Honduras	6	28.5	Q783
+Hungary	4	17.5	Q28
+Iceland	3	3.5	Q189
+India	9	57.9	Q668
+Indonesia	6	30.6	Q252
+Iran, Islamic Rep.	6	31	Q794
+Iraq	5	51	Q796
+Ireland	5	31.5	Q27
+Israel	6	37	Q801
+Italy	4	16	Q38
+Jamaica	8	19	Q766
+Japan	6	13	Q17
+Jordan	6	17	Q810
+Kazakhstan	4	4.5	Q232
+Kenya	10	43.5	Q114
+Kiribati	5	513	Q710
+Korea, Rep.	7	5.5	Q884
+Kosovo	6	32	Q1246
+Kuwait	7	17	Q817
+Kyrgyz Republic	3	3.5	Q813
+Lao PDR	6	28	Q819
+Latvia	4	16.5	Q211
+Lebanon	8	37	Q822
+Lesotho	4	43	Q1013
+Liberia	10	44	Q1014
+Liechtenstein	8	17	Q347
+Lithuania	3	3.5	Q37
+Luxembourg	7	26.5	Q32
+North Macedonia	7	30	Q221
+Madagascar	6	100	Q1019
+Malawi	6	47	Q1020
+Malaysia	6	11.5	Q833
+Maldives	6	57	Q826
+Mali	5	29	Q912
+Malta	7	17	Q233
+Mauritania	4	49	Q1025
+Mauritius	5	17	Q1027
+Mexico	8	38.8	Q96
+Moldova	5	5.5	Q217
+Mongolia	5	10.5	Q711
+Montenegro	6	69	Q236
+Morocco	6	20	Q1028
+Mozambique	8	43	Q1029
+Myanmar	6	65	Q836
+Namibia	8	44	Q1030
+Nepal	4	6	Q837
+Netherlands	5	2.5	Q55
+New Zealand	2	3.5	Q664
+Nicaragua	9	56	Q811
+Niger	4	13	Q1032
+Nigeria	12	91.7	Q1033
+Norway	1	3	Q20
+Oman	3	18	Q842
+Pakistan	8	104.7	Q843
+Palau	5	14	Q695
+Panama	7	22.5	Q804
+Papua New Guinea	4	72	Q691
+Paraguay	6	46	Q733
+Peru	6	9.5	Q419
+Philippines	9	35	Q928
+Poland	6	135	Q36
+Portugal	1	10	Q45
+Puerto Rico	8	190	Q1183
+Qatar	1	1	Q846
+Romania	6	14.5	Q218
+Russian Federation	4	14	Q159
+Rwanda	3	7	Q1037
+Samoa	5	15	Q683
+San Marino	9	42.5	Q238
+Sao Tome and Principe	8	52	Q1039
+Saudi Arabia	2	1.5	Q851
+Senegal	5	41	Q1041
+Serbia	6	33	Q403
+Seychelles	4	33	Q1042
+Sierra Leone	7	56	Q1044
+Singapore	6	4.5	Q334
+Slovak Republic	3	16.5	Q214
+Slovenia	7	50.5	Q215
+Solomon Islands	10	86.5	Q685
+Somalia	5	188	Q1045
+South Africa	7	23	Q258
+South Sudan	7	48	Q958
+Spain	6	13	Q29
+Sri Lanka	8	39	Q854
+St. Kitts and Nevis	6	224	Q763
+St. Lucia	9	17	Q760
+St. Vincent and the Grenadines	7	47	Q757
+Sudan	6	11	Q1049
+Suriname	6	46	Q730
+Eswatini	9	21	Q1050
+Sweden	1	7	Q34
+Switzerland	4	16	Q39
+Syrian Arab Republic	4	48	Q858
+Tajikistan	4	33	Q863
+Tanzania	8	67	Q924
+Thailand	5	9	Q869
+Togo	3	35	Q945
+Tonga	4	112	Q678
+Trinidad and Tobago	9	77	Q754
+Tunisia	5	35	Q948
+Turkey	6	4.5	Q43
+Uganda	10	42	Q1036
+Ukraine	7	15	Q212
+United Arab Emirates	2	1.5	Q878
+United Kingdom	6	21.5	Q145
+United States	4	15.2	Q30
+Uruguay	9	66	Q77
+Uzbekistan	9	43	Q265
+Vanuatu	4	58	Q686
+Venezuela, RB	10	53	Q717
+Vietnam	5	53.5	Q881
+West Bank and Gaza	7	35	Q407199
+Yemen, Rep.	6	19	Q805
+Zambia	6	45	Q953
+Zimbabwe	5	29	Q954

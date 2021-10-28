@@ -1,0 +1,18 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  "dataset-under-five_mortality_rate";
+    eg:refPeriod eg:Interval2018;
+    eg-measure:per100000livebirths ?data;
+    eg:refArea ?ID;
+}
+FROM <file:under-five_mortality_rate.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:under-five_mortality_rate-o0', ?id_row)) AS ?obs)
+  BIND (xsd:decimal(?Total) AS ?data)
+}

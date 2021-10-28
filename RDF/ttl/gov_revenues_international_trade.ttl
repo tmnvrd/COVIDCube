@@ -1,0 +1,2321 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:revenueInternationalTrade
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Taxes on international trade (% of revenue)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-revenueInternationalTrade
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:revenueInternationalTrade ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:revenueInternationalTrade-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-revenueInternationalTrade
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.14 | Central government revenues"@en ;
+        rdfs:label       "gov_revenues_international_trade"@en ;
+        dct:description  "Taxes on international trade include import duties, export duties, profits of export or import monopolies, exchange profits, and exchange taxes."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.14> ;
+        dct:title        "Government Revenues: Taxes on international trade"@en ;
+        qb:structure     c19-structure:dsd-revenueInternationalTrade .
+
+c19:revenueInternationalTrade-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                49.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                24.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                21.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                19.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                12.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                15.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                12.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                13.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                42.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                29.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                20.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                17.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                13.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                9.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                17.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                17.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                9.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                10.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                26.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                9.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                21.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                26.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                18.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                30.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                28.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                45.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                14.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                18.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                14.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:revenueInternationalTrade
+                31.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                21.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                25.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                9.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                13.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                14.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                29.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                12.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                13.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                12.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                22.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                25.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                22.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                19.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                13.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                19.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                5.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                12.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                29.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                12.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                21.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                11.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                32.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                18.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                17.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                29.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                18.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                7.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                16.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                1.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                0.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                2.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                3.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                4.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                10.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                26.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                6.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:revenueInternationalTrade-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:revenueInternationalTrade
+                8.0 ;
+        qb:dataSet                     c19:dataset-revenueInternationalTrade ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

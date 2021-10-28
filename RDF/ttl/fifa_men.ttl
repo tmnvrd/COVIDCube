@@ -1,0 +1,1755 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2020
+        a                  time:Interval ;
+        rdfs:label         "2020" ;
+        time:hasBeginning  "2020"^^xsd:gYear ;
+        time:hasEnd        "2020"^^xsd:gYear .
+
+c19-measure:points  a       rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Points"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-sportTournament
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  sdmx-dimension:sex ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:points ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals ] .
+
+c19:dataset-FIFAmen  a  qb:Dataset ;
+        rdfs:comment   "FIFA: https://www.fifa.com/fifa-world-ranking/ranking-table/men/#all"@en ;
+        rdfs:label     "fifa_men"@en ;
+        dct:issued     "2020-07-10"^^xsd:date ;
+        dct:publisher  wd:Q253414 ;
+        dct:source     <https://www.fifa.com/fifa-world-ranking/ranking-table/men/#all> ;
+        dct:title      "FIFA World Ranking: Men"@en ;
+        qb:structure   c19-structure:dsd-sportTournament .
+
+c19:FIFAmen-o00  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q889 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1052.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o01  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q222 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1351.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o02  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q262 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1482.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o03  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q16641 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       900.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o04  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q228 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1076.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o05  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q916 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1136.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o06  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q25228 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       821.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o07  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q781 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1127.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o08  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q414 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1623.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o09  a               qb:Observation ;
+        c19-dimension:refArea    wd:Q399 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1215.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o010  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q21203 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       867.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o011  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q408 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1457.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o012  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q40 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1505.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o013  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q227 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1179.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o014  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q778 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       880.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o015  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q398 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1225.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o016  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q902 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       914.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o017  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q244 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1009.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o018  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q184 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1282.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o019  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q31 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1773.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o020  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q242 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       974.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o021  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q962 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1295.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o022  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q23635 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       983.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o023  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q917 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       911.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o024  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q750 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1324.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o025  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q225 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1426.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o026  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q963 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1055.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o027  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q155 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1712.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o028  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q25305 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       842.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o029  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q921 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       904.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o030  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q219 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1378.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o031  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q965 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1381.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o032  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q967 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1052.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o033  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1011 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1318.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o034  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q424 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       964.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o035  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1009 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1413.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o036  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q16 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1332.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o037  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q5785 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       897.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o038  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q929 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1184.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o039  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q657 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       943.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o040  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q298 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1579.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o041  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q148 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1323.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o042  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1867 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1078.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o043  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q739 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1622.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o044  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q970 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1088.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o045  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q971 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1269.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o046  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q974 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1389.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o047  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q800 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1439.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o048  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q224 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1628.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o049  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q241 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       936.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o050  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q25279 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1313.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o051  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q229 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1236.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o052  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q213 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1446.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o053  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1008 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1378.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o054  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q35 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1593.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o055  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q977 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       919.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o056  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q784 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       919.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o057  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q786 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1019.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o058  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q736 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1368.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o059  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q79 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1420.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o060  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q792 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1346.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o061  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q21 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1664.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o062  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q983 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1066.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o063  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q986 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       856.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o064  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q191 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1188.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o065  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1050 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1042.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o066  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q115 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1061.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o067  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q4628 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1191.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o068  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q712 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       996.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o069  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q33 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1390.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o070  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q142 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1744.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o071  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1000 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1297.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o072  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1005 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1015.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o073  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q230 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1274.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o074  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q183 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1602.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o075  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q117 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1439.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o076  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1410 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       886.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o077  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q41 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1413.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o078  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q769 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1015.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o079  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q16635 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       873.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o080  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q774 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1104.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o081  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1006 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1328.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o082  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q1007 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1155.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o083  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q734 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       988.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o084  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q790 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1285.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o085  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q783 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1377.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o086  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q8646 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1072.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o087  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q28 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1418.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o088  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q189 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1457.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o089  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q668 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1187.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o090  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q252 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       964.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o091  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q794 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1489.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o092  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q796 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1344.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o093  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q801 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1265.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o094  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q38 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1612.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o095  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q766 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1438.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o096  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q17 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1500.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o097  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q810 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1238.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o098  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q232 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1156.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o099  a              qb:Observation ;
+        c19-dimension:refArea    wd:Q114 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1199.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0100  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q423 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1170.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0101  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q884 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1464.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0102  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1246 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1167.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0103  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q817 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1060.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0104  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q813 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1240.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0105  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q819 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       912.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0106  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q211 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1076.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0107  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q822 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1269.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0108  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1013 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1074.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0109  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1014 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1047.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0110  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1016 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1215.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0111  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q347 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       932.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0112  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q37 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1093.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0113  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q32 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1237.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0114  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q14773 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       922.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0115  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1019 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1267.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0116  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1020 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1141.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0117  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q833 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1040.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0118  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q826 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1038.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0119  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q912 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1389.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0120  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q233 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       917.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0121  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1025 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1223.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0122  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1027 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       965.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0123  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q96 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1621.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0124  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q217 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       959.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0125  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q711 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       906.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0126  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q236 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1376.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0127  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q13353 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       921.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0128  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1028 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1456.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0129  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1029 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1200.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0130  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q836 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1081.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0131  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1030 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1160.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0132  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q837 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       974.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0133  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q55 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1603.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0134  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q33788 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1035.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0135  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q664 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1149.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0136  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q811 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1051.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0137  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1032 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1179.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0138  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1033 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1493.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0139  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q221 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1351.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0140  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q26 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1468.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0141  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q20 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1452.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0142  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q842 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1303.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0143  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q843 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       867.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0144  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q219060 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1204.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0145  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q804 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1305.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0146  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q691 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       991.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0147  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q733 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1461.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0148  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q419 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1544.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0149  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q928 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1136.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0150  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q36 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1558.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0151  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q45 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1653.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0152  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1183 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       941.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0153  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q846 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1396.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0154  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q27 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1475.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0155  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q218 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1483.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0156  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q159 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1485.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0157  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1037 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1089.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0158  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q683 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       894.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0159  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q238 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       811.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0160  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q851 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1351.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0161  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q22 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1428.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0162  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1041 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1555.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0163  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q403 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1486.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0164  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1042 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       866.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0165  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1044 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1155.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0166  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q334 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1020.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0167  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q214 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1479.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0168  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q215 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1368.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0169  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q685 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1073.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0170  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1045 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       879.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0171  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q258 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1334.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0172  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q958 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       983.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0173  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q29 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1642.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0174  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q854 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       853.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0175  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q763 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1074.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0176  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q760 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       953.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0177  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q757 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       986.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0178  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1049 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1112.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0179  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q730 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1073.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0180  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q34 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1567.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0181  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q39 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1600.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0182  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q858 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1314.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0183  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1039 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       923.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0184  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q42000 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1014.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0185  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q863 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1148.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0186  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q924 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1086.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0187  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q869 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1178.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0188  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q574 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       879.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0189  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q945 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1127.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0190  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q678 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       862.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0191  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q754 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1201.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0192  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q948 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1506.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0193  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q43 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1485.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0194  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q874 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1107.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0195  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q18221 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       862.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0196  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q1036 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1321.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0197  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q212 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1539.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0198  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q878 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1334.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0199  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q77 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1645.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0200  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q11703 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       844.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0201  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q30 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1542.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0202  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q265 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1290.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0203  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q686 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       996.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0204  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q717 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1517.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0205  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q881 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1258.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0206  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q25 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1550.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0207  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q805 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1071.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0208  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q953 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1279.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .
+
+c19:FIFAmen-o0209  a             qb:Observation ;
+        c19-dimension:refArea    wd:Q954 ;
+        c19-dimension:refPeriod  c19-interval:Year2020 ;
+        c19-measure:points       1180.0 ;
+        qb:dataSet               c19:dataset-FIFAmen ;
+        sdmx-attribute:decimals  1 ;
+        sdmx-dimension:sex       sdmx-code:sex-M .

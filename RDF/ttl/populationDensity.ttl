@@ -1,0 +1,1993 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2019
+        a                  time:Interval ;
+        rdfs:label         "2019" ;
+        time:hasBeginning  "2019"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-unit:PerSquareKilometer
+        a                        c19-unit:Unit ;
+        rdfs:label               "km⁻²" , "Per square kilometer"@en ;
+        c19-unit:reciprocalUnit  c19-unit:SquareKilometer .
+
+c19-unit:SquareKilometer
+        a                        c19-unit:Unit ;
+        rdfs:label               "km²" , "Square kilometer"@en ;
+        c19-unit:reciprocalUnit  c19-unit:PerSquareKilometer .
+
+c19-measure:populationDensity
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "population density"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-populationDensity
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:populationDensity ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:unitMeasure ] .
+
+c19:dataset-populationDensity
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.1 | Size of the economy"@en ;
+        rdfs:label       "population_density"@en ;
+        dct:description  " Population density is midyear population divided by land area in square kilometers. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship--except for refugees not permanently settled in the country of asylum, who are generally considered part of the population of their country of origin. Land area is a country's total area, excluding area under inland water bodies, national claims to continental shelf, and exclusive economic zones. In most cases the definition of inland water bodies includes major rivers and lakes. "@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.1> ;
+        dct:title        "Population density"@en ;
+        qb:structure     c19-structure:dsd-populationDensity .
+
+c19:populationDensity-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  57.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  105.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  18.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  277.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  164.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  25.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  219.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  16.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  104.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  588.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  3.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  107.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  120.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  39.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  2017.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  124.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  667.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  47.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  377.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  17.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  102.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q23635 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  1184.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  20.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  10.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  65.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  25.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  81.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  65.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  72.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  435.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  92.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  53.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  135.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  267.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  7.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  12.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q42314 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  861.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  25.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  148.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  7096.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  20778.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  45.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  447.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  37.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  15.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  98.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  79.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  73.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  109.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25279 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  361.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  129.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  138.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  138.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  41.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  96.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  220.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  69.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  99.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  310.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  47.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  30.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  66.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  109.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q4628 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  35.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  48.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  18.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  122.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  76.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  8.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  225.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  65.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  237.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  131.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  83.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  0.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  328.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  307.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  153.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  51.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  67.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  404.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  86.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  108.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  455.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  148.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  50.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  89.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  71.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q9676 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  148.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  410.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  205.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  271.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  347.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  112.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  7.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  90.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  143.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  212.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  529.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  165.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  232.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  33.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  31.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  31.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  669.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  69.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  50.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q347 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  237.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  45.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  250.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  45.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  192.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  96.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  1719.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  16.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  1514.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  325.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  623.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  65.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  161.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  94.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  19196.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  2.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  46.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  81.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  38.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  82.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  3.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q697 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  635.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  196.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  511.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  16.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  18.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  54.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  18.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  215.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  83.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  124.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  15.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  16.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  275.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  39.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  56.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  19.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  18.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  25.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  358.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  124.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  112.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  360.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  240.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  85.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  9.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  499.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  69.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  563.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  220.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  16.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  82.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  80.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  210.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  106.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  7953.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q26273 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  1193.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  113.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  103.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  23.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  24.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  48.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  94.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  346.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  202.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  298.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q126125 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  672.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  283.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  4.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  25.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  215.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  92.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  66.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  64.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  136.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  85.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  145.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  143.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  271.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  74.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  107.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  12.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q18221 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  40.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  384.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  213.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  77.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  136.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0200
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  275.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0201
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  36.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0202
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  20.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0203
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  77.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0204
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  24.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0205
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  33.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0206
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  308.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0207
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  306.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0208
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  759.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0209
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  54.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0210
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  23.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .
+
+c19:populationDensity-o0211
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:populationDensity  37.0 ;
+        qb:dataSet                     c19:dataset-populationDensity ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMeasure     c19-unit:PerSquareKilometer .

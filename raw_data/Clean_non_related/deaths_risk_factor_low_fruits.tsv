@@ -1,0 +1,200 @@
+Country	deaths	ID
+Afghanistan	11,225	Q889
+Albania	785	Q222
+Algeria	7,652	Q262
+American Samoa	11	Q16641
+Andorra	10	Q228
+Angola	2,704	Q916
+Antigua and Barbuda	8	Q781
+Argentina	7,583	Q414
+Armenia	1,364	Q399
+Australia	4,798	Q408
+Austria	1,741	Q40
+Azerbaijan	4,916	Q227
+Bahamas	11	Q778
+Bahrain	87	Q398
+Bangladesh	69,563	Q902
+Barbados	74	Q244
+Belarus	8,18	Q184
+Belgium	3,276	Q31
+Belize	47	Q242
+Benin	1,634	Q962
+Bermuda	2	Q23635
+Bhutan	180	Q917
+Bolivia	1,967	Q750
+Bosnia and Herzegovina	2,035	Q225
+Botswana	413	Q963
+Brazil	31,505	Q155
+Brunei	75	Q921
+Bulgaria	8,293	Q219
+Burkina Faso	3,826	Q965
+Burundi	1,803	Q967
+Cambodia	5,388	Q424
+Cameroon	2,653	Q1009
+Canada	6,094	Q16
+Cape Verde	96	Q1011
+Central African Republic	1,383	Q929
+Chad	2,659	Q657
+Chile	3,528	Q298
+China	718,507	Q148
+Colombia	4,283	Q739
+Comoros	179	Q970
+Congo	987	Q971
+Costa Rica	427	Q800
+Cote d'Ivoire	3,487	Q1008
+Croatia	2,034	Q224
+Cuba	1,763	Q241
+Cyprus	271	Q229
+Czech Republic	5,296	Q213
+Democratic Republic of Congo	15,054	Q974
+Denmark	1,024	Q35
+Djibouti	238	Q977
+Dominica	15	Q784
+Dominican Republic	432	Q786
+Ecuador	809	Q736
+Egypt	20,284	Q79
+El Salvador	1,162	Q792
+England	14,804	Q21
+Equatorial Guinea	37	Q983
+Eritrea	1,087	Q986
+Estonia	624	Q191
+Ethiopia	12,026	Q115
+Fiji	539	Q712
+Finland	1,875	Q33
+France	13,606	Q142
+Gabon	112	Q1000
+Gambia	541	Q1005
+Georgia	3,929	Q230
+Germany	32,788	Q183
+Ghana	1,452	Q117
+Greece	3,013	Q41
+Greenland	12	Q223
+Grenada	31	Q769
+Guam	24	Q16635
+Guatemala	2,316	Q774
+Guinea	1,876	Q1006
+Guinea-Bissau	414	Q1007
+Guyana	318	Q734
+Haiti	3,446	Q790
+Honduras	1,522	Q783
+Hungary	6,333	Q28
+Iceland	50	Q189
+India	398,063	Q668
+Indonesia	99,894	Q252
+Iran	8,143	Q794
+Iraq	7,119	Q796
+Ireland	673	Q27
+Israel	682	Q801
+Italy	12,053	Q38
+Jamaica	662	Q766
+Japan	41,84	Q17
+Jordan	1,274	Q810
+Kazakhstan	10,208	Q232
+Kenya	5,837	Q114
+Kiribati	71	Q710
+Kuwait	415	Q817
+Kyrgyzstan	2,737	Q813
+Laos	2,02	Q819
+Latvia	1,865	Q211
+Lebanon	1,154	Q822
+Lesotho	898	Q1013
+Liberia	765	Q1014
+Libya	1,772	Q1016
+Lithuania	2,362	Q37
+Luxembourg	35	Q32
+Macedonia	1,02	Q221
+Madagascar	6,547	Q1019
+Malawi	2,417	Q1020
+Malaysia	7,618	Q833
+Maldives	37	Q826
+Mali	3,159	Q912
+Malta	143	Q233
+Marshall Islands	29	Q709
+Mauritania	763	Q1025
+Mauritius	597	Q1027
+Mexico	17,183	Q96
+Micronesia (country)	50	Q702
+Moldova	3,293	Q217
+Mongolia	1,783	Q711
+Montenegro	166	Q236
+Morocco	8,269	Q1028
+Mozambique	6,596	Q1029
+Myanmar	16,76	Q836
+Namibia	511	Q1030
+Nepal	7,908	Q837
+Netherlands	3,186	Q55
+New Zealand	890	Q664
+Nicaragua	905	Q811
+Niger	2,796	Q1032
+Nigeria	16,276	Q1033
+North Korea	16,725	Q423
+Northern Ireland	506	Q26
+Northern Mariana Islands	9	Q16644
+Norway	770	Q20
+Oman	54	Q842
+Pakistan	73,998	Q843
+Palestine	803	Q219060
+Panama	515	Q804
+Papua New Guinea	4,714	Q691
+Paraguay	1,249	Q733
+Peru	2,583	Q419
+Philippines	20,99	Q928
+Poland	21,061	Q36
+Portugal	3,139	Q45
+Puerto Rico	593	Q1183
+Qatar	33	Q846
+Romania	14,933	Q218
+Russia	118,512	Q159
+Rwanda	284	Q1037
+Saint Lucia	35	Q760
+Saint Vincent and the Grenadines	31	Q757
+Samoa	58	Q683
+Sao Tome and Principe	40	Q1039
+Saudi Arabia	4,217	Q851
+Scotland	2,027	Q22
+Senegal	3,02	Q1041
+Serbia	6,193	Q403
+Seychelles	20	Q1042
+Sierra Leone	1,712	Q1044
+Singapore	553	Q334
+Slovakia	2,825	Q214
+Slovenia	449	Q215
+Solomon Islands	230	Q685
+Somalia	3,869	Q1045
+South Africa	14,418	Q258
+South Korea	8,457	Q884
+South Sudan	1,575	Q958
+Spain	8,114	Q29
+Sri Lanka	6,868	Q854
+Sudan	10,194	Q1049
+Suriname	159	Q730
+Swaziland	237	Q1050
+Sweden	2,209	Q34
+Switzerland	1,714	Q39
+Syria	5,745	Q858
+Taiwan	3,926	Q865
+Tajikistan	3,297	Q863
+Tanzania	4,937	Q924
+Thailand	10,582	Q869
+Timor	481	Q574
+Togo	1,674	Q945
+Tonga	29	Q678
+Trinidad and Tobago	499	Q754
+Tunisia	3,201	Q948
+Turkey	8,135	Q43
+Turkmenistan	2,44	Q874
+Uganda	1,18	Q1036
+Ukraine	57,524	Q212
+United Arab Emirates	1,028	Q878
+United Kingdom	18,411	Q145
+United States	85,151	Q30
+United States Virgin Islands	11	Q11703
+Uruguay	988	Q77
+Uzbekistan	17,04	Q265
+Vanuatu	141	Q686
+Venezuela	6,114	Q717
+Vietnam	33,84	Q881
+Wales	1,074	Q25
+Yemen	8,525	Q805
+Zambia	2,563	Q953
+Zimbabwe	3,312	Q954

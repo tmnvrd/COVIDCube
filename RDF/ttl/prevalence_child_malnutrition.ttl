@@ -1,0 +1,1378 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Age0-5  a          c19-interval:PercentileInterval ;
+        rdfs:label              "0-5" ;
+        c19-interval:baseUnit   wd:Q577 ;
+        c19-interval:beginning  0 ;
+        c19-interval:end        5 .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-dimension:ageInterval
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "age interval"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:ageInterval ;
+        qb:concept          sdmx-concept:ageInterval .
+
+c19-measure:prevalenceStuntingHeight
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "prevalence stunting height age"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-interval:Year2011-19
+        a                  time:Interval ;
+        rdfs:label         "2011-19" ;
+        time:hasBeginning  "2011"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-structure:dsd-prevalenceStuntingHeight
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:ageInterval ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:prevalenceStuntingHeight ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:dataset-prevalence_child_malnutrition
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.2 | Global goals: ending poverty and improving lives"@en ;
+        rdfs:label       "prevalence_child_malnutrition"@en ;
+        dct:description  "Prevalence of stunting is the percentage of children under age 5 whose height for age is more than two standard deviations below the median for the international reference population ages 0-59 months. For children up to two years old height is measured by recumbent length. For older children height is measured by stature while standing. The data are based on the WHO's new child growth standards released in 2006."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.2> ;
+        dct:title        "Prevalence of child malnutrition"@en ;
+        qb:structure     c19-structure:dsd-prevalenceStuntingHeight .
+
+c19:prevalenceStuntingHeight-o00
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                38.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o01
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                11.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o02
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                11.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o03
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                37.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o04
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o05
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                9.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o06
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o07
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                30.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o08
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o09
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                15.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o010
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                32.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o011
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                16.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o012
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                8.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o013
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o014
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                24.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o015
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                54.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o016
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                32.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o017
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                28.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o018
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                40.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o019
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                39.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o020
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                1.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o021
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                8.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o022
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                12.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o023
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                31.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o024
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                42.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o025
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                21.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o026
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                21.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o027
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                33.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o028
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o029
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                23.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o030
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                22.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o031
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                13.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o032
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                26.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o033
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                25.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o034
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                36.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o035
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o036
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                13.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o037
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                1.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o038
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o039
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                46.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o040
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                30.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o041
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                27.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o042
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                11.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o043
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                21.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o044
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                22.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o045
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                34.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o046
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                30.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o047
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                6.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o048
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                12.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o049
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                6.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o050
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o051
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                8.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o052
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                26.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o053
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                19.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o054
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                6.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o055
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                11.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o056
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                33.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o057
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                34.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o058
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                30.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o059
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                38.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o060
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                41.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o061
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                39.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o062
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                20.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o063
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                26.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o064
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                34.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o065
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                22.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o066
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                10.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o067
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                6.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o068
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                9.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o069
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                9.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o070
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                15.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o071
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                42.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o072
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                29.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o073
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                22.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o074
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                36.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o075
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o076
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                48.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o077
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                36.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o078
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                4.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o079
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                11.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o080
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                37.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o081
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                5.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o082
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                12.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o083
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                30.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o084
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                2.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o085
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                36.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o086
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                4.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o087
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o088
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                18.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o089
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                6.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o090
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o091
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                29.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o092
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                31.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o093
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                27.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o094
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.3 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o095
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                2.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o096
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                38.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o097
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                17.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o098
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                31.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o099
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                10.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0100
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                51.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0101
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                23.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0102
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                8.1 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0103
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                9.2 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0104
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                8.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0105
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                6.0 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0106
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                11.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0107
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                28.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0108
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                3.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0109
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                10.7 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0110
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                10.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0111
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                28.9 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0112
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                23.8 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0113
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                7.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0114
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                46.4 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0115
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                34.6 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:prevalenceStuntingHeight-o0116
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-19 ;
+        c19-measure:prevalenceStuntingHeight
+                23.5 ;
+        qb:dataSet                     c19:dataset-prevalence_child_malnutrition ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

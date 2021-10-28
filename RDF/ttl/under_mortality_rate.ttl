@@ -1,0 +1,2004 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Age0-5  a          c19-interval:PercentileInterval ;
+        rdfs:label              "0-5" ;
+        c19-interval:baseUnit   wd:Q577 ;
+        c19-interval:beginning  0 ;
+        c19-interval:end        5 .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-measure:mortalityRate
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Mortality rate"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-structure:dsd-childMortalityRate
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:ageInterval ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:mortalityRate ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:dataset-under-five_mortality_rate
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.2 | Global goals: ending poverty and improving lives"@en ;
+        rdfs:label       "under-five_mortality_rate"@en ;
+        dct:description  "Under-five mortality rate is the probability per 1,000 that a newborn baby will die before reaching age five, if subject to age-specific mortality rates of the specified year."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.2> ;
+        dct:title        "Under-five mortality rate"@en ;
+        qb:structure     c19-structure:dsd-childMortalityRate .
+
+c19:mortalityRate-o00
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      63.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o01
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      10.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o02
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      24.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o03
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o04
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      78.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o05
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o06
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      10.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o07
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      12.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o08
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o09
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o010
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      22.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o011
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      13.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o012
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o013
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      32.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o014
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      13.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o015
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o016
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o017
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      13.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o018
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      93.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o019
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      30.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o020
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      27.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o021
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      6.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o022
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      43.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o023
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o024
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      11.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o025
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o026
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      91.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o027
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      59.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o028
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      16.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o029
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      28.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o030
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      78.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o031
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      5.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o032
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      114.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o033
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      118.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o034
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o035
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      9.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o036
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o037
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      65.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o038
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      88.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o039
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      49.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o040
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      9.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o041
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      82.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o042
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      5.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o043
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      5.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o044
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      2.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o045
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o046
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o047
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      59.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o048
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      34.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o049
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      29.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o050
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o051
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      21.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o052
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o053
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      85.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o054
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      42.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o055
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o056
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      55.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o057
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      53.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o058
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      26.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o059
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      2.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o060
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o061
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      44.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o062
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      54.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o063
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      10.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o064
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o065
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      48.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o066
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o067
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      17.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o068
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      25.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o069
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      101.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o070
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      81.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o071
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      30.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o072
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      65.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o073
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      17.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o074
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o075
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      2.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o076
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      36.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o077
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      25.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o078
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o079
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      27.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o080
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o081
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o082
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o083
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o084
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o085
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      16.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o086
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      10.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o087
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      45.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o088
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      53.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o089
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      18.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o090
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o091
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o092
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      19.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o093
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      47.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o094
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o095
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o096
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      87.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o097
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      86.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o098
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      12.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o099
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0100
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0101
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      52.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0102
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      44.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0103
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0104
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0105
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      97.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0106
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0107
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      33.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0108
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      75.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0109
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      15.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0110
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      15.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0111
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      31.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0112
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      15.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0113
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0114
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      17.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0115
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0116
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      22.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0117
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      77.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0118
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      46.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0119
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      43.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0120
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      32.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0121
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0122
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      5.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0123
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      17.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0124
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      83.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0125
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      120.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0126
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0127
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0128
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      11.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0129
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      69.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0130
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      18.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0131
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      15.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0132
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      46.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0133
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      20.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0134
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      14.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0135
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      28.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0136
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      5.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0137
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0138
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0139
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0140
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      6.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0141
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      36.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0142
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      16.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0143
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      2.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0144
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      31.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0145
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0146
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      47.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0147
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      6.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0148
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      15.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0149
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      114.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0150
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0151
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      6.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0152
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      2.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0153
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      20.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0154
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      120.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0155
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      35.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0156
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      96.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0157
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0158
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0159
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      16.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0160
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      22.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0161
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      15.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0162
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      60.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0163
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      19.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0164
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      3.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0165
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0166
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      22.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0167
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      35.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0168
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      52.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0169
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      9.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0170
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      46.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0171
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      69.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0172
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      17.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0173
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      18.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0174
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      17.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0175
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      11.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0176
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      42.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0177
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      25.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0178
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      48.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0179
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      9.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0180
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0181
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      4.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0182
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      7.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0183
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      8.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0184
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      18.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0185
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      27.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0186
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      24.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0187
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      20.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0188
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      20.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0189
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      59.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0190
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      63.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:mortalityRate-o0191
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age0-5 ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:mortalityRate      56.0 ;
+        qb:dataSet                     c19:dataset-under-five_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .

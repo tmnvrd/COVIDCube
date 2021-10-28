@@ -1,0 +1,1257 @@
+Entity	Date	Excess mortality P-scores, all ages	ID
+Austria	2020-01-05	-11	Q40
+Austria	2020-01-12	-8	Q40
+Austria	2020-01-19	1	Q40
+Austria	2020-01-26	2	Q40
+Austria	2020-02-02	7	Q40
+Austria	2020-02-09	-9	Q40
+Austria	2020-02-16	-5	Q40
+Austria	2020-02-23	-6	Q40
+Austria	2020-03-01	-3	Q40
+Austria	2020-03-08	-1	Q40
+Austria	2020-03-15	0	Q40
+Austria	2020-03-22	15	Q40
+Austria	2020-03-29	7	Q40
+Austria	2020-04-05	15	Q40
+Austria	2020-04-12	16	Q40
+Austria	2020-04-19	12	Q40
+Austria	2020-04-26	8	Q40
+Austria	2020-05-03	1	Q40
+Austria	2020-05-10	6	Q40
+Austria	2020-05-17	2	Q40
+Austria	2020-05-24	4	Q40
+Austria	2020-05-31	0	Q40
+Austria	2020-06-07	5	Q40
+Austria	2020-06-14	1	Q40
+Austria	2020-06-21	0	Q40
+Austria	2020-06-28	3	Q40
+Austria	2020-07-05	9	Q40
+Austria	2020-07-12	0	Q40
+Austria	2020-07-19	-2	Q40
+Austria	2020-07-26	-2	Q40
+Austria	2020-08-02	1	Q40
+Austria	2020-08-09	0	Q40
+Austria	2020-08-16	10	Q40
+Austria	2020-08-23	3	Q40
+Austria	2020-08-30	5	Q40
+Austria	2020-09-06	10	Q40
+Austria	2020-09-13	10	Q40
+Austria	2020-09-20	10	Q40
+Austria	2020-09-27	3	Q40
+Austria	2020-10-04	4	Q40
+Belgium	2020-01-05	-7	Q31
+Belgium	2020-01-12	-2	Q31
+Belgium	2020-01-19	-5	Q31
+Belgium	2020-01-26	-9	Q31
+Belgium	2020-02-02	-6	Q31
+Belgium	2020-02-09	-13	Q31
+Belgium	2020-02-16	-9	Q31
+Belgium	2020-02-23	-8	Q31
+Belgium	2020-03-01	-12	Q31
+Belgium	2020-03-08	-10	Q31
+Belgium	2020-03-15	-5	Q31
+Belgium	2020-03-22	10	Q31
+Belgium	2020-03-29	43	Q31
+Belgium	2020-04-05	90	Q31
+Belgium	2020-04-12	104	Q31
+Belgium	2020-04-19	80	Q31
+Belgium	2020-04-26	49	Q31
+Belgium	2020-05-03	20	Q31
+Belgium	2020-05-10	17	Q31
+Belgium	2020-05-17	3	Q31
+Belgium	2020-05-24	5	Q31
+Belgium	2020-05-31	2	Q31
+Belgium	2020-06-07	-5	Q31
+Belgium	2020-06-14	2	Q31
+Belgium	2020-06-21	-6	Q31
+Belgium	2020-06-28	3	Q31
+Belgium	2020-07-05	-13	Q31
+Belgium	2020-07-12	-10	Q31
+Belgium	2020-07-19	-3	Q31
+Belgium	2020-07-26	-10	Q31
+Belgium	2020-08-02	3	Q31
+Belgium	2020-08-09	8	Q31
+Belgium	2020-08-16	54	Q31
+Belgium	2020-08-23	15	Q31
+Belgium	2020-08-30	-2	Q31
+Belgium	2020-09-06	1	Q31
+Belgium	2020-09-13	-4	Q31
+Belgium	2020-09-20	5	Q31
+Bulgaria	2020-01-05	-19	Q219
+Bulgaria	2020-01-12	-12	Q219
+Bulgaria	2020-01-19	-14	Q219
+Bulgaria	2020-01-26	-5	Q219
+Bulgaria	2020-02-02	-1	Q219
+Bulgaria	2020-02-09	1	Q219
+Bulgaria	2020-02-16	0	Q219
+Bulgaria	2020-02-23	-6	Q219
+Bulgaria	2020-03-01	-4	Q219
+Bulgaria	2020-03-08	-10	Q219
+Bulgaria	2020-03-15	-6	Q219
+Bulgaria	2020-03-22	-6	Q219
+Bulgaria	2020-03-29	-3	Q219
+Bulgaria	2020-04-05	-5	Q219
+Bulgaria	2020-04-12	-3	Q219
+Bulgaria	2020-04-19	-3	Q219
+Bulgaria	2020-04-26	-4	Q219
+Bulgaria	2020-05-03	-6	Q219
+Bulgaria	2020-05-10	-6	Q219
+Bulgaria	2020-05-17	6	Q219
+Bulgaria	2020-05-24	-4	Q219
+Bulgaria	2020-05-31	-8	Q219
+Bulgaria	2020-06-07	0	Q219
+Bulgaria	2020-06-14	0	Q219
+Bulgaria	2020-06-21	-2	Q219
+Bulgaria	2020-06-28	-3	Q219
+Bulgaria	2020-07-05	12	Q219
+Bulgaria	2020-07-12	5	Q219
+Bulgaria	2020-07-19	-2	Q219
+Bulgaria	2020-07-26	0	Q219
+Bulgaria	2020-08-02	10	Q219
+Bulgaria	2020-08-09	6	Q219
+Bulgaria	2020-08-16	6	Q219
+Bulgaria	2020-08-23	3	Q219
+Bulgaria	2020-08-30	6	Q219
+Bulgaria	2020-09-06	7	Q219
+Bulgaria	2020-09-13	5	Q219
+Bulgaria	2020-09-20	1	Q219
+Bulgaria	2020-09-27	1	Q219
+Chile	2020-01-05	7	Q298
+Chile	2020-01-12	11	Q298
+Chile	2020-01-19	9	Q298
+Chile	2020-01-26	3	Q298
+Chile	2020-02-02	3	Q298
+Chile	2020-02-09	8	Q298
+Chile	2020-02-16	4	Q298
+Chile	2020-02-23	1	Q298
+Chile	2020-03-01	6	Q298
+Chile	2020-03-08	5	Q298
+Chile	2020-03-15	7	Q298
+Chile	2020-03-22	11	Q298
+Chile	2020-03-29	9	Q298
+Chile	2020-04-05	10	Q298
+Chile	2020-04-12	3	Q298
+Chile	2020-04-19	9	Q298
+Chile	2020-04-26	5	Q298
+Chile	2020-05-03	5	Q298
+Chile	2020-05-10	20	Q298
+Chile	2020-05-17	19	Q298
+Chile	2020-05-24	35	Q298
+Chile	2020-05-31	54	Q298
+Chile	2020-06-07	69	Q298
+Chile	2020-06-14	65	Q298
+Chile	2020-06-21	54	Q298
+Chile	2020-06-28	44	Q298
+Chile	2020-07-05	28	Q298
+Chile	2020-07-12	25	Q298
+Chile	2020-07-19	16	Q298
+Chile	2020-07-26	14	Q298
+Chile	2020-08-02	13	Q298
+Chile	2020-08-09	10	Q298
+Chile	2020-08-16	8	Q298
+Chile	2020-08-23	16	Q298
+Chile	2020-08-30	15	Q298
+Chile	2020-09-06	8	Q298
+Chile	2020-09-13	11	Q298
+Chile	2020-09-20	8	Q298
+Chile	2020-09-27	11	Q298
+Croatia	2020-01-05	-16	Q224
+Croatia	2020-01-12	-17	Q224
+Croatia	2020-01-19	-18	Q224
+Croatia	2020-01-26	-10	Q224
+Croatia	2020-02-02	-9	Q224
+Croatia	2020-02-09	-5	Q224
+Croatia	2020-02-16	-7	Q224
+Croatia	2020-02-23	-5	Q224
+Croatia	2020-03-01	-10	Q224
+Croatia	2020-03-08	-8	Q224
+Croatia	2020-03-15	0	Q224
+Croatia	2020-03-22	2	Q224
+Croatia	2020-03-29	9	Q224
+Croatia	2020-04-05	-3	Q224
+Croatia	2020-04-12	1	Q224
+Croatia	2020-04-19	2	Q224
+Croatia	2020-04-26	-13	Q224
+Croatia	2020-05-03	-5	Q224
+Croatia	2020-05-10	-10	Q224
+Croatia	2020-05-17	-2	Q224
+Croatia	2020-05-24	-6	Q224
+Croatia	2020-05-31	-5	Q224
+Croatia	2020-06-07	-3	Q224
+Croatia	2020-06-14	5	Q224
+Croatia	2020-06-21	-3	Q224
+Croatia	2020-06-28	-1	Q224
+Croatia	2020-07-05	5	Q224
+Croatia	2020-07-12	-4	Q224
+Croatia	2020-07-19	-7	Q224
+Croatia	2020-07-26	-2	Q224
+Croatia	2020-08-02	9	Q224
+Croatia	2020-08-09	2	Q224
+Croatia	2020-08-16	-1	Q224
+Czech Republic	2020-01-05	-3	Q213
+Czech Republic	2020-01-12	-1	Q213
+Czech Republic	2020-01-19	-6	Q213
+Czech Republic	2020-01-26	-2	Q213
+Czech Republic	2020-02-02	-2	Q213
+Czech Republic	2020-02-09	-5	Q213
+Czech Republic	2020-02-16	-5	Q213
+Czech Republic	2020-02-23	-6	Q213
+Czech Republic	2020-03-01	-5	Q213
+Czech Republic	2020-03-08	-5	Q213
+Czech Republic	2020-03-15	-1	Q213
+Czech Republic	2020-03-22	2	Q213
+Czech Republic	2020-03-29	4	Q213
+Czech Republic	2020-04-05	7	Q213
+Czech Republic	2020-04-12	6	Q213
+Czech Republic	2020-04-19	2	Q213
+Czech Republic	2020-04-26	-4	Q213
+Czech Republic	2020-05-03	4	Q213
+Czech Republic	2020-05-10	-2	Q213
+Czech Republic	2020-05-17	2	Q213
+Czech Republic	2020-05-24	-4	Q213
+Czech Republic	2020-05-31	-6	Q213
+Czech Republic	2020-06-07	9	Q213
+Czech Republic	2020-06-14	1	Q213
+Czech Republic	2020-06-21	4	Q213
+Czech Republic	2020-06-28	5	Q213
+Czech Republic	2020-07-05	6	Q213
+Czech Republic	2020-07-12	0	Q213
+Czech Republic	2020-07-19	-1	Q213
+Czech Republic	2020-07-26	2	Q213
+Czech Republic	2020-08-02	9	Q213
+Czech Republic	2020-08-09	6	Q213
+Czech Republic	2020-08-16	5	Q213
+Denmark	2020-01-05	0	Q35
+Denmark	2020-01-12	3	Q35
+Denmark	2020-01-19	-3	Q35
+Denmark	2020-01-26	-7	Q35
+Denmark	2020-02-02	-5	Q35
+Denmark	2020-02-09	-5	Q35
+Denmark	2020-02-16	-9	Q35
+Denmark	2020-02-23	-10	Q35
+Denmark	2020-03-01	-14	Q35
+Denmark	2020-03-08	-9	Q35
+Denmark	2020-03-15	-8	Q35
+Denmark	2020-03-22	1	Q35
+Denmark	2020-03-29	2	Q35
+Denmark	2020-04-05	9	Q35
+Denmark	2020-04-12	7	Q35
+Denmark	2020-04-19	5	Q35
+Denmark	2020-04-26	10	Q35
+Denmark	2020-05-03	1	Q35
+Denmark	2020-05-10	1	Q35
+Denmark	2020-05-17	-2	Q35
+Denmark	2020-05-24	3	Q35
+Denmark	2020-05-31	-1	Q35
+Denmark	2020-06-07	-1	Q35
+Denmark	2020-06-14	2	Q35
+Denmark	2020-06-21	-2	Q35
+Denmark	2020-06-28	5	Q35
+Denmark	2020-07-05	6	Q35
+Denmark	2020-07-12	1	Q35
+Denmark	2020-07-19	7	Q35
+Denmark	2020-07-26	-4	Q35
+Denmark	2020-08-02	2	Q35
+Denmark	2020-08-09	0	Q35
+Denmark	2020-08-16	5	Q35
+Denmark	2020-08-23	2	Q35
+Denmark	2020-08-30	1	Q35
+Denmark	2020-09-06	4	Q35
+Denmark	2020-09-13	3	Q35
+Denmark	2020-09-20	12	Q35
+Denmark	2020-09-27	-1	Q35
+England & Wales	2020-01-05	0	Q1156248
+England & Wales	2020-01-12	2	Q1156248
+England & Wales	2020-01-19	-2	Q1156248
+England & Wales	2020-01-26	-7	Q1156248
+England & Wales	2020-02-02	-5	Q1156248
+England & Wales	2020-02-09	-8	Q1156248
+England & Wales	2020-02-16	-6	Q1156248
+England & Wales	2020-02-23	-6	Q1156248
+England & Wales	2020-03-01	-3	Q1156248
+England & Wales	2020-03-08	-5	Q1156248
+England & Wales	2020-03-15	-2	Q1156248
+England & Wales	2020-03-22	1	Q1156248
+England & Wales	2020-03-29	10	Q1156248
+England & Wales	2020-04-05	59	Q1156248
+England & Wales	2020-04-12	76	Q1156248
+England & Wales	2020-04-19	113	Q1156248
+England & Wales	2020-04-26	110	Q1156248
+England & Wales	2020-05-03	81	Q1156248
+England & Wales	2020-05-10	32	Q1156248
+England & Wales	2020-05-17	43	Q1156248
+England & Wales	2020-05-24	24	Q1156248
+England & Wales	2020-05-31	20	Q1156248
+England & Wales	2020-06-07	7	Q1156248
+England & Wales	2020-06-14	6	Q1156248
+England & Wales	2020-06-21	-1	Q1156248
+England & Wales	2020-06-28	-3	Q1156248
+England & Wales	2020-07-05	0	Q1156248
+England & Wales	2020-07-12	-6	Q1156248
+England & Wales	2020-07-19	-3	Q1156248
+England & Wales	2020-07-26	-2	Q1156248
+England & Wales	2020-08-02	-1	Q1156248
+England & Wales	2020-08-09	-2	Q1156248
+England & Wales	2020-08-16	3	Q1156248
+England & Wales	2020-08-23	5	Q1156248
+England & Wales	2020-08-30	10	Q1156248
+England & Wales	2020-09-06	-16	Q1156248
+England & Wales	2020-09-13	5	Q1156248
+England & Wales	2020-09-20	3	Q1156248
+England & Wales	2020-09-27	3	Q1156248
+Estonia	2020-01-05	-14	Q191
+Estonia	2020-01-12	-4	Q191
+Estonia	2020-01-19	-4	Q191
+Estonia	2020-01-26	-11	Q191
+Estonia	2020-02-02	-9	Q191
+Estonia	2020-02-09	-19	Q191
+Estonia	2020-02-16	0	Q191
+Estonia	2020-02-23	-1	Q191
+Estonia	2020-03-01	-6	Q191
+Estonia	2020-03-08	-12	Q191
+Estonia	2020-03-15	5	Q191
+Estonia	2020-03-22	0	Q191
+Estonia	2020-03-29	4	Q191
+Estonia	2020-04-05	4	Q191
+Estonia	2020-04-12	4	Q191
+Estonia	2020-04-19	4	Q191
+Estonia	2020-04-26	14	Q191
+Estonia	2020-05-03	6	Q191
+Estonia	2020-05-10	10	Q191
+Estonia	2020-05-17	-5	Q191
+Estonia	2020-05-24	-3	Q191
+Estonia	2020-05-31	10	Q191
+Estonia	2020-06-07	-3	Q191
+Estonia	2020-06-14	4	Q191
+Estonia	2020-06-21	1	Q191
+Estonia	2020-06-28	11	Q191
+Estonia	2020-07-05	3	Q191
+Estonia	2020-07-12	3	Q191
+Estonia	2020-07-19	4	Q191
+Estonia	2020-07-26	6	Q191
+Estonia	2020-08-02	14	Q191
+Estonia	2020-08-09	2	Q191
+Estonia	2020-08-16	5	Q191
+Estonia	2020-08-23	-1	Q191
+Estonia	2020-08-30	10	Q191
+Estonia	2020-09-06	5	Q191
+Estonia	2020-09-13	-6	Q191
+Estonia	2020-09-20	11	Q191
+Estonia	2020-09-27	12	Q191
+Finland	2020-01-05	-10	Q33
+Finland	2020-01-12	-10	Q33
+Finland	2020-01-19	-10	Q33
+Finland	2020-01-26	-8	Q33
+Finland	2020-02-02	-6	Q33
+Finland	2020-02-09	-1	Q33
+Finland	2020-02-16	0	Q33
+Finland	2020-02-23	0	Q33
+Finland	2020-03-01	-6	Q33
+Finland	2020-03-08	0	Q33
+Finland	2020-03-15	0	Q33
+Finland	2020-03-22	3	Q33
+Finland	2020-03-29	4	Q33
+Finland	2020-04-05	3	Q33
+Finland	2020-04-12	13	Q33
+Finland	2020-04-19	3	Q33
+Finland	2020-04-26	12	Q33
+Finland	2020-05-03	9	Q33
+Finland	2020-05-10	8	Q33
+Finland	2020-05-17	14	Q33
+Finland	2020-05-24	0	Q33
+Finland	2020-05-31	4	Q33
+Finland	2020-06-07	2	Q33
+Finland	2020-06-14	5	Q33
+Finland	2020-06-21	10	Q33
+Finland	2020-06-28	7	Q33
+Finland	2020-07-05	5	Q33
+Finland	2020-07-12	0	Q33
+Finland	2020-07-19	6	Q33
+Finland	2020-07-26	-1	Q33
+Finland	2020-08-02	4	Q33
+Finland	2020-08-09	3	Q33
+Finland	2020-08-16	2	Q33
+Finland	2020-08-23	6	Q33
+Finland	2020-08-30	2	Q33
+Finland	2020-09-06	1	Q33
+Finland	2020-09-13	14	Q33
+Finland	2020-09-20	3	Q33
+Finland	2020-09-27	7	Q33
+France	2020-01-05	-5	Q142
+France	2020-01-12	-3	Q142
+France	2020-01-19	-5	Q142
+France	2020-01-26	-6	Q142
+France	2020-02-02	-4	Q142
+France	2020-02-09	-6	Q142
+France	2020-02-16	-6	Q142
+France	2020-02-23	-8	Q142
+France	2020-03-01	-7	Q142
+France	2020-03-08	-4	Q142
+France	2020-03-15	4	Q142
+France	2020-03-22	19	Q142
+France	2020-03-29	39	Q142
+France	2020-04-05	65	Q142
+France	2020-04-12	57	Q142
+France	2020-04-19	39	Q142
+France	2020-04-26	17	Q142
+France	2020-05-03	4	Q142
+France	2020-05-10	4	Q142
+France	2020-05-17	2	Q142
+France	2020-05-24	5	Q142
+France	2020-05-31	1	Q142
+France	2020-06-07	2	Q142
+France	2020-06-14	3	Q142
+France	2020-06-21	0	Q142
+France	2020-06-28	7	Q142
+France	2020-07-05	-7	Q142
+France	2020-07-12	1	Q142
+France	2020-07-19	-3	Q142
+France	2020-07-26	1	Q142
+France	2020-08-02	6	Q142
+France	2020-08-09	4	Q142
+France	2020-08-16	17	Q142
+France	2020-08-23	1	Q142
+France	2020-08-30	1	Q142
+France	2020-09-06	4	Q142
+Germany	2020-01-05	-2	Q183
+Germany	2020-01-12	-1	Q183
+Germany	2020-01-19	-2	Q183
+Germany	2020-01-26	-5	Q183
+Germany	2020-02-02	-3	Q183
+Germany	2020-02-09	-7	Q183
+Germany	2020-02-16	-5	Q183
+Germany	2020-02-23	-10	Q183
+Germany	2020-03-01	-10	Q183
+Germany	2020-03-08	-8	Q183
+Germany	2020-03-15	-3	Q183
+Germany	2020-03-22	1	Q183
+Germany	2020-03-29	4	Q183
+Germany	2020-04-05	12	Q183
+Germany	2020-04-12	14	Q183
+Germany	2020-04-19	11	Q183
+Germany	2020-04-26	6	Q183
+Germany	2020-05-03	5	Q183
+Germany	2020-05-10	2	Q183
+Germany	2020-05-17	1	Q183
+Germany	2020-05-24	3	Q183
+Germany	2020-05-31	0	Q183
+Germany	2020-06-07	5	Q183
+Germany	2020-06-14	4	Q183
+Germany	2020-06-21	-1	Q183
+Germany	2020-06-28	4	Q183
+Germany	2020-07-05	0	Q183
+Germany	2020-07-12	0	Q183
+Germany	2020-07-19	-2	Q183
+Germany	2020-07-26	-4	Q183
+Germany	2020-08-02	0	Q183
+Germany	2020-08-09	5	Q183
+Germany	2020-08-16	20	Q183
+Germany	2020-08-23	6	Q183
+Germany	2020-08-30	0	Q183
+Germany	2020-09-06	3	Q183
+Germany	2020-09-13	3	Q183
+Greece	2020-01-05	-3	Q41
+Greece	2020-01-12	-2	Q41
+Greece	2020-01-19	1	Q41
+Greece	2020-01-26	0	Q41
+Greece	2020-02-02	7	Q41
+Greece	2020-02-09	6	Q41
+Greece	2020-02-16	10	Q41
+Greece	2020-02-23	0	Q41
+Greece	2020-03-01	3	Q41
+Greece	2020-03-08	9	Q41
+Greece	2020-03-15	8	Q41
+Greece	2020-03-22	9	Q41
+Greece	2020-03-29	6	Q41
+Greece	2020-04-05	4	Q41
+Greece	2020-04-12	2	Q41
+Greece	2020-04-19	1	Q41
+Greece	2020-04-26	-2	Q41
+Greece	2020-05-03	1	Q41
+Greece	2020-05-10	-2	Q41
+Greece	2020-05-17	16	Q41
+Greece	2020-05-24	13	Q41
+Greece	2020-05-31	-12	Q41
+Greece	2020-06-07	-4	Q41
+Greece	2020-06-14	-2	Q41
+Greece	2020-06-21	-2	Q41
+Greece	2020-06-28	-8	Q41
+Greece	2020-07-05	13	Q41
+Greece	2020-07-12	2	Q41
+Hungary	2020-01-05	-10	Q28
+Hungary	2020-01-12	-11	Q28
+Hungary	2020-01-19	-12	Q28
+Hungary	2020-01-26	-10	Q28
+Hungary	2020-02-02	-8	Q28
+Hungary	2020-02-09	-14	Q28
+Hungary	2020-02-16	-8	Q28
+Hungary	2020-02-23	-13	Q28
+Hungary	2020-03-01	-4	Q28
+Hungary	2020-03-08	-7	Q28
+Hungary	2020-03-15	-5	Q28
+Hungary	2020-03-22	6	Q28
+Hungary	2020-03-29	0	Q28
+Hungary	2020-04-05	1	Q28
+Hungary	2020-04-12	4	Q28
+Hungary	2020-04-19	3	Q28
+Hungary	2020-04-26	-3	Q28
+Hungary	2020-05-03	-5	Q28
+Hungary	2020-05-10	-1	Q28
+Hungary	2020-05-17	3	Q28
+Hungary	2020-05-24	-7	Q28
+Hungary	2020-05-31	-4	Q28
+Hungary	2020-06-07	6	Q28
+Hungary	2020-06-14	0	Q28
+Hungary	2020-06-21	-8	Q28
+Hungary	2020-06-28	3	Q28
+Hungary	2020-07-05	4	Q28
+Hungary	2020-07-12	-5	Q28
+Hungary	2020-07-19	-8	Q28
+Hungary	2020-07-26	-10	Q28
+Hungary	2020-08-02	1	Q28
+Hungary	2020-08-09	0	Q28
+Hungary	2020-08-16	-2	Q28
+Hungary	2020-08-23	0	Q28
+Hungary	2020-08-30	-5	Q28
+Hungary	2020-09-06	-1	Q28
+Iceland	2020-01-05	24	Q189
+Iceland	2020-01-12	15	Q189
+Iceland	2020-01-19	17	Q189
+Iceland	2020-01-26	23	Q189
+Iceland	2020-02-02	-14	Q189
+Iceland	2020-02-16	4	Q189
+Iceland	2020-02-23	4	Q189
+Iceland	2020-03-08	10	Q189
+Iceland	2020-03-22	-6	Q189
+Iceland	2020-03-29	-11	Q189
+Iceland	2020-04-05	15	Q189
+Iceland	2020-04-12	10	Q189
+Iceland	2020-04-19	23	Q189
+Iceland	2020-05-03	9	Q189
+Iceland	2020-05-10	-11	Q189
+Iceland	2020-05-24	15	Q189
+Iceland	2020-05-31	17	Q189
+Iceland	2020-06-14	-2	Q189
+Iceland	2020-06-21	-17	Q189
+Iceland	2020-06-28	-28	Q189
+Iceland	2020-07-05	-19	Q189
+Iceland	2020-07-12	20	Q189
+Iceland	2020-07-19	7	Q189
+Iceland	2020-07-26	-22	Q189
+Iceland	2020-08-02	-3	Q189
+Iceland	2020-08-16	8	Q189
+Iceland	2020-08-23	-22	Q189
+Iceland	2020-08-30	-22	Q189
+Iceland	2020-09-06	40	Q189
+Iceland	2020-09-13	-6	Q189
+Iceland	2020-09-27	-32	Q189
+Israel	2020-01-05	8	Q801
+Israel	2020-01-12	-4	Q801
+Israel	2020-01-19	6	Q801
+Israel	2020-01-26	-5	Q801
+Israel	2020-02-02	-6	Q801
+Israel	2020-02-09	-10	Q801
+Israel	2020-02-16	-2	Q801
+Israel	2020-02-23	1	Q801
+Israel	2020-03-01	-6	Q801
+Israel	2020-03-08	-1	Q801
+Israel	2020-03-15	5	Q801
+Israel	2020-03-22	3	Q801
+Israel	2020-03-29	10	Q801
+Israel	2020-04-05	18	Q801
+Israel	2020-04-12	5	Q801
+Israel	2020-04-19	12	Q801
+Israel	2020-04-26	5	Q801
+Israel	2020-05-03	2	Q801
+Israel	2020-05-10	5	Q801
+Israel	2020-05-17	6	Q801
+Israel	2020-05-24	20	Q801
+Israel	2020-05-31	6	Q801
+Israel	2020-06-07	4	Q801
+Israel	2020-06-14	4	Q801
+Israel	2020-06-21	3	Q801
+Israel	2020-06-28	3	Q801
+Israel	2020-07-05	1	Q801
+Israel	2020-07-12	10	Q801
+Israel	2020-07-19	10	Q801
+Israel	2020-07-26	3	Q801
+Israel	2020-08-02	22	Q801
+Israel	2020-08-09	9	Q801
+Israel	2020-08-16	23	Q801
+Israel	2020-08-23	16	Q801
+Israel	2020-08-30	14	Q801
+Israel	2020-09-06	12	Q801
+Israel	2020-09-13	19	Q801
+Israel	2020-09-20	23	Q801
+Italy	2020-01-05	-12	Q38
+Italy	2020-01-12	-10	Q38
+Italy	2020-01-19	-8	Q38
+Italy	2020-01-26	-5	Q38
+Italy	2020-02-02	-5	Q38
+Italy	2020-02-09	-4	Q38
+Italy	2020-02-16	-3	Q38
+Italy	2020-02-23	-4	Q38
+Italy	2020-03-01	0	Q38
+Italy	2020-03-08	11	Q38
+Italy	2020-03-15	42	Q38
+Italy	2020-03-22	78	Q38
+Italy	2020-03-29	90	Q38
+Italy	2020-04-05	69	Q38
+Italy	2020-04-12	56	Q38
+Italy	2020-04-19	39	Q38
+Italy	2020-04-26	24	Q38
+Italy	2020-05-03	13	Q38
+Italy	2020-05-10	7	Q38
+Italy	2020-05-17	4	Q38
+Italy	2020-05-24	-2	Q38
+Italy	2020-05-31	-4	Q38
+Italy	2020-06-07	-6	Q38
+Italy	2020-06-14	-10	Q38
+Latvia	2020-01-05	-2	Q211
+Latvia	2020-01-12	-5	Q211
+Latvia	2020-01-19	-15	Q211
+Latvia	2020-01-26	-10	Q211
+Latvia	2020-02-02	-9	Q211
+Latvia	2020-02-09	-10	Q211
+Latvia	2020-02-16	-10	Q211
+Latvia	2020-02-23	-13	Q211
+Latvia	2020-03-01	-29	Q211
+Latvia	2020-03-08	-22	Q211
+Latvia	2020-03-15	-14	Q211
+Latvia	2020-03-22	-6	Q211
+Latvia	2020-03-29	-11	Q211
+Latvia	2020-04-05	-4	Q211
+Latvia	2020-04-12	-15	Q211
+Latvia	2020-04-19	4	Q211
+Latvia	2020-04-26	-2	Q211
+Latvia	2020-05-03	4	Q211
+Latvia	2020-05-10	7	Q211
+Latvia	2020-05-17	-2	Q211
+Latvia	2020-05-24	7	Q211
+Latvia	2020-05-31	-4	Q211
+Latvia	2020-06-07	0	Q211
+Latvia	2020-06-14	10	Q211
+Latvia	2020-06-21	-6	Q211
+Latvia	2020-06-28	-4	Q211
+Latvia	2020-07-05	22	Q211
+Latvia	2020-07-12	-8	Q211
+Latvia	2020-07-19	-5	Q211
+Latvia	2020-07-26	-1	Q211
+Latvia	2020-08-02	1	Q211
+Latvia	2020-08-09	-3	Q211
+Latvia	2020-08-16	3	Q211
+Latvia	2020-08-23	11	Q211
+Latvia	2020-08-30	5	Q211
+Latvia	2020-09-06	-4	Q211
+Latvia	2020-09-13	-3	Q211
+Latvia	2020-09-20	-2	Q211
+Latvia	2020-09-27	-9	Q211
+Latvia	2020-10-04	5	Q211
+Lithuania	2020-01-05	-6	Q37
+Lithuania	2020-01-12	-8	Q37
+Lithuania	2020-01-19	-14	Q37
+Lithuania	2020-01-26	-14	Q37
+Lithuania	2020-02-02	-16	Q37
+Lithuania	2020-02-09	-15	Q37
+Lithuania	2020-02-16	-8	Q37
+Lithuania	2020-02-23	-21	Q37
+Lithuania	2020-03-01	-7	Q37
+Lithuania	2020-03-08	-8	Q37
+Lithuania	2020-03-15	-6	Q37
+Lithuania	2020-03-22	0	Q37
+Lithuania	2020-03-29	4	Q37
+Lithuania	2020-04-05	-3	Q37
+Lithuania	2020-04-12	2	Q37
+Lithuania	2020-04-19	0	Q37
+Lithuania	2020-04-26	3	Q37
+Lithuania	2020-05-03	3	Q37
+Lithuania	2020-05-10	-6	Q37
+Lithuania	2020-05-17	-1	Q37
+Lithuania	2020-05-24	-8	Q37
+Lithuania	2020-05-31	-1	Q37
+Lithuania	2020-06-07	-1	Q37
+Lithuania	2020-06-14	15	Q37
+Lithuania	2020-06-21	7	Q37
+Lithuania	2020-06-28	11	Q37
+Lithuania	2020-07-05	-1	Q37
+Lithuania	2020-07-12	0	Q37
+Lithuania	2020-07-19	8	Q37
+Lithuania	2020-07-26	1	Q37
+Lithuania	2020-08-02	2	Q37
+Lithuania	2020-08-09	1	Q37
+Lithuania	2020-08-16	7	Q37
+Lithuania	2020-08-23	13	Q37
+Lithuania	2020-08-30	1	Q37
+Lithuania	2020-09-06	-2	Q37
+Lithuania	2020-09-13	9	Q37
+Lithuania	2020-09-20	2	Q37
+Lithuania	2020-09-27	8	Q37
+Luxembourg	2020-01-05	-27	Q32
+Luxembourg	2020-01-12	-8	Q32
+Luxembourg	2020-01-19	3	Q32
+Luxembourg	2020-01-26	-2	Q32
+Luxembourg	2020-02-02	-9	Q32
+Luxembourg	2020-02-09	-7	Q32
+Luxembourg	2020-02-16	-29	Q32
+Luxembourg	2020-03-01	-16	Q32
+Luxembourg	2020-03-15	12	Q32
+Luxembourg	2020-03-22	3	Q32
+Luxembourg	2020-03-29	30	Q32
+Luxembourg	2020-04-05	8	Q32
+Luxembourg	2020-04-12	62	Q32
+Luxembourg	2020-04-19	13	Q32
+Luxembourg	2020-04-26	13	Q32
+Luxembourg	2020-05-03	-4	Q32
+Luxembourg	2020-05-10	26	Q32
+Luxembourg	2020-05-17	8	Q32
+Luxembourg	2020-05-24	2	Q32
+Luxembourg	2020-06-07	-1	Q32
+Luxembourg	2020-06-14	-8	Q32
+Luxembourg	2020-06-21	17	Q32
+Luxembourg	2020-06-28	-1	Q32
+Luxembourg	2020-07-05	-6	Q32
+Luxembourg	2020-07-12	-9	Q32
+Luxembourg	2020-07-19	0	Q32
+Luxembourg	2020-08-02	19	Q32
+Luxembourg	2020-08-09	26	Q32
+Luxembourg	2020-08-16	35	Q32
+Netherlands	2020-01-05	-5	Q55
+Netherlands	2020-01-12	0	Q55
+Netherlands	2020-01-19	-4	Q55
+Netherlands	2020-01-26	-9	Q55
+Netherlands	2020-02-02	-5	Q55
+Netherlands	2020-02-09	-3	Q55
+Netherlands	2020-02-16	-4	Q55
+Netherlands	2020-02-23	-13	Q55
+Netherlands	2020-03-01	-6	Q55
+Netherlands	2020-03-08	-7	Q55
+Netherlands	2020-03-15	1	Q55
+Netherlands	2020-03-22	18	Q55
+Netherlands	2020-03-29	47	Q55
+Netherlands	2020-04-05	75	Q55
+Netherlands	2020-04-12	75	Q55
+Netherlands	2020-04-19	52	Q55
+Netherlands	2020-04-26	40	Q55
+Netherlands	2020-05-03	24	Q55
+Netherlands	2020-05-10	7	Q55
+Netherlands	2020-05-17	2	Q55
+Netherlands	2020-05-24	2	Q55
+Netherlands	2020-05-31	0	Q55
+Netherlands	2020-06-07	1	Q55
+Netherlands	2020-06-14	2	Q55
+Netherlands	2020-06-21	3	Q55
+Netherlands	2020-06-28	0	Q55
+Netherlands	2020-07-05	-4	Q55
+Netherlands	2020-07-12	-1	Q55
+Netherlands	2020-07-19	-6	Q55
+Netherlands	2020-07-26	-1	Q55
+Netherlands	2020-08-02	2	Q55
+Netherlands	2020-08-09	0	Q55
+Netherlands	2020-08-16	25	Q55
+Netherlands	2020-08-23	9	Q55
+Netherlands	2020-08-30	5	Q55
+Netherlands	2020-09-06	4	Q55
+Netherlands	2020-09-13	3	Q55
+Netherlands	2020-09-20	3	Q55
+Netherlands	2020-09-27	7	Q55
+Netherlands	2020-10-04	9	Q55
+New Zealand	2020-01-05	4	Q664
+New Zealand	2020-01-12	-1	Q664
+New Zealand	2020-01-19	12	Q664
+New Zealand	2020-01-26	4	Q664
+New Zealand	2020-02-02	7	Q664
+New Zealand	2020-02-09	4	Q664
+New Zealand	2020-02-16	12	Q664
+New Zealand	2020-02-23	9	Q664
+New Zealand	2020-03-01	3	Q664
+New Zealand	2020-03-08	6	Q664
+New Zealand	2020-03-15	2	Q664
+New Zealand	2020-03-22	6	Q664
+New Zealand	2020-03-29	3	Q664
+New Zealand	2020-04-05	6	Q664
+New Zealand	2020-04-12	11	Q664
+New Zealand	2020-04-19	8	Q664
+New Zealand	2020-04-26	4	Q664
+New Zealand	2020-05-03	-9	Q664
+New Zealand	2020-05-10	0	Q664
+New Zealand	2020-05-17	0	Q664
+New Zealand	2020-05-24	-4	Q664
+New Zealand	2020-05-31	-9	Q664
+New Zealand	2020-06-07	-8	Q664
+New Zealand	2020-06-14	-3	Q664
+New Zealand	2020-06-21	-6	Q664
+New Zealand	2020-06-28	-8	Q664
+New Zealand	2020-07-05	-9	Q664
+New Zealand	2020-07-12	-13	Q664
+New Zealand	2020-07-19	-4	Q664
+New Zealand	2020-07-26	-6	Q664
+New Zealand	2020-08-02	-8	Q664
+New Zealand	2020-08-09	-12	Q664
+New Zealand	2020-08-16	-12	Q664
+New Zealand	2020-08-23	-5	Q664
+New Zealand	2020-08-30	-13	Q664
+New Zealand	2020-09-06	-6	Q664
+New Zealand	2020-09-13	-10	Q664
+Northern Ireland	2020-01-05	-14	Q26
+Northern Ireland	2020-01-12	-1	Q26
+Northern Ireland	2020-01-19	6	Q26
+Northern Ireland	2020-01-26	-8	Q26
+Northern Ireland	2020-02-02	-9	Q26
+Northern Ireland	2020-02-09	0	Q26
+Northern Ireland	2020-02-16	-3	Q26
+Northern Ireland	2020-02-23	-17	Q26
+Northern Ireland	2020-03-01	4	Q26
+Northern Ireland	2020-03-08	-10	Q26
+Northern Ireland	2020-03-15	4	Q26
+Northern Ireland	2020-03-22	-14	Q26
+Northern Ireland	2020-03-29	-7	Q26
+Northern Ireland	2020-04-05	57	Q26
+Northern Ireland	2020-04-12	45	Q26
+Northern Ireland	2020-04-19	46	Q26
+Northern Ireland	2020-04-26	57	Q26
+Northern Ireland	2020-05-03	43	Q26
+Northern Ireland	2020-05-10	21	Q26
+Northern Ireland	2020-05-17	35	Q26
+Northern Ireland	2020-05-24	11	Q26
+Northern Ireland	2020-05-31	23	Q26
+Northern Ireland	2020-06-07	4	Q26
+Northern Ireland	2020-06-14	3	Q26
+Northern Ireland	2020-06-21	6	Q26
+Northern Ireland	2020-06-28	4	Q26
+Northern Ireland	2020-07-05	4	Q26
+Northern Ireland	2020-07-12	18	Q26
+Northern Ireland	2020-07-19	-11	Q26
+Northern Ireland	2020-07-26	9	Q26
+Northern Ireland	2020-08-02	-2	Q26
+Northern Ireland	2020-08-09	9	Q26
+Northern Ireland	2020-08-16	5	Q26
+Northern Ireland	2020-08-23	14	Q26
+Northern Ireland	2020-08-30	23	Q26
+Northern Ireland	2020-09-06	-10	Q26
+Northern Ireland	2020-09-13	1	Q26
+Northern Ireland	2020-09-20	17	Q26
+Northern Ireland	2020-09-27	13	Q26
+Norway	2020-01-05	-7	Q20
+Norway	2020-01-12	3	Q20
+Norway	2020-01-19	-8	Q20
+Norway	2020-01-26	-3	Q20
+Norway	2020-02-02	-9	Q20
+Norway	2020-02-09	-8	Q20
+Norway	2020-02-16	-2	Q20
+Norway	2020-02-23	-6	Q20
+Norway	2020-03-01	-4	Q20
+Norway	2020-03-08	-8	Q20
+Norway	2020-03-15	0	Q20
+Norway	2020-03-22	-1	Q20
+Norway	2020-03-29	9	Q20
+Norway	2020-04-05	4	Q20
+Norway	2020-04-12	7	Q20
+Norway	2020-04-19	6	Q20
+Norway	2020-04-26	-1	Q20
+Norway	2020-05-03	1	Q20
+Norway	2020-05-10	1	Q20
+Norway	2020-05-17	-5	Q20
+Norway	2020-05-24	1	Q20
+Norway	2020-05-31	-7	Q20
+Norway	2020-06-07	-5	Q20
+Norway	2020-06-14	1	Q20
+Norway	2020-06-21	2	Q20
+Norway	2020-06-28	-7	Q20
+Norway	2020-07-05	-7	Q20
+Norway	2020-07-12	-7	Q20
+Norway	2020-07-19	4	Q20
+Norway	2020-07-26	1	Q20
+Norway	2020-08-02	7	Q20
+Norway	2020-08-09	2	Q20
+Norway	2020-08-16	3	Q20
+Norway	2020-08-23	3	Q20
+Norway	2020-08-30	-5	Q20
+Norway	2020-09-06	-3	Q20
+Norway	2020-09-13	9	Q20
+Norway	2020-09-20	5	Q20
+Norway	2020-09-27	-4	Q20
+Poland	2020-01-05	-1	Q36
+Poland	2020-01-12	-3	Q36
+Poland	2020-01-19	-6	Q36
+Poland	2020-01-26	-7	Q36
+Poland	2020-02-02	-4	Q36
+Poland	2020-02-09	-5	Q36
+Poland	2020-02-16	-3	Q36
+Poland	2020-02-23	-4	Q36
+Poland	2020-03-01	-4	Q36
+Poland	2020-03-08	-3	Q36
+Poland	2020-03-15	0	Q36
+Poland	2020-03-22	1	Q36
+Poland	2020-03-29	0	Q36
+Poland	2020-04-05	0	Q36
+Poland	2020-04-12	2	Q36
+Poland	2020-04-19	8	Q36
+Poland	2020-04-26	2	Q36
+Poland	2020-05-03	4	Q36
+Poland	2020-05-10	4	Q36
+Poland	2020-05-17	5	Q36
+Poland	2020-05-24	4	Q36
+Poland	2020-05-31	5	Q36
+Poland	2020-06-07	8	Q36
+Poland	2020-06-14	8	Q36
+Poland	2020-06-21	3	Q36
+Poland	2020-06-28	5	Q36
+Poland	2020-07-05	9	Q36
+Poland	2020-07-12	4	Q36
+Poland	2020-07-19	6	Q36
+Poland	2020-07-26	3	Q36
+Poland	2020-08-02	8	Q36
+Poland	2020-08-09	11	Q36
+Poland	2020-08-16	15	Q36
+Poland	2020-08-23	16	Q36
+Poland	2020-08-30	4	Q36
+Poland	2020-09-06	7	Q36
+Poland	2020-09-13	10	Q36
+Poland	2020-09-20	13	Q36
+Portugal	2020-01-05	-10	Q45
+Portugal	2020-01-12	-5	Q45
+Portugal	2020-01-19	-3	Q45
+Portugal	2020-01-26	-5	Q45
+Portugal	2020-02-02	0	Q45
+Portugal	2020-02-09	-6	Q45
+Portugal	2020-02-16	-13	Q45
+Portugal	2020-02-23	-6	Q45
+Portugal	2020-03-01	-6	Q45
+Portugal	2020-03-08	-7	Q45
+Portugal	2020-03-15	4	Q45
+Portugal	2020-03-22	10	Q45
+Portugal	2020-03-29	18	Q45
+Portugal	2020-04-05	21	Q45
+Portugal	2020-04-12	24	Q45
+Portugal	2020-04-19	19	Q45
+Portugal	2020-04-26	16	Q45
+Portugal	2020-05-03	10	Q45
+Portugal	2020-05-10	13	Q45
+Portugal	2020-05-17	5	Q45
+Portugal	2020-05-24	8	Q45
+Portugal	2020-05-31	22	Q45
+Portugal	2020-06-07	8	Q45
+Portugal	2020-06-14	0	Q45
+Portugal	2020-06-21	-2	Q45
+Portugal	2020-06-28	14	Q45
+Portugal	2020-07-05	14	Q45
+Portugal	2020-07-12	21	Q45
+Portugal	2020-07-19	44	Q45
+Portugal	2020-07-26	31	Q45
+Portugal	2020-08-02	16	Q45
+Portugal	2020-08-09	8	Q45
+Portugal	2020-08-16	6	Q45
+Portugal	2020-08-23	5	Q45
+Portugal	2020-08-30	15	Q45
+Portugal	2020-09-06	11	Q45
+Portugal	2020-09-13	25	Q45
+Portugal	2020-09-20	16	Q45
+Scotland	2020-01-05	-9	Q22
+Scotland	2020-01-12	0	Q22
+Scotland	2020-01-19	-4	Q22
+Scotland	2020-01-26	-7	Q22
+Scotland	2020-02-02	-7	Q22
+Scotland	2020-02-09	-3	Q22
+Scotland	2020-02-16	-8	Q22
+Scotland	2020-02-23	-7	Q22
+Scotland	2020-03-01	1	Q22
+Scotland	2020-03-08	-2	Q22
+Scotland	2020-03-15	2	Q22
+Scotland	2020-03-22	7	Q22
+Scotland	2020-03-29	-4	Q22
+Scotland	2020-04-05	59	Q22
+Scotland	2020-04-12	80	Q22
+Scotland	2020-04-19	80	Q22
+Scotland	2020-04-26	69	Q22
+Scotland	2020-05-03	56	Q22
+Scotland	2020-05-10	39	Q22
+Scotland	2020-05-17	34	Q22
+Scotland	2020-05-24	17	Q22
+Scotland	2020-05-31	11	Q22
+Scotland	2020-06-07	4	Q22
+Scotland	2020-06-14	3	Q22
+Scotland	2020-06-21	4	Q22
+Scotland	2020-06-28	-2	Q22
+Scotland	2020-07-05	-3	Q22
+Scotland	2020-07-12	-5	Q22
+Scotland	2020-07-19	4	Q22
+Scotland	2020-07-26	-2	Q22
+Scotland	2020-08-02	5	Q22
+Scotland	2020-08-09	1	Q22
+Scotland	2020-08-16	-7	Q22
+Scotland	2020-08-23	5	Q22
+Scotland	2020-08-30	5	Q22
+Scotland	2020-09-06	6	Q22
+Scotland	2020-09-13	6	Q22
+Scotland	2020-09-20	-5	Q22
+Scotland	2020-09-27	-11	Q22
+Slovakia	2020-01-05	-6	Q214
+Slovakia	2020-01-12	-5	Q214
+Slovakia	2020-01-19	-10	Q214
+Slovakia	2020-01-26	-5	Q214
+Slovakia	2020-02-02	-6	Q214
+Slovakia	2020-02-09	-8	Q214
+Slovakia	2020-02-16	-1	Q214
+Slovakia	2020-02-23	-9	Q214
+Slovakia	2020-03-01	-4	Q214
+Slovakia	2020-03-08	-2	Q214
+Slovakia	2020-03-15	1	Q214
+Slovakia	2020-03-22	10	Q214
+Slovakia	2020-03-29	0	Q214
+Slovakia	2020-04-05	6	Q214
+Slovakia	2020-04-12	-5	Q214
+Slovakia	2020-04-19	-5	Q214
+Slovakia	2020-04-26	-4	Q214
+Slovakia	2020-05-03	-2	Q214
+Slovakia	2020-05-10	4	Q214
+Slovakia	2020-05-17	3	Q214
+Slovakia	2020-05-24	-2	Q214
+Slovakia	2020-05-31	-6	Q214
+Slovakia	2020-06-07	3	Q214
+Slovakia	2020-06-14	-1	Q214
+Slovakia	2020-06-21	-7	Q214
+Slovakia	2020-06-28	0	Q214
+Slovakia	2020-07-05	3	Q214
+Slovakia	2020-07-12	2	Q214
+Slovakia	2020-07-19	-2	Q214
+Slovakia	2020-07-26	-8	Q214
+Slovakia	2020-08-02	-3	Q214
+Slovakia	2020-08-09	4	Q214
+Slovakia	2020-08-16	-6	Q214
+Slovenia	2020-01-05	-5	Q215
+Slovenia	2020-01-12	-7	Q215
+Slovenia	2020-01-19	-8	Q215
+Slovenia	2020-01-26	-5	Q215
+Slovenia	2020-02-02	-3	Q215
+Slovenia	2020-02-09	-3	Q215
+Slovenia	2020-02-16	8	Q215
+Slovenia	2020-02-23	-3	Q215
+Slovenia	2020-03-01	-6	Q215
+Slovenia	2020-03-08	3	Q215
+Slovenia	2020-03-15	-1	Q215
+Slovenia	2020-03-22	6	Q215
+Slovenia	2020-03-29	-9	Q215
+Slovenia	2020-04-05	-5	Q215
+Slovenia	2020-04-12	15	Q215
+Slovenia	2020-04-19	8	Q215
+Slovenia	2020-04-26	3	Q215
+Slovenia	2020-05-03	-3	Q215
+Slovenia	2020-05-10	5	Q215
+Slovenia	2020-05-17	-1	Q215
+Slovenia	2020-05-24	14	Q215
+Slovenia	2020-05-31	-6	Q215
+Slovenia	2020-06-07	-1	Q215
+Slovenia	2020-06-14	11	Q215
+Slovenia	2020-06-21	8	Q215
+Slovenia	2020-06-28	25	Q215
+Slovenia	2020-07-05	4	Q215
+Slovenia	2020-07-12	-6	Q215
+Slovenia	2020-07-19	-2	Q215
+Slovenia	2020-07-26	0	Q215
+Slovenia	2020-08-02	10	Q215
+Slovenia	2020-08-09	5	Q215
+Slovenia	2020-08-16	10	Q215
+South Korea	2020-01-05	5	Q884
+South Korea	2020-01-12	3	Q884
+South Korea	2020-01-19	5	Q884
+South Korea	2020-01-26	7	Q884
+South Korea	2020-02-02	7	Q884
+South Korea	2020-02-09	9	Q884
+South Korea	2020-02-16	5	Q884
+South Korea	2020-02-23	1	Q884
+South Korea	2020-03-01	2	Q884
+South Korea	2020-03-08	2	Q884
+South Korea	2020-03-15	3	Q884
+South Korea	2020-03-22	4	Q884
+South Korea	2020-03-29	2	Q884
+South Korea	2020-04-05	0	Q884
+South Korea	2020-04-12	7	Q884
+South Korea	2020-04-19	4	Q884
+South Korea	2020-04-26	3	Q884
+South Korea	2020-05-03	9	Q884
+South Korea	2020-05-10	3	Q884
+South Korea	2020-05-17	1	Q884
+South Korea	2020-05-24	4	Q884
+South Korea	2020-05-31	1	Q884
+South Korea	2020-06-07	8	Q884
+South Korea	2020-06-14	7	Q884
+South Korea	2020-06-21	4	Q884
+South Korea	2020-06-28	5	Q884
+South Korea	2020-07-05	5	Q884
+South Korea	2020-07-12	1	Q884
+South Korea	2020-07-19	6	Q884
+South Korea	2020-07-26	4	Q884
+South Korea	2020-08-02	1	Q884
+Spain	2020-01-05	-10	Q29
+Spain	2020-01-12	-7	Q29
+Spain	2020-01-19	-3	Q29
+Spain	2020-01-26	-5	Q29
+Spain	2020-02-02	-4	Q29
+Spain	2020-02-09	-3	Q29
+Spain	2020-02-16	-6	Q29
+Spain	2020-02-23	-9	Q29
+Spain	2020-03-01	-12	Q29
+Spain	2020-03-08	-2	Q29
+Spain	2020-03-15	9	Q29
+Spain	2020-03-22	54	Q29
+Spain	2020-03-29	132	Q29
+Spain	2020-04-05	154	Q29
+Spain	2020-04-12	116	Q29
+Spain	2020-04-19	69	Q29
+Spain	2020-04-26	35	Q29
+Spain	2020-05-03	17	Q29
+Spain	2020-05-10	14	Q29
+Spain	2020-05-17	1	Q29
+Spain	2020-05-24	3	Q29
+Spain	2020-05-31	-1	Q29
+Spain	2020-06-07	-2	Q29
+Spain	2020-06-14	-4	Q29
+Spain	2020-06-21	-4	Q29
+Spain	2020-06-28	4	Q29
+Spain	2020-07-05	1	Q29
+Spain	2020-07-12	4	Q29
+Spain	2020-07-19	3	Q29
+Spain	2020-07-26	8	Q29
+Spain	2020-08-02	16	Q29
+Spain	2020-08-09	15	Q29
+Spain	2020-08-16	16	Q29
+Spain	2020-08-23	14	Q29
+Spain	2020-08-30	15	Q29
+Spain	2020-09-06	15	Q29
+Spain	2020-09-13	21	Q29
+Spain	2020-09-20	19	Q29
+Spain	2020-09-27	16	Q29
+Sweden	2020-01-05	-8	Q34
+Sweden	2020-01-12	-3	Q34
+Sweden	2020-01-19	-6	Q34
+Sweden	2020-01-26	-10	Q34
+Sweden	2020-02-02	-2	Q34
+Sweden	2020-02-09	-9	Q34
+Sweden	2020-02-16	-5	Q34
+Sweden	2020-02-23	-11	Q34
+Sweden	2020-03-01	-10	Q34
+Sweden	2020-03-08	-5	Q34
+Sweden	2020-03-15	-9	Q34
+Sweden	2020-03-22	4	Q34
+Sweden	2020-03-29	12	Q34
+Sweden	2020-04-05	32	Q34
+Sweden	2020-04-12	47	Q34
+Sweden	2020-04-19	43	Q34
+Sweden	2020-04-26	34	Q34
+Sweden	2020-05-03	36	Q34
+Sweden	2020-05-10	33	Q34
+Sweden	2020-05-17	26	Q34
+Sweden	2020-05-24	23	Q34
+Sweden	2020-05-31	6	Q34
+Sweden	2020-06-07	14	Q34
+Sweden	2020-06-14	13	Q34
+Sweden	2020-06-21	9	Q34
+Sweden	2020-06-28	7	Q34
+Sweden	2020-07-05	-1	Q34
+Sweden	2020-07-12	0	Q34
+Sweden	2020-07-19	-4	Q34
+Sweden	2020-07-26	-2	Q34
+Sweden	2020-08-02	-2	Q34
+Sweden	2020-08-09	3	Q34
+Sweden	2020-08-16	-1	Q34
+Sweden	2020-08-23	2	Q34
+Sweden	2020-08-30	-7	Q34
+Sweden	2020-09-06	-4	Q34
+Sweden	2020-09-13	-2	Q34
+Sweden	2020-09-20	-4	Q34
+Sweden	2020-09-27	-3	Q34
+Switzerland	2020-01-05	-11	Q39
+Switzerland	2020-01-12	-8	Q39
+Switzerland	2020-01-19	-5	Q39
+Switzerland	2020-01-26	-3	Q39
+Switzerland	2020-02-02	-3	Q39
+Switzerland	2020-02-09	-8	Q39
+Switzerland	2020-02-16	-8	Q39
+Switzerland	2020-02-23	-9	Q39
+Switzerland	2020-03-01	-12	Q39
+Switzerland	2020-03-08	-6	Q39
+Switzerland	2020-03-15	0	Q39
+Switzerland	2020-03-22	14	Q39
+Switzerland	2020-03-29	26	Q39
+Switzerland	2020-04-05	44	Q39
+Switzerland	2020-04-12	33	Q39
+Switzerland	2020-04-19	27	Q39
+Switzerland	2020-04-26	14	Q39
+Switzerland	2020-05-03	1	Q39
+Switzerland	2020-05-10	-2	Q39
+Switzerland	2020-05-17	-2	Q39
+Switzerland	2020-05-24	-2	Q39
+Switzerland	2020-05-31	-6	Q39
+Switzerland	2020-06-07	0	Q39
+Switzerland	2020-06-14	0	Q39
+Switzerland	2020-06-21	-3	Q39
+Switzerland	2020-06-28	-2	Q39
+Switzerland	2020-07-05	-2	Q39
+Switzerland	2020-07-12	-3	Q39
+Switzerland	2020-07-19	-10	Q39
+Switzerland	2020-07-26	-4	Q39
+Switzerland	2020-08-02	7	Q39
+Switzerland	2020-08-09	-2	Q39
+Switzerland	2020-08-16	3	Q39
+Switzerland	2020-08-23	-1	Q39
+Switzerland	2020-08-30	-3	Q39
+Switzerland	2020-09-06	-5	Q39
+Switzerland	2020-09-13	-6	Q39
+United Kingdom	2020-01-05	34	Q145
+United Kingdom	2020-01-12	7	Q145
+United Kingdom	2020-01-19	-4	Q145
+United Kingdom	2020-01-26	-9	Q145
+United Kingdom	2020-02-02	-8	Q145
+United Kingdom	2020-02-09	-8	Q145
+United Kingdom	2020-02-16	-8	Q145
+United Kingdom	2020-02-23	-7	Q145
+United Kingdom	2020-03-01	-6	Q145
+United Kingdom	2020-03-08	-3	Q145
+United Kingdom	2020-03-15	-3	Q145
+United Kingdom	2020-03-22	-4	Q145
+United Kingdom	2020-03-29	4	Q145
+United Kingdom	2020-04-05	66	Q145
+United Kingdom	2020-04-12	76	Q145
+United Kingdom	2020-04-19	103	Q145
+United Kingdom	2020-04-26	108	Q145
+United Kingdom	2020-05-03	71	Q145
+United Kingdom	2020-05-10	32	Q145
+United Kingdom	2020-05-17	46	Q145
+United Kingdom	2020-05-24	21	Q145
+United Kingdom	2020-05-31	4	Q145
+United States	2020-01-05	0	Q30
+United States	2020-01-12	-1	Q30
+United States	2020-01-19	-1	Q30
+United States	2020-01-26	0	Q30
+United States	2020-02-02	1	Q30
+United States	2020-02-09	2	Q30
+United States	2020-02-16	2	Q30
+United States	2020-02-23	3	Q30
+United States	2020-03-01	4	Q30
+United States	2020-03-08	4	Q30
+United States	2020-03-15	4	Q30
+United States	2020-03-22	6	Q30
+United States	2020-03-29	14	Q30
+United States	2020-04-05	31	Q30
+United States	2020-04-12	45	Q30
+United States	2020-04-19	43	Q30
+United States	2020-04-26	40	Q30
+United States	2020-05-03	31	Q30
+United States	2020-05-10	28	Q30
+United States	2020-05-17	25	Q30
+United States	2020-05-24	20	Q30
+United States	2020-05-31	17	Q30
+United States	2020-06-07	15	Q30
+United States	2020-06-14	13	Q30
+United States	2020-06-21	14	Q30
+United States	2020-06-28	15	Q30
+United States	2020-07-05	17	Q30
+United States	2020-07-12	22	Q30
+United States	2020-07-19	25	Q30
+United States	2020-07-26	27	Q30
+United States	2020-08-02	27	Q30
+United States	2020-08-09	25	Q30
+United States	2020-08-16	24	Q30
+United States	2020-08-23	20	Q30
+United States	2020-08-30	14	Q30
+United States	2020-09-06	10	Q30

@@ -1,0 +1,155 @@
+Country	Male	Female	ID
+Afghanistan	55	30	Q889
+Albania	99	98	Q222
+Algeria	87	75	Q262
+Angola	80	53	Q916
+Antigua and Barbuda	98	99	Q781
+Argentina	99	99	Q414
+Armenia	100	100	Q399
+Aruba	98	98	Q21203
+Azerbaijan	100	100	Q227
+Bahrain	99	95	Q398
+Bangladesh	77	71	Q902
+Barbados	100	100	Q244
+Belarus	100	100	Q184
+Benin	54	31	Q962
+Bhutan	75	57	Q917
+Bolivia	97	89	Q750
+Bosnia and Herzegovina	99	95	Q225
+Botswana	86	87	Q963
+Brazil	93	93	Q155
+Brunei Darussalam	98	96	Q921
+Bulgaria	99	98	Q219
+Burkina Faso	50	33	Q965
+Burundi	76	61	Q967
+Cabo Verde	92	82	Q1011
+Cambodia	87	75	Q424
+Cameroon	83	72	Q1009
+Central African Republic	50	26	Q929
+Chad	31	14	Q657
+Chile	96	96	Q298
+China	98	95	Q148
+Macao SAR, China	98	95	Q14773
+Colombia	95	95	Q739
+Comoros	65	53	Q970
+Congo, Dem. Rep.	89	66	Q974
+Congo, Rep.	86	75	Q971
+Costa Rica	98	98	Q800
+Cote d'Ivoire	54	40	Q1008
+Croatia	100	99	Q224
+Cuba	100	100	Q241
+Cyprus	99	98	Q229
+Dominican Republic	94	94	Q786
+Ecuador	94	92	Q736
+Egypt, Arab Rep.	76	66	Q79
+El Salvador	91	87	Q792
+Equatorial Guinea	97	91	Q983
+Eritrea	84	69	Q986
+Estonia	100	100	Q191
+Eswatini	88	89	Q1050
+Ethiopia	59	44	Q115
+Fiji	99	99	Q712
+Gabon	86	83	Q1000
+Gambia, The	62	42	Q1005
+Georgia	99	99	Q230
+Ghana	84	74	Q117
+Greece	99	97	Q41
+Grenada	99	99	Q769
+Guatemala	87	76	Q774
+Guinea	44	22	Q1006
+Guinea-Bissau	62	31	Q1007
+Guyana	86	85	Q734
+Haiti	65	58	Q790
+Honduras	87	87	Q783
+Hungary	99	99	Q28
+India	82	66	Q668
+Indonesia	97	94	Q252
+Iran, Islamic Rep.	90	81	Q794
+Iraq	91	80	Q796
+Italy	99	99	Q38
+Jamaica	83	93	Q766
+Jordan	99	98	Q810
+Kazakhstan	100	100	Q232
+Kenya	85	78	Q114
+Kuwait	97	95	Q817
+Kyrgyz Republic	100	99	Q813
+Lao PDR	90	79	Q819
+Latvia	100	100	Q211
+Lebanon	97	93	Q822
+Lesotho	68	85	Q1013
+Liberia	63	34	Q1014
+Lithuania	100	100	Q37
+Madagascar	77	72	Q1019
+Malawi	70	55	Q1020
+Malaysia	96	94	Q833
+Maldives	97	98	Q826
+Mali	46	26	Q912
+Malta	93	96	Q233
+Marshall Islands	98	98	Q709
+Mauritania	64	43	Q1025
+Mauritius	93	89	Q1027
+Mexico	96	95	Q96
+Moldova	100	99	Q217
+Mongolia	98	99	Q711
+Montenegro	99	98	Q236
+Morocco	83	65	Q1028
+Mozambique	73	50	Q1029
+Myanmar	80	72	Q836
+Namibia	92	91	Q1030
+Nepal	79	60	Q837
+New Caledonia	98	98	Q33788
+Nicaragua	82	83	Q811
+Niger	39	23	Q1032
+Nigeria	71	53	Q1033
+North Macedonia	99	97	Q221
+Oman	97	93	Q842
+Pakistan	71	46	Q843
+Palau	97	96	Q695
+Panama	96	95	Q804
+Papua New Guinea	65	58	Q691
+Paraguay	95	94	Q733
+Peru	97	92	Q419
+Philippines	98	98	Q928
+Portugal	97	95	Q45
+Puerto Rico	92	92	Q1183
+Qatar	93	95	Q846
+Romania	99	99	Q218
+Russian Federation	100	100	Q159
+Rwanda	78	69	Q1037
+Samoa	99	99	Q683
+San Marino	100	100	Q238
+Sao Tome and Principe	96	90	Q1039
+Saudi Arabia	97	93	Q851
+Senegal	65	40	Q1041
+Serbia	99	98	Q403
+Seychelles	95	96	Q1042
+Sierra Leone	52	35	Q1044
+Singapore	99	96	Q334
+Slovenia	100	100	Q215
+South Africa	88	86	Q258
+South Sudan	40	29	Q958
+Spain	99	98	Q29
+Sri Lanka	93	91	Q854
+Sudan	65	56	Q1049
+Suriname	96	93	Q730
+Tajikistan	100	100	Q863
+Tanzania	83	73	Q924
+Thailand	95	92	Q869
+Timor-Leste	72	64	Q574
+Togo	77	51	Q945
+Tonga	99	99	Q678
+Trinidad and Tobago	99	98	Q754
+Tunisia	86	72	Q948
+Turkey	99	93	Q43
+Turkmenistan	100	100	Q874
+Uganda	83	71	Q1036
+Ukraine	100	100	Q212
+United Arab Emirates	93	95	Q878
+Uruguay	98	99	Q77
+Uzbekistan	100	100	Q265
+Vanuatu	88	87	Q686
+Venezuela, RB	97	97	Q717
+Vietnam	96	94	Q881
+West Bank and Gaza	99	96	Q407199
+Zambia	91	83	Q953
+Zimbabwe	89	88	Q954

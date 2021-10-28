@@ -1,0 +1,791 @@
+{
+  
+    "Q16": "Canada"
+  ,
+  
+    "Q757": "Saint Vincent and the Grenadines"
+  ,
+  
+    "Q760": "Saint Lucia"
+  ,
+  
+    "Q17": "Japan"
+  ,
+  
+    "Q20": "Norway"
+  ,
+  
+    "Q763": "Saint Kitts and Nevis"
+  ,
+  
+    "Q766": "Jamaica"
+  ,
+  
+    "Q27": "Ireland"
+  ,
+  
+    "Q769": "Grenada"
+  ,
+  
+    "Q28": "Hungary"
+  ,
+  
+    "Q774": "Guatemala"
+  ,
+  
+    "Q29": "Spain"
+  ,
+  
+    "Q778": "The Bahamas"
+  ,
+  
+    "Q30": "United States of America"
+  ,
+  
+    "Q781": "Antigua and Barbuda"
+  ,
+  
+    "Q31": "Belgium"
+  ,
+  
+    "Q783": "Honduras"
+  ,
+  
+    "Q32": "Luxembourg"
+  ,
+  
+    "Q784": "Dominica"
+  ,
+  
+    "Q33": "Finland"
+  ,
+  
+    "Q786": "Dominican Republic"
+  ,
+  
+    "Q34": "Sweden"
+  ,
+  
+    "Q790": "Haiti"
+  ,
+  
+    "Q792": "El Salvador"
+  ,
+  
+    "Q35": "Denmark"
+  ,
+  
+    "Q794": "Iran"
+  ,
+  
+    "Q36": "Poland"
+  ,
+  
+    "Q796": "Iraq"
+  ,
+  
+    "Q800": "Costa Rica"
+  ,
+  
+    "Q37": "Lithuania"
+  ,
+  
+    "Q38": "Italy"
+  ,
+  
+    "Q801": "Israel"
+  ,
+  
+    "Q804": "Panama"
+  ,
+  
+    "Q39": "Switzerland"
+  ,
+  
+    "Q805": "Yemen"
+  ,
+  
+    "Q40": "Austria"
+  ,
+  
+    "Q41": "Greece"
+  ,
+  
+    "Q810": "Jordan"
+  ,
+  
+    "Q811": "Nicaragua"
+  ,
+  
+    "Q43": "Turkey"
+  ,
+  
+    "Q813": "Kyrgyzstan"
+  ,
+  
+    "Q45": "Portugal"
+  ,
+  
+    "Q817": "Kuwait"
+  ,
+  
+    "Q77": "Uruguay"
+  ,
+  
+    "Q819": "Laos"
+  ,
+  
+    "Q79": "Egypt"
+  ,
+  
+    "Q822": "Lebanon"
+  ,
+  
+    "Q826": "Maldives"
+  ,
+  
+    "Q96": "Mexico"
+  ,
+  
+    "Q833": "Malaysia"
+  ,
+  
+    "Q114": "Kenya"
+  ,
+  
+    "Q836": "Myanmar"
+  ,
+  
+    "Q115": "Ethiopia"
+  ,
+  
+    "Q837": "Nepal"
+  ,
+  
+    "Q117": "Ghana"
+  ,
+  
+    "Q842": "Oman"
+  ,
+  
+    "Q142": "France"
+  ,
+  
+    "Q843": "Pakistan"
+  ,
+  
+    "Q145": "United Kingdom"
+  ,
+  
+    "Q846": "Qatar"
+  ,
+  
+    "Q148": "People's Republic of China"
+  ,
+  
+    "Q851": "Saudi Arabia"
+  ,
+  
+    "Q155": "Brazil"
+  ,
+  
+    "Q854": "Sri Lanka"
+  ,
+  
+    "Q858": "Syria"
+  ,
+  
+    "Q159": "Russia"
+  ,
+  
+    "Q863": "Tajikistan"
+  ,
+  
+    "Q183": "Germany"
+  ,
+  
+    "Q869": "Thailand"
+  ,
+  
+    "Q184": "Belarus"
+  ,
+  
+    "Q874": "Turkmenistan"
+  ,
+  
+    "Q878": "United Arab Emirates"
+  ,
+  
+    "Q189": "Iceland"
+  ,
+  
+    "Q881": "Vietnam"
+  ,
+  
+    "Q191": "Estonia"
+  ,
+  
+    "Q884": "South Korea"
+  ,
+  
+    "Q211": "Latvia"
+  ,
+  
+    "Q889": "Afghanistan"
+  ,
+  
+    "Q212": "Ukraine"
+  ,
+  
+    "Q902": "Bangladesh"
+  ,
+  
+    "Q213": "Czech Republic"
+  ,
+  
+    "Q912": "Mali"
+  ,
+  
+    "Q214": "Slovakia"
+  ,
+  
+    "Q916": "Angola"
+  ,
+  
+    "Q215": "Slovenia"
+  ,
+  
+    "Q917": "Bhutan"
+  ,
+  
+    "Q217": "Moldova"
+  ,
+  
+    "Q218": "Romania"
+  ,
+  
+    "Q921": "Brunei"
+  ,
+  
+    "Q219": "Bulgaria"
+  ,
+  
+    "Q924": "Tanzania"
+  ,
+  
+    "Q221": "North Macedonia"
+  ,
+  
+    "Q928": "Philippines"
+  ,
+  
+    "Q222": "Albania"
+  ,
+  
+    "Q929": "Central African Republic"
+  ,
+  
+    "Q224": "Croatia"
+  ,
+  
+    "Q945": "Togo"
+  ,
+  
+    "Q948": "Tunisia"
+  ,
+  
+    "Q225": "Bosnia and Herzegovina"
+  ,
+  
+    "Q953": "Zambia"
+  ,
+  
+    "Q227": "Azerbaijan"
+  ,
+  
+    "Q954": "Zimbabwe"
+  ,
+  
+    "Q228": "Andorra"
+  ,
+  
+    "Q958": "South Sudan"
+  ,
+  
+    "Q229": "Cyprus"
+  ,
+  
+    "Q962": "Benin"
+  ,
+  
+    "Q230": "Georgia"
+  ,
+  
+    "Q963": "Botswana"
+  ,
+  
+    "Q232": "Kazakhstan"
+  ,
+  
+    "Q965": "Burkina Faso"
+  ,
+  
+    "Q967": "Burundi"
+  ,
+  
+    "Q233": "Malta"
+  ,
+  
+    "Q235": "Monaco"
+  ,
+  
+    "Q970": "Comoros"
+  ,
+  
+    "Q971": "Republic of the Congo"
+  ,
+  
+    "Q236": "Montenegro"
+  ,
+  
+    "Q974": "Democratic Republic of the Congo"
+  ,
+  
+    "Q977": "Djibouti"
+  ,
+  
+    "Q237": "Vatican City"
+  ,
+  
+    "Q238": "San Marino"
+  ,
+  
+    "Q983": "Equatorial Guinea"
+  ,
+  
+    "Q241": "Cuba"
+  ,
+  
+    "Q986": "Eritrea"
+  ,
+  
+    "Q242": "Belize"
+  ,
+  
+    "Q1000": "Gabon"
+  ,
+  
+    "Q244": "Barbados"
+  ,
+  
+    "Q1005": "The Gambia"
+  ,
+  
+    "Q252": "Indonesia"
+  ,
+  
+    "Q1006": "Guinea"
+  ,
+  
+    "Q1007": "Guinea-Bissau"
+  ,
+  
+    "Q258": "South Africa"
+  ,
+  
+    "Q262": "Algeria"
+  ,
+  
+    "Q1008": "Ivory Coast"
+  ,
+  
+    "Q265": "Uzbekistan"
+  ,
+  
+    "Q1009": "Cameroon"
+  ,
+  
+    "Q1011": "Cape Verde"
+  ,
+  
+    "Q298": "Chile"
+  ,
+  
+    "Q1013": "Lesotho"
+  ,
+  
+    "Q1014": "Liberia"
+  ,
+  
+    "Q334": "Singapore"
+  ,
+  
+    "Q1016": "Libya"
+  ,
+  
+    "Q1019": "Madagascar"
+  ,
+  
+    "Q1020": "Malawi"
+  ,
+  
+    "Q347": "Liechtenstein"
+  ,
+  
+    "Q1025": "Mauritania"
+  ,
+  
+    "Q398": "Bahrain"
+  ,
+  
+    "Q399": "Armenia"
+  ,
+  
+    "Q1027": "Mauritius"
+  ,
+  
+    "Q1028": "Morocco"
+  ,
+  
+    "Q403": "Serbia"
+  ,
+  
+    "Q1029": "Mozambique"
+  ,
+  
+    "Q408": "Australia"
+  ,
+  
+    "Q1030": "Namibia"
+  ,
+  
+    "Q1032": "Niger"
+  ,
+  
+    "Q414": "Argentina"
+  ,
+  
+    "Q1033": "Nigeria"
+  ,
+  
+    "Q419": "Peru"
+  ,
+  
+    "Q1036": "Uganda"
+  ,
+  
+    "Q1037": "Rwanda"
+  ,
+  
+    "Q423": "North Korea"
+  ,
+  
+    "Q1039": "São Tomé and Príncipe"
+  ,
+  
+    "Q424": "Cambodia"
+  ,
+  
+    "Q1041": "Senegal"
+  ,
+  
+    "Q574": "East Timor"
+  ,
+  
+    "Q1042": "Seychelles"
+  ,
+  
+    "Q1044": "Sierra Leone"
+  ,
+  
+    "Q657": "Chad"
+  ,
+  
+    "Q664": "New Zealand"
+  ,
+  
+    "Q1045": "Somalia"
+  ,
+  
+    "Q668": "India"
+  ,
+  
+    "Q1049": "Sudan"
+  ,
+  
+    "Q1050": "Eswatini"
+  ,
+  
+    "Q672": "Tuvalu"
+  ,
+  
+    "Q678": "Tonga"
+  ,
+  
+    "Q200686": "French Fifth Republic"
+  ,
+  
+    "Q29999": "Kingdom of the Netherlands"
+  ,
+  
+    "Q683": "Samoa"
+  ,
+  
+    "Q756617": "Kingdom of Denmark"
+  ,
+  
+    "Q488889": "Sixth Republic of South Korea"
+  ,
+  
+    "Q685": "Solomon Islands"
+  ,
+  
+    "Q686": "Vanuatu"
+  ,
+  
+    "Q691": "Papua New Guinea"
+  ,
+  
+    "Q695": "Palau"
+  ,
+  
+    "Q697": "Nauru"
+  ,
+  
+    "Q702": "Federated States of Micronesia"
+  ,
+  
+    "Q709": "Marshall Islands"
+  ,
+  
+    "Q710": "Kiribati"
+  ,
+  
+    "Q711": "Mongolia"
+  ,
+  
+    "Q712": "Fiji"
+  ,
+  
+    "Q717": "Venezuela"
+  ,
+  
+    "Q730": "Suriname"
+  ,
+  
+    "Q733": "Paraguay"
+  ,
+  
+    "Q734": "Guyana"
+  ,
+  
+    "Q736": "Ecuador"
+  ,
+  
+    "Q739": "Colombia"
+  ,
+  
+    "Q750": "Bolivia"
+  ,
+  
+    "Q754": "Trinidad and Tobago"
+  ,
+  
+    "Q26723710": "Aland Islands"
+  ,
+  
+    "Q16641": "American Samoa"
+  ,
+  
+    "Q25228": "Anguilla"
+  ,
+  
+    "Q51": "Antarctica"
+  ,
+  
+    "Q21203": "Aruba"
+  ,
+  
+    "Q778": "Bahamas"
+  ,
+  
+    "Q23635": "Bermuda"
+  ,
+  
+    "Q27561": "Bonaire, Sint Eustatius and Saba"
+  ,
+  
+    "Q23408": "Bouvet Island"
+  ,
+  
+    "Q43448": "British Indian Ocean Territory"
+  ,
+  
+    "Q5785": "Cayman Islands"
+  ,
+  
+    "Q42314": "Channel Islands"
+  ,
+  
+    "Q31063": "Christmas Island"
+  ,
+  
+    "Q36004": "Cocos Islands"
+  ,
+  
+    "Q26988": "Cook Islands"
+  ,
+  
+    "Q25279": "Curaçao"
+  ,
+  
+    "Q9648": "Falkland Islands"
+  ,
+  
+    "Q4628": "Faroe Islands"
+  ,
+  
+    "Q3769": "French Guiana"
+  ,
+  
+    "Q30971": "French Polynesia"
+  ,
+  
+    "Q129003": "French Southern Territories"
+  ,
+  
+    "Q1005": "Gambia"
+  ,
+  
+    "Q1410": "Gibraltar"
+  ,
+  
+    "Q223": "Greenland"
+  ,
+  
+    "Q3118683": "Guadeloupe"
+  ,
+  
+    "Q16635": "Guam"
+  ,
+  
+    "Q25230": "Guernsey"
+  ,
+  
+    "Q25362": "Saint Barthélemy"
+  ,
+  
+    "Q192184": "Saint Helena, Ascension and Tristan da Cunha"
+  ,
+  
+    "Q126125": "The Collectivity of Saint-Martin"
+  ,
+  
+    "Q34617": "Saint Pierre and Miquelon"
+  ,
+  
+    "Q26273": "Sint Maarten"
+  ,
+  
+    "Q219060": "Palestine"
+  ,
+  
+    "Q35672": "Pitcairn Islands"
+  ,
+  
+    "Q1183": "Puerto Rico"
+  ,
+  
+    "Q17070": "Réunion"
+  ,
+  
+    "Q35086": "South Georgia and the South Sandwich Islands"
+  ,
+  
+    "Q842829": "Svalbard and Jan Mayen"
+  ,
+  
+    "Q865": "Taiwan"
+  ,
+  
+    "Q36823": "Tokelau"
+  ,
+  
+    "Q18221": "Turks and Caicos Islands"
+  ,
+  
+    "Q22": "Scotland"
+  ,
+  
+    "Q21": "England"
+  ,
+  
+    "Q26": "Northern Ireland"
+  ,
+  
+    "Q25": "Wales"
+  ,
+  
+    "Q16645": "United States Minor Outlying Islands"
+  ,
+  
+    "Q25305": "British Virgin Islands"
+  ,
+  
+    "Q11703": "United States Virgin Islands"
+  ,
+  
+    "Q35555": "Wallis and Futuna"
+  ,
+  
+    "Q6250": "Western Sahara"
+  ,
+  
+    "Q407199": "West Bank and Gaza"
+  ,
+  
+    "Q131198": "Heard Island and McDonald Islands"
+  ,
+  
+    "Q237": "Vatican City"
+  ,
+  
+    "Q8646": "Hong Kong"
+  ,
+  
+    "Q9676": "Isle of Man"
+  ,
+  
+    "Q785": "The Bailiwick of Jersey"
+  ,
+  
+    "Q1246": "Kosovo"
+  ,
+  
+    "Q14773": "Macao"
+  ,
+  
+    "Q17054": "Martinique"
+  ,
+  
+    "Q17063": "Mayotte"
+  ,
+  
+    "Q13353": "Montserrat"
+  ,
+  
+    "Q55": "Netherlands"
+  ,
+  
+    "Q33788": "New Caledonia"
+  ,
+  
+    "Q34020": "Niue"
+  ,
+  
+    "Q31057": "Norfolk Island"
+  ,
+  
+    "Q16644": "Northern Mariana Islands"
+}
+

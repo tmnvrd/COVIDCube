@@ -1,0 +1,6 @@
+{
+    "ibm-blockchain-platform.ext.discoverSaasEnvs": false,
+    "python.envFile": "/home/tamara/anaconda3/bin/activate",
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.terminal.activateEnvironment": false
+}

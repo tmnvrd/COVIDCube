@@ -1,0 +1,227 @@
+Country	Number of procedures to build a warehouse	Time required to build a warehouse
+Afghanistan	13	199
+Albania	19	324
+Algeria	19	131
+American Samoa	..	..
+Andorra	..	..
+Angola	12	184
+Antigua and Barbuda	19	144
+Argentina	17	318
+Armenia	20	99
+Aruba	..	..
+Australia	11	120.5
+Austria	11	222
+Azerbaijan	18	116
+Bahamas, The	17	180
+Bahrain	9	71
+Bangladesh	16	273.5
+Barbados	9	377
+Belarus	15	158
+Belgium	10	212
+Belize	16	142
+Benin	14	88
+Bermuda	..	..
+Bhutan	21	150
+Bolivia	15	235
+Bosnia and Herzegovina	17	180
+Botswana	16	102
+Brazil	19	338.4
+Brunei Darussalam	20	83
+Bulgaria	18	97
+Burkina Faso	15	121
+Burundi	15	70
+Cabo Verde	17	101
+Cambodia	20	652
+Cameroon	16	126
+Canada	12	249
+Cayman Islands	..	..
+Central African Republic	17	219
+Chad	14	226
+Channel Islands	..	..
+Chile	12	195
+China	18	110.9
+Hong Kong SAR, China	8	69
+Macao SAR, China	..	..
+Colombia	13	132
+Comoros	11	107
+Congo, Dem. Rep.	13	122
+Congo, Rep.	13	164
+Costa Rica	17	138
+Cote d'Ivoire	22	163
+Croatia	22	146
+Cuba	..	..
+Curacao	..	..
+Cyprus	8	507
+Czech Republic	21	246
+Denmark	7	64
+Djibouti	16	146
+Dominica	11	191
+Dominican Republic	15	206
+Ecuador	17	132
+Egypt, Arab Rep.	20	173
+El Salvador	16	310
+Equatorial Guinea	13	144
+Eritrea	..	..
+Estonia	10	103
+Ethiopia	15	136
+Faroe Islands	..	..
+Fiji	15	141
+Finland	17	65
+France	9	213
+French Polynesia	..	..
+Gabon	13	275
+Gambia, The	12	173
+Georgia	11	63
+Germany	9	126
+Ghana	16	170
+Greece	17	180
+Greenland	..	..
+Grenada	15	146
+Guam	..	..
+Guatemala	11	226
+Guinea	16	151
+Guinea-Bissau	13	143
+Guyana	18	208
+Haiti	14	97
+Honduras	17	132
+Hungary	22	192.5
+Iceland	17	84
+India	15	106.2
+Indonesia	18	200.1
+Iran, Islamic Rep.	16	130
+Iraq	11	167
+Ireland	10	164
+Isle of Man	..	..
+Israel	12	200
+Italy	14	189.5
+Jamaica	18	140.5
+Japan	12	108.4
+Jordan	20	66
+Kazakhstan	17	102.5
+Kenya	16	159
+Kiribati	16	185
+Korea, Dem. Peopleâ€™s Rep.	..	..
+Korea, Rep.	10	27.5
+Kosovo	18	237
+Kuwait	19	103
+Kyrgyz Republic	17	167
+Lao PDR	12	92
+Latvia	14	192
+Lebanon	22	276
+Lesotho	10	183
+Liberia	25	87
+Libya	..	..
+Liechtenstein	8	138
+Lithuania	13	74
+Luxembourg	11	155
+North Macedonia	9	91
+Madagascar	17	194
+Malawi	13	153
+Malaysia	9	41
+Maldives	10	140
+Mali	14	124
+Malta	16	179
+Marshall Islands	7	38
+Mauritania	14	104
+Mauritius	12	95.5
+Mexico	15	82.1
+Micronesia, Fed. Sts.	14	85
+Moldova	21	278
+Monaco	..	..
+Mongolia	17	137
+Montenegro	9	102
+Morocco	12	58
+Mozambique	11	118
+Myanmar	16	88
+Namibia	12	160
+Nepal	12	118
+Netherlands	13	161
+New Caledonia	..	..
+New Zealand	11	93
+Nicaragua	18	225
+Niger	19	98
+Nigeria	15	104.8
+Northern Mariana Islands	..	..
+Norway	11	109.5
+Oman	15	125
+Pakistan	17	124.9
+Palau	20	90
+Panama	18	105
+Papua New Guinea	17	217
+Paraguay	14	121
+Peru	19	137
+Philippines	22	120
+Poland	12	137
+Portugal	14	160
+Puerto Rico	22	165
+Qatar	13	87.5
+Romania	24	260
+Russian Federation	13	164.5
+Rwanda	15	97
+Samoa	18	57
+San Marino	15	145.5
+Sao Tome and Principe	16	67
+Saudi Arabia	14	100
+Senegal	14	177
+Serbia	11	99.5
+Seychelles	16	113
+Sierra Leone	17	182
+Singapore	9	35.5
+Sint Maarten (Dutch part)	..	..
+Slovak Republic	14	300
+Slovenia	17	247.5
+Solomon Islands	14	99
+Somalia	..	..
+South Africa	20	155
+South Sudan	23	131
+Spain	13	147
+Sri Lanka	13	86
+St. Kitts and Nevis	12	105
+St. Lucia	14	116
+St. Martin (French part)	..	..
+St. Vincent and the Grenadines	14	92
+Sudan	16	255
+Suriname	10	223
+Eswatini	14	116
+Sweden	8	117
+Switzerland	13	156
+Syrian Arab Republic	..	..
+Tajikistan	26	157
+Tanzania	24	184
+Thailand	14	113
+Timor-Leste	16	207
+Togo	12	168.5
+Tonga	14	77
+Trinidad and Tobago	16	254
+Tunisia	14	133
+Turkey	18	100
+Turkmenistan	..	..
+Turks and Caicos Islands	..	..
+Tuvalu	..	..
+Uganda	18	113
+Ukraine	10	72.5
+United Arab Emirates	11	47.5
+United Kingdom	9	86
+United States	16	80.6
+Uruguay	19	265
+Uzbekistan	17	246
+Vanuatu	15	123
+Venezuela, RB	11	434
+Vietnam	10	166
+Virgin Islands (U.S.)	..	..
+West Bank and Gaza	20	108
+Yemen, Rep.	..	..
+Zambia	10	188
+Zimbabwe	10	178
+World	15	154
+East Asia & Pacific	14	126.1
+Europe & Central Asia	14	163.1
+Latin America & Caribbean	15	191.3
+Middle East & North Africa	16	127.8
+North America	14	164.8
+South Asia	15	149.7
+Sub-Saharan Africa	15	145.4
+Low income	16	147.3
+Lower middle income	16	160.2
+Upper middle income	15	153.9
+High income	14	151.6

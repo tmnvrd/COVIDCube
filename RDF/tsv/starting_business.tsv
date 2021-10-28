@@ -1,0 +1,191 @@
+Country	Numberofprocedures	Timerequired	Cost	ID	id_row
+Afghanistan	4.0	8.5	0.0	Q889	0
+Albania	5.0	4.5	0.0	Q222	1
+Algeria	12.0	18.0	0.0	Q262	2
+Angola	8.0	36.0	0.0	Q916	3
+Antigua and Barbuda	9.0	19.0	0.0	Q781	4
+Argentina	12.0	11.5	0.0	Q414	5
+Armenia	3.0	4.0	0.0	Q399	6
+Australia	3.0	2.0	0.0	Q408	7
+Austria	8.0	21.0	11.5	Q40	8
+Azerbaijan	3.0	3.5	0.0	Q227	9
+Bahamas, The	7.0	11.5	0.0	Q778	10
+Bahrain	6.0	8.3	2.9	Q398	11
+Bangladesh	9.0	19.5	0.0	Q902	12
+Barbados	7.0	16.0	0.0	Q244	13
+Belarus	4.0	8.5	0.0	Q184	14
+Belgium	5.0	5.0	0.0	Q31	15
+Belize	9.0	48.0	0.0	Q242	16
+Benin	6.0	8.5	5.0	Q962	17
+Bhutan	8.0	12.0	0.0	Q917	18
+Bolivia	12.0	39.5	0.0	Q750	19
+Bosnia and Herzegovina	13.0	80.0	10.2	Q225	20
+Botswana	9.0	48.0	0.0	Q963	21
+Brazil	11.0	16.6	0.0	Q155	22
+Brunei Darussalam	3.0	5.5	0.0	Q921	23
+Bulgaria	7.0	23.0	0.0	Q219	24
+Burkina Faso	3.0	13.0	6.3	Q965	25
+Burundi	4.0	5.0	0.0	Q967	26
+Cabo Verde	9.0	9.0	0.0	Q1011	27
+Cambodia	9.0	99.0	70.2	Q424	28
+Cameroon	6.0	13.5	12.0	Q1009	29
+Canada	2.0	1.5	0.0	Q16	30
+Central African Republic	10.0	22.0	35.2	Q929	31
+Chad	8.0	58.0	25.3	Q657	32
+Chile	6.0	4.0	0.0	Q298	33
+China	4.0	8.5	0.0	Q148	34
+Hong Kong SAR, China	2.0	1.5	0.0	Q8646	35
+Colombia	7.0	10.0	0.0	Q739	36
+Comoros	9.0	16.0	17.2	Q970	37
+Congo, Dem. Rep.	4.0	7.0	4.6	Q974	38
+Congo, Rep.	11.0	49.5	2.3	Q971	39
+Costa Rica	10.0	23.0	0.0	Q800	40
+Cote d'Ivoire	4.0	6.0	2.7	Q1008	41
+Croatia	7.0	19.5	5.5	Q224	42
+Cyprus	5.0	6.0	0.0	Q229	43
+Czech Republic	9.0	24.5	0.0	Q213	44
+Denmark	5.0	3.5	10.2	Q35	45
+Djibouti	6.0	14.0	0.0	Q977	46
+Dominica	5.0	12.0	0.0	Q784	47
+Dominican Republic	7.0	16.5	0.1	Q786	48
+Ecuador	11.0	48.5	0.0	Q736	49
+Egypt, Arab Rep.	5.0	12.5	0.0	Q79	50
+El Salvador	9.0	16.5	2.6	Q792	51
+Equatorial Guinea	16.0	33.0	22.8	Q983	52
+Eritrea	13.0	84.0	93.6	Q986	53
+Estonia	3.0	3.5	13.1	Q191	54
+Ethiopia	11.0	32.0	0.0	Q115	55
+Fiji	11.0	40.0	0.0	Q712	56
+Finland	3.0	13.0	5.9	Q33	57
+France	5.0	4.0	0.0	Q142	58
+Gabon	7.0	10.0	2.4	Q1000	59
+Gambia, The	6.0	8.0	0.0	Q1005	60
+Georgia	1.0	1.0	0.0	Q230	61
+Germany	9.0	8.0	29.8	Q183	62
+Ghana	8.0	13.0	1.0	Q117	63
+Greece	3.0	4.0	0.0	Q41	64
+Grenada	6.0	12.0	0.0	Q769	65
+Guatemala	6.0	15.0	0.6	Q774	66
+Guinea	6.0	15.0	5.3	Q1006	67
+Guinea-Bissau	9.0	8.5	5.8	Q1007	68
+Guyana	7.0	18.0	0.0	Q734	69
+Haiti	12.0	97.0	11.0	Q790	70
+Honduras	11.0	42.0	0.0	Q783	71
+Hungary	6.0	7.0	36.2	Q28	72
+Iceland	5.0	11.5	7.4	Q189	73
+India	10.0	17.5	0.0	Q668	74
+Indonesia	11.0	12.6	0.0	Q252	75
+Iran, Islamic Rep.	10.0	72.5	0.0	Q794	76
+Iraq	8.0	26.5	14.6	Q796	77
+Ireland	3.0	11.0	0.0	Q27	78
+Israel	3.0	11.0	0.0	Q801	79
+Italy	7.0	11.0	0.0	Q38	80
+Jamaica	2.0	3.0	0.0	Q766	81
+Japan	8.0	11.1	0.0	Q17	82
+Jordan	7.0	12.5	0.1	Q810	83
+Kazakhstan	4.0	5.0	0.0	Q232	84
+Kenya	7.0	23.0	0.0	Q114	85
+Kiribati	7.0	31.0	11.9	Q710	86
+Korea, Rep.	3.0	8.0	0.0	Q884	87
+Kosovo	3.0	4.5	0.0	Q1246	88
+Kuwait	5.0	19.4	0.0	Q817	89
+Kyrgyz Republic	4.0	10.0	0.0	Q813	90
+Lao PDR	9.0	173.0	0.0	Q819	91
+Latvia	4.0	5.5	0.0	Q211	92
+Lebanon	8.0	15.0	41.5	Q822	93
+Lesotho	6.0	15.0	0.0	Q1013	94
+Liberia	5.0	18.0	0.0	Q1014	95
+Libya	10.0	35.0	30.0	Q1016	96
+Liechtenstein	10.0	46.0	32.7	Q347	97
+Lithuania	4.0	5.5	16.0	Q37	98
+Luxembourg	5.0	16.5	17.2	Q32	99
+North Macedonia	6.0	15.0	0.0	Q221	100
+Madagascar	5.0	8.0	0.0	Q1019	101
+Malawi	7.0	37.0	0.0	Q1020	102
+Malaysia	8.0	17.5	0.0	Q833	103
+Maldives	6.0	12.0	1.4	Q826	104
+Mali	5.0	11.0	5.2	Q912	105
+Malta	5.0	20.5	1.0	Q233	106
+Marshall Islands	5.0	17.0	0.0	Q709	107
+Mauritania	4.0	6.0	0.0	Q1025	108
+Mauritius	4.0	4.5	0.0	Q1027	109
+Mexico	8.0	8.4	0.0	Q96	110
+Micronesia, Fed. Sts.	7.0	16.0	0.0	Q702	111
+Moldova	3.0	4.0	0.0	Q217	112
+Mongolia	8.0	12.0	0.0	Q711	113
+Montenegro	8.0	12.0	0.0	Q236	114
+Morocco	4.0	9.0	0.0	Q1028	115
+Mozambique	10.0	17.0	0.0	Q1029	116
+Myanmar	6.0	7.0	0.0	Q836	117
+Namibia	10.0	54.0	0.0	Q1030	118
+Nepal	8.0	22.5	0.0	Q837	119
+Netherlands	4.0	3.5	0.0	Q55	120
+New Zealand	1.0	0.5	0.0	Q664	121
+Nicaragua	7.0	14.0	0.0	Q811	122
+Niger	4.0	10.0	11.3	Q1032	123
+Nigeria	7.0	7.2	0.0	Q1033	124
+Norway	4.0	4.0	4.3	Q20	125
+Oman	4.0	4.3	0.0	Q842	126
+Pakistan	5.0	16.5	0.0	Q843	127
+Palau	8.0	28.0	5.9	Q695	128
+Panama	5.0	6.0	0.0	Q804	129
+Papua New Guinea	6.0	41.0	0.0	Q691	130
+Paraguay	7.0	35.0	0.0	Q733	131
+Peru	8.0	26.0	0.0	Q419	132
+Philippines	13.0	33.0	0.0	Q928	133
+Poland	5.0	37.0	9.3	Q36	134
+Portugal	6.0	6.5	0.0	Q45	135
+Puerto Rico	6.0	5.5	0.0	Q1183	136
+Qatar	8.0	8.7	0.0	Q846	137
+Romania	6.0	20.0	0.4	Q218	138
+Russian Federation	4.0	10.1	0.0	Q159	139
+Rwanda	5.0	4.0	0.0	Q1037	140
+Samoa	4.0	9.0	0.0	Q683	141
+San Marino	7.0	11.5	0.0	Q238	142
+Sao Tome and Principe	6.0	7.0	179.6	Q1039	143
+Saudi Arabia	3.0	10.4	0.0	Q851	144
+Senegal	4.0	6.0	3.0	Q1041	145
+Serbia	7.0	7.0	0.0	Q403	146
+Seychelles	9.0	32.0	0.0	Q1042	147
+Sierra Leone	5.0	8.0	0.0	Q1044	148
+Singapore	2.0	1.5	0.0	Q334	149
+Slovak Republic	7.0	21.5	15.4	Q214	150
+Slovenia	3.0	8.0	34.3	Q215	151
+Solomon Islands	7.0	9.0	0.0	Q685	152
+Somalia	9.0	70.0	0.0	Q1045	153
+South Africa	7.0	40.0	0.0	Q258	154
+South Sudan	12.0	13.0	0.0	Q958	155
+Spain	7.0	12.5	11.6	Q29	156
+Sri Lanka	7.0	8.0	0.0	Q854	157
+St. Kitts and Nevis	7.0	18.5	0.0	Q763	158
+St. Lucia	5.0	11.0	0.0	Q760	159
+St. Vincent and the Grenadines	7.0	10.0	0.0	Q757	160
+Sudan	10.0	34.5	0.0	Q1049	161
+Suriname	8.0	66.0	0.0	Q730	162
+Eswatini	12.0	21.5	0.2	Q1050	163
+Sweden	4.0	7.5	10.5	Q34	164
+Switzerland	6.0	10.0	24.6	Q39	165
+Syrian Arab Republic	7.0	15.5	88.3	Q858	166
+Tajikistan	3.0	7.0	0.0	Q863	167
+Tanzania	10.0	29.5	0.0	Q924	168
+Thailand	5.0	6.0	0.0	Q869	169
+Timor-Leste	6.0	13.0	0.3	Q574	170
+Togo	3.0	2.5	6.7	Q945	171
+Tonga	4.0	16.0	0.0	Q678	172
+Trinidad and Tobago	7.0	10.5	0.0	Q754	173
+Tunisia	3.0	9.0	0.0	Q948	174
+Turkey	7.0	7.0	0.0	Q43	175
+Uganda	13.0	24.0	0.0	Q1036	176
+Ukraine	6.0	6.5	0.0	Q212	177
+United Arab Emirates	2.0	3.8	0.0	Q878	178
+United Kingdom	4.0	4.5	0.0	Q145	179
+United States	6.0	4.2	0.0	Q30	180
+Uruguay	5.0	6.5	0.0	Q77	181
+Uzbekistan	3.0	3.0	0.0	Q265	182
+Vanuatu	7.0	18.0	0.0	Q686	183
+Venezuela, RB	20.0	230.0	0.0	Q717	184
+Vietnam	8.0	16.0	0.0	Q881	185
+West Bank and Gaza	10.0	43.5	0.0	Q407199	186
+Yemen, Rep.	6.0	40.5	0.0	Q805	187
+Zambia	7.0	8.5	0.0	Q953	188
+Zimbabwe	9.0	27.0	0.0	Q954	189

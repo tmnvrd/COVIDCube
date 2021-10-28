@@ -1,0 +1,3321 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2019
+        a                  time:Interval ;
+        rdfs:label         "2019" ;
+        time:hasBeginning  "2019"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:importsGoods
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Imports of goods and services"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-importsGoodsGDP
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:importsGoods ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:importsGoodsGDP-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-importsGoodsGDP
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.8 | Structure of demand"@en ;
+        rdfs:label       "imports_goods_services"@en ;
+        dct:description  "Imports of goods and services represent the value of all goods and other market services received from the rest of the world. They include the value of merchandise, freight, insurance, transport, travel, royalties, license fees, and other services, such as communication, construction, financial, information, business, personal, and government services. They exclude compensation of employees and investment income (formerly called factor services) and transfer payments."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.8> ;
+        dct:title        "Imports of goods and services"@en ;
+        qb:structure     c19-structure:dsd-importsGoodsGDP .
+
+c19:importsGoodsGDP-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       49.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       93.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       43.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       16.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       45.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       78.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       48.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       22.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       49.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       65.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       74.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       59.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       72.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       12.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       62.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       23.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       199.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       50.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       43.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       38.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       59.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       63.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       56.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       32.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       47.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       59.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       68.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       32.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       37.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       26.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       50.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       37.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       46.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       76.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       49.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       56.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       43.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       62.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       65.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       64.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       76.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       22.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       19.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       86.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       50.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       14.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       68.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       79.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       82.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       106.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       93.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       66.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       142.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       71.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       65.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       154.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       110.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       48.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       62.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       82.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       57.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       63.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       43.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       15.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       61.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       62.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       18.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       58.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       19.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       77.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       78.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       38.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       38.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       41.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       24.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       39.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       52.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       32.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       108.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       172.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q26273 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       104.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       78.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       63.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       48.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       16.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       40.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       59.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       61.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       126.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       25.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       25.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       62.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       16.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       25.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       20.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       80.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       285.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       59.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       38.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       45.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16641 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       99.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       26.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       15.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       72.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       22.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       52.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       37.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       41.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       72.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       67.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       82.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       58.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       56.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       56.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       41.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       15.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       32.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       65.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       62.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       24.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       47.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       38.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       17.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       176.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       22.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       32.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       22.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       52.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       13.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       72.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       69.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       49.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       88.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       23.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       48.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       52.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       69.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       39.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       22.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       63.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       41.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       37.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q223 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       45.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       54.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       66.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       46.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       57.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       56.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       80.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       41.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       19.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       24.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       39.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       112.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       18.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       50.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       89.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       37.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       56.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       66.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       91.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       99.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       72.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       173.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       58.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       69.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       120.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       85.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       52.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       54.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       39.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       65.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       64.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       65.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       48.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       74.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       48.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       46.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       72.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       50.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       28.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       18.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       76.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16644 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       55.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       43.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       20.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       76.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       47.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       34.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       23.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       40.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       50.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       46.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       36.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       44.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       21.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       26.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       38.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       61.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       86.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       39.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       146.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q26273 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       101.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       92.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       75.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       32.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       29.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       59.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       14.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       43.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       53.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       41.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       17.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       51.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       76.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       61.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       30.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       12.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       27.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       49.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       68.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       33.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       15.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       19.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       42.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       104.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       79.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       60.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       35.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:importsGoodsGDP-o1179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:importsGoods       31.0 ;
+        qb:dataSet                     c19:dataset-importsGoodsGDP ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

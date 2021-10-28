@@ -1,0 +1,18 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  "dataset-prevalence_child_malnutrition";
+    eg:refPeriod eg:Interval2011-19;
+    eg-measure:percentage_childrenUnder5 ?data;
+    eg:refArea ?ID;
+}
+FROM <file:prevalence_child_malnutrition.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:prevalence_child_malnutrition-o0', ?id_row)) AS ?obs)
+  BIND (xsd:decimal(?Stuntingheightforage) AS ?data)
+}

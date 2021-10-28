@@ -1,0 +1,145 @@
+Country	Toexport	Toimport	ID	id_row
+Albania	10.0	14.0	Q222	0
+Algeria	4.0	5.0	Q262	1
+Angola	14.0	14.0	Q916	2
+Argentina	4.0	5.0	Q414	3
+Australia	1.0	1.0	Q408	4
+Austria	2.0	3.0	Q40	5
+Azerbaijan	3.0	2.0	Q227	6
+Bahamas, The	1.0	2.0	Q778	7
+Bahrain	1.0	1.0	Q398	8
+Bangladesh	4.0	5.0	Q902	9
+Belarus	2.0	2.0	Q184	10
+Belgium	2.0	3.0	Q31	11
+Benin	14.0	10.0	Q962	12
+Bolivia	3.0	6.0	Q750	13
+Bosnia and Herzegovina	1.0	3.0	Q225	14
+Brazil	5.0	5.0	Q155	15
+Brunei Darussalam	1.0	1.0	Q921	16
+Bulgaria	2.0	2.0	Q219	17
+Burkina Faso	5.0	2.0	Q965	18
+Burundi	18.0	15.0	Q967	19
+Cambodia	3.0	4.0	Q424	20
+Cameroon	5.0	6.0	Q1009	21
+Canada	4.0	5.0	Q16	22
+Chad	22.0	24.0	Q657	23
+Chile	3.0	3.0	Q298	24
+China	2.0	6.0	Q148	25
+Hong Kong SAR, China	3.0	2.0	Q8646	26
+Colombia	2.0	5.0	Q739	27
+Congo, Dem. Rep.	8.0	7.0	Q974	28
+Congo, Rep.	18.0	12.0	Q971	29
+Costa Rica	3.0	4.0	Q800	30
+Cote d'Ivoire	4.0	4.0	Q1008	31
+Croatia	2.0	3.0	Q224	32
+Cuba	6.0	7.0	Q241	33
+Cyprus	1.0	1.0	Q229	34
+Czech Republic	7.0	5.0	Q213	35
+Denmark	3.0	3.0	Q35	36
+Djibouti	2.0	3.0	Q977	37
+Dominican Republic	4.0	4.0	Q786	38
+Ecuador	1.0	3.0	Q736	39
+Egypt, Arab Rep.	2.0	5.0	Q79	40
+Estonia	2.0	2.0	Q191	41
+Ethiopia	60.0	10.0	Q115	42
+Finland	2.0	3.0	Q33	43
+France	2.0	3.0	Q142	44
+Gabon	25.0	25.0	Q1000	45
+Gambia, The	1.0	1.0	Q1005	46
+Georgia	2.0	2.0	Q230	47
+Germany	2.0	2.0	Q183	48
+Ghana	1.0	1.0	Q117	49
+Greece	3.0	3.0	Q41	50
+Guatemala	4.0	5.0	Q774	51
+Haiti	2.0	2.0	Q790	52
+Honduras	4.0	7.0	Q783	53
+Hungary	1.0	3.0	Q28	54
+Iceland	1.0	1.0	Q189	55
+India	3.0	3.0	Q668	56
+Indonesia	2.0	4.0	Q252	57
+Iran, Islamic Rep.	3.0	5.0	Q794	58
+Iraq	39.0	7.0	Q796	59
+Ireland	2.0	2.0	Q27	60
+Israel	1.0	2.0	Q801	61
+Italy	3.0	4.0	Q38	62
+Jamaica	3.0	3.0	Q766	63
+Japan	2.0	3.0	Q17	64
+Jordan	2.0	7.0	Q810	65
+Kazakhstan	10.0	3.0	Q232	66
+Kenya	4.0	4.0	Q114	67
+Korea, Rep.	2.0	3.0	Q884	68
+Kuwait	2.0	3.0	Q817	69
+Kyrgyz Republic	1.0	2.0	Q813	70
+Lao PDR	2.0	2.0	Q819	71
+Latvia	1.0	1.0	Q211	72
+Lebanon	1.0	1.0	Q822	73
+Liberia	7.0	7.0	Q1014	74
+Libya	11.0	4.0	Q1016	75
+Lithuania	2.0	2.0	Q37	76
+Luxembourg	2.0	2.0	Q32	77
+North Macedonia	1.0	2.0	Q221	78
+Madagascar	1.0	1.0	Q1019	79
+Malawi	4.0	14.0	Q1020	80
+Malaysia	2.0	2.0	Q833	81
+Maldives	6.0	9.0	Q826	82
+Malta	1.0	1.0	Q233	83
+Mauritania	13.0	32.0	Q1025	84
+Mauritius	1.0	2.0	Q1027	85
+Mexico	5.0	5.0	Q96	86
+Moldova	25.0	32.0	Q217	87
+Mongolia	4.0	4.0	Q711	88
+Montenegro	7.0	12.0	Q236	89
+Morocco	2.0	3.0	Q1028	90
+Mozambique	3.0	5.0	Q1029	91
+Myanmar	3.0	4.0	Q836	92
+Namibia	3.0	4.0	Q1030	93
+Nepal	1.0	2.0	Q837	94
+Netherlands	2.0	1.0	Q55	95
+Nicaragua	8.0	8.0	Q811	96
+Niger	1.0	12.0	Q1032	97
+Nigeria	3.0	2.0	Q1033	98
+Norway	1.0	2.0	Q20	99
+Oman	2.0	2.0	Q842	100
+Pakistan	4.0	8.0	Q843	101
+Panama	3.0	2.0	Q804	102
+Papua New Guinea	2.0	2.0	Q691	103
+Peru	2.0	4.0	Q419	104
+Philippines	1.0	2.0	Q928	105
+Poland	1.0	1.0	Q36	106
+Portugal	3.0	3.0	Q45	107
+Qatar	10.0	7.0	Q846	108
+Romania	2.0	2.0	Q218	109
+Russian Federation	3.0	5.0	Q159	110
+Rwanda	2.0	3.0	Q1037	111
+Saudi Arabia	4.0	5.0	Q851	112
+Senegal	1.0	7.0	Q1041	113
+Serbia	2.0	2.0	Q403	114
+Singapore	2.0	2.0	Q334	115
+Slovak Republic	2.0	3.0	Q214	116
+Slovenia	1.0	3.0	Q215	117
+South Africa	3.0	3.0	Q258	118
+Spain	2.0	3.0	Q29	119
+Sri Lanka	6.0	4.0	Q854	120
+Sudan	11.0	12.0	Q1049	121
+Sweden	1.0	3.0	Q34	122
+Switzerland	3.0	2.0	Q39	123
+Syrian Arab Republic	1.0	5.0	Q858	124
+Tajikistan	14.0	14.0	Q863	125
+Tanzania	4.0	4.0	Q924	126
+Thailand	4.0	5.0	Q869	127
+Togo	2.0	3.0	Q945	128
+Trinidad and Tobago	7.0	7.0	Q754	129
+Tunisia	4.0	5.0	Q948	130
+Turkey	3.0	3.0	Q43	131
+Uganda	3.0	14.0	Q1036	132
+Ukraine	3.0	2.0	Q212	133
+United Arab Emirates	2.0	2.0	Q878	134
+United Kingdom	2.0	3.0	Q145	135
+United States	2.0	2.0	Q30	136
+Uruguay	4.0	3.0	Q77	137
+Uzbekistan	16.0	3.0	Q265	138
+Venezuela, RB	15.0	12.0	Q717	139
+Vietnam	2.0	3.0	Q881	140
+Yemen, Rep.	3.0	7.0	Q805	141
+Zambia	9.0	6.0	Q953	142
+Zimbabwe	5.0	10.0	Q954	143

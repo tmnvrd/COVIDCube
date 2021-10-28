@@ -1,0 +1,25 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX c19: <http://example.org/ns#>
+PREFIX c19-measure: <http://example.org/measure#>
+PREFIX c19-interval: <http://example.org/interval#>
+PREFIX c19-dimension: <http://example.org/dimension#>
+PREFIX c19-unit: <http://example.org/unit#>
+PREFIX sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  c19:dataset-mortalityByTrafficInjury;
+    c19-dimension:refPeriod c19-interval:Year2016;
+    c19-measure:mortality ?data ;
+    sdmx-attribute:unitMultiplier  -5;
+    sdmx-attribute:decimals  1;
+    c19-dimension:refArea ?wdID;
+}
+FROM <file:mortality_road_traffic_injury.tsv> 
+WHERE {
+  BIND (URI(CONCAT('c19:mortalityByTrafficInjury-o0', ?id_row)) AS ?obs)
+  BIND (URI(CONCAT('wd:',?ID)) AS ?wdID)
+  BIND (xsd:decimal(?Total) AS ?data)
+}

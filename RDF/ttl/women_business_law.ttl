@@ -1,0 +1,1968 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2019
+        a                  time:Interval ;
+        rdfs:label         "2019" ;
+        time:hasBeginning  "2019"^^xsd:gYear ;
+        time:hasEnd        "2019"^^xsd:gYear .
+
+c19-measure:womenIndexScore
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Women Business and the Law Index Score (scale 1-100) "@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-womenIndexScore
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  sdmx-dimension:sex ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:womenIndexScore ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:womenIndexScore-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    38.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:dataset-womenIndexScore
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.5 | Women and Development"@en ;
+        rdfs:label       "women_business_law"@en ;
+        dct:description  "The index measures how laws and regulations affect women’s economic opportunity. Overall scores are calculated by taking the average score of each of the eight areas (Going Places, Starting a Job, Getting Paid, Getting Married, Having Children, Running a Business, Managing Assets and Getting a Pension), with 100 representing the highest possible score."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.5> ;
+        dct:title        "Women Business and the Law Index Score"@en ;
+        qb:structure     c19-structure:dsd-womenIndexScore .
+
+c19:womenIndexScore-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    91.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    57.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    73.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    66.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    76.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    82.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    96.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    94.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    46.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    49.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    76.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    79.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    74.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    71.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    82.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    85.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    63.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    53.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    90.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    79.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    73.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    56.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    71.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    66.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    77.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    89.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    58.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    46.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    80.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    83.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    93.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    91.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    93.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    68.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    62.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    89.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    45.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    88.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    51.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    69.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    46.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    71.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    79.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    57.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    74.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    85.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    80.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    70.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    65.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    42.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    61.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    96.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    74.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    64.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    31.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    45.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    77.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    68.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    40.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    72.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    80.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    85.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1246 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    91.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    32.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    76.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    88.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    52.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    83.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    50.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    93.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    85.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    71.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    80.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    50.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    73.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    60.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    88.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    58.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    45.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    91.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    83.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    61.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    84.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    82.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    76.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    58.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    73.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    94.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    59.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    63.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    96.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    38.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    49.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    58.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    79.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    60.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    94.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    95.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    93.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    32.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    90.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    73.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    80.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    80.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    70.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    63.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    93.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    76.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    63.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    82.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    94.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    93.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    56.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    46.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    88.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    70.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    68.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    71.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    83.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    68.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    29.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    66.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    100.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    85.6 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    36.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    84.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    83.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    84.4 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    58.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    75.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    70.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    82.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    73.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    56.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    97.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    91.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    88.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    67.5 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    58.1 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    85.0 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    78.8 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    26.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    26.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    81.3 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenIndexScore-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2019 ;
+        c19-measure:womenIndexScore    86.9 ;
+        qb:dataSet                     c19:dataset-womenIndexScore ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .

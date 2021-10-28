@@ -1,0 +1,186 @@
+Country	Number of procedures to build a warehouse	Time required to build a warehouse	ID
+Afghanistan	13	199	Q889
+Albania	19	324	Q222
+Algeria	19	131	Q262
+Angola	12	184	Q916
+Antigua and Barbuda	19	144	Q781
+Argentina	17	318	Q414
+Armenia	20	99	Q399
+Australia	11	120.5	Q408
+Austria	11	222	Q40
+Azerbaijan	18	116	Q227
+Bahamas, The	17	180	Q778
+Bahrain	9	71	Q398
+Bangladesh	16	273.5	Q902
+Barbados	9	377	Q244
+Belarus	15	158	Q184
+Belgium	10	212	Q31
+Belize	16	142	Q242
+Benin	14	88	Q962
+Bhutan	21	150	Q917
+Bolivia	15	235	Q750
+Bosnia and Herzegovina	17	180	Q225
+Botswana	16	102	Q963
+Brazil	19	338.4	Q155
+Brunei Darussalam	20	83	Q921
+Bulgaria	18	97	Q219
+Burkina Faso	15	121	Q965
+Burundi	15	70	Q967
+Cabo Verde	17	101	Q1011
+Cambodia	20	652	Q424
+Cameroon	16	126	Q1009
+Canada	12	249	Q16
+Central African Republic	17	219	Q929
+Chad	14	226	Q657
+Chile	12	195	Q298
+China	18	110.9	Q148
+Hong Kong SAR, China	8	69	Q8646
+Colombia	13	132	Q739
+Comoros	11	107	Q970
+Congo, Dem. Rep.	13	122	Q974
+Congo, Rep.	13	164	Q971
+Costa Rica	17	138	Q800
+Cote d'Ivoire	22	163	Q1008
+Croatia	22	146	Q224
+Cyprus	8	507	Q229
+Czech Republic	21	246	Q213
+Denmark	7	64	Q35
+Djibouti	16	146	Q977
+Dominica	11	191	Q784
+Dominican Republic	15	206	Q786
+Ecuador	17	132	Q736
+Egypt, Arab Rep.	20	173	Q79
+El Salvador	16	310	Q792
+Equatorial Guinea	13	144	Q983
+Estonia	10	103	Q191
+Ethiopia	15	136	Q115
+Fiji	15	141	Q712
+Finland	17	65	Q33
+France	9	213	Q142
+Gabon	13	275	Q1000
+Gambia, The	12	173	Q1005
+Georgia	11	63	Q230
+Germany	9	126	Q183
+Ghana	16	170	Q117
+Greece	17	180	Q41
+Grenada	15	146	Q769
+Guatemala	11	226	Q774
+Guinea	16	151	Q1006
+Guinea-Bissau	13	143	Q1007
+Guyana	18	208	Q734
+Haiti	14	97	Q790
+Honduras	17	132	Q783
+Hungary	22	192.5	Q28
+Iceland	17	84	Q189
+India	15	106.2	Q668
+Indonesia	18	200.1	Q252
+Iran, Islamic Rep.	16	130	Q794
+Iraq	11	167	Q796
+Ireland	10	164	Q27
+Israel	12	200	Q801
+Italy	14	189.5	Q38
+Jamaica	18	140.5	Q766
+Japan	12	108.4	Q17
+Jordan	20	66	Q810
+Kazakhstan	17	102.5	Q232
+Kenya	16	159	Q114
+Kiribati	16	185	Q710
+Korea, Rep.	10	27.5	Q884
+Kosovo	18	237	Q1246
+Kuwait	19	103	Q817
+Kyrgyz Republic	17	167	Q813
+Lao PDR	12	92	Q819
+Latvia	14	192	Q211
+Lebanon	22	276	Q822
+Lesotho	10	183	Q1013
+Liberia	25	87	Q1014
+Liechtenstein	8	138	Q347
+Lithuania	13	74	Q37
+Luxembourg	11	155	Q32
+North Macedonia	9	91	Q221
+Madagascar	17	194	Q1019
+Malawi	13	153	Q1020
+Malaysia	9	41	Q833
+Maldives	10	140	Q826
+Mali	14	124	Q912
+Malta	16	179	Q233
+Marshall Islands	7	38	Q709
+Mauritania	14	104	Q1025
+Mauritius	12	95.5	Q1027
+Mexico	15	82.1	Q96
+Micronesia, Fed. Sts.	14	85	Q702
+Moldova	21	278	Q217
+Mongolia	17	137	Q711
+Montenegro	9	102	Q236
+Morocco	12	58	Q1028
+Mozambique	11	118	Q1029
+Myanmar	16	88	Q836
+Namibia	12	160	Q1030
+Nepal	12	118	Q837
+Netherlands	13	161	Q55
+New Zealand	11	93	Q664
+Nicaragua	18	225	Q811
+Niger	19	98	Q1032
+Nigeria	15	104.8	Q1033
+Norway	11	109.5	Q20
+Oman	15	125	Q842
+Pakistan	17	124.9	Q843
+Palau	20	90	Q695
+Panama	18	105	Q804
+Papua New Guinea	17	217	Q691
+Paraguay	14	121	Q733
+Peru	19	137	Q419
+Philippines	22	120	Q928
+Poland	12	137	Q36
+Portugal	14	160	Q45
+Puerto Rico	22	165	Q1183
+Qatar	13	87.5	Q846
+Romania	24	260	Q218
+Russian Federation	13	164.5	Q159
+Rwanda	15	97	Q1037
+Samoa	18	57	Q683
+San Marino	15	145.5	Q238
+Sao Tome and Principe	16	67	Q1039
+Saudi Arabia	14	100	Q851
+Senegal	14	177	Q1041
+Serbia	11	99.5	Q403
+Seychelles	16	113	Q1042
+Sierra Leone	17	182	Q1044
+Singapore	9	35.5	Q334
+Slovak Republic	14	300	Q214
+Slovenia	17	247.5	Q215
+Solomon Islands	14	99	Q685
+South Africa	20	155	Q258
+South Sudan	23	131	Q958
+Spain	13	147	Q29
+Sri Lanka	13	86	Q854
+St. Kitts and Nevis	12	105	Q763
+St. Lucia	14	116	Q760
+St. Vincent and the Grenadines	14	92	Q757
+Sudan	16	255	Q1049
+Suriname	10	223	Q730
+Eswatini	14	116	Q1050
+Sweden	8	117	Q34
+Switzerland	13	156	Q39
+Tajikistan	26	157	Q863
+Tanzania	24	184	Q924
+Thailand	14	113	Q869
+Timor-Leste	16	207	Q574
+Togo	12	168.5	Q945
+Tonga	14	77	Q678
+Trinidad and Tobago	16	254	Q754
+Tunisia	14	133	Q948
+Turkey	18	100	Q43
+Uganda	18	113	Q1036
+Ukraine	10	72.5	Q212
+United Arab Emirates	11	47.5	Q878
+United Kingdom	9	86	Q145
+United States	16	80.6	Q30
+Uruguay	19	265	Q77
+Uzbekistan	17	246	Q265
+Vanuatu	15	123	Q686
+Venezuela, RB	11	434	Q717
+Vietnam	10	166	Q881
+West Bank and Gaza	20	108	Q407199
+Zambia	10	188	Q953
+Zimbabwe	10	178	Q954

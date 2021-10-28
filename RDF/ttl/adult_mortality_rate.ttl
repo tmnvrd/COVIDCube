@@ -1,0 +1,2396 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2013-18
+        a                  time:Interval ;
+        rdfs:label         "2013-18" ;
+        time:hasBeginning  "2013"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19:dataset-adult_mortality_rate
+        a                qb:Dataset ;
+        rdfs:comment     "2.18 | World Development Indicators: Mortality"@en ;
+        rdfs:label       "adult_mortality_rate"@en ;
+        dct:description  "Adult mortality rate, male, is the probability of dying between the ages of 15 and 60--that is, the probability of a 15-year-old male dying before reaching age 60, if subject to age-specific mortality rates of the specified year between those ages. Adult mortality rate, female, is the probability of dying between the ages of 15 and 60--that is, the probability of a 15-year-old female dying before reaching age 60, if subject to age-specific mortality rates of the specified year between those ages."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/2.18> ;
+        dct:title        "Adult mortality rate"@en ;
+        qb:structure     c19-structure:dsd-adult_mortality_rate .
+
+c19-structure:dsd-adult_mortality_rate
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:adultMortalityRateMale , c19-measure:adultMortalityRateFemale ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:adultMortalityRateMale
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Adult male mortality per 1000 population"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:adultMortalityRateFemale
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Adult female mortality per 1000 population"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19:adultMortalityRate-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "193"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "238"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "49"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "93"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "81"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "103"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "220"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "327"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "83"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "127"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "79"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "147"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "66"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "173"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "69"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "111"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "45"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "42"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "89"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "149"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "117"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "194"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "56"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "115"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "151"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "92"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "130"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "83"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "235"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "49"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "118"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "214"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "211"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "259"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "195"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "197"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "138"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "219"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "60"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "115"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "162"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "249"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "91"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "189"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "99"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "144"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "86"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "184"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "228"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "260"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "253"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "311"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "86"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "182"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "132"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "200"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "281"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "318"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "52"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "371"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "453"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "335"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "378"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q42314 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "33"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "48"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "59"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "108"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "60"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "94"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "33"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "62"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "24"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "58"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "78"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "152"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "194"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "246"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "225"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "274"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "240"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "280"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "57"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "113"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "325"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "361"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "50"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "118"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "74"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "113"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25279 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "63"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "130"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "33"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "65"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "51"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "109"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "52"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "82"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "178"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "232"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "115"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "197"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "88"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "161"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "105"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "183"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "103"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "268"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "295"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "334"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "202"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "276"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "56"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "155"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "310"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "480"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "185"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "237"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "175"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "257"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "44"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "89"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "48"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "95"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "66"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "113"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "182"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "238"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "224"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "280"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "77"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "222"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "48"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "87"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "214"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "255"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "42"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "94"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "118"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "179"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "39"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "80"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "111"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "201"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "233"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "260"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "301"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "374"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "182"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "269"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "197"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "257"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "116"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "167"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "81"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "168"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "38"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "147"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "204"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "126"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "178"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "50"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "83"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "129"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "186"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "42"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "40"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "71"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "37"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "65"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "104"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "175"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "36"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "89"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "124"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "94"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "221"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "195"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "265"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "153"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "235"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q423 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "96"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "162"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "32"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "79"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "41"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "69"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "94"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "211"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "157"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "206"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "85"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "229"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "53"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "76"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "419"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "546"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "207"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "247"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "99"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "180"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "79"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "213"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "41"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "182"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "233"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "212"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "325"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "84"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "160"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "42"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "67"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "245"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "264"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "35"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "64"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "176"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "218"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "94"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "188"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "96"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "184"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "146"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "178"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "96"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "237"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "123"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "288"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "66"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "125"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "62"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "72"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "268"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "390"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "150"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "248"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "249"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "349"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "130"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "167"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "51"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "66"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "57"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "98"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "53"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "81"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "103"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "201"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "223"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "252"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "325"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "364"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "63"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "120"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "39"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "62"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "63"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "101"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "138"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "173"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "77"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "148"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "188"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "251"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "121"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "164"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "85"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "146"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "131"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "235"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "62"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "161"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "42"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "104"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1183 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "63"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "146"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "32"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "41"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "73"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "172"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "120"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "322"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "162"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "216"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "81"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "138"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "124"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "188"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "76"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "92"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "145"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "216"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "75"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "142"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "98"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "202"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "353"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "392"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "35"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "60"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "64"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "145"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "45"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "91"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "125"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "163"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1045 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "269"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "325"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "249"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "376"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "301"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "351"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "38"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "75"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "56"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "151"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "97"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "175"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "125"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "207"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "187"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "245"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "118"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "220"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "38"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "62"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "36"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "58"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "73"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "237"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "96"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "165"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "193"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "250"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "78"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "187"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "117"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "169"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "244"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "278"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "121"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "214"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "109"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "186"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "67"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "107"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "62"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "119"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "128"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "244"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "233"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "302"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "111"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "292"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "45"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "55"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "86"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "82"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "139"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "76"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "139"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "101"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "170"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "102"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "152"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "95"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "207"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "76"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "189"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q11703 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "41"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "70"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "92"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "127"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "175"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "220"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "222"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "321"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .
+
+c19:adultMortalityRate-o0193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2013-18 ;
+        c19-measure:adultMortalityRateFemale
+                "338"^^xsd:decimal ;
+        c19-measure:adultMortalityRateMale
+                "373"^^xsd:decimal ;
+        qb:dataSet                     c19:dataset-adult_mortality_rate ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -3 .

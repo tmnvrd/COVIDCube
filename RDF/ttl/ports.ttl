@@ -1,0 +1,1308 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-structure:dsd-portTraffic
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:portTraffic ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:portTraffic
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Port container traffic in Twenty-foot containers (TEU) "@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+<c19:portTraffic-o00>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1466.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+c19:dataset-portTraffic
+        a                qb:dataSet ;
+        rdfs:comment     "The World Bank: 5.10 | Transport services"@en ;
+        rdfs:label       "ports"@en ;
+        dct:description  "Port container traffic measures the flow of containers from land to sea transport modes., and vice versa, in twenty-foot equivalent units (TEUs), a standard-size container. Data refer to coastal shipping as well as international journeys. Transshipment traffic is counted as two lifts at the intermediate port (once to off-load and again as an outbound lift) and includes empty units."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/5.10> ;
+        dct:title        "Transport: Ports"@en ;
+        qb:structure     c19-structure:dsd-portTraffic .
+
+<c19:portTraffic-o01>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        778.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o02>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        18.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o03>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1801.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o04>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q21203 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        32.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o05>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        8747.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o06>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        286.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o07>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        939.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o08>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        432.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o09>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        2827.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o010>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        101.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o011>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        12682.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o012>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        45.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o013>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        333.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o014>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        10312.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o015>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        139.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o016>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        217.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o017>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        742.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o018>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        406.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o019>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        6664.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o020>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q5785 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        113.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o021>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        4663.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o022>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        225829.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o023>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q8646 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        19641.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o024>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        4125.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o025>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        49.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o026>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        580.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o027>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1493.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o028>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        907.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o029>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        265.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o030>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        350.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o031>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q25279 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        98.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o032>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        308.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o033>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1676.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o034>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        847.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o035>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        8.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o036>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1922.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o037>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        2434.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o038>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        6152.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o039>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        231.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o040>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        10.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o041>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        223.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o042>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        93.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o043>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1592.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o044>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        6369.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o045>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        76.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o046>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        156.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o047>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        65.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o048>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        285.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o049>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        19598.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o050>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1009.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o051>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        5324.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o052>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        24.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o053>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16635 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        163.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o054>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1531.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o055>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        172.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o056>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        122.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o057>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        196.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o058>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        976.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o059>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        352.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o060>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        16383.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o061>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        12853.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o062>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        2379.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o063>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        988.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o064>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        2946.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o065>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        10547.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o066>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1833.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o067>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        22434.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o068>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        815.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o069>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1300.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o070>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        28945.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o071>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        3099.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o072>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        473.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o073>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1306.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o074>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        128.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o075>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1016 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        98.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o076>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        750.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o077>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        174.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o078>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        24956.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o079>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        89.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o080>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        3315.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o081>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        90.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o082>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        451.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o083>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        6980.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o084>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        4764.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o085>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        454.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o086>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1288.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o087>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        360.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o088>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        14826.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o089>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33788 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        117.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o090>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        3329.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o091>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        276.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o092>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1210.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o093>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        898.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o094>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        4224.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o095>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        3275.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o096>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        6872.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o097>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        341.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o098>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        2668.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o099>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        8638.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0100>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        2834.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0101>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        3199.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0102>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1835.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0103>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        678.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0104>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        6335.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0105>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        30.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0106>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        8670.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0107>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        571.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0108>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        89.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0109>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        36600.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0110>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q26273 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        83.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0111>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        989.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0112>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        4892.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0113>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        17190.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0114>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        7000.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0115>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        14.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0116>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        30.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0117>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        20.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0118>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        552.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0119>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        115.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0120>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1593.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0121>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        103.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0122>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q858 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        106.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0123>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1190.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0124>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        11185.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0125>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1194.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0126>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        359.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0127>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        493.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0128>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        9943.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0129>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        1179.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0130>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        19054.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0131>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        11695.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0132>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        54688.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0133>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        798.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0134>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        371.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0135>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        16374.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .
+
+<c19:portTraffic-o0136>
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:portTraffic        535.0 ;
+        qb:dataSet                     c19:dataset-portTraffic ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  3 .

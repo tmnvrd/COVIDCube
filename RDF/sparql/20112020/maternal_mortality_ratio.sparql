@@ -1,0 +1,20 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  eg:dataset-maternal_mortality_ratio;
+    eg:refPeriod eg:Interval2017;
+    eg-measure:maternal-mortality-ratio ?data ;
+    eg:refArea ?egID;
+}
+FROM <file:maternal_mortality_ratio.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:maternal_mortality_ratio-o0', ?id_row)) AS ?obs)
+  BIND (URI(CONCAT('eg:',?ID)) AS ?egID)
+  BIND (xsd:decimal(?Modeledestimates) AS ?data)
+}

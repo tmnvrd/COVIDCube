@@ -1,0 +1,195 @@
+Country	Male 	Female 	ID
+Afghanistan	238	193	Q889
+Albania	93	49	Q222
+Algeria	103	81	Q262
+Angola	327	220	Q916
+Antigua and Barbuda	127	83	Q781
+Argentina	147	79	Q414
+Armenia	173	66	Q399
+Aruba	111	69	Q21203
+Australia	76	45	Q408
+Austria	79	42	Q40
+Azerbaijan	149	89	Q227
+Bahamas, The	194	117	Q778
+Bahrain	72	56	Q398
+Bangladesh	151	115	Q902
+Barbados	130	92	Q244
+Belarus	235	83	Q184
+Belgium	80	49	Q31
+Belize	214	118	Q242
+Benin	259	211	Q962
+Bhutan	197	195	Q917
+Bolivia	219	138	Q750
+Bosnia and Herzegovina	115	60	Q225
+Botswana	249	162	Q963
+Brazil	189	91	Q155
+Brunei Darussalam	144	99	Q921
+Bulgaria	184	86	Q219
+Burkina Faso	260	228	Q965
+Burundi	311	253	Q967
+Cabo Verde	182	86	Q1011
+Cambodia	200	132	Q424
+Cameroon	318	281	Q1009
+Canada	83	52	Q16
+Central African Republic	453	371	Q929
+Chad	378	335	Q657
+Channel Islands	48	33	Q42314
+Chile	108	59	Q298
+China	94	60	Q148
+Hong Kong SAR, China	62	33	Q8646
+Macao SAR, China	58	24	Q14773
+Colombia	152	78	Q739
+Comoros	246	194	Q970
+Congo, Dem. Rep.	274	225	Q974
+Congo, Rep.	280	240	Q971
+Costa Rica	113	57	Q800
+Cote d'Ivoire	361	325	Q1008
+Croatia	118	50	Q224
+Cuba	113	74	Q241
+Curacao	130	63	Q25279
+Cyprus	65	33	Q229
+Czech Republic	109	51	Q213
+Denmark	82	52	Q35
+Djibouti	232	178	Q977
+Dominican Republic	197	115	Q786
+Ecuador	161	88	Q736
+Egypt, Arab Rep.	183	105	Q79
+El Salvador	268	103	Q792
+Equatorial Guinea	334	295	Q983
+Eritrea	276	202	Q986
+Estonia	155	56	Q191
+Eswatini	480	310	Q1050
+Ethiopia	237	185	Q115
+Fiji	257	175	Q712
+Finland	89	44	Q33
+France	95	48	Q142
+French Polynesia	113	66	Q30971
+Gabon	238	182	Q1000
+Gambia, The	280	224	Q1005
+Georgia	222	77	Q230
+Germany	87	48	Q183
+Ghana	255	214	Q117
+Greece	94	42	Q41
+Grenada	179	118	Q769
+Guam	80	39	Q16635
+Guatemala	201	111	Q774
+Guinea	260	233	Q1006
+Guinea-Bissau	374	301	Q1007
+Guyana	269	182	Q734
+Haiti	257	197	Q790
+Honduras	167	116	Q783
+Hungary	168	81	Q28
+Iceland	66	38	Q189
+India	204	147	Q668
+Indonesia	178	126	Q252
+Iran, Islamic Rep.	83	50	Q794
+Iraq	186	129	Q796
+Ireland	71	42	Q27
+Israel	71	40	Q801
+Italy	65	37	Q38
+Jamaica	175	104	Q766
+Japan	66	36	Q17
+Jordan	124	89	Q810
+Kazakhstan	221	94	Q232
+Kenya	265	195	Q114
+Kiribati	235	153	Q710
+Korea, Dem. Peopleâ€™s Rep.	162	96	Q423
+Korea, Rep.	79	32	Q884
+Kuwait	69	41	Q817
+Kyrgyz Republic	211	94	Q813
+Lao PDR	206	157	Q819
+Latvia	229	85	Q211
+Lebanon	76	53	Q822
+Lesotho	546	419	Q1013
+Liberia	247	207	Q1014
+Libya	180	99	Q1016
+Lithuania	213	79	Q37
+Luxembourg	66	41	Q32
+Madagascar	233	182	Q1019
+Malawi	325	212	Q1020
+Malaysia	160	84	Q833
+Maldives	67	42	Q826
+Mali	264	245	Q912
+Malta	64	35	Q233
+Mauritania	218	176	Q1025
+Mauritius	188	94	Q1027
+Mexico	184	96	Q96
+Micronesia, Fed. Sts.	178	146	Q702
+Moldova	237	96	Q217
+Mongolia	288	123	Q711
+Montenegro	125	66	Q236
+Morocco	72	62	Q1028
+Mozambique	390	268	Q1029
+Myanmar	248	150	Q836
+Namibia	349	249	Q1030
+Nepal	167	130	Q837
+Netherlands	66	51	Q55
+New Caledonia	98	57	Q33788
+New Zealand	81	53	Q664
+Nicaragua	201	103	Q811
+Niger	252	223	Q1032
+Nigeria	364	325	Q1033
+North Macedonia	120	63	Q221
+Norway	62	39	Q20
+Oman	101	63	Q842
+Pakistan	173	138	Q843
+Panama	148	77	Q804
+Papua New Guinea	251	188	Q691
+Paraguay	164	121	Q733
+Peru	146	85	Q419
+Philippines	235	131	Q928
+Poland	161	62	Q36
+Portugal	104	42	Q45
+Puerto Rico	146	63	Q1183
+Qatar	41	32	Q846
+Romania	172	73	Q218
+Russian Federation	322	120	Q159
+Rwanda	216	162	Q1037
+Samoa	138	81	Q683
+Sao Tome and Principe	188	124	Q1039
+Saudi Arabia	92	76	Q851
+Senegal	216	145	Q1041
+Serbia	142	75	Q403
+Seychelles	202	98	Q1042
+Sierra Leone	392	353	Q1044
+Singapore	60	35	Q334
+Slovak Republic	145	64	Q214
+Slovenia	91	45	Q215
+Solomon Islands	163	125	Q685
+Somalia	325	269	Q1045
+South Africa	376	249	Q258
+South Sudan	351	301	Q958
+Spain	75	38	Q29
+Sri Lanka	151	56	Q854
+St. Lucia	175	97	Q760
+St. Vincent and the Grenadines	207	125	Q757
+Sudan	245	187	Q1049
+Suriname	220	118	Q730
+Sweden	62	38	Q34
+Switzerland	58	36	Q39
+Syrian Arab Republic	237	73	Q858
+Tajikistan	165	96	Q863
+Tanzania	250	193	Q924
+Thailand	187	78	Q869
+Timor-Leste	169	117	Q574
+Togo	278	244	Q945
+Tonga	214	121	Q678
+Trinidad and Tobago	186	109	Q754
+Tunisia	107	67	Q948
+Turkey	119	62	Q43
+Turkmenistan	244	128	Q874
+Uganda	302	233	Q1036
+Ukraine	292	111	Q212
+United Arab Emirates	70	45	Q878
+United Kingdom	86	55	Q145
+United States	139	82	Q30
+Uruguay	139	76	Q77
+Uzbekistan	170	101	Q265
+Vanuatu	152	102	Q686
+Venezuela, RB	207	95	Q717
+Vietnam	189	76	Q881
+Virgin Islands (U.S.)	70	41	Q11703
+West Bank and Gaza	127	92	Q407199
+Yemen, Rep.	220	175	Q805
+Zambia	321	222	Q953
+Zimbabwe	373	338	Q954

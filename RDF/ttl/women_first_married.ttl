@@ -1,0 +1,1228 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-dimension:ageInterval
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "age interval"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:ageInterval ;
+        qb:concept          sdmx-concept:ageInterval .
+
+c19-measure:womenFirstMarried
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Women who were first married by age 18 (% of women ages 20-24)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-interval:Year2011-18
+        a                  time:Interval ;
+        rdfs:label         "2011-18" ;
+        time:hasBeginning  "2011"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-interval:Age20-24
+        a                       c19-interval:PercentileInterval ;
+        rdfs:label              "20-24" ;
+        c19-interval:baseUnit   wd:Q577 ;
+        c19-interval:beginning  20 ;
+        c19-interval:end        24 .
+
+c19-structure:dsd-womenFirstMarried
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      4
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      3
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:ageInterval ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  sdmx-dimension:sex ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:womenFirstMarried ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:womenFirstMarried-o00
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  34.8 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:dataset-womenFirstMarried
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: WV.5 | Women and Development"@en ;
+        rdfs:label       "women_first_married"@en ;
+        dct:description  "Women who were first married by age 18 (% of women ages 20-24)"@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/WV.5> ;
+        dct:title        "Women who were first married by age 18"@en ;
+        qb:structure     c19-structure:dsd-womenFirstMarried .
+
+c19:womenFirstMarried-o01
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  11.8 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o02
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  2.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o03
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  30.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o04
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  5.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o05
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  11.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o06
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  58.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o07
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  10.7 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o08
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  3.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o09
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  25.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o010
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  30.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o011
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  19.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o012
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  3.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o013
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  19.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o014
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  18.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o015
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  31.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o016
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  66.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o017
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  23.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o018
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  31.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o019
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  37.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o020
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  27.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o021
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o022
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  27.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o023
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  26.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o024
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  35.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o025
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  17.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o026
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  25.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o027
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  29.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o028
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  5.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o029
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  40.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o030
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o031
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  30.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o032
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  20.7 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o033
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  29.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o034
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  51.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o035
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  24.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o036
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  30.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o037
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  14.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o038
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  33.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o039
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  25.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o040
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  13.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o041
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  17.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o042
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  24.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o043
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  7.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o044
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  9.7 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o045
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  7.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o046
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  22.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o047
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  11.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o048
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  35.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o049
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  17.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o050
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  35.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o051
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  6.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o052
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  41.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o053
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  42.1 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o054
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  2.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o055
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  51.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o056
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  37.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o057
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  26.1 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o058
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  12.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o059
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  5.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o060
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q236 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  4.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o061
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  52.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o062
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  16.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o063
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  6.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o064
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  39.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o065
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  35.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o066
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  76.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o067
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  43.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o068
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  18.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o069
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  26.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o070
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o071
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o072
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  16.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o073
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  4.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o074
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  6.8 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o075
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  10.8 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o076
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  35.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o077
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  28.8 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o078
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  3.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o079
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  38.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o080
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o081
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  3.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o082
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  7.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o083
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  34.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o084
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  8.7 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o085
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  30.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o086
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  22.5 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o087
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  14.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o088
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.8 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o089
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  5.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o090
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  11.2 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o091
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  1.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o092
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  14.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o093
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  5.7 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o094
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  34.0 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o095
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  9.1 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o096
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  24.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o097
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  21.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o098
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  10.6 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o099
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  15.3 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o0100
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  31.9 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o0101
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  31.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .
+
+c19:womenFirstMarried-o0102
+        a                              qb:Observation ;
+        c19-dimension:ageInterval      c19-interval:Age20-24 ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2011-18 ;
+        c19-measure:womenFirstMarried  32.4 ;
+        qb:dataSet                     c19:dataset-womenFirstMarried ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 ;
+        sdmx-dimension:sex             sdmx-code:sex-F .

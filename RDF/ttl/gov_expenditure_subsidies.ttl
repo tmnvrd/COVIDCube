@@ -1,0 +1,2621 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2010
+        a                  time:Interval ;
+        rdfs:label         "2010" ;
+        time:hasBeginning  "2010"^^xsd:gYear ;
+        time:hasEnd        "2010"^^xsd:gYear .
+
+c19-measure:expenditureSubsidies
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Subsidies and other transfers (% of expense)"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-expenditureSubsidies
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:expenditureSubsidies ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19:expenditureSubsidies-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                2.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:dataset-expenditureSubsidies
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 4.13 | Central government expenditure"@en ;
+        rdfs:label       "gov_expenditure_subsidies"@en ;
+        dct:description  "Subsidies, grants, and other social benefits include all unrequited, nonrepayable transfers on current account to private and public enterprises; grants to foreign governments, international organizations, and other government units; and social security, social assistance benefits, and employer social benefits in cash and in kind."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/4.13> ;
+        dct:title        "Government Expenditure: Subsidies and other transfers"@en ;
+        qb:structure     c19-structure:dsd-expenditureSubsidies .
+
+c19:expenditureSubsidies-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                69.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                71.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                69.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                81.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                4.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                58.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                67.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                26.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                62.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                60.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                50.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                51.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                51.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                78.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                7.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                60.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                63.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                68.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                29.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                67.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                58.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                52.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                17.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                61.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                59.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                26.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                56.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                78.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                65.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                65.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                44.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                43.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                61.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                8.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                7.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                0.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                51.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                62.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                69.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                28.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                48.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                71.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                75.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                58.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                8.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                48.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                69.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                57.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                63.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                13.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                17.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2010 ;
+        c19-measure:expenditureSubsidies
+                6.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o10
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o11
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q222 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                53.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o12
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                11.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o13
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o14
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                67.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o15
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                74.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o16
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o17
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o18
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o19
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                62.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                84.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                59.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                71.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q14773 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                39.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                37.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                18.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                10.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                63.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                53.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                35.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                54.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                56.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                15.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                83.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                2.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                40.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                41.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                48.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                69.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                29.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                67.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                26.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                67.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                17.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                56.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                42.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                54.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                36.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                34.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                64.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                1.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                64.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                20.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                30.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                64.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                78.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                32.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                73.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o185
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                65.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o186
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                16.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o187
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o188
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o189
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                27.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o190
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                44.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o191
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o192
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                33.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o193
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                69.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o194
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                4.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o195
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                45.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o196
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                8.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o197
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o198
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o199
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                49.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                47.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                8.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                60.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                67.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                29.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                26.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                24.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                23.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                25.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                73.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                75.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                54.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                31.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                19.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                9.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                38.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                60.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                21.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                55.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                65.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                46.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                14.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q407199 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                22.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                12.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:expenditureSubsidies-o1126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2018 ;
+        c19-measure:expenditureSubsidies
+                44.0 ;
+        qb:dataSet                     c19:dataset-expenditureSubsidies ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

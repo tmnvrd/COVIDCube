@@ -1,0 +1,3606 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2017
+        a                  time:Interval ;
+        rdfs:label         "2017" ;
+        time:hasBeginning  "2017"^^xsd:gYear ;
+        time:hasEnd        "2017"^^xsd:gYear .
+
+c19:dataset-health_expenditure
+        a                qb:Dataset ;
+        rdfs:comment     "12.2 | World Development Indicators: Health systems"@en ;
+        rdfs:label       "health_expenditure"@en ;
+        dct:description  "Level of current health expenditure expressed as a percentage of GDP. Estimates of current health expenditures include healthcare goods and services consumed during each year. This indicator does not include capital health expenditures such as buildings, machinery, IT and stocks of vaccines for emergency or outbreaks."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/2.12> ;
+        dct:title        "Health expenditure"@en ;
+        qb:structure     c19-structure:dsd-health_expenditure .
+
+c19-structure:dsd-health_expenditure
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:currentHealthExpenditure , c19-measure:publicHealthExpenditure , c19-measure:outOfPocketHealthExpenditure , c19-measure:percapitaHealthExpenditure , c19-measure:percapitaPPPHealthExpenditure ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:currentHealthExpenditure
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Current health expenditure (% of GDP)"@en ;
+        rdfs:label          "Current health expenditure"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:publicHealthExpenditure
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Domestic general government health expenditure (% of current health expenditure)"@en ;
+        rdfs:label          "Domestic general government health"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:outOfPocketHealthExpenditure
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Out-of-pocket expenditure (% of current health expenditure)"@en ;
+        rdfs:label          "Out-of-pocket expenditure"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:percapitaHealthExpenditure
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Current health expenditure per capita (current US$)"@en ;
+        rdfs:label          "Current health expenditure per capita"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-measure:percapitaPPPHealthExpenditure
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:comment        "Current health expenditure per capita, PPP (current international $)"@en ;
+        rdfs:label          "Current health expenditure per capita, PPP"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19:healthExpenditure-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                11.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                75.5 ;
+        c19-measure:percapitaHealthExpenditure
+                67.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                174.7 ;
+        c19-measure:publicHealthExpenditure
+                5.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                32.5 ;
+        c19-measure:percapitaHealthExpenditure
+                258.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                974.8 ;
+        c19-measure:publicHealthExpenditure
+                66.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                41.8 ;
+        c19-measure:percapitaHealthExpenditure
+                4040.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5237.2 ;
+        c19-measure:publicHealthExpenditure
+                49.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                34.1 ;
+        c19-measure:percapitaHealthExpenditure
+                114.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                185.9 ;
+        c19-measure:publicHealthExpenditure
+                46.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                35.0 ;
+        c19-measure:percapitaHealthExpenditure
+                673.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1070.8 ;
+        c19-measure:publicHealthExpenditure
+                47.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                15.0 ;
+        c19-measure:percapitaHealthExpenditure
+                1324.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1916.5 ;
+        c19-measure:publicHealthExpenditure
+                72.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                84.3 ;
+        c19-measure:percapitaHealthExpenditure
+                407.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1001.1 ;
+        c19-measure:publicHealthExpenditure
+                13.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                18.2 ;
+        c19-measure:percapitaHealthExpenditure
+                5331.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4816.2 ;
+        c19-measure:publicHealthExpenditure
+                68.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                19.2 ;
+        c19-measure:percapitaHealthExpenditure
+                4939.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5617.4 ;
+        c19-measure:publicHealthExpenditure
+                72.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                83.9 ;
+        c19-measure:percapitaHealthExpenditure
+                275.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1163.9 ;
+        c19-measure:publicHealthExpenditure
+                15.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                31.0 ;
+        c19-measure:percapitaHealthExpenditure
+                1771.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1756.1 ;
+        c19-measure:publicHealthExpenditure
+                43.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                30.6 ;
+        c19-measure:percapitaHealthExpenditure
+                1127.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2265.3 ;
+        c19-measure:publicHealthExpenditure
+                58.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                73.9 ;
+        c19-measure:percapitaHealthExpenditure
+                36.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                94.3 ;
+        c19-measure:publicHealthExpenditure
+                16.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                46.3 ;
+        c19-measure:percapitaHealthExpenditure
+                1183.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1343.2 ;
+        c19-measure:publicHealthExpenditure
+                44.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                27.5 ;
+        c19-measure:percapitaHealthExpenditure
+                342.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1129.1 ;
+        c19-measure:publicHealthExpenditure
+                70.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                17.6 ;
+        c19-measure:percapitaHealthExpenditure
+                4507.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5119.1 ;
+        c19-measure:publicHealthExpenditure
+                77.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                24.2 ;
+        c19-measure:percapitaHealthExpenditure
+                280.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                481.0 ;
+        c19-measure:publicHealthExpenditure
+                68.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                45.0 ;
+        c19-measure:percapitaHealthExpenditure
+                30.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                84.7 ;
+        c19-measure:publicHealthExpenditure
+                30.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                13.3 ;
+        c19-measure:percapitaHealthExpenditure
+                96.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                290.4 ;
+        c19-measure:publicHealthExpenditure
+                74.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                25.1 ;
+        c19-measure:percapitaHealthExpenditure
+                220.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                491.7 ;
+        c19-measure:publicHealthExpenditure
+                68.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                29.1 ;
+        c19-measure:percapitaHealthExpenditure
+                460.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1172.4 ;
+        c19-measure:publicHealthExpenditure
+                70.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                3.0 ;
+        c19-measure:percapitaHealthExpenditure
+                465.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1044.3 ;
+        c19-measure:publicHealthExpenditure
+                75.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                27.5 ;
+        c19-measure:percapitaHealthExpenditure
+                928.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1472.2 ;
+        c19-measure:publicHealthExpenditure
+                41.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                5.2 ;
+        c19-measure:percapitaHealthExpenditure
+                671.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1875.0 ;
+        c19-measure:publicHealthExpenditure
+                94.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                46.6 ;
+        c19-measure:percapitaHealthExpenditure
+                663.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1689.7 ;
+        c19-measure:publicHealthExpenditure
+                51.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                31.7 ;
+        c19-measure:percapitaHealthExpenditure
+                44.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                129.1 ;
+        c19-measure:publicHealthExpenditure
+                43.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                25.5 ;
+        c19-measure:percapitaHealthExpenditure
+                23.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                59.2 ;
+        c19-measure:publicHealthExpenditure
+                24.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                28.9 ;
+        c19-measure:percapitaHealthExpenditure
+                167.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                357.1 ;
+        c19-measure:publicHealthExpenditure
+                60.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                60.4 ;
+        c19-measure:percapitaHealthExpenditure
+                82.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                238.2 ;
+        c19-measure:publicHealthExpenditure
+                23.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                71.0 ;
+        c19-measure:percapitaHealthExpenditure
+                67.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                173.9 ;
+        c19-measure:publicHealthExpenditure
+                13.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                14.2 ;
+        c19-measure:percapitaHealthExpenditure
+                4754.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4928.6 ;
+        c19-measure:publicHealthExpenditure
+                73.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                31.2 ;
+        c19-measure:percapitaHealthExpenditure
+                24.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                42.0 ;
+        c19-measure:publicHealthExpenditure
+                12.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                58.0 ;
+        c19-measure:percapitaHealthExpenditure
+                29.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                87.3 ;
+        c19-measure:publicHealthExpenditure
+                15.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                33.5 ;
+        c19-measure:percapitaHealthExpenditure
+                1382.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2228.6 ;
+        c19-measure:publicHealthExpenditure
+                50.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                36.1 ;
+        c19-measure:percapitaHealthExpenditure
+                440.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                841.1 ;
+        c19-measure:publicHealthExpenditure
+                56.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                16.3 ;
+        c19-measure:percapitaHealthExpenditure
+                459.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1039.2 ;
+        c19-measure:publicHealthExpenditure
+                67.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                74.6 ;
+        c19-measure:percapitaHealthExpenditure
+                58.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                123.2 ;
+        c19-measure:publicHealthExpenditure
+                12.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                40.1 ;
+        c19-measure:percapitaHealthExpenditure
+                19.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                37.3 ;
+        c19-measure:publicHealthExpenditure
+                9.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                48.4 ;
+        c19-measure:percapitaHealthExpenditure
+                50.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                164.8 ;
+        c19-measure:publicHealthExpenditure
+                40.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                21.3 ;
+        c19-measure:percapitaHealthExpenditure
+                869.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1262.2 ;
+        c19-measure:publicHealthExpenditure
+                73.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                39.4 ;
+        c19-measure:percapitaHealthExpenditure
+                69.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                175.7 ;
+        c19-measure:publicHealthExpenditure
+                28.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                11.0 ;
+        c19-measure:percapitaHealthExpenditure
+                902.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1772.5 ;
+        c19-measure:publicHealthExpenditure
+                82.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                11.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                10.5 ;
+        c19-measure:percapitaHealthExpenditure
+                987.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2485.8 ;
+        c19-measure:publicHealthExpenditure
+                89.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                44.6 ;
+        c19-measure:percapitaHealthExpenditure
+                1731.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2430.2 ;
+        c19-measure:publicHealthExpenditure
+                42.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                14.8 ;
+        c19-measure:percapitaHealthExpenditure
+                1475.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2753.4 ;
+        c19-measure:publicHealthExpenditure
+                81.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                13.7 ;
+        c19-measure:percapitaHealthExpenditure
+                5800.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5510.0 ;
+        c19-measure:publicHealthExpenditure
+                84.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                26.5 ;
+        c19-measure:percapitaHealthExpenditure
+                70.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                117.2 ;
+        c19-measure:publicHealthExpenditure
+                47.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                31.0 ;
+        c19-measure:percapitaHealthExpenditure
+                439.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                656.7 ;
+        c19-measure:publicHealthExpenditure
+                65.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                44.7 ;
+        c19-measure:percapitaHealthExpenditure
+                433.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                985.7 ;
+        c19-measure:publicHealthExpenditure
+                46.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                39.4 ;
+        c19-measure:percapitaHealthExpenditure
+                518.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                958.9 ;
+        c19-measure:publicHealthExpenditure
+                52.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                60.1 ;
+        c19-measure:percapitaHealthExpenditure
+                105.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                613.8 ;
+        c19-measure:publicHealthExpenditure
+                33.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                29.2 ;
+        c19-measure:percapitaHealthExpenditure
+                282.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                582.7 ;
+        c19-measure:publicHealthExpenditure
+                63.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                76.8 ;
+        c19-measure:percapitaHealthExpenditure
+                301.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                758.9 ;
+        c19-measure:publicHealthExpenditure
+                18.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                59.1 ;
+        c19-measure:percapitaHealthExpenditure
+                32.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                59.3 ;
+        c19-measure:publicHealthExpenditure
+                27.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                23.7 ;
+        c19-measure:percapitaHealthExpenditure
+                1300.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2153.3 ;
+        c19-measure:publicHealthExpenditure
+                74.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                10.5 ;
+        c19-measure:percapitaHealthExpenditure
+                224.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                600.1 ;
+        c19-measure:publicHealthExpenditure
+                50.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                34.4 ;
+        c19-measure:percapitaHealthExpenditure
+                25.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                66.7 ;
+        c19-measure:publicHealthExpenditure
+                24.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                15.6 ;
+        c19-measure:percapitaHealthExpenditure
+                188.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                322.8 ;
+        c19-measure:publicHealthExpenditure
+                66.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                20.2 ;
+        c19-measure:percapitaHealthExpenditure
+                4205.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4255.2 ;
+        c19-measure:publicHealthExpenditure
+                76.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                11.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                9.4 ;
+        c19-measure:percapitaHealthExpenditure
+                4379.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5011.2 ;
+        c19-measure:publicHealthExpenditure
+                77.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                25.2 ;
+        c19-measure:percapitaHealthExpenditure
+                204.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                499.6 ;
+        c19-measure:publicHealthExpenditure
+                63.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                22.0 ;
+        c19-measure:percapitaHealthExpenditure
+                23.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                55.8 ;
+        c19-measure:publicHealthExpenditure
+                22.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                54.8 ;
+        c19-measure:percapitaHealthExpenditure
+                293.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                773.3 ;
+        c19-measure:publicHealthExpenditure
+                37.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                11.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                12.7 ;
+        c19-measure:percapitaHealthExpenditure
+                5033.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5922.6 ;
+        c19-measure:publicHealthExpenditure
+                77.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                40.3 ;
+        c19-measure:percapitaHealthExpenditure
+                66.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                146.9 ;
+        c19-measure:publicHealthExpenditure
+                33.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                34.8 ;
+        c19-measure:percapitaHealthExpenditure
+                1516.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2295.3 ;
+        c19-measure:publicHealthExpenditure
+                60.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                52.4 ;
+        c19-measure:percapitaHealthExpenditure
+                497.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                721.1 ;
+        c19-measure:publicHealthExpenditure
+                42.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                54.1 ;
+        c19-measure:percapitaHealthExpenditure
+                259.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                474.8 ;
+        c19-measure:publicHealthExpenditure
+                35.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                56.7 ;
+        c19-measure:percapitaHealthExpenditure
+                33.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                89.2 ;
+        c19-measure:publicHealthExpenditure
+                17.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                72.1 ;
+        c19-measure:percapitaHealthExpenditure
+                52.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                123.3 ;
+        c19-measure:publicHealthExpenditure
+                8.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                32.5 ;
+        c19-measure:percapitaHealthExpenditure
+                230.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                405.1 ;
+        c19-measure:publicHealthExpenditure
+                59.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                40.2 ;
+        c19-measure:percapitaHealthExpenditure
+                62.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                146.1 ;
+        c19-measure:publicHealthExpenditure
+                11.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                48.7 ;
+        c19-measure:percapitaHealthExpenditure
+                195.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                394.8 ;
+        c19-measure:publicHealthExpenditure
+                40.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                26.9 ;
+        c19-measure:percapitaHealthExpenditure
+                981.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1979.4 ;
+        c19-measure:publicHealthExpenditure
+                68.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                16.5 ;
+        c19-measure:percapitaHealthExpenditure
+                6086.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4721.4 ;
+        c19-measure:publicHealthExpenditure
+                81.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                62.4 ;
+        c19-measure:percapitaHealthExpenditure
+                69.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                253.3 ;
+        c19-measure:publicHealthExpenditure
+                27.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                34.6 ;
+        c19-measure:percapitaHealthExpenditure
+                115.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                367.9 ;
+        c19-measure:publicHealthExpenditure
+                48.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                41.8 ;
+        c19-measure:percapitaHealthExpenditure
+                475.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1748.4 ;
+        c19-measure:publicHealthExpenditure
+                51.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                58.0 ;
+        c19-measure:percapitaHealthExpenditure
+                210.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                494.8 ;
+        c19-measure:publicHealthExpenditure
+                41.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                12.3 ;
+        c19-measure:percapitaHealthExpenditure
+                4976.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5544.7 ;
+        c19-measure:publicHealthExpenditure
+                73.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                22.3 ;
+        c19-measure:percapitaHealthExpenditure
+                3144.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3014.6 ;
+        c19-measure:publicHealthExpenditure
+                63.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                23.5 ;
+        c19-measure:percapitaHealthExpenditure
+                2840.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3619.7 ;
+        c19-measure:publicHealthExpenditure
+                73.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                17.2 ;
+        c19-measure:percapitaHealthExpenditure
+                307.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                542.9 ;
+        c19-measure:publicHealthExpenditure
+                64.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                12.8 ;
+        c19-measure:percapitaHealthExpenditure
+                4169.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4563.5 ;
+        c19-measure:publicHealthExpenditure
+                84.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                30.4 ;
+        c19-measure:percapitaHealthExpenditure
+                340.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                756.7 ;
+        c19-measure:publicHealthExpenditure
+                44.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                33.1 ;
+        c19-measure:percapitaHealthExpenditure
+                279.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                820.4 ;
+        c19-measure:publicHealthExpenditure
+                62.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                24.0 ;
+        c19-measure:percapitaHealthExpenditure
+                76.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                158.2 ;
+        c19-measure:publicHealthExpenditure
+                42.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                0.1 ;
+        c19-measure:percapitaHealthExpenditure
+                171.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                234.9 ;
+        c19-measure:publicHealthExpenditure
+                75.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                33.7 ;
+        c19-measure:percapitaHealthExpenditure
+                2283.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2980.2 ;
+        c19-measure:publicHealthExpenditure
+                57.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                12.6 ;
+        c19-measure:percapitaHealthExpenditure
+                1529.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3796.7 ;
+        c19-measure:publicHealthExpenditure
+                87.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                56.4 ;
+        c19-measure:percapitaHealthExpenditure
+                78.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                241.2 ;
+        c19-measure:publicHealthExpenditure
+                38.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                46.2 ;
+        c19-measure:percapitaHealthExpenditure
+                62.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                177.9 ;
+        c19-measure:publicHealthExpenditure
+                35.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                42.0 ;
+        c19-measure:percapitaHealthExpenditure
+                930.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1682.3 ;
+        c19-measure:publicHealthExpenditure
+                57.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                33.2 ;
+        c19-measure:percapitaHealthExpenditure
+                719.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1185.3 ;
+        c19-measure:publicHealthExpenditure
+                50.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                16.6 ;
+        c19-measure:percapitaHealthExpenditure
+                104.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                265.5 ;
+        c19-measure:publicHealthExpenditure
+                62.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                45.5 ;
+        c19-measure:percapitaHealthExpenditure
+                56.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                104.7 ;
+        c19-measure:publicHealthExpenditure
+                17.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                32.3 ;
+        c19-measure:percapitaHealthExpenditure
+                1078.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2132.6 ;
+        c19-measure:publicHealthExpenditure
+                65.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                10.7 ;
+        c19-measure:percapitaHealthExpenditure
+                5782.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5956.5 ;
+        c19-measure:publicHealthExpenditure
+                84.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                24.7 ;
+        c19-measure:percapitaHealthExpenditure
+                24.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                85.5 ;
+        c19-measure:publicHealthExpenditure
+                46.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                10.6 ;
+        c19-measure:percapitaHealthExpenditure
+                32.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                114.8 ;
+        c19-measure:publicHealthExpenditure
+                30.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                37.9 ;
+        c19-measure:percapitaHealthExpenditure
+                384.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1139.0 ;
+        c19-measure:publicHealthExpenditure
+                50.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                20.6 ;
+        c19-measure:percapitaHealthExpenditure
+                1006.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1506.9 ;
+        c19-measure:publicHealthExpenditure
+                71.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                35.1 ;
+        c19-measure:percapitaHealthExpenditure
+                31.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                84.2 ;
+        c19-measure:publicHealthExpenditure
+                34.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                34.8 ;
+        c19-measure:percapitaHealthExpenditure
+                2585.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3943.1 ;
+        c19-measure:publicHealthExpenditure
+                63.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                16.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                12.4 ;
+        c19-measure:percapitaHealthExpenditure
+                642.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                709.7 ;
+        c19-measure:publicHealthExpenditure
+                37.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                49.5 ;
+        c19-measure:percapitaHealthExpenditure
+                48.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                170.1 ;
+        c19-measure:publicHealthExpenditure
+                38.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                48.9 ;
+        c19-measure:percapitaHealthExpenditure
+                599.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1278.0 ;
+        c19-measure:publicHealthExpenditure
+                42.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                41.3 ;
+        c19-measure:percapitaHealthExpenditure
+                494.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1035.6 ;
+        c19-measure:publicHealthExpenditure
+                51.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                12.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                2.4 ;
+        c19-measure:percapitaHealthExpenditure
+                424.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                493.2 ;
+        c19-measure:publicHealthExpenditure
+                25.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                43.6 ;
+        c19-measure:percapitaHealthExpenditure
+                191.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                476.7 ;
+        c19-measure:publicHealthExpenditure
+                50.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                1.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                6.9 ;
+        c19-measure:percapitaHealthExpenditure
+                2932.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2991.1 ;
+        c19-measure:publicHealthExpenditure
+                79.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                32.2 ;
+        c19-measure:percapitaHealthExpenditure
+                148.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                518.1 ;
+        c19-measure:publicHealthExpenditure
+                61.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                53.9 ;
+        c19-measure:percapitaHealthExpenditure
+                161.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                438.1 ;
+        c19-measure:publicHealthExpenditure
+                42.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                7.4 ;
+        c19-measure:percapitaHealthExpenditure
+                21.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                61.8 ;
+        c19-measure:publicHealthExpenditure
+                29.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                76.2 ;
+        c19-measure:percapitaHealthExpenditure
+                58.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                287.6 ;
+        c19-measure:publicHealthExpenditure
+                14.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                7.7 ;
+        c19-measure:percapitaHealthExpenditure
+                447.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                895.4 ;
+        c19-measure:publicHealthExpenditure
+                46.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                57.8 ;
+        c19-measure:percapitaHealthExpenditure
+                47.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                150.1 ;
+        c19-measure:publicHealthExpenditure
+                22.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                11.1 ;
+        c19-measure:percapitaHealthExpenditure
+                4911.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5513.1 ;
+        c19-measure:publicHealthExpenditure
+                64.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                13.6 ;
+        c19-measure:percapitaHealthExpenditure
+                3937.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3767.5 ;
+        c19-measure:publicHealthExpenditure
+                75.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                32.6 ;
+        c19-measure:percapitaHealthExpenditure
+                192.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                506.2 ;
+        c19-measure:publicHealthExpenditure
+                58.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                47.8 ;
+        c19-measure:percapitaHealthExpenditure
+                29.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                78.9 ;
+        c19-measure:publicHealthExpenditure
+                33.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                77.2 ;
+        c19-measure:percapitaHealthExpenditure
+                73.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                221.1 ;
+        c19-measure:publicHealthExpenditure
+                14.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                31.9 ;
+        c19-measure:percapitaHealthExpenditure
+                328.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                926.9 ;
+        c19-measure:publicHealthExpenditure
+                67.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                10.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                14.2 ;
+        c19-measure:percapitaHealthExpenditure
+                7936.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                6518.9 ;
+        c19-measure:publicHealthExpenditure
+                85.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                6.7 ;
+        c19-measure:percapitaHealthExpenditure
+                587.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1590.8 ;
+        c19-measure:publicHealthExpenditure
+                87.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                60.2 ;
+        c19-measure:percapitaHealthExpenditure
+                44.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                160.6 ;
+        c19-measure:publicHealthExpenditure
+                31.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                12.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                15.5 ;
+        c19-measure:percapitaHealthExpenditure
+                1596.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1777.8 ;
+        c19-measure:publicHealthExpenditure
+                50.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                33.3 ;
+        c19-measure:percapitaHealthExpenditure
+                1112.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1794.8 ;
+        c19-measure:publicHealthExpenditure
+                59.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                9.0 ;
+        c19-measure:percapitaHealthExpenditure
+                61.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                103.9 ;
+        c19-measure:publicHealthExpenditure
+                75.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                44.2 ;
+        c19-measure:percapitaHealthExpenditure
+                381.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                866.6 ;
+        c19-measure:publicHealthExpenditure
+                45.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                28.2 ;
+        c19-measure:percapitaHealthExpenditure
+                332.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                681.2 ;
+        c19-measure:publicHealthExpenditure
+                63.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                53.0 ;
+        c19-measure:percapitaHealthExpenditure
+                132.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                371.7 ;
+        c19-measure:publicHealthExpenditure
+                31.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                23.0 ;
+        c19-measure:percapitaHealthExpenditure
+                906.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1958.2 ;
+        c19-measure:publicHealthExpenditure
+                69.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                27.5 ;
+        c19-measure:percapitaHealthExpenditure
+                1908.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2917.4 ;
+        c19-measure:publicHealthExpenditure
+                66.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                2.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                8.9 ;
+        c19-measure:percapitaHealthExpenditure
+                1649.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3354.4 ;
+        c19-measure:publicHealthExpenditure
+                80.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                20.5 ;
+        c19-measure:percapitaHealthExpenditure
+                555.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1367.8 ;
+        c19-measure:publicHealthExpenditure
+                78.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                40.5 ;
+        c19-measure:percapitaHealthExpenditure
+                585.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1404.2 ;
+        c19-measure:publicHealthExpenditure
+                57.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                6.2 ;
+        c19-measure:percapitaHealthExpenditure
+                49.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                134.4 ;
+        c19-measure:publicHealthExpenditure
+                34.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                11.9 ;
+        c19-measure:percapitaHealthExpenditure
+                233.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                364.0 ;
+        c19-measure:publicHealthExpenditure
+                74.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                17.3 ;
+        c19-measure:percapitaHealthExpenditure
+                3361.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4369.7 ;
+        c19-measure:publicHealthExpenditure
+                81.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                13.8 ;
+        c19-measure:percapitaHealthExpenditure
+                119.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                209.2 ;
+        c19-measure:publicHealthExpenditure
+                45.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                16.9 ;
+        c19-measure:percapitaHealthExpenditure
+                1093.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2826.3 ;
+        c19-measure:publicHealthExpenditure
+                64.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                52.4 ;
+        c19-measure:percapitaHealthExpenditure
+                55.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                143.1 ;
+        c19-measure:publicHealthExpenditure
+                21.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                41.8 ;
+        c19-measure:percapitaHealthExpenditure
+                528.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1382.2 ;
+        c19-measure:publicHealthExpenditure
+                56.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                24.6 ;
+        c19-measure:percapitaHealthExpenditure
+                791.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1485.5 ;
+        c19-measure:publicHealthExpenditure
+                73.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                13.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                50.4 ;
+        c19-measure:percapitaHealthExpenditure
+                66.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                205.4 ;
+        c19-measure:publicHealthExpenditure
+                13.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                32.1 ;
+        c19-measure:percapitaHealthExpenditure
+                2618.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4270.0 ;
+        c19-measure:publicHealthExpenditure
+                48.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                18.7 ;
+        c19-measure:percapitaHealthExpenditure
+                1186.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2184.2 ;
+        c19-measure:publicHealthExpenditure
+                79.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                12.3 ;
+        c19-measure:percapitaHealthExpenditure
+                1920.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2960.6 ;
+        c19-measure:publicHealthExpenditure
+                71.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                5.4 ;
+        c19-measure:percapitaHealthExpenditure
+                101.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                115.2 ;
+        c19-measure:publicHealthExpenditure
+                71.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                7.8 ;
+        c19-measure:percapitaHealthExpenditure
+                499.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1097.8 ;
+        c19-measure:publicHealthExpenditure
+                53.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                19.2 ;
+        c19-measure:percapitaHealthExpenditure
+                22.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                175.8 ;
+        c19-measure:publicHealthExpenditure
+                8.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                8.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                23.6 ;
+        c19-measure:percapitaHealthExpenditure
+                2506.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                3468.7 ;
+        c19-measure:publicHealthExpenditure
+                70.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.8 ;
+        c19-measure:outOfPocketHealthExpenditure
+                49.8 ;
+        c19-measure:percapitaHealthExpenditure
+                159.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                503.6 ;
+        c19-measure:publicHealthExpenditure
+                42.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                47.8 ;
+        c19-measure:percapitaHealthExpenditure
+                902.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1442.1 ;
+        c19-measure:publicHealthExpenditure
+                46.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                44.8 ;
+        c19-measure:percapitaHealthExpenditure
+                460.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                662.3 ;
+        c19-measure:publicHealthExpenditure
+                49.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                31.2 ;
+        c19-measure:percapitaHealthExpenditure
+                320.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                528.1 ;
+        c19-measure:publicHealthExpenditure
+                64.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                72.5 ;
+        c19-measure:percapitaHealthExpenditure
+                193.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                313.7 ;
+        c19-measure:publicHealthExpenditure
+                18.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                26.4 ;
+        c19-measure:percapitaHealthExpenditure
+                339.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                946.4 ;
+        c19-measure:publicHealthExpenditure
+                58.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                11.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                15.0 ;
+        c19-measure:percapitaHealthExpenditure
+                5904.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                5699.6 ;
+        c19-measure:publicHealthExpenditure
+                83.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                12.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                28.9 ;
+        c19-measure:percapitaHealthExpenditure
+                9956.3 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                8217.0 ;
+        c19-measure:publicHealthExpenditure
+                30.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                63.2 ;
+        c19-measure:percapitaHealthExpenditure
+                57.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                231.4 ;
+        c19-measure:publicHealthExpenditure
+                29.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                24.1 ;
+        c19-measure:percapitaHealthExpenditure
+                33.9 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                104.3 ;
+        c19-measure:publicHealthExpenditure
+                43.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.7 ;
+        c19-measure:outOfPocketHealthExpenditure
+                11.1 ;
+        c19-measure:percapitaHealthExpenditure
+                247.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                670.9 ;
+        c19-measure:publicHealthExpenditure
+                76.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                8.3 ;
+        c19-measure:percapitaHealthExpenditure
+                83.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                263.8 ;
+        c19-measure:publicHealthExpenditure
+                66.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                58.4 ;
+        c19-measure:percapitaHealthExpenditure
+                38.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                103.7 ;
+        c19-measure:publicHealthExpenditure
+                17.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                10.6 ;
+        c19-measure:percapitaHealthExpenditure
+                222.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                335.3 ;
+        c19-measure:publicHealthExpenditure
+                58.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                39.8 ;
+        c19-measure:percapitaHealthExpenditure
+                1124.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2205.8 ;
+        c19-measure:publicHealthExpenditure
+                53.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                39.1 ;
+        c19-measure:percapitaHealthExpenditure
+                250.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                863.3 ;
+        c19-measure:publicHealthExpenditure
+                57.1 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                17.4 ;
+        c19-measure:percapitaHealthExpenditure
+                444.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1180.6 ;
+        c19-measure:publicHealthExpenditure
+                77.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.9 ;
+        c19-measure:outOfPocketHealthExpenditure
+                72.8 ;
+        c19-measure:percapitaHealthExpenditure
+                456.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                1249.6 ;
+        c19-measure:publicHealthExpenditure
+                22.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                17.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                0.5 ;
+        c19-measure:percapitaHealthExpenditure
+                622.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                694.3 ;
+        c19-measure:publicHealthExpenditure
+                72.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                39.1 ;
+        c19-measure:percapitaHealthExpenditure
+                38.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                121.2 ;
+        c19-measure:publicHealthExpenditure
+                15.7 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                7.0 ;
+        c19-measure:outOfPocketHealthExpenditure
+                52.3 ;
+        c19-measure:percapitaHealthExpenditure
+                177.4 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                584.6 ;
+        c19-measure:publicHealthExpenditure
+                44.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                18.9 ;
+        c19-measure:percapitaHealthExpenditure
+                1357.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2468.5 ;
+        c19-measure:publicHealthExpenditure
+                72.0 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                16.0 ;
+        c19-measure:percapitaHealthExpenditure
+                3858.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                4338.4 ;
+        c19-measure:publicHealthExpenditure
+                79.4 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                17.1 ;
+        c19-measure:outOfPocketHealthExpenditure
+                11.0 ;
+        c19-measure:percapitaHealthExpenditure
+                10246.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                10246.1 ;
+        c19-measure:publicHealthExpenditure
+                50.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                9.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                17.5 ;
+        c19-measure:percapitaHealthExpenditure
+                1591.5 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                2101.9 ;
+        c19-measure:publicHealthExpenditure
+                70.8 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.4 ;
+        c19-measure:outOfPocketHealthExpenditure
+                53.4 ;
+        c19-measure:percapitaHealthExpenditure
+                98.8 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                447.9 ;
+        c19-measure:publicHealthExpenditure
+                43.3 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                3.3 ;
+        c19-measure:outOfPocketHealthExpenditure
+                9.0 ;
+        c19-measure:percapitaHealthExpenditure
+                105.7 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                110.4 ;
+        c19-measure:publicHealthExpenditure
+                61.5 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                1.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                63.0 ;
+        c19-measure:percapitaHealthExpenditure
+                94.2 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                141.0 ;
+        c19-measure:publicHealthExpenditure
+                15.9 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                5.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                45.3 ;
+        c19-measure:percapitaHealthExpenditure
+                129.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                375.6 ;
+        c19-measure:publicHealthExpenditure
+                48.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.2 ;
+        c19-measure:outOfPocketHealthExpenditure
+                81.0 ;
+        c19-measure:percapitaHealthExpenditure
+                72.0 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                139.0 ;
+        c19-measure:publicHealthExpenditure
+                10.2 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                4.5 ;
+        c19-measure:outOfPocketHealthExpenditure
+                11.8 ;
+        c19-measure:percapitaHealthExpenditure
+                67.6 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                180.3 ;
+        c19-measure:publicHealthExpenditure
+                38.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:healthExpenditure-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:currentHealthExpenditure
+                6.6 ;
+        c19-measure:outOfPocketHealthExpenditure
+                20.6 ;
+        c19-measure:percapitaHealthExpenditure
+                110.1 ;
+        c19-measure:percapitaPPPHealthExpenditure
+                201.0 ;
+        c19-measure:publicHealthExpenditure
+                51.6 ;
+        qb:dataSet                     c19:dataset-health_expenditure ;
+        sdmx-attribute:currency        wd:Q4917 ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

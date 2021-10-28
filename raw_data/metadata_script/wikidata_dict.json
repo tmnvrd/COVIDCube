@@ -1,0 +1,748 @@
+{"Q691": ["Papua New Guinea", "The Independent State of Papua New Guinea", "Papua-New Guinea"]
+,
+ "Q733": ["Paraguay", "The Republic of Paraguay"]
+,
+ "Q419": ["Peru", "The Republic of Per\u00fa"]
+,
+ "Q928": ["Philippines", "The Republic of the Philippines"]
+,
+ "Q35672": ["Pitcairn", "The Pitcairn, Henderson, Ducie and Oeno Islands", "Pitcairn Islands"]
+,
+ "Q36": ["Poland", "The Republic of Poland"]
+,
+ "Q45": ["Portugal", "The Portuguese Republic"]
+,
+ "Q1183": ["Puerto Rico", "The Commonwealth of Puerto Rico", "United States (Puerto Rico)"]
+,
+ "Q846": ["Qatar", "The State of Qatar"]
+,
+ "Q17070": ["R\u00e9union", "Reunion"]
+,
+ "Q218": ["Romania"]
+,
+ "Q159": ["Russian Federation", "The Russian Federation", "Russia", "Russia/ Soviet Union"]
+,
+ "Q1037": ["Rwanda", "The Republic of Rwanda"]
+,
+ "Q25362": ["Saint Barth\u00e9lemy", "The Collectivity of Saint-Barth\u00e9lemy", "Saint Barthelemy"]
+,
+ "Q192184": ["Saint Helena  Ascension Island  Tristan da Cunha", "Saint Helena, Ascension and Tristan da Cunha", "Saint Helena", "Saint Helena, Ascension, and Tristan da Cunha"]
+,
+ "Q763": ["Saint Kitts and Nevis", "St. Kitts and Nevis", "St. Kitts & Nevis", "Saint Kitts & Nevis"]
+,
+ "Q760": ["Saint Lucia", "St. Lucia", "Saint_Lucia"]
+,
+ "Q126125": ["Saint Martin", "The Collectivity of Saint-Martin", "St. Martin (French part)", "St Martin"]
+,
+ "Q34617": ["Saint Pierre and Miquelon", "The Overseas Collectivity of Saint-Pierre and Miquelon"]
+,
+ "Q757": ["Saint Vincent and the Grenadines", "St. Vincent and the Grenadines", "St. Vincent & Grenadines", "St.Vincent and the Grenadines"]
+,
+ "Q683": ["Samoa", "The Independent State of Samoa", "Western Samoa"]
+,
+ "Q238": ["San Marino", "The Republic of San Marino"]
+,
+ "Q1039": ["Sao Tome and Principe", "The Democratic Republic of S\u00e3o Tom\u00e9 and Pr\u00edncipe", "S\u00e3o Tom\u00e9 and Pr\u00edncipe", "São Tomé and Political Rightsíncipe"]
+,
+ "Q851": ["Saudi Arabia", "The Kingdom of Saudi Arabia", "Saudi_Arabia"]
+,
+ "Q1041": ["Senegal", "The Republic of Senegal"]
+,
+ "Q403": ["Serbia", "The Republic of Serbia"]
+,
+ "Q1042": ["Seychelles", "The Republic of Seychelles"]
+,
+ "Q1044": ["Sierra Leone", "The Republic of Sierra Leone"]
+,
+ "Q334": ["Singapore", "The Republic of Singapore"]
+,
+ "Q26273": ["Sint Maarten", "Sint Maarten (Dutch part)"]
+,
+ "Q214": ["Slovakia", "The Slovak Republic", "Slovak Republic"]
+,
+ "Q215": ["Slovenia", "The Republic of Slovenia"]
+,
+ "Q685": ["Solomon Islands", "The Solomon Islands"]
+,
+ "Q1045": ["Somalia", "The Federal Republic of Somalia"]
+,
+ "Q258": ["South Africa", "The Republic of South Africa"]
+,
+ "Q35086": ["South Georgia and the South Sandwich Islands"]
+,
+ "Q958": ["South Sudan", "The Republic of South Sudan", "South_Sudan"]
+,
+ "Q29": ["Spain", "The Kingdom of Spain"]
+,
+ "Q854": ["Sri Lanka", "The Democratic Socialist Republic of Sri Lanka", "Sri_Lanka"]
+,
+ "Q1049": ["Sudan", "The Republic of the Sudan", "Sudan (former)"]
+,
+ "Q730": ["Suriname", "The Republic of Suriname", "Surinam"]
+,
+ "Q842829": ["Svalbard  Jan Mayen", "Svalbard and Jan Mayen"]
+,
+ "Q34": ["Sweden", "The Kingdom of Sweden"]
+,
+ "Q39": ["Switzerland", "The Swiss Confederation"]
+,
+ "Q858": ["Syrian Arab Republic", "The Syrian Arab Republic", "Syria"]
+,
+ "Q865": ["Taiwan", "The Republic of China", "Taiwan, China", "Republic of China (Taiwan)", "Taiwan*"]
+,
+ "Q863": ["Tajikistan", "The Republic of Tajikistan", "Tadjikistan"]
+,
+ "Q924": ["Tanzania, the United Republic of", "The United Republic of Tanzania", "Tanzania", "United Republic of Tanzania", "Tanzania, United Republic Of"]
+,
+ "Q869": ["Thailand", "The Kingdom of Thailand"]
+,
+ "Q574": ["Timor-Leste", "The Democratic Republic of Timor-Leste", "Timor", "East Timor", "Timor Leste"]
+,
+ "Q945": ["Togo", "The Togolese Republic"]
+,
+ "Q36823": ["Tokelau"]
+,
+ "Q678": ["Tonga", "The Kingdom of Tonga"]
+,
+ "Q754": ["Trinidad and Tobago", "The Republic of Trinidad and Tobago", "Trinidad & Tobago", "Trinidad_and_Tobago", "Trinidad And Tobago"]
+,
+ "Q948": ["Tunisia", "The Republic of Tunisia"]
+,
+ "Q43": ["Turkey", "The Republic of Turkey"]
+,
+ "Q874": ["Turkmenistan"]
+,
+ "Q18221": ["Turks and Caicos Islands", "The Turks and Caicos Islands", "Turks and Caicos Island", "Turks and Caicos islands"]
+,
+ "Q672": ["Tuvalu"]
+,
+ "Q1036": ["Uganda", "The Republic of Uganda"]
+,
+ "Q212": ["Ukraine", "Ukraine  (excluding territories in dispute)"]
+,
+ "Q878": ["United Arab Emirates", "The United Arab Emirates", "UAE", "United_Arab_Emirates"]
+,
+ "Q145": ["United Kingdom", "The United Kingdom of Great Britain and Northern Ireland", "United Kingdom of Great Britain and Northern Ireland", "Great Britain", "The United Kingdom", "United_Kingdom", "United Kingdom Of Great Britain & Northern Ireland"]
+,
+ "Q22": ["Scotland"]
+,
+ "Q21": ["England"]
+,
+ "Q26": ["Northern Ireland"]
+,
+ "Q25": ["Wales"]
+,
+ "Q16645": ["United States Minor Outlying Islands", "Baker Island, Howland Island, Jarvis Island, Johnston Atoll, Kingman Reef, Midway Atoll, Navassa Island, Palmyra Atoll, and Wake Island"]
+,
+ "Q30": ["United States", "The United States of America", "United States of America", "USA", "EU", "US", "United_States_of_America", "United States Of America"]
+,
+ "Q77": ["Uruguay", "The Oriental Republic of Uruguay"]
+,
+ "Q265": ["Uzbekistan", "The Republic of Uzbekistan"]
+,
+ "Q686": ["Vanuatu", "The Republic of Vanuatu"]
+,
+ "Q717": ["Venezuela", "The Bolivarian Republic of Venezuela", "Venezuela, RB", "Venezuela (Bolivarian Republic of)"]
+,
+ "Q881": ["Viet Nam", "The Socialist Republic of Viet Nam", "Vietnam"]
+,
+ "Q25305": ["Virgin Islands, British", "The Virgin Islands", "British Virgin Islands", "British Virgin Islands (United Kingdom)", "British_Virgin_Islands"]
+,
+ "Q11703": ["Virgin Islands (U.S.)", "The Virgin Islands of the United States", "United States Virgin Islands", "US Virgin Islands", "Virgin Islands", "U.S. Virgin Islands"]
+,
+ "Q35555": ["Wallis and Futuna", "The Territory of the Wallis and Futuna Islands"]
+,
+ "Q6250": ["Western Sahara", "The Sahrawi Arab Democratic Republic", "Western_Sahara"]
+,
+ "Q407199": ["West Bank and Gaza"]
+,
+ "Q39760": ["Gaza Strip"]
+,
+ "Q36678": ["West Bank"]
+,
+ "Q805": ["Yemen", "The Republic of Yemen", "Yemen, Rep."]
+,
+ "Q953": ["Zambia", "The Republic of Zambia"]
+,
+ "Q954": ["Zimbabwe", "The Republic of Zimbabwe", "Rhodesia"]
+,
+ "Q889": ["Afghanistan", "The Islamic Republic of Afghanistan", "Afghanistan, Islamic State Of"]
+,
+ "Q26723710": ["\u00c5land Islands", "\u00c5land", "Aland Islands"]
+,
+ "Q222": ["Albania", "The Republic of Albania"]
+,
+ "Q1410": ["Gibraltar"]
+,
+ "Q41": ["Greece", "The Hellenic Republic"]
+,
+ "Q223": ["Greenland", "Kalaallit Nunaat"]
+,
+ "Q769": ["Grenada"]
+,
+ "Q3118683": ["Guadeloupe", "France (Guadeloupe)"]
+,
+ "Q16635": ["Guam", "The Territory of Guam"]
+,
+ "Q774": ["Guatemala", "The Republic of Guatemala"]
+,
+ "Q25230": ["Guernsey", "The Bailiwick of Guernsey"]
+,
+ "Q1006": ["Guinea", "The Republic of Guinea", "France (French Guiana)"]
+,
+ "Q1007": ["Guinea-Bissau", "The Republic of Guinea-Bissau", "GuineaBissau", "Guinea Bissau"]
+,
+ "Q734": ["Guyana", "The Co-operative Republic of Guyana"]
+,
+ "Q790": ["Haiti", "The Republic of Haiti"]
+,
+ "Q131198": ["Heard Island and McDonald Islands", "The Territory of Heard Island and McDonald Islands"]
+,
+ "Q237": ["Holy See", "The Holy See", "Vatican City", "Vatican"]
+,
+ "Q783": ["Honduras", "The Republic of Honduras"]
+,
+ "Q8646": ["Hong Kong", "The Hong Kong Special Administrative Region of China", "Hong Kong SAR, China", "Hong Kong, China"]
+,
+ "Q28": ["Hungary"]
+,
+ "Q189": ["Iceland"]
+,
+ "Q668": ["India", "The Republic of India"]
+,
+ "Q252": ["Indonesia", "The Republic of Indonesia"]
+,
+ "Q794": ["Iran", "The Islamic Republic of Iran", "Iran, Islamic Rep.", "Iran (Islamic Republic of)", "IR Iran", "Iran, Islamic Republic Of"]
+,
+ "Q796": ["Iraq", "The Republic of Iraq"]
+,
+ "Q27": ["Ireland", "Republic of Ireland"]
+,
+ "Q9676": ["Isle of Man", "The Isle of Man"]
+,
+ "Q801": ["Israel", "The State of Israel"]
+,
+ "Q38": ["Italy", "The Italian Republic"]
+,
+ "Q766": ["Jamaica"]
+,
+ "Q17": ["Japan"]
+,
+ "Q785": ["Jersey", "The Bailiwick of Jersey"]
+,
+ "Q810": ["Jordan", "The Hashemite Kingdom of Jordan"]
+,
+ "Q232": ["Kazakhstan", "The Republic of Kazakhstan", "Kazakstan (Asia)", "Kazakstan (Europe)"]
+,
+ "Q114": ["Kenya", "The Republic of Kenya"]
+,
+ "Q710": ["Kiribati", "The Republic of Kiribati", "Kiribati, Republic of"]
+,
+ "Q423": ["North Korea", "The Democratic People's Republic of Korea", "Korea, Dem. People\u2019s Rep.", "Korea, Dem. People\u00e2\u20ac\u2122s Rep.", "Democratic People's Republic of Korea", "Korea PDR", "Korea DPR", "Korea, North", "Korea, Democratic People'S Republic Of"]
+,
+ "Q884": ["South Korea", "The Republic of Korea", "Korea, Rep.", "Republic of Korea", "Korea", "Korea Republic", "Korea, South", "Korea, Republic Of"]
+,
+ "Q1246": ["Kosovo", "Republic of Kosovo", "Kosovo[1]"]
+,
+ "Q817": ["Kuwait", "The State of Kuwait"]
+,
+ "Q813": ["Kyrgyzstan", "The Kyrgyz Republic", "Kyrgyz Republic", "Kyrghyzstan"]
+,
+ "Q819": ["Lao People's Democratic Republic", "The Lao People's Democratic Republic", "Lao PDR", "Laos", "Laos, D.P.R.", "Lao People'S Democratic Republic"]
+,
+ "Q211": ["Latvia", "The Republic of Latvia"]
+,
+ "Q822": ["Lebanon", "The Lebanese Republic"]
+,
+ "Q1013": ["Lesotho", "The Kingdom of Lesotho"]
+,
+ "Q1014": ["Liberia", "The Republic of Liberia"]
+,
+ "Q1016": ["Libya", "The State of Libya"]
+,
+ "Q347": ["Liechtenstein", "The Principality of Liechtenstein"]
+,
+ "Q37": ["Lithuania", "The Republic of Lithuania"]
+,
+ "Q32": ["Luxembourg", "The Grand Duchy of Luxembourg", "Luxemburg"]
+,
+ "Q14773": ["Macao", "Macao Special Administrative Region of China", "Macao SAR, China", "Macao, China", "Macau", "Macau (PRC)", "Macau (People's Republic of China)"]
+,
+ "Q221": ["North Macedonia", "Republic of North Macedonia", "Macedonia", "Macedonia [FYROM]", "The Former Yugoslav Republic Of Macedonia"]
+,
+ "Q1019": ["Madagascar", "The Republic of Madagascar"]
+,
+ "Q1020": ["Malawi", "The Republic of Malawi"]
+,
+ "Q833": ["Malaysia"]
+,
+ "Q826": ["Maldives", "The Republic of Maldives", "Maldives Islands"]
+,
+ "Q912": ["Mali", "The Republic of Mali"]
+,
+ "Q233": ["Malta", "The Republic of Malta"]
+,
+ "Q709": ["Marshall Islands", "The Republic of the Marshall Islands"]
+,
+ "Q17054": ["Martinique", "France (Martinique)"]
+,
+ "Q1025": ["Mauritania", "The Islamic Republic of Mauritania", "Mauritania, Islamic Rep. of"]
+,
+ "Q1027": ["Mauritius", "The Republic of Mauritius"]
+,
+ "Q17063": ["Mayotte", "The Department of Mayotte"]
+,
+ "Q96": ["Mexico", "The United Mexican States"]
+,
+ "Q702": ["Micronesia", "The Federated States of Micronesia", "Micronesia, Fed. Sts.", "Micronesia (country)", "Micronesia (Federated States of)", "F.S. Micronesia", "Federated States of Micronesia", "Micronesia, Federated States of"]
+,
+ "Q217": ["Moldova", "The Republic of Moldova", "Republic of Moldova", "Moldova, Republic Of"]
+,
+ "Q235": ["Monaco", "The Principality of Monaco", "Monaco, Principality of"]
+,
+ "Q711": ["Mongolia", "The State of Mongolia"]
+,
+ "Q236": ["Montenegro"]
+,
+ "Q13353": ["Montserrat"]
+,
+ "Q1028": ["Morocco", "The Kingdom of Morocco"]
+,
+ "Q1029": ["Mozambique", "The Republic of Mozambique"]
+,
+ "Q836": ["Myanmar", "The Republic of the Union of Myanmar", "Burma", "Myanmar [Burma]"]
+,
+ "Q1030": ["Namibia", "The Republic of Namibia"]
+,
+ "Q697": ["Nauru", "The Republic of Nauru", "Nauru, Republic of"]
+,
+ "Q837": ["Nepal", "The Federal Democratic Republic of Nepal"]
+,
+ "Q55": ["Netherlands", "The Kingdom of the Netherlands"]
+,
+ "Q33788": ["New Caledonia", "France (New Caledonia)"]
+,
+ "Q664": ["New Zealand"]
+,
+ "Q811": ["Nicaragua", "The Republic of Nicaragua"]
+,
+ "Q1032": ["Niger", "The Republic of the Niger"]
+,
+ "Q1033": ["Nigeria", "The Federal Republic of Nigeria"]
+,
+ "Q34020": ["Niue", "Niue Island"]
+,
+ "Q31057": ["Norfolk Island", "The Territory of Norfolk Island"]
+,
+ "Q16644": ["Northern Mariana Islands", "The Commonwealth of the Northern Mariana Islands", "Northern Mariana Island", "Northern Mariana Islands (Commonwealth of the)"]
+,
+ "Q20": ["Norway", "The Kingdom of Norway"]
+,
+ "Q842": ["Oman", "The Sultanate of Oman"]
+,
+ "Q843": ["Pakistan", "The Islamic Republic of Pakistan"]
+,
+ "Q695": ["Palau", "The Republic of Palau"]
+,
+ "Q262": ["Algeria", "The People's Democratic Republic of Algeria"]
+,
+ "Q16641": ["American Samoa", "The Territory of American Samoa", "Samoa, American"]
+,
+ "Q228": ["Andorra", "The Principality of Andorra"]
+,
+ "Q916": ["Angola", "The Republic of Angola"]
+,
+ "Q25228": ["Anguilla"]
+,
+ "Q51": ["Antarctica", "All land and ice shelves south of the 60th parallel south"]
+,
+ "Q781": ["Antigua & Barbuda", "Antigua and Barbuda", "Antigua_and_Barbuda"]
+,
+ "Q414": ["Argentina", "The Argentine Republic"]
+,
+ "Q399": ["Armenia", "The Republic of Armenia"]
+,
+ "Q21203": ["Aruba", "Aruba (Netherlands)"]
+,
+ "Q408": ["Australia", "The Commonwealth of Australia"]
+,
+ "Q40": ["Austria", "The Republic of Austria"]
+,
+ "Q227": ["Azerbaijan", "The Republic of Azerbaijan"]
+,
+ "Q778": ["Bahamas", "The Commonwealth of The Bahamas", "Bahamas, The", "The Bahamas"]
+,
+ "Q398": ["Bahrain", "The Kingdom of Bahrain"]
+,
+ "Q902": ["Bangladesh", "The People's Republic of Bangladesh"]
+,
+ "Q244": ["Barbados"]
+,
+ "Q184": ["Belarus", "The Republic of Belarus"]
+,
+ "Q31": ["Belgium", "The Kingdom of Belgium"]
+,
+ "Q242": ["Belize"]
+,
+ "Q962": ["Benin", "The Republic of Benin"]
+,
+ "Q23635": ["Bermuda", "Bermuda (UK)"]
+,
+ "Q917": ["Bhutan", "The Kingdom of Bhutan"]
+,
+ "Q750": ["Bolivia", "The Plurinational State of Bolivia", "Bolivia (Plurinational State of)"]
+,
+ "Q27561": ["Bonaire  Sint Eustatius  Saba", "Bonaire, Sint Eustatius and Saba", "Bonaire Sint Eustatius and Saba", "Bonaire, Saint Eustatius and Saba"]
+,
+ "Q25396": ["Bonaire"]
+,
+ "Q225": ["Bosnia and Herzegovina", "Bosnia & Herzegovina", "Bosnia And Herzegovina"]
+,
+ "Q963": ["Botswana", "The Republic of Botswana"]
+,
+ "Q23408": ["Bouvet Island"]
+,
+ "Q155": ["Brazil", "The Federative Republic of Brazil"]
+,
+ "Q43448": ["British Indian Ocean Territory", "The British Indian Ocean Territory"]
+,
+ "Q921": ["Brunei Darussalam", "The Nation of Brunei, the Abode of Peace", "Brunei", "Brunei Negara Darussalam", "Brunei_Darussalam"]
+,
+ "Q219": ["Bulgaria", "The Republic of Bulgaria"]
+,
+ "Q965": ["Burkina Faso", "Burkina_Faso"]
+,
+ "Q967": ["Burundi", "The Republic of Burundi"]
+,
+ "Q1011": ["Cabo Verde", "The Republic of Cabo Verde", "Cape Verde", "Cape_Verde"]
+,
+ "Q424": ["Cambodia", "The Kingdom of Cambodia"]
+,
+ "Q1009": ["Cameroon", "The Republic of Cameroon"]
+,
+ "Q16": ["Canada"]
+,
+ "Q5785": ["Cayman Islands", "The Cayman Islands", "Cayman Islands (UK)"]
+,
+ "Q929": ["Central African Republic", "The Central African Republic", "Central African Rep."]
+,
+ "Q657": ["Chad", "The Republic of Chad"]
+,
+ "Q42314": ["Channel Islands"]
+,
+ "Q298": ["Chile", "The Republic of Chile"]
+,
+ "Q148": ["China", "The People's Republic of China", "People's Republic of China", "China (mainland)", "China PR", "Mainland China"]
+,
+ "Q31063": ["Christmas Island", "The Territory of Christmas Island"]
+,
+ "Q36004": ["Cocos Islands", "The Territory of Cocos (Keeling) Islands", "Cocos [Keeling] Islands", "Cocos (Keeling) Islands"]
+,
+ "Q739": ["Colombia", "The Republic of Colombia"]
+,
+ "Q970": ["Cocos Islands ", "The Union of the Comoros", "Comoros"]
+,
+ "Q974": ["Congo, Democratic Republic", "The Democratic Republic of the Congo", "Congo, Dem. Rep.", "Democratic Republic of Congo", "Democratic Republic of the Congo", "DR Congo", "Congo Democratic Republic", "Congo DR", "Congo, Democratic Republic of the", "Congo [DRC]", "Congo, Democratic Republic of", "Democratic_Republic_of_the_Congo"]
+,
+ "Q971": ["Congo", "The Republic of the Congo", "Congo, Rep.", "Republic of the Congo", "Congo, Republic of the", "Congo [Republic]", "Congo, Republic of"]
+,
+ "Q26988": ["Cook Islands", "The Cook Islands", "Cook Islands (NZ)"]
+,
+ "Q800": ["Costa Rica", "The Republic of Costa Rica"]
+,
+ "Q1008": ["C\u00f4te d'Ivoire", "The Republic of C\u00f4te d'Ivoire", "Cote d'Ivoire", "Ivory Coast", "Côte d’Ivoire", "Cote dIvoire"]
+,
+ "Q224": ["Croatia", "The Republic of Croatia"]
+,
+ "Q241": ["Cuba", "The Republic of Cuba"]
+,
+ "Q25279": ["Cura\u00e7ao", "The Country of Cura\u00e7ao", "Curacao", "CuraÃ§ao"]
+,
+ "Q229": ["Cyprus", "The Republic of Cyprus", "Northern Cyprus", "CyPolitical Rightsus"]
+,
+ "Q213": ["Czechia", "The Czech Republic", "Czech Republic"]
+,
+ "Q35": ["Denmark", "The Kingdom of Denmark"]
+,
+ "Q977": ["Djibouti", "The Republic of Djibouti"]
+,
+ "Q784": ["Dominica", "The Commonwealth of Dominica"]
+,
+ "Q786": ["Dominican Republic", "The Dominican Republic", "Dominican_Republic"]
+,
+ "Q736": ["Ecuador", "The Republic of Ecuador"]
+,
+ "Q79": ["Egypt", "The Arab Republic of Egypt", "Egypt, Arab Rep."]
+,
+ "Q792": ["El Salvador", "The Republic of El Salvador", "El_Salvador"]
+,
+ "Q983": ["Equatorial Guinea", "The Republic of Equatorial Guinea"]
+,
+ "Q986": ["Eritrea", "The State of Eritrea"]
+,
+ "Q191": ["Estonia", "The Republic of Estonia"]
+,
+ "Q1050": ["Eswatini", "The Kingdom of Eswatini", "Swaziland"]
+,
+ "Q115": ["Ethiopia", "The Federal Democratic Republic of Ethiopia"]
+,
+ "Q9648": ["Falkland Islands", "The Falkland Islands", "Falkland Islands [Islas Malvinas]", "Falkland Islands (UK)", "Falkland Islands (Malvinas)"]
+,
+ "Q4628": ["Faroe Islands", "The Faroe Islands", "Faeroe Islands", "Faroe_Islands"]
+,
+ "Q712": ["Fiji", "The Republic of Fiji"]
+,
+ "Q33": ["Finland", "The Republic of Finland"]
+,
+ "Q142": ["France", "The French Republic"]
+,
+ "Q3769": ["French Guiana", "Guyane", "French Guyana", "France (French Department Of Guyana)"]
+,
+ "Q30971": ["French Polynesia", "France (French Polynesia)"]
+,
+ "Q129003": ["French Southern Territories", "The French Southern and Antarctic Lands"]
+,
+ "Q1000": ["Gabon", "The Gabonese Republic"]
+,
+ "Q1005": ["Gambia", "The Republic of The Gambia", "Gambia, The", "The Gambia"]
+,
+ "Q25231": ["Svalbard"]
+,
+ "Q14056": ["Jan Mayen"]
+,
+ "Q1867": ["Taipei", "Chinese Taipei"]
+,
+ "Q5428": ["Siberia"]
+,
+ "Q782": ["Hawaii"]
+,
+ "Q797": ["Alaska"]
+,
+ "Q230": ["Georgia"]
+,
+ "Q875134": ["European Russia", "Russia (in Europe)", "Russian Federation (Europe)"]
+,
+ "Q3844": ["Brazzaville", "Congo (Brazzaville)"]
+,
+ "Q3838": ["Kinshasa", "Congo (Kinshasa)"]
+,
+ "Q17252": ["Tibet"]
+,
+ "Q42000": ["Tahiti"]
+,
+ "Q183": ["Germany", "The Federal Republic of Germany"]
+,
+ "Q117": ["Ghana", "The Republic of Ghana"]
+,
+ "Q219060": ["Palestine, State of", "The State of Palestine", "Palestine", "Palestinian Territories", "Palestinian territories", "Palestinian territory"]
+,
+ "Q804": ["Panama", "The Republic of Panam\u00e1"]
+,
+ "Q3258": ["Australian Capital Territory"]
+,
+ "Q3224": ["New South Wales"]
+,
+ "Q3235": ["Northern Territory"]
+,
+ "Q36074": ["Queensland"]
+,
+ "Q35715": ["South Australia"]
+,
+ "Q34366": ["Tasmania"]
+,
+ "Q36687": ["Victoria"]
+,
+ "Q3206": ["Western Australia"]
+,
+ "Q1951": ["Alberta"]
+,
+ "Q1974": ["British Columbia"]
+,
+ "Q1948": ["Manitoba"]
+,
+ "Q1965": ["New Brunswick"]
+,
+ "Q2003": ["Newfoundland and Labrador"]
+,
+ "Q2007": ["Northwest Territories"]
+,
+ "Q1952": ["Nova Scotia"]
+,
+ "Q1904": ["Ontario"]
+,
+ "Q1979": ["Prince Edward Island"]
+,
+ "Q176": ["Quebec"]
+,
+ "Q1989": ["Saskatchewan"]
+,
+ "Q2009": ["Yukon"]
+,
+ "Q40956": ["Anhui"]
+,
+ "Q956": ["Beijing"]
+,
+ "Q11725": ["Chongqing"]
+,
+ "Q41705": ["Fujian"]
+,
+ "Q42392": ["Gansu"]
+,
+ "Q15175": ["Guangdong"]
+,
+ "Q15176": ["Guangxi", "Guangxi Zhuang Autonomous Region"]
+,
+ "Q47097": ["Guizhou"]
+,
+ "Q42200": ["Hainan"]
+,
+ "Q21208": ["Hebei"]
+,
+ "Q19206": ["Heilongjiang"]
+,
+ "Q43684": ["Henan"]
+,
+ "Q46862": ["Hubei"]
+,
+ "Q45761": ["Hunan"]
+,
+ "Q41079": ["Inner Mongolia"]
+,
+ "Q16963": ["Jiangsu"]
+,
+ "Q57052": ["Jiangxi"]
+,
+ "Q45208": ["Jilin"]
+,
+ "Q43934": ["Liaoning"]
+,
+ "Q57448": ["Ningxia", "Ningxia Hui Autonomous Region"]
+,
+ "Q45833": ["Qinghai"]
+,
+ "Q47974": ["Shaanxi"]
+,
+ "Q43407": ["Shandong"]
+,
+ "Q8686": ["Shanghai"]
+,
+ "Q46913": ["Shanxi"]
+,
+ "Q19770": ["Sichuan"]
+,
+ "Q11736": ["Tianjin"]
+,
+ "Q34800": ["Xinjiang"]
+,
+ "Q43194": ["Yunnan"]
+,
+ "Q16967": ["Zhejiang"]
+,
+ "Q173": ["Alabama"]
+,
+ "Q1393": ["Delaware"]
+,
+ "Q3551781": ["District of Columbia"]
+,
+ "Q812": ["Florida"]
+,
+ "Q1221": ["Idaho"]
+,
+ "Q1204": ["Illinois"]
+,
+ "Q1415": ["Indiana"]
+,
+ "Q1546": ["Iowa"]
+,
+ "Q1558": ["Kansas"]
+,
+ "Q1603": ["Kentucky"]
+,
+ "Q1588": ["Louisiana"]
+,
+ "Q724": ["Maine"]
+,
+ "Q1391": ["Maryland"]
+,
+ "Q771": ["Massachusetts"]
+,
+ "Q1166": ["Michigan"]
+,
+ "Q1527": ["Minnesota"]
+,
+ "Q1494": ["Mississippi"]
+,
+ "Q1581": ["Missouri"]
+,
+ "Q1212": ["Montana"]
+,
+ "Q1553": ["Nebraska"]
+,
+ "Q1227": ["Nevada"]
+,
+ "Q759": ["New Hampshire"]
+,
+ "Q1408": ["New Jersey"]
+,
+ "Q1522": ["New Mexico"]
+,
+ "Q1384": ["New York"]
+,
+ "Q60": ["New York City"]
+,
+ "Q1454": ["North Carolina"]
+,
+ "Q1207": ["North Dakota"]
+,
+ "Q1397": ["Ohio"]
+,
+ "Q1649": ["Oklahoma"]
+,
+ "Q824": ["Oregon"]
+,
+ "Q1400": ["Pennsylvania"]
+,
+ "Q1387": ["Rhode Island"]
+,
+ "Q1456": ["South Carolina"]
+,
+ "Q1211": ["South Dakota"]
+,
+ "Q816": ["Arizona"]
+,
+ "Q1612": ["Arkansas"]
+,
+ "Q99": ["California"]
+,
+ "Q1261": ["Colorado"]
+,
+ "Q779": ["Connecticut"]
+,
+ "Q1509": ["Tennessee"]
+,
+ "Q1439": ["Texas"]
+,
+ "Q829": ["Utah"]
+,
+ "Q16551": ["Vermont"]
+,
+ "Q1370": ["Virginia"]
+,
+ "Q1223": ["Washington"]
+,
+ "Q1371": ["West Virginia"]
+,
+ "Q1537": ["Wisconsin"]
+,
+ "Q1214": ["Wyoming"]
+,
+ "Q1156248": ["England & Wales", "England and Wales"]
+,
+ "Q646243": ["Argentine Antarctica", "Argentina (Antarctic Stations)"]
+,
+ "Q3626": ["Chilean Antarctic Territory", "Chile (Antarctic Stations)"]
+,
+ "Q23683742": ["Colombia (San Andres And Providencia Islands)", "Archipiélago de San Andrés y Providencia"]
+,
+ "Q26253": ["Madeira", "Portugal (Madeira)"]
+}

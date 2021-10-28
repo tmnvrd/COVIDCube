@@ -1,0 +1,20 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  eg:dataset-gross_national_income;
+    eg:refPeriod eg:Interval2019;
+    eg-measure:gni_per_capita ?data ;
+    eg:refArea ?egID;
+}
+FROM <file:gross_national_income.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:gross_national_income-o1', ?id_row)) AS ?obs)
+  BIND (URI(CONCAT('eg:',?ID)) AS ?egID)
+  BIND (xsd:decimal(?percapita) AS ?data)
+}

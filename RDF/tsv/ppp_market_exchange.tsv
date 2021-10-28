@@ -1,0 +1,191 @@
+Country	Factor2018	Factor2019	ID	id_row
+Afghanistan	0.2	0.2	Q889	0
+Albania	0.4	0.4	Q222	1
+Algeria	0.4	0.3	Q262	2
+Angola	0.5	0.4	Q916	3
+Antigua and Barbuda	0.8	0.8	Q781	4
+Argentina	0.5	0.4	Q414	5
+Armenia	0.3	0.3	Q399	6
+Aruba	0.8	0.8	Q21203	7
+Australia	1.1	1.0	Q408	8
+Austria	0.9	0.9	Q40	9
+Azerbaijan	0.3	0.3	Q227	10
+Bahamas, The	0.9	0.9	Q778	11
+Bahrain	0.5	0.5	Q398	12
+Bangladesh	0.4	0.4	Q902	13
+Barbados	1.1	1.1	Q244	14
+Belarus	0.3	0.3	Q184	15
+Belgium	0.9	0.8	Q31	16
+Belize	0.7	0.7	Q242	17
+Benin	0.4	0.4	Q962	18
+Bhutan	0.3	0.3	Q917	19
+Bolivia	0.4	0.4	Q750	20
+Bosnia and Herzegovina	0.4	0.4	Q225	21
+Botswana	0.5	0.4	Q963	22
+Brazil	0.6	0.6	Q155	23
+Brunei Darussalam	0.5	0.5	Q921	24
+Bulgaria	0.4	0.4	Q219	25
+Burkina Faso	0.4	0.3	Q965	26
+Burundi	0.3	0.3	Q967	27
+Cabo Verde	0.5	0.5	Q1011	28
+Cambodia	0.4	0.4	Q424	29
+Cameroon	0.4	0.4	Q1009	30
+Canada	0.9	0.9	Q16	31
+Cayman Islands	1.2	1.2	Q5785	32
+Central African Republic	0.5	0.5	Q929	33
+Chad	0.5	0.4	Q657	34
+Chile	0.6	0.6	Q298	35
+China	0.6	0.6	Q148	36
+Hong Kong SAR, China	0.8	0.8	Q8646	37
+Macao SAR, China	0.6	0.7	Q14773	38
+Colombia	0.4	0.4	Q739	39
+Comoros	0.5	0.4	Q970	40
+Congo, Dem. Rep.	0.5	0.5	Q974	41
+Congo, Rep.	0.6	0.6	Q971	42
+Costa Rica	0.6	0.6	Q800	43
+Cote d'Ivoire	0.4	0.4	Q1008	44
+Croatia	0.5	0.5	Q224	45
+Curacao	0.8	0.8	Q25279	46
+Cyprus	0.7	0.7	Q229	47
+Czech Republic	0.6	0.5	Q213	48
+Denmark	1.1	1.0	Q35	49
+Djibouti	0.6	0.6	Q977	50
+Dominica	0.7	0.7	Q784	51
+Dominican Republic	0.4	0.4	Q786	52
+Ecuador	0.5	0.5	Q736	53
+Egypt, Arab Rep.	0.2	0.2	Q79	54
+El Salvador	0.5	0.5	Q792	55
+Equatorial Guinea	0.5	0.4	Q983	56
+Eritrea	0.4	0.4	Q986	57
+Estonia	0.6	0.6	Q191	58
+Ethiopia	0.4	0.4	Q115	59
+Fiji	0.4	0.4	Q712	60
+Finland	1.0	0.9	Q33	61
+France	0.9	0.8	Q142	62
+Gabon	0.5	0.5	Q1000	63
+Gambia, The	0.3	0.3	Q1005	64
+Georgia	0.3	0.3	Q230	65
+Germany	0.9	0.8	Q183	66
+Ghana	0.4	0.4	Q117	67
+Greece	0.7	0.6	Q41	68
+Grenada	0.6	0.6	Q769	69
+Guatemala	0.5	0.5	Q774	70
+Guinea	0.4	0.4	Q1006	71
+Guinea-Bissau	0.4	0.3	Q1007	72
+Guyana	0.5	0.5	Q734	73
+Haiti	0.5	0.4	Q790	74
+Honduras	0.4	0.4	Q783	75
+Hungary	0.5	0.5	Q28	76
+Iceland	1.3	1.1	Q189	77
+India	0.3	0.3	Q668	78
+Indonesia	0.3	0.3	Q252	79
+Iran, Islamic Rep.	0.4	0.4	Q794	80
+Iraq	0.5	0.5	Q796	81
+Ireland	0.9	0.9	Q27	82
+Israel	1.0	1.0	Q801	83
+Italy	0.8	0.8	Q38	84
+Jamaica	0.5	0.5	Q766	85
+Japan	0.9	0.9	Q17	86
+Jordan	0.4	0.4	Q810	87
+Kazakhstan	0.4	0.4	Q232	88
+Kenya	0.4	0.4	Q114	89
+Kiribati	0.7	0.7	Q710	90
+Korea, Rep.	0.8	0.7	Q884	91
+Kosovo	0.4	0.4	Q1246	92
+Kuwait	0.7	0.6	Q817	93
+Kyrgyz Republic	0.2	0.2	Q813	94
+Lao PDR	0.3	0.3	Q819	95
+Latvia	0.6	0.6	Q211	96
+Lebanon	0.5	0.5	Q822	97
+Lesotho	0.4	0.4	Q1013	98
+Liberia	0.4	0.4	Q1014	99
+Libya	0.5	0.5	Q1016	100
+Lithuania	0.5	0.5	Q37	101
+Luxembourg	1.0	0.9	Q32	102
+North Macedonia	0.4	0.3	Q221	103
+Madagascar	0.3	0.3	Q1019	104
+Malawi	0.4	0.4	Q1020	105
+Malaysia	0.4	0.4	Q833	106
+Maldives	0.5	0.5	Q826	107
+Mali	0.4	0.4	Q912	108
+Malta	0.7	0.6	Q233	109
+Marshall Islands	1.0	1.0	Q709	110
+Mauritania	0.3	0.3	Q1025	111
+Mauritius	0.5	0.5	Q1027	112
+Mexico	0.5	0.5	Q96	113
+Micronesia, Fed. Sts.	1.0	1.0	Q702	114
+Moldova	0.3	0.3	Q217	115
+Mongolia	0.3	0.3	Q711	116
+Montenegro	0.4	0.4	Q236	117
+Morocco	0.4	0.4	Q1028	118
+Mozambique	0.4	0.4	Q1029	119
+Namibia	0.5	0.5	Q1030	120
+Nepal	0.3	0.3	Q837	121
+Netherlands	0.9	0.9	Q55	122
+New Zealand	1.0	1.0	Q664	123
+Nicaragua	0.3	0.3	Q811	124
+Niger	0.5	0.4	Q1032	125
+Nigeria	0.4	0.4	Q1033	126
+Norway	1.2	1.1	Q20	127
+Oman	0.6	0.5	Q842	128
+Pakistan	0.3	0.3	Q843	129
+Palau	0.9	0.9	Q695	130
+Panama	0.5	0.5	Q804	131
+Papua New Guinea	0.6	0.6	Q691	132
+Paraguay	0.4	0.4	Q733	133
+Peru	0.5	0.5	Q419	134
+Philippines	0.4	0.4	Q928	135
+Poland	0.5	0.5	Q36	136
+Portugal	0.7	0.6	Q45	137
+Puerto Rico	0.9	0.9	Q1183	138
+Qatar	0.7	0.7	Q846	139
+Romania	0.4	0.4	Q218	140
+Russian Federation	0.4	0.4	Q159	141
+Rwanda	0.4	0.3	Q1037	142
+Samoa	0.6	0.6	Q683	143
+San Marino	0.8	0.8	Q238	144
+Sao Tome and Principe	0.5	0.5	Q1039	145
+Saudi Arabia	0.5	0.5	Q851	146
+Senegal	0.4	0.4	Q1041	147
+Serbia	0.4	0.4	Q403	148
+Seychelles	0.6	0.6	Q1042	149
+Sierra Leone	0.3	0.3	Q1044	150
+Singapore	0.7	0.6	Q334	151
+Slovak Republic	0.6	0.6	Q214	152
+Slovenia	0.7	0.6	Q215	153
+Solomon Islands	0.9	0.9	Q685	154
+South Africa	0.5	0.5	Q258	155
+Spain	0.7	0.7	Q29	156
+Sri Lanka	0.3	0.3	Q854	157
+St. Kitts and Nevis	0.7	0.7	Q763	158
+St. Lucia	0.7	0.7	Q760	159
+St. Vincent and the Grenadines	0.6	0.6	Q757	160
+Sudan	0.1	0.1	Q1049	161
+Suriname	0.4	0.4	Q730	162
+Eswatini	0.5	0.4	Q1050	163
+Sweden	1.0	0.9	Q34	164
+Switzerland	1.2	1.2	Q39	165
+Tajikistan	0.2	0.2	Q863	166
+Tanzania	0.4	0.4	Q924	167
+Thailand	0.4	0.4	Q869	168
+Timor-Leste	0.4	0.4	Q574	169
+Togo	0.4	0.4	Q945	170
+Tonga	0.7	0.7	Q678	171
+Trinidad and Tobago	0.6	0.6	Q754	172
+Tunisia	0.3	0.3	Q948	173
+Turkey	0.3	0.3	Q43	174
+Turkmenistan	0.5	0.5	Q874	175
+Turks and Caicos Islands	1.0	1.0	Q18221	176
+Tuvalu	0.9	0.9	Q672	177
+Uganda	0.4	0.3	Q1036	178
+Ukraine	0.2	0.3	Q212	179
+United Arab Emirates	0.6	0.6	Q878	180
+United Kingdom	0.9	0.9	Q145	181
+United States	1.0	1.0	Q30	182
+Uruguay	0.8	0.7	Q77	183
+Uzbekistan	0.2	0.2	Q265	184
+Vanuatu	1.0	0.9	Q686	185
+Vietnam	0.3	0.3	Q881	186
+West Bank and Gaza	0.6	0.6	Q407199	187
+Zambia	0.4	0.4	Q953	188
+Zimbabwe	0.5	0.5	Q954	189

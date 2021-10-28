@@ -1,0 +1,98 @@
+Country	GDPwateruse	urban	Rural	ID	id_row
+Albania	7.0	91.8	89.9	Q222	0
+Algeria	22.0	95.4	88.7	Q262	1
+Argentina	12.0	99.6	93.0	Q414	2
+Armenia	4.0	99.9	100.0	Q399	3
+Australia	78.0	100.0	100.0	Q408	4
+Austria	112.0	100.0	100.0	Q40	5
+Azerbaijan	4.0	99.3	81.6	Q227	6
+Bangladesh	3.0	97.5	96.8	Q902	7
+Belarus	41.0	96.0	98.3	Q184	8
+Belgium	78.0	100.0	100.0	Q31	9
+Bhutan	4.0	98.0	96.7	Q917	10
+Bolivia	9.0	99.4	78.1	Q750	11
+Bosnia and Herzegovina	54.0	94.8	97.3	Q225	12
+Brazil	30.0	99.5	89.7	Q155	13
+Bulgaria	10.0	99.5	98.0	Q219	14
+Cambodia	4.0	97.3	72.9	Q424	15
+Canada	40.0	99.6	98.9	Q16	16
+Chile	5.0	99.8	100.0	Q298	17
+China	15.0	97.7	86.2	Q148	18
+Colombia	23.0	99.9	86.4	Q739	19
+Costa Rica	18.0	99.7	99.5	Q800	20
+Croatia	91.0	99.6	99.6	Q224	21
+Cuba	10.0	96.8	90.3	Q241	22
+Cyprus	105.0	99.5	99.7	Q229	23
+Czech Republic	126.0	99.9	99.8	Q213	24
+Denmark	513.0	100.0	100.0	Q35	25
+Dominican Republic	8.0	98.3	90.3	Q786	26
+Egypt, Arab Rep.	3.0	99.5	98.8	Q79	27
+Estonia	13.0	100.0	99.2	Q191	28
+Ethiopia	5.0	80.3	31.1	Q115	29
+Finland	38.0	100.0	100.0	Q33	30
+France	91.0	100.0	100.0	Q142	31
+Georgia	7.0	100.0	96.2	Q230	32
+Germany	103.0	100.0	100.0	Q183	33
+Greece	35.0	100.0	100.0	Q41	34
+Guatemala	11.0	97.9	90.4	Q774	35
+Guyana	2.0	100.0	93.9	Q734	36
+Haiti	5.0	84.6	42.6	Q790	37
+Hungary	26.0	100.0	100.0	Q28	38
+Iceland	57.0	100.0	100.0	Q189	39
+India	3.0	96.0	91.0	Q668	40
+Ireland	288.0	97.0	98.1	Q27	41
+Italy	41.0	99.5	99.4	Q38	42
+Jamaica	17.0	95.5	84.6	Q766	43
+Jordan	28.0	99.1	97.7	Q810	44
+Kazakhstan	7.0	98.1	92.3	Q232	45
+Kenya	12.0	84.6	49.6	Q114	46
+Kyrgyz Republic	1.0	97.1	82.0	Q813	47
+Latvia	114.0	98.8	98.2	Q211	48
+Lithuania	63.0	99.8	92.8	Q37	49
+Luxembourg	1308.0	100.0	98.8	Q32	50
+North Macedonia	16.0	90.6	96.6	Q221	51
+Madagascar	1.0	85.8	36.3	Q1019	52
+Maldives	553.0	98.3	99.9	Q826	53
+Mali	2.0	92.2	68.3	Q912	54
+Malta	427.0	100.0	100.0	Q233	55
+Mexico	14.0	100.0	96.6	Q96	56
+Moldova	6.0	97.0	83.2	Q217	57
+Mongolia	12.0	96.0	55.9	Q711	58
+Montenegro	26.0	95.9	99.3	Q236	59
+Morocco	9.0	96.7	70.7	Q1028	60
+Mozambique	11.0	84.3	40.0	Q1029	61
+Nepal	1.0	89.1	88.7	Q837	62
+Netherlands	79.0	100.0	100.0	Q55	63
+New Zealand	28.0	100.0	100.0	Q664	64
+Nicaragua	6.0	97.6	59.1	Q811	65
+Nigeria	29.0	87.5	55.6	Q1033	66
+Norway	142.0	100.0	100.0	Q20	67
+Pakistan	1.0	94.2	89.9	Q843	68
+Panama	28.0	98.1	92.9	Q804	69
+Paraguay	12.0	99.9	99.2	Q733	70
+Peru	10.0	95.6	75.6	Q419	71
+Philippines	2.0	97.7	90.0	Q928	72
+Poland	45.0	99.8	99.5	Q36	73
+Portugal	26.0	100.0	99.7	Q45	74
+Romania	28.0	100.0	100.0	Q218	75
+Russian Federation	28.0	98.6	92.6	Q159	76
+Serbia	11.0	83.3	88.4	Q403	77
+Slovak Republic	175.0	99.6	100.0	Q214	78
+Slovenia	40.0	99.7	99.4	Q215	79
+South Africa	26.0	98.9	80.7	Q258	80
+South Sudan	21.0	64.8	34.9	Q958	81
+Spain	37.0	99.9	100.0	Q29	82
+St. Lucia	33.0	97.8	98.2	Q760	83
+Sudan	2.0	73.8	53.2	Q1049	84
+Suriname	6.0	98.2	90.0	Q730	85
+Sweden	184.0	100.0	100.0	Q34	86
+Switzerland	299.0	100.0	100.0	Q39	87
+Tajikistan	0.0	96.2	75.6	Q863	88
+Thailand	5.0	99.9	100.0	Q869	89
+Tunisia	13.0	99.7	88.7	Q948	90
+Turkey	18.0	98.6	99.6	Q43	91
+Uganda	37.0	75.1	41.3	Q1036	92
+Ukraine	9.0	91.3	99.4	Q212	93
+United Kingdom	318.0	100.0	100.0	Q145	94
+United States	36.0	99.8	97.0	Q30	95
+Zimbabwe	3.0	94.0	49.8	Q954	96

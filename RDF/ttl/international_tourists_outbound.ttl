@@ -1,0 +1,1505 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2018
+        a                  time:Interval ;
+        rdfs:label         "2018" ;
+        time:hasBeginning  "2018"^^xsd:gYear ;
+        time:hasEnd        "2018"^^xsd:gYear .
+
+c19-dimension:refArea
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference area"@en ;
+        rdfs:subPropertyOf  sdmx-dimension:refArea ;
+        qb:concept          sdmx-concept:refArea .
+
+c19-dimension:refPeriod
+        a                   rdf:Property , qb:DimensionProperty ;
+        rdfs:label          "reference period"@en ;
+        rdfs:range          interval:Interval ;
+        rdfs:subPropertyOf  sdmx-dimension:refPeriod ;
+        qb:concept          sdmx-concept:refPeriod .
+
+c19-interval:Year2012
+        a                  time:Interval ;
+        rdfs:label         "2012" ;
+        time:hasBeginning  "2012"^^xsd:gYear ;
+        time:hasEnd        "2012"^^xsd:gYear .
+
+c19-measure:outboundTourists
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Outbound Tourists"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19-structure:dsd-internationalTouristsOutbound
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:outboundTourists ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals ] .
+
+c19:internationalTouristsOutbound-o00
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q222 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  3959.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:dataset-internationalTouristsOutbound
+        a                qb:Dataset ;
+        rdfs:comment     "The World Bank: 6.14 | Travel and tourism"@en ;
+        rdfs:label       "international_tourists_outbound"@en ;
+        dct:description  "International outbound tourists are the number of departures that people make from their country of usual residence to any other country for any purpose other than a remunerated activity in the country visited. The data on outbound tourists refer to the number of departures, not to the number of people traveling. Thus a person who makes several trips from a country during a given period is counted each time as a new departure."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/6.14> ;
+        dct:title        "International tourists: Outbound"@en ;
+        qb:structure     c19-structure:dsd-internationalTouristsOutbound .
+
+c19:internationalTouristsOutbound-o01
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q262 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1911.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o02
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q414 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  7266.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o03
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q399 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  965.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o04
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q408 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  8212.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o05
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q40 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  10960.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o06
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q227 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2829.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o07
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q184 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  493.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o08
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q31 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  9576.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o09
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q750 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  788.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o010
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q155 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  8497.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o011
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q219 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  3758.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o012
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q424 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  792.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o013
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q16 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  32276.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o014
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q298 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2837.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o015
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q148 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  83182.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o016
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q8646 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  85276.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o017
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q14773 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1291.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o018
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q739 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  3169.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o019
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q800 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  773.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o020
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q224 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2680.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o021
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q229 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1194.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o022
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q213 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  5419.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o023
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q35 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  7843.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o024
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q786 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  418.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o025
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q736 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1022.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o026
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q792 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1163.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o027
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q191 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1147.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o028
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q712 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  132.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o029
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q33 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  9055.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o030
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q142 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  25317.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o031
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q30971 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  83.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o032
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q230 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2734.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o033
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q183 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  82729.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o034
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q41 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  4681.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o035
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q774 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  580.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o036
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q28 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  4881.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o037
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q189 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  358.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o038
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q668 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  14920.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o039
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q252 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  7454.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o040
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q27 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  6600.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o041
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q801 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  4349.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o042
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q38 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  27376.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o043
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q17 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  18491.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o044
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q810 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1567.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o045
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q884 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  13737.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o046
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q813 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  3621.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o047
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q819 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2052.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o048
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q211 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1398.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o049
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q37 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1708.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o050
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q32 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1580.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o051
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q233 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  331.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o052
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1027 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  237.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o053
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q96 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  15581.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o054
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q217 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  147.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o055
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1028 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2323.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o056
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q55 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  18628.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o057
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q33788 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  121.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o058
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q664 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2172.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o059
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q811 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  979.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o060
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q20 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  9250.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o061
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q842 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2888.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o062
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q804 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  447.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o063
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q733 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  400.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o064
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q419 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2296.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o065
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q36 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  9300.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o066
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q45 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1361.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o067
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q218 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  11149.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o068
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q159 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  47813.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o069
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q683 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  56.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o070
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q851 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  18671.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o071
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1042 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  45.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o072
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1044 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  104.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o073
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q334 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  8048.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o074
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q215 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2474.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o075
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q29 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  12422.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o076
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q854 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1269.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o077
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1050 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1403.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o078
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q39 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  12098.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o079
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q863 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  15.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o080
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q869 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  5721.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o081
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q948 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  2897.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o082
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q43 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  5803.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o083
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q212 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  21433.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o084
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q145 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  54604.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o085
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q30 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  60697.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o086
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q77 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  1816.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o087
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q686 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  23.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o088
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q954 ;
+        c19-dimension:refPeriod       c19-interval:Year2012 ;
+        c19-measure:outboundTourists  720.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o10
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q222 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  5415.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o11
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q262 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  5610.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o12
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q414 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  11130.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o13
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q399 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1623.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o14
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q408 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  11403.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o15
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q40 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  11883.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o16
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q227 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3919.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o17
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q184 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  836.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o18
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q31 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  13098.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o19
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q750 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1060.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o110
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q155 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  10628.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o111
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q219 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  6699.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o112
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q424 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1995.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o113
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q16 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  26033.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o114
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q298 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3825.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o115
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q148 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  149720.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o116
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q8646 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  92214.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o117
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q14773 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1579.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o118
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q739 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  4368.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o119
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q800 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1079.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o120
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q224 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  2058.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o121
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q229 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1446.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o122
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q213 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  7390.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o123
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q35 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  7475.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o124
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q786 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  514.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o125
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q736 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1402.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o126
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q792 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1260.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o127
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q191 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  2069.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o128
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q712 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  174.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o129
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q33 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  9450.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o130
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q142 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  26914.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o131
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q30971 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  47.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o132
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q230 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3698.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o133
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q183 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  108542.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o134
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q41 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  7961.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o135
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q774 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1227.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o136
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q28 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  8649.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o137
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q189 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  668.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o138
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q668 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  26296.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o139
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q252 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  9468.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o140
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q27 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  8643.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o141
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q801 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  8473.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o142
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q38 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  33347.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o143
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q17 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  18954.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o144
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q810 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1501.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o145
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q884 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  28696.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o146
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q813 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  6839.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o147
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q819 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3207.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o148
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q211 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1368.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o149
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q37 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  2244.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o150
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q32 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1989.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o151
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q233 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  667.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o152
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1027 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  296.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o153
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q96 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  19748.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o154
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q217 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  264.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o155
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1028 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1923.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o156
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q55 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  22115.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o157
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q33788 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  139.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o158
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q664 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3038.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o159
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q811 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  974.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o160
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q20 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  8110.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o161
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q842 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3350.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o162
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q804 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  681.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o163
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q733 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1266.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o164
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q419 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3078.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o165
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q36 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  12800.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o166
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q45 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  2486.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o167
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q218 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  21039.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o168
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q159 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  41964.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o169
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q683 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  64.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o170
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q851 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  21866.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o171
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1042 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  72.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o172
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1044 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  112.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o173
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q334 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  9889.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o174
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q215 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  3188.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o175
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q29 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  19116.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o176
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q854 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1476.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o177
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q1050 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1717.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o178
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q39 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  15285.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o179
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q863 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  31.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o180
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q869 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  9966.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o181
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q948 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  2515.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o182
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q43 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  8383.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o183
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q212 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  27811.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o184
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q145 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  70386.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o185
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q30 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  92564.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o186
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q77 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  1947.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o187
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q686 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  29.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .
+
+c19:internationalTouristsOutbound-o188
+        a                             qb:Observation ;
+        c19-dimension:refArea         wd:Q954 ;
+        c19-dimension:refPeriod       c19-interval:Year2018 ;
+        c19-measure:outboundTourists  2987.0 ;
+        qb:dataSet                    c19:dataset-internationalTouristsOutbound ;
+        sdmx-attribute:decimals       1 .

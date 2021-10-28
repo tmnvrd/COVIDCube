@@ -1,0 +1,1912 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix c19:   <http://example.org/ns#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix c19-dimension: <http://example.org/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix c19-unit: <http://example.org/unit#> .
+@prefix c19-interval: <http://example.org/interval#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix c19-measure: <http://example.org/measure#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix c19-structure: <http://example.org/structure#> .
+@prefix ex:    <http://ex.org/a#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+c19-interval:Year2017
+        a                  time:Interval ;
+        rdfs:label         "2017" ;
+        time:hasBeginning  "2017"^^xsd:gYear ;
+        time:hasEnd        "2017"^^xsd:gYear .
+
+c19:dataset-external_health_expenditure
+        a                qb:Dataset ;
+        rdfs:comment     "12.2 | World Development Indicators: Health systems"@en ;
+        rdfs:label       "external_health_expenditure"@en ;
+        dct:description  "Share of current health expenditures funded from external sources. External sources compose of direct foreign transfers and foreign transfers distributed by government encompassing all financial inflows into the national health system from outside the country. External sources either flow through the government scheme or are channeled through non-governmental organizations or other schemes."@en ;
+        dct:issued       "2020-09-22"^^xsd:date ;
+        dct:publisher    wd:Q7164 ;
+        dct:source       <http://wdi.worldbank.org/table/2.12> ;
+        dct:title        "External health expenditure"@en ;
+        qb:structure     c19-structure:dsd-external_health_expenditure .
+
+c19-structure:dsd-external_health_expenditure
+        a             qb:DataStructureDefinition ;
+        qb:component  [ qb:dimension  c19-dimension:refArea ;
+                        qb:order      2
+                      ] ;
+        qb:component  [ qb:dimension  c19-dimension:refPeriod ;
+                        qb:order      1
+                      ] ;
+        qb:component  [ qb:measure  c19-measure:externalHealthExpenditure ] ;
+        qb:component  [ qb:attribute  sdmx-attribute:decimals , sdmx-attribute:unitMultiplier ] .
+
+c19-measure:externalHealthExpenditure
+        a                   rdf:Property , qb:MeasureProperty ;
+        rdfs:label          "Percent of current external health expenditure"@en ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  sdmx-measure:obsValue .
+
+c19:externalHealthExpenditure-o00
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q889 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                19.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o01
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q262 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o02
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q228 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o03
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q916 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                3.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o04
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q781 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o05
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q414 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o06
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q399 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o07
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q408 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o08
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q40 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o09
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q227 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o010
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q778 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o011
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q398 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o012
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q902 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                6.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o013
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q244 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o014
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q184 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o015
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q31 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o016
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q242 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o017
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q962 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                19.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o018
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q917 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                11.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o019
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q750 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o020
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q225 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o021
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q963 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                9.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o022
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q155 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o023
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q921 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o024
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q219 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o025
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q965 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                18.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o026
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q967 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                31.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o027
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1011 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                8.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o028
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q424 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                15.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o029
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1009 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o030
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q16 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o031
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q929 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                55.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o032
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q657 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                21.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o033
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q298 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o034
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q148 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o035
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q739 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o036
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q970 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                11.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o037
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q974 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                42.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o038
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q971 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o039
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q800 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o040
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1008 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                13.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o041
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q224 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o042
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q241 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o043
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q229 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o044
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q213 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o045
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q35 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o046
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q977 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                25.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o047
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q784 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                3.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o048
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q786 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o049
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q736 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o050
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q79 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o051
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q792 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o052
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q983 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o053
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q986 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                13.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o054
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q191 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o055
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1050 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                23.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o056
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q115 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                22.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o057
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q712 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o058
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q33 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o059
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q142 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o060
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1000 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o061
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1005 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                42.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o062
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q230 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o063
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q183 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o064
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q117 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                14.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o065
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q41 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o066
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q769 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.9 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o067
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q774 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o068
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1006 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                13.9 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o069
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1007 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                16.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o070
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q734 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                4.9 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o071
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q790 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                43.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o072
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q783 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                5.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o073
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q28 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o074
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q189 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o075
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q668 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o076
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q252 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o077
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q794 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o078
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q796 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o079
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q27 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o080
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q801 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o081
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q38 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o082
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q766 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o083
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q17 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o084
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q810 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                9.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o085
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q232 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o086
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q114 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                17.9 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o087
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q710 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                21.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o088
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q884 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o089
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q817 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o090
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q813 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                5.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o091
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q819 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                16.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o092
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q211 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o093
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q822 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o094
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1013 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                20.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o095
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1014 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                28.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o096
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q37 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o097
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q32 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o098
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1019 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                23.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o099
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1020 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                52.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0100
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q833 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0101
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q826 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0102
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q912 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                28.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0103
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q233 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0104
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q709 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                45.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0105
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1025 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0106
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1027 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0107
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q96 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0108
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q702 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                71.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0109
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q217 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                4.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0110
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q235 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0111
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q711 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0112
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1028 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0113
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1029 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                61.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0114
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q836 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                9.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0115
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1030 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                4.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0116
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q837 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                15.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0117
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q55 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0118
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q664 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0119
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q811 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0120
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1032 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                16.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0121
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1033 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.9 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0122
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q221 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0123
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q20 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0124
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q842 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0125
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q843 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0126
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q695 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                14.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0127
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q804 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0128
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q691 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                15.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0129
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q733 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0130
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q419 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0131
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q928 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0132
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q36 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0133
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q45 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0134
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q846 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0135
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q218 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0136
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q159 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0137
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1037 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                50.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0138
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q683 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                13.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0139
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q238 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0140
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1039 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                38.9 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0141
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q851 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0142
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1041 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                16.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0143
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q403 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0144
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1042 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0145
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1044 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                18.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0146
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q334 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0147
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q214 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0148
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q215 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0149
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q685 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                23.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0150
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q258 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0151
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q958 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                68.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0152
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q29 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0153
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q854 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0154
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q763 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0155
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q760 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0156
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q757 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0157
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1049 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                5.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0158
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q730 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.3 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0159
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q34 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0160
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q39 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0161
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q863 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0162
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q924 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                31.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0163
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q869 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0164
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q574 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                22.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0165
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q945 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                13.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0166
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q678 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                27.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0167
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q754 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0168
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q948 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.4 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0169
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q43 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0170
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q874 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.1 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0171
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q672 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                26.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0172
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q1036 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                42.5 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0173
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q212 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                1.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0174
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q878 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0175
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q145 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0176
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q30 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0177
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q77 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0178
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q265 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0179
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q686 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                26.2 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0180
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q717 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                0.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0181
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q881 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                2.0 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0182
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q805 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                7.8 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0183
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q953 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                42.6 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .
+
+c19:externalHealthExpenditure-o0184
+        a                              qb:Observation ;
+        c19-dimension:refArea          wd:Q954 ;
+        c19-dimension:refPeriod        c19-interval:Year2017 ;
+        c19-measure:externalHealthExpenditure
+                14.7 ;
+        qb:dataSet                     c19:dataset-external_health_expenditure ;
+        sdmx-attribute:decimals        1 ;
+        sdmx-attribute:unitMultiplier  -2 .

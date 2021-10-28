@@ -1,0 +1,20 @@
+PREFIX ex: <http://ex.org/a#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX eg: <http://example.org/ns#>
+PREFIX eg-measure: <http://example.org/measure#>
+PREFIX sdmx-dimension: <http://ex.org/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+CONSTRUCT { 
+  ?obs a qb:Observation;
+    qb:dataSet  eg:dataset-surface_area;
+    eg:refPeriod eg:Interval2019;
+    eg-measure:surface-area ?data ;
+    eg:refArea ?egID;
+}
+FROM <file:surface_area.tsv> 
+WHERE {
+  BIND (URI(CONCAT('eg:surface_area-o0', ?id_row)) AS ?obs)
+  BIND (URI(CONCAT('eg:',?ID)) AS ?egID)
+  BIND (xsd:decimal(?Surfacearea) AS ?data)
+}

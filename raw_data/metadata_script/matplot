@@ -1,0 +1,521 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ROOT_DIR = os.getcwd()\n",
+    "print(ROOT_DIR)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas\n",
+    "import os\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ROOT_DIR = os.getcwd()\n",
+    "print(ROOT_DIR)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# step into dataset directory\n",
+    "os.chdir(\"train\")\n",
+    "DIRS = os.listdir(os.getcwd())\n",
+    "print('Dataset folder:', DIRS)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# step into dataset directory\n",
+    "os.chdir(\"Data\")\n",
+    "DIRS = os.listdir(os.getcwd())\n",
+    "print('Dataset folder:', DIRS)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# step into dataset directory\n",
+    "\n",
+    "DIRS = os.listdir(os.getcwd())\n",
+    "print('Dataset folder:', DIRS)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for DIR in DIRS:\n",
+    "    if os.path.isdir(DIR):\n",
+    "        os.chdir(DIR)\n",
+    "        print(\"Currently in subdirectory:\", DIR)\n",
+    "        #print('Files to convert:',os.listdir(os.getcwd()))\n",
+    "\n",
+    "        for filename in os.listdir(os.getcwd()):\n",
+    "            print(filename)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if os.path.isdir(DIR):\n",
+    "    os.chdir('key_names.txt')\n",
+    "    print(\"Currently in subdirectory:\", DIR)\n",
+    "    #print('Files to convert:',os.listdir(os.getcwd()))\n",
+    "\n",
+    "    for filename in os.listdir(os.getcwd()):\n",
+    "        print(filename)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "path = '/home/tamara/Documents/U/Memoria/memoria/Script/key_names.txt'\n",
+    "# Now change the directory\n",
+    "os.chdir( path )\n",
+    "\n",
+    "# Check current working directory.\n",
+    "retval = os.getcwd()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "path = '/home/tamara/Documents/U/Memoria/memoria/Script'\n",
+    "# Now change the directory\n",
+    "os.chdir( path )\n",
+    "\n",
+    "# Check current working directory.\n",
+    "retval = os.getcwd()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "path = '/home/tamara/Documents/U/Memoria/memoria/Script'\n",
+    "# Now change the directory\n",
+    "os.chdir( path )\n",
+    "\n",
+    "# Check current working directory.\n",
+    "retval = os.getcwd()\n",
+    "\n",
+    "print \"Directory changed successfully %s\" % retval"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ROOT_DIR = os.getcwd()\n",
+    "print(ROOT_DIR)\n",
+    "filename = 'key_names.txt'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        #reads line by line\n",
+    "        labels = re.split(': |, |:|,|\\n', line)\n",
+    "        print(labels)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas\n",
+    "import os\n",
+    "import numpy as np\n",
+    "import re"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        #reads line by line\n",
+    "        labels = re.split(': |, |:|,|\\n', line)\n",
+    "        print(labels)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        #reads line by line\n",
+    "        labels = re.split('\\n', line)\n",
+    "        print(labels)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import os\n",
+    "import numpy as np\n",
+    "import re"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        data = pd.from_csv(line+'.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import os\n",
+    "import numpy as np\n",
+    "import re"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        data = pd.from_csv(line+'.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ROOT_DIR = os.getcwd()\n",
+    "print(ROOT_DIR)\n",
+    "filename = 'key_names.txt'\n",
+    "path_data = '/home/tamara/Documents/U/Memoria/memoria/Data/COVID-19_non_related'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        data = pd.from_csv(path_data + line + '.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ROOT_DIR = os.getcwd()\n",
+    "print(ROOT_DIR)\n",
+    "filename = 'key_names.txt'\n",
+    "path_data = '/home/tamara/Documents/U/Memoria/memoria/Data/COVID-19_non_related/'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ROOT_DIR = os.getcwd()\n",
+    "print(ROOT_DIR)\n",
+    "filename = 'key_names.txt'\n",
+    "path_data = '/home/tamara/Documents/U/Memoria/memoria/Data/COVID-19_non_related/'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        print(line)\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        print(line)\n",
+    "        line = line.rstrip('\\n')\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        print(line)\n",
+    "        line = line.rstrip('\\n')\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')\n",
+    "        data.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        print(line)\n",
+    "        line = line.rstrip('\\n')\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')\n",
+    "        data.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def distribution(data):\n",
+    "    # BORRAR LOS NA\n",
+    "    print('Original shape', data.shape)\n",
+    "    data.dropna(axis=0, inplace=True)\n",
+    "    data = data.reset_index(drop=True)\n",
+    "    print('After dropna', data.shape)\n",
+    "    data.hist()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.hist()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for col in data.columns: \n",
+    "    print(col) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for col in data.columns: \n",
+    "    if col != 'Country':\n",
+    "        print(col)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for col in data.columns: \n",
+    "    if col != 'Country':\n",
+    "        data.hist(column = col)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.loc[:, col]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.loc[:, col].hist()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.loc[:, col].plot.hist(stacked=True, bins=20)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(filename) as f:\n",
+    "    for line in f:\n",
+    "        print(line)\n",
+    "        line = line.rstrip('\\n')\n",
+    "        data = pd.read_csv(path_data + line + '.tsv', sep='\\t')\n",
+    "        data.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.loc[:, col].plot.hist(stacked=True, bins=20)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.loc[:, col].hist(stacked=True, bins=20)"
+   ]
+  }
+ ],
+ "metadata": {},
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

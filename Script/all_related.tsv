@@ -1,0 +1,16 @@
+Variable	Key name	Header	Unit of measurement	Date of access	Owner	Comment
+Confirmed global	CSSE_confirmed_global	Province/State, Country, 1/22/20, ..., 10/27/20	N°	28/10/2020	CSSE	https://github.com/CSSEGISandData/COVID-19
+Deaths global	CSSE_deaths_global	Province/State, Country, 1/22/20, ..., 10/27/20	N°	28/10/2020	CSSE	https://github.com/CSSEGISandData/COVID-19
+Recovered global	CSSE_recovered_global	Province/State, Country, 1/22/20, ..., 10/27/20	N°	28/10/2020	CSSE	https://github.com/CSSEGISandData/COVID-19
+Excess mortality P-scores, all ages %	excess-mortality-p-scores	Country; Date; Excess mortality P-scores, all ages	P-score	28/10/2020	Our World in Data	https://ourworldindata.org/excess-mortality-covid
+Cumulative number for 14 days	ECDC_Cumulative	Country, Date, cases, deaths, Cumulative_number_for_14_days_of_COVID-19_cases_per_100000	N°, N°, N° per 100000	28/10/2020	ECDC	https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases
+Excess Deaths Associated with COVID-19 USA	Excess_Deaths_Associated_with_COVID-19	Week Ending Date, State, Observed Number, Upper Bound Threshold, Average Expected Count, Excess Lower Estimate, Excess Higher Estimate, Year, Total Excess Lower Estimate in 2020, Total Excess Higher Estimate in 2020, Percent Excess Lower Estimate, Percent Excess Higher Estimate	N°	28/10/2020	CDC	https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm
+Stringency index	owid-stringency_index	Country, date, stringency_index	Index	28/10/2020	Our World in Data	https://ourworldindata.org/coronavirus-data
+Cases	owid-cases	Country, date, total_cases, new_cases, new_cases_smoothed, total_cases_per_million, new_cases_per_million, new_cases_smoothed_per_million	N°	03/11/2020	Our World in Data	https://ourworldindata.org/coronavirus-data
+Deaths	owid-deaths	Country, date, total_deaths, new_deaths, new_deaths_smoothed, total_deaths_per_million, new_deaths_per_million, new_deaths_smoothed_per_million	N°	03/11/2020	Our World in Data	https://ourworldindata.org/coronavirus-data
+Tests	owid-tests	Country,date,total_tests,new_tests,total_tests_per_thousand,new_tests_per_thousand,new_tests_smoothed,new_tests_smoothed_per_thousand,tests_per_case,positive_rate,tests_units	N°	03/11/2020	Our World in Data	https://ourworldindata.org/coronavirus-data
+Hospitalizations	woid-hosp	Country,date,icu_patients,icu_patients_per_million,hosp_patients,hosp_patients_per_million,weekly_icu_admissions,weekly_icu_admissions_per_million,weekly_hosp_admissions,weekly_hosp_admissions_per_million	N°	03/11/2020	Our World in Data	https://ourworldindata.org/coronavirus-data
+Cases and deaths	WHO-COVID-19-global-data	Date_reported, Country, New_cases, Cumulative_cases, New_deaths, Cumulative_deaths	N°	30/10/2020	WHO	https://covid19.who.int/
+Laboratory-Confirmed COVID-19-Associated Hospitalizations	COVID-19Surveillance_All_Data		N°	04/11/2020	CDC	https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html
+Pacientes críticos COVID-19	PacientesCriticos_T	Date,Pacientes criticos	N°	03/11/2020	MincIencia, Chile	https://github.com/MinCiencia/Datos-COVID19
+Hospitalización de pacientes COVID-19 en sistema integrado	CamasHospital_Diario_T	Date,Basica,Media,UTI,UCI	N°	03/11/2020	MincIencia, Chile	https://github.com/MinCiencia/Datos-COVID19
